@@ -1,0 +1,444 @@
+/*
+	importacion de las fuentes
+*/
+@import '../shared/fonts';
+
+/*
+  section_name: contenedor definido para implementar
+  margin o padding con el fin de separar las secciones
+  entre si
+*/
+.section_tabs {
+	padding: 50px 0;
+
+	/*
+		container_name: contenedor definido para manejar
+		el responsive implementando width
+	*/
+	.container_tabs {
+		width: 100%;
+		margin: 0 auto;
+
+		@media (min-width: 768px) {
+			width: 85%;
+		}
+
+		@media (min-width: 992px) {
+			width: 94%;
+		}
+
+		@media (min-width: 1200px) {
+			width: 82%;
+		}
+
+		h2 {
+			color: #313338;
+			font-family: '@sansation-bold', sans-serif;
+			line-height: 1.2;
+			margin-bottom: 15px;
+
+			@media (max-width: 479px) {
+				font-size: 26px;
+				padding-left: 15px;
+			}
+
+			@media (min-width: 480px) {
+				font-size: 30px;
+				padding-left: 15px;
+			}
+
+			@media (min-width: 768px) {
+				font-size: 40px;
+				margin-bottom: 50px;
+				line-height: 1;
+			}
+
+			@media (min-width: 1200px) {
+				font-size: 50px;
+			}
+		}
+
+		/*
+            flexbox_name
+        */
+		.flexbox_tabs {
+			/*
+				@query 768px ==> : definimos flexbox y su 
+				propiedad space-between para generar espaciado
+				entre los elementos que este contiene
+			*/
+			@media (min-width: 768px) {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			/*
+                tab_header
+            */
+			.tab_header {
+				/*
+					@query 768px ==> : definimos width: 50% para que ocupe
+					ese espacio dentro de su contenedor padre
+				*/
+				@media (min-width: 768px) {
+					width: 55%;
+					// box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+				}
+
+				@media (min-width: 992px) {
+					width: 42%;
+				}
+
+				@media (min-width: 1200px) {
+					width: 46%;
+				}
+
+				/*
+					seleccionamos el primer hijo de tab_header y 
+					le añadimos un borde
+				*/
+				.tab_content_header:first-child {
+					border-top: 1px solid #ccc;
+				}
+
+				/*
+                    tab_content_header: importante definirle 
+					position: relative ya que la clase js_header_active 
+					tiene definido position: absolute
+                */
+				.tab_content_header {
+					position: relative;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					border-bottom: 1px solid #ccc;
+					padding: 15px 15px 25px;
+					cursor: pointer;
+
+					/*
+						@query 768px ==> : definimos flexbox y sus propiedades
+						justify-content, align-items para poner los elementos
+						en linea y centrarlos verticalmente
+					*/
+					@media (min-width: 768px) {
+						padding: 16px 10px 16px 30px;
+					}
+
+					/*
+						tab_img: definimos un width y un height mas la
+						propiedad object-fit: cover para ajustar la imagen
+						al contenedor padre
+					*/
+					img {
+						object-fit: cover;
+
+						@media (max-width: 767px) {
+							width: 30%;
+							height: 86px;
+						}
+
+						@media (max-width: 449px) {
+							width: 40%;
+						}
+
+						/*
+							@query 768px ==> : cambiamos el width de la img
+							para que ocupe ese espacio dentro de su contenedor 
+							padre
+						*/
+						@media (min-width: 768px) {
+							width: 38%;
+							height: 86px;
+						}
+
+						@media (min-width: 1200px) {
+							height: 136px;
+						}
+					}
+
+					/*
+						tab_info
+					*/
+					.tab_info {
+						@media (max-width: 767px) {
+							width: 65%;
+						}
+
+						@media (max-width: 449px) {
+							width: 55%;
+						}
+
+						/*
+							@query 768px ==> : cambiamos el width de tag_info
+							para en esta medida responsive
+						*/
+						@media (min-width: 768px) {
+							width: 56%;
+						}
+
+						h4 {
+							color: #313338;
+							font-size: 16px;
+							font-family: '@sansation-bold', sans-serif;
+						}
+
+						p {
+							color: #313338;
+							font-family: '@nunito-regular', sans-serif;
+							margin: 10px 0;
+						}
+					}
+				}
+
+				/*
+					js_header_active: clase añadida con javascript que
+					implementa la pseudo clase ::before con la que 
+					vamos a crear un borde en la parte izquierda del 
+					tab_content_header haciendo uso de la propiedad
+					position: absolute recordemos que es display: block 
+					junto con background-color quienes nos permiten 
+					visualizar el borde
+				*/
+				.js_header_active::before {
+					content: '';
+					position: absolute;
+					display: block;
+					background-color: #ff9a7e;
+
+					/*
+						@query 767px <== : haciendo uso de las propiedades
+						left, right y bottom posicionamos el borde en la
+						parte inferior de tab_content_header, finalmente
+						debemos definir un height para que sea visible
+					*/
+					@media (max-width: 767px) {
+						left: 0;
+						right: 0;
+						bottom: 0;
+						height: 10px;
+					}
+
+					/*
+						@query 768px ==> : haciendo uso de las propiedades
+						top, left y bottom posicionamos el borde en la
+						parte izquierda de tab_content_header, finalmente
+						debemos definir un width para que sea visible
+					*/
+					@media (min-width: 768px) {
+						top: 0;
+						left: 0;
+						bottom: 0;
+						width: 16px;
+					}
+				}
+
+				/*
+					tab_content_img
+				*/
+				.tab_content_img {
+					/*
+						@query 767px <== : definimos un margen para 
+						separar las cajas
+					*/
+					@media (max-width: 767px) {
+						border-bottom: 1px solid #ccc;
+						margin-bottom: 20px;
+						padding-bottom: 25px;
+					}
+
+					/*
+						@query 768px ==> : removemos este contenedor del
+						viewport
+					*/
+					@media (min-width: 768px) {
+						display: none;
+					}
+
+					/*
+						tab_img
+					*/
+					img {
+						width: 100%;
+						object-fit: cover;
+
+						/*
+							@query 767px <== : definimos un width y un height 
+							mas la propiedad object-fit: cover para ajustar 
+							la imagen al contenedor padre
+						*/
+						@media (max-width: 767px) {
+							height: 250px;
+						}
+
+						@media (max-width: 480px) {
+							height: 150px;
+						}
+					}
+
+					.box_hashtags {
+						margin: 6px 0;
+						padding: 0 15px;
+
+						a {
+							color: #ff671b;
+							font-size: 14px;
+							font-family: '@nunito-regular', sans-serif;
+							margin-right: 5px;
+						}
+					}
+
+					p {
+						color: #949494;
+						font-size: 12px;
+						font-family: '@sansation-bold', sans-serif;
+						line-height: 1.2;
+						margin-bottom: 10px;
+						padding: 0 15px;
+					}
+
+					.box_link {
+						padding: 0 15px;
+
+						a {
+							text-decoration: none;
+							color: #313338;
+							font-family: '@sansation-bold', sans-serif;
+							font-size: 33px;
+							line-height: 1;
+							transition: color 0.3s;
+
+							&:hover {
+								color: #0c9ef3;
+							}
+						}
+					}
+				}
+
+				/*
+					js_img_hidden
+				*/
+				.js_img_hidden {
+					/*
+						@query 767px <== : clase añadida con javascript que
+						nos permite ocultar el contenedor tab_content_img
+					*/
+					@media (max-width: 767px) {
+						display: none;
+					}
+				}
+			}
+
+			/*
+                tab_body
+            */
+			.tab_body {
+				/*
+					@query 767px <== : removemos este contenedor del
+					viewport
+				*/
+				@media (max-width: 767px) {
+					display: none;
+				}
+
+				/*
+					@query 768px ==> : le definimos width: 47% para que ocupe
+					ese espacio dentro de su contenedor padre
+				*/
+				@media (min-width: 768px) {
+					width: 42%;
+				}
+
+				@media (min-width: 992px) {
+					width: 55%;
+				}
+
+				@media (min-width: 1200px) {
+					width: 49%;
+				}
+
+				/*
+					tab_content_body
+				*/
+				.tab_content_body {
+					/*
+						@query 768px ==> : es importante definirle un heigh: 100%
+						para que tome el alto total de su contenedor padre
+					*/
+					@media (min-width: 768px) {
+						height: 100%;
+					}
+
+					/*
+						tag-img
+					*/
+					img {
+						/*
+							@query 768px ==> : definimos width y height mas la 
+							propiedad object-fit para ajustar la imagen al contenedor
+						*/
+						@media (min-width: 768px) {
+							width: 100%;
+							height: 63%;
+							object-fit: cover;
+						}
+
+						@media (min-width: 992px) {
+							height: 74%;
+						}
+
+						@media (min-width: 1200px) {
+							height: 70%;
+						}
+					}
+
+					.box_hashtags {
+						margin: 6px 0;
+
+						a {
+							color: #ff671b;
+							font-size: 14px;
+							font-family: '@nunito-regular', sans-serif;
+							margin-right: 5px;
+						}
+					}
+
+					p {
+						color: #949494;
+						font-size: 12px;
+						font-family: '@sansation-bold', sans-serif;
+						line-height: 1.2;
+						margin-bottom: 10px;
+					}
+
+					.box_link {
+						a {
+							text-decoration: none;
+							color: #313338;
+							font-family: '@sansation-bold', sans-serif;
+							font-size: 33px;
+							line-height: 1;
+							transition: color 0.3s;
+
+							&:hover {
+								color: #0c9ef3;
+							}
+						}
+					}
+				}
+
+				/*
+					js_header_active
+				*/
+				.js_body_hidden {
+					/*
+						@query 768px ==> : clase añadida con javascript que
+						nos permite ocultar el contenedor tab_body
+					*/
+					@media (min-width: 768px) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

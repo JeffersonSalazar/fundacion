@@ -1,0 +1,3008 @@
+@charset "UTF-8";
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+	variables que almacenan la altura de header
+	para escritorio y dispositivos moviles
+*/
+/*
+	section_header: generalmente a este contenedor le
+	definimos margenes y espaciados para separar el contenido
+	de otros contenedores como el body
+*/
+.section_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #fff;
+  padding: 20px 0;
+  /*
+		container_header: a este contenedor le 
+		definimos el tamaño que tendra en la vista
+	*/
+}
+
+@media (min-width: 992px) {
+  .section_header {
+    padding: 30px 0;
+    /*
+			clase añadida con javascript que permite
+			disminuir la altura a header_flexbox logrando
+			asi el efecto scroll
+		*/
+  }
+  .section_header.js_scroll_navbar {
+    padding: 20px 0;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+}
+
+.section_header .container_header {
+  width: 95%;
+  margin: 0 auto;
+  /*
+			header_flexbox: este contenedor lo definimos 
+			para implementar flex-box y sus propiedades cuando
+			sus elementos hijo lo requeiren
+		*/
+}
+
+.section_header .container_header .header_flexbox {
+  /*
+				query 992px ==> : definimos flexbox y su propiedad
+				align-items que centra el menu de navegacion en referencia
+				a la altura de la imagen
+			*/
+  /*
+				box_nit_menu: definimos flexbox y su propiedad
+				justify-content y align-items para centar y separar el 
+				icon burger menu en referencia a la altura de la imagen
+			*/
+  /*
+				box_navbar: caja contenedora de toda la 
+				extructura referente al menu de navegacion definimos
+				flex-grow para que esta caja tome todo el espaciado
+				generado por flexbox
+			*/
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_nit_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section_header .container_header .header_flexbox .box_nit_menu a img {
+  /*
+							query 991px <== : modificamos las diemensiones
+							de la imagen
+						*/
+  /*
+							query 992px ==> : modificamos las diemensiones
+							de la imagen
+						*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_nit_menu a img {
+    width: 90px;
+    height: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_nit_menu a img {
+    width: 80px;
+    height: 40px;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_nit_menu svg {
+  cursor: pointer;
+  /*
+						query 992px ==> : removemos de la vista
+						el icon burger menu
+					*/
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_nit_menu svg {
+    display: none;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /*
+					query 991px <== : definimos fixed y sus propeidades 
+					top, left, right bottom y z-index para que esta caja
+					ocupe el 100% del viewport y flexbox para ubicar en 
+					la parte izquierda de la pantalla a nav
+				*/
+  /*
+					tag-nav: contenedor de box_close_menu y ul
+				*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    /*
+						clase añadida con javascript que permite
+						visualizar el box_navbar que esta oculto 
+					*/
+  }
+  .section_header .container_header .header_flexbox .box_navbar.js_show_menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav {
+  /*
+						query 991px <== : definimos un ancho a nav, altura
+						de toda la pantalla y padding para separar el contenido
+						de los bordes
+					*/
+  /*
+						query 992px ==> : definimos padding para separar
+						el menu de navegacion del logo
+					*/
+  /*
+						box_close_menu: definimos flexbox y sus propiedades
+						mas una altura para este contenedor que nos permite
+						realizar un centrado horizontal y un espaciado 
+						horizontal de los elementos
+					*/
+  /*
+						ul_navbar: contiene toda la extructura referente al menu de
+						navegacion
+					*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav {
+    background-color: #fff;
+    width: 280px;
+    height: 100%;
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav {
+    padding-left: 40px;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 90px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*
+							query 992px ==> : ocultamos la caja
+							box_close_menu
+						*/
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .box_close_menu {
+    display: none;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu h3 {
+  color: #333;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu svg {
+  cursor: pointer;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
+  /*
+							query 992px ==> : definimos flexbox para
+							poner los items del menu de navegacion en linea
+						*/
+  /*
+							tag-li: definimos relative por que tenemos un
+							ul_dorpdown que maneja position absolute
+						*/
+  /*
+							li_dropdown: contiene todos los elementos del 
+							menu de navegacion dropdown
+						*/
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  cursor: pointer;
+  /*
+								query 991px <== : para destacar el borde 
+								para los items del menu de navegacion
+							*/
+  /*
+								query 992px ==> : definimos un margin para
+								separar los items del menu de navegacion
+							*/
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li:hover > a {
+  color: #ff671b;
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
+    text-align: center;
+    border: 2px solid #8c8c8c;
+    margin-top: 10px;
+    padding: 12px 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
+    margin-left: 25px;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
+  text-decoration: none;
+  font-family: '@nunito-light', sans-serif;
+  font-size: 15px;
+  color: #333;
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
+    font-size: 14px;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a.js_link_active {
+  color: #ff671b;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a.js_link_active svg {
+  fill: #ff671b;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown {
+  /*
+								clase añadida con javascript que muestra el
+								menu de navegacion dropdown
+							*/
+  /*
+								tag-a: definimos flexbox y su propeidad
+								align-items para centrar el titulo y el
+								icono del dropdown
+							*/
+  /*
+								ul_dropdown: definimos display: none para remover el
+								menu de navegacion dropdown de la vista, este se hace 
+								visible con una clase añadida a li_dropdown
+							*/
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown:hover svg {
+  fill: #ff671b;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown.js_show_dropdown .ul_dropdown {
+  display: block;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*
+									query 991px <== : centramos todos los
+									elementos que son contenidos por la tag-a
+									que son el titulo y el icono del dropdown
+								*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a svg {
+  fill: #333;
+  margin-left: 5px;
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
+  display: none;
+  /*
+									query 991px <== : definimos absolute y sus
+									propieades top, left, right y z-index para sacar
+									el menu de navegacion dropdown de la vista y darle
+									posicion
+								*/
+  /*
+									query 992px ==> : definimos fixed y sus
+									propieades top y z-index para sacar el menu 
+									de navegacion dropdown de la vista y darle
+									posicion
+								*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
+    position: absolute;
+    top: 50px;
+    left: -2px;
+    right: -2px;
+    z-index: 5;
+    background-color: #fff;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
+    position: fixed;
+    top: 105px;
+    z-index: 5;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+  padding: 0;
+  /*
+										query 991px <== : removemos el borde definido
+										anteriormente y modificamos el margin
+									*/
+  /*
+										query 992px ==> : modificamos el margin y 
+										realizamos un :hover en la tag-a que cambia 
+										el background-color
+									*/
+}
+
+@media (max-width: 991px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+    border: none;
+    margin: 7px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+    margin: 12px 0;
+  }
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li:hover a {
+    background-color: #f0efef;
+  }
+}
+
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li a {
+  padding: 8px 15px;
+}
+
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .js_scroll_dropdown {
+    top: 85px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+}
+
+/*
+	varaibles implementadas en diferentes elementos
+*/
+/*
+	medidas responsive
+*/
+/*
+    seccion_name: nos sirve para implementar margenes y espaciados 
+    con el fin de separar un contenedor de otros elementos en este caso 
+*/
+.section_banner_slider {
+  /*
+        container_name: definimos absolute y su propeidad z-index
+        para poscionar esta caja sobre la caja que contiene al slider.
+        width: 100% para que recupere todo el ancho del viewport
+		y un height para que el contenedor del slider no desmaquete
+    */
+  /*
+        swiper: contenedor del slider a este es importante definirle la
+        misma altura que la seccion para que no genere desmaquetados
+    */
+}
+
+.section_banner_slider .container_banner_slider {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 700px;
+  /* 
+            flexbox_banner: definimos flexbox y su propiedad
+            align-items y justify-content mas un height para centrar la caja 
+			box_name horizontal y verticalmente a su padre
+        */
+}
+
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider {
+    height: 400px;
+  }
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: calc(700px - 10px);
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  /*
+                box_name: esta caja se encarga de manejar el width por lo que
+                es muy importante para el responsive
+            */
+}
+
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
+    height: calc(700px - 320px);
+  }
+}
+
+@media (max-width: 480px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
+    height: calc(700px - 330px);
+  }
+}
+
+@media (max-width: 338px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
+    height: calc(700px - 300px);
+  }
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
+  margin: 0 auto;
+  /*
+                    @query 767px <== : definimos un width para esta medida
+                */
+  /*
+                    @query 767px <== : definimos un width para esta medida
+                */
+  /*
+                    @query 900px ==> : definimos un width para esta medida
+                */
+  /*
+                    box_icon_swiper: implementando flexbox en este contenedor
+                    podemos modificar la posicion de los iconos del slider
+                */
+}
+
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
+    width: 62%;
+  }
+}
+
+@media (max-width: 575px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
+    width: 82%;
+  }
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_banner_title {
+  background-color: #ff671b;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_banner_title h1 {
+  color: #fff;
+  max-width: 850px;
+  padding: 15px 25px;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider p {
+  font-size: 14px;
+  background-color: rgba(49, 51, 56, 0.9);
+  color: #fff;
+  max-width: 480px;
+  padding: 15px 25px;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 12px;
+  /*
+                        swiper-button-next, swiper-button-prev: para 
+                        cambiar estas propiedades debemos definirlas en estas clases
+                    */
+  /*
+                        swiper-button-next:after, swiper-button-prev:after: para 
+                        cambiar estas propiedades debemos definirlas en estas clases
+                    */
+}
+
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider {
+    display: none;
+  }
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: #313338;
+  margin-top: 0;
+  padding: 25px;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next:hover,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev:hover {
+  background-color: #007bff;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev {
+  margin-right: 20px;
+}
+
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next:after,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev:after {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.section_banner_slider .swiper {
+  width: 100%;
+  height: 700px;
+}
+
+@media (max-width: 767px) {
+  .section_banner_slider .swiper {
+    height: 400px;
+  }
+}
+
+.section_banner_slider .swiper .swiper-wrapper .swiper-slide {
+  /*
+                    tag-img: es importante a esta imagen definirle un width
+                    y height igual al de su contenedor padre y la propiedad 
+                    object-fit: cover para que se ajuste al contenedor
+                */
+}
+
+.section_banner_slider .swiper .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .section_banner_slider .swiper .swiper-wrapper .swiper-slide img {
+    height: 50%;
+  }
+}
+
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+.section_banner_static {
+  background-image: url(../../assets/svg/desarrollamos_shape-w.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.section_banner_static .container_banner_static {
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.section_banner_static .container_banner_static .content_points {
+  color: #fff;
+  font-size: 50px;
+  line-height: 0.4;
+  letter-spacing: -1.2px;
+}
+
+.section_banner_static .container_banner_static .points_top {
+  height: 140px;
+}
+
+@media (max-width: 991px) {
+  .section_banner_static .container_banner_static .points_top {
+    display: none;
+  }
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static {
+  color: #fff;
+  text-align: center;
+  max-width: 800px;
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h3 {
+  font-size: 20px;
+  font-family: '@nunito-light', sans-serif;
+  letter-spacing: 10px;
+}
+
+@media (max-width: 335px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h3 {
+    padding: 0 6px;
+  }
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
+  font-family: '@sansation-bold', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  margin: 15px 0 35px;
+}
+
+@media (max-width: 575px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 576px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
+    font-size: 90px;
+  }
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
+  font-size: 17px;
+  font-family: '@nunito-light', sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -1px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+@media (max-width: 707px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
+    padding: 0 5px;
+  }
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static a {
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 220px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 54px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-family: '@sansation-bold', sans-serif;
+  letter-spacing: 0.3px;
+  background-color: #fff;
+  color: #2f425b;
+  border-radius: 2px;
+  margin-top: 70px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static a:hover {
+  background-color: #2f425b;
+  color: #fff;
+}
+
+.section_banner_static .container_banner_static .points_bottom {
+  text-align: end;
+}
+
+@media (max-width: 767px) {
+  .section_banner_static .container_banner_static .points_bottom {
+    text-align: start;
+  }
+}
+
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+    section_galery: contenedor definido para implementar
+    margin o padding con el fin de separar las secciones
+    entre si
+*/
+.section_galery {
+  /*
+		container_name: contenedor definido para manejar
+		el responsive implementando width
+    */
+}
+
+.section_galery .container_galery {
+  /*
+            grid_galery: contenedor definido para
+            implementar display: grid con la cual
+			creaos nuestra regilla
+        */
+}
+
+.section_galery .container_galery .grid_galery {
+  display: -ms-grid;
+  display: grid;
+  /*
+				@query 992px ==> : para esta medida definimos
+				4 columnas y 2 filas
+			*/
+  /*
+				@query 991px <== : para esta medida definimos
+				2 columnas y 4 filas
+			*/
+  /*
+				@query 767px <== : para esta medida definimos
+				1 columna y 7 filas
+			*/
+  /*
+				@query 499px <== : para esta medida solamente
+				cambiamos la altura de las filas
+			*/
+  /*
+				title_galery: definimos flexbox y sus propiedades
+				justify-content y align-items para centrar los
+				elementos horizontal y verticalmente respecto a su
+				padre
+			*/
+  /*
+				title_galery: definimos position: relative que 
+				nos permite solucionar el desmaquetado que produce
+				la propiedad absolute cuando se le define a un 
+				elemento hijo
+			*/
+}
+
+@media (min-width: 992px) {
+  .section_galery .container_galery .grid_galery {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (437px)[2];
+        grid-template-rows: repeat(2, 437px);
+  }
+}
+
+@media (max-width: 991px) {
+  .section_galery .container_galery .grid_galery {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (370px)[4];
+        grid-template-rows: repeat(4, 370px);
+  }
+}
+
+@media (max-width: 767px) {
+  .section_galery .container_galery .grid_galery {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: 160px (300px)[7];
+        grid-template-rows: 160px repeat(7, 300px);
+  }
+}
+
+@media (max-width: 499px) {
+  .section_galery .container_galery .grid_galery {
+    -ms-grid-rows: 160px (180px)[7];
+        grid-template-rows: 160px repeat(7, 180px);
+  }
+}
+
+.section_galery .container_galery .grid_galery .title_galery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2f425b;
+}
+
+.section_galery .container_galery .grid_galery .title_galery h3 {
+  color: #fff;
+  font-size: 40px;
+  font-family: '@sansation-bold', sans-serif;
+}
+
+.section_galery .container_galery .grid_galery .box_galery {
+  position: relative;
+  /*
+					content_galery: definimos absolute para sacar de 
+					posicion esta caja y que la tag-img se posicione
+					por debajo de esta, con las propiedades top, left
+					right y bottom definimos que ocupe e ancho y alto
+					total de su contenedor padre
+				*/
+  /*
+					tag-img: importante definirle un width y height
+					100% y object-fit para que la imagen se ajuste a
+					su contenedor
+				*/
+}
+
+.section_galery .container_galery .grid_galery .box_galery .content_galery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: '@sansation-bold', sans-serif;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px 15px;
+  /*
+						@query 768px ==> : definimos flexbox y sus
+						propeidades flex-direction y justify-conten
+						para separar los elemntos entre si
+					*/
+  /*
+						icon_plus: contenedor del icon ver mas
+					*/
+}
+
+@media (min-width: 768px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    /*
+							cuando hacemos :hover sobre content_galery
+							añadimos un bacground en gradiente
+						*/
+    /*
+							cuando hacemos :hover sobre content_galery
+							añadimos opacity: 1 para que la tag-p sea 
+							nuevamente visible
+						*/
+    /*
+							cuando hacemos :hover sobre content_galery
+							añadimos opacity: 1 para que btn_link sea 
+							nuevamente visible
+						*/
+  }
+  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover {
+    background: #020024;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, rgba(0, 0, 0, 0.9)), color-stop(60%, rgba(83, 25, 7, 0.8)), color-stop(90%, rgba(0, 0, 0, 0.9)));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 20%, rgba(83, 25, 7, 0.8) 60%, rgba(0, 0, 0, 0.9) 90%);
+  }
+  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover p {
+    opacity: 1;
+    -webkit-transition: opacity 1.5s ease;
+    transition: opacity 1.5s ease;
+  }
+  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover .btn_link {
+    opacity: 1;
+    -webkit-transition: opacity 1.5s ease;
+    transition: opacity 1.5s ease;
+  }
+}
+
+.section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+  /*
+							@query 767px <== : definimos inline-flex que 
+							nos permite implementar propiedades flexbox
+							que junto a width y height nos permiten
+							centrar el icono definido dentro de la tag-a 
+							finalmente definimos position: absolute y sus
+							propeiades top, right y z-index que nos permite
+							posicioanr y fijar el elemento
+						*/
+  /*
+							@query 768px ==> : definimos display: none
+							para sacar este elemento del maquetado
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 40px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 40px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: 0;
+    right: 12px;
+    z-index: 5;
+    background-color: #fff;
+  }
+  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus svg {
+    fill: #ff671b;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+    display: none;
+  }
+}
+
+.section_galery .container_galery .grid_galery .box_galery .content_galery h3 {
+  font-size: 40px;
+  line-height: 1;
+  /*
+							@query 1199px <== : cambiamos el tamaño
+							de fuente para esta medida responsive
+						*/
+}
+
+@media (max-width: 1199px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery h3 {
+    font-size: 30px;
+  }
+}
+
+.section_galery .container_galery .grid_galery .box_galery .content_galery p {
+  /*
+							@query 767px <== : definimos display: none
+							para sacar este elemento del maquetado
+						*/
+  /*
+							@query 768px ==> : definimos opacity: 0 para 
+							desaparecer el texto que aparece nuevamnete 
+							cuando hacemos :hover sobre content_galery
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery p {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery p {
+    opacity: 0;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    line-height: 1.4;
+  }
+}
+
+.section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+  /*
+							@query 767px <== : definimos display: none
+							para sacar este elemento del maquetado
+						*/
+  /*
+							@query 768px ==> : definimos opacity: 0 para 
+							desaparecer el texto que aparece nuevamnete 
+							cuando hacemos :hover sobre content_galery, 
+							la propiedad inline-flex nos permite implementar 
+							propiedades flexbox que junto a width y height 
+							nos permiten centrar el texto del btn_link 
+							finalmente con align-self posicionamos el boton al 
+							final de su contenedor
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+    opacity: 0;
+    text-decoration: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 115px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 35px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    color: #fff;
+    font-family: '@sansation-regular', sans-serif;
+    font-size: 14px;
+    border: 1px solid #fff;
+  }
+}
+
+.section_galery .container_galery .grid_galery .box_galery img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+	section_name: le podemos definir margenes o espaciados
+	cuando queremos separar esta seccion de otra 
+*/
+.section_card {
+  padding: 60px 0;
+  /*
+		container_name: es el encargado de manejar el 
+		responsive a travez de la propiedad width
+	*/
+}
+
+.section_card .container_card {
+  width: 100%;
+  margin: 0 auto;
+  /*
+			box_boid: es importante definir un height a este contenedor
+			para que genere el espaciado que nos ayuda a solucionar 
+			el problema de desmaquetado, el valor de este depende de
+			la posicion inicial de la targeta
+		*/
+  /*
+			flexbox_name
+		*/
+}
+
+@media (min-width: 768px) {
+  .section_card .container_card {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_card .container_card {
+    width: 94%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_card .container_card {
+    width: 82%;
+  }
+}
+
+@media (max-width: 991px) {
+  .section_card .container_card .box_void {
+    height: 245px;
+  }
+}
+
+@media (max-width: 440px) {
+  .section_card .container_card .box_void {
+    height: 265px;
+  }
+}
+
+.section_card .container_card .flexbox_card {
+  position: relative;
+  /*
+				@query 991px ==> : definimos position: relative para 
+				solucionar el problema que genera definir absolute
+				en un elemento hijo, finalmente implementamos
+				flexbox con su propeidad align-items mas un height
+				que le da altura a la caja permitiendo centrar las
+				cajas verticalmente
+			*/
+  /*
+				box_name: definimos position: absolute con su
+				propiedad top que nos permiten posicionar la
+				caja, tambien definimos flexbox y su 
+				propiedad align-items que nos permite centrar 
+				su contenido verticalmente. Finalmente un width 
+				que nos ayuda a darle tamaño a esta caja
+			*/
+  /*
+				box_name_img: es importante definirle a un contenedor
+				la propiedad height si este contiene dentro una tag-img
+				para luego ajustar la imagen al tamaño del contenedor
+			*/
+}
+
+@media (min-width: 992px) {
+  .section_card .container_card .flexbox_card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 440px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*
+					content_card
+				*/
+}
+
+@media (min-width: 992px) {
+  .section_card .container_card .flexbox_card .box_card {
+    width: 60%;
+    height: 100%;
+    background: -webkit-gradient(linear, left bottom, left top, from(#ff9a7e), to(rgba(230, 139, 113, 0.84)));
+    background: linear-gradient(0deg, #ff9a7e, rgba(230, 139, 113, 0.84));
+  }
+}
+
+@media (max-width: 991px) {
+  .section_card .container_card .flexbox_card .box_card {
+    position: absolute;
+    top: -245px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 440px) {
+  .section_card .container_card .flexbox_card .box_card {
+    top: -265px;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card {
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .section_card .container_card .flexbox_card .box_card .content_card {
+    background: -webkit-gradient(linear, left bottom, left top, from(#ff9a7e), to(rgba(230, 139, 113, 0.84)));
+    background: linear-gradient(0deg, #ff9a7e, rgba(230, 139, 113, 0.84));
+    background-color: #ff671b;
+    width: 92%;
+    padding: 40px 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_card .container_card .flexbox_card .box_card .content_card {
+    width: 67%;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card h4 {
+  color: #313338;
+  font-size: 44px;
+  font-family: '@nunito-light', sans-serif;
+}
+
+@media (max-width: 555px) {
+  .section_card .container_card .flexbox_card .box_card .content_card h4 {
+    font-size: 34px;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card h3 {
+  color: #313338;
+  font-size: 45px;
+  font-family: '@sansation-bold', sans-serif;
+}
+
+@media (max-width: 555px) {
+  .section_card .container_card .flexbox_card .box_card .content_card h3 {
+    font-size: 35px;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card h3 i {
+  font-family: '@sansation-light', sans-serif;
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card a {
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 220px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 54px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-family: '@sansation-bold', sans-serif;
+  letter-spacing: 0.3px;
+  background-color: #fff;
+  color: #ff671b;
+  border-radius: 2px;
+  margin-top: 40px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.section_card .container_card .flexbox_card .box_card .content_card a:hover {
+  background-color: #ff671b;
+  color: #fff;
+}
+
+.section_card .container_card .flexbox_card .box_card_img {
+  /*
+					@query 900px ==> : cambiamos el height del contenedor
+					box_name_img
+				*/
+  /*
+					tag-img: es importante definir el width y height 
+					de la img a 100% y object-fit: cover para que esta 
+					se ajuste al tamaño de su contenedor
+				*/
+}
+
+@media (max-width: 480px) {
+  .section_card .container_card .flexbox_card .box_card_img {
+    height: 260px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_card .container_card .flexbox_card .box_card_img {
+    height: 415px;
+    position: absolute;
+    right: 0;
+    height: 90%;
+    width: 60%;
+  }
+}
+
+.section_card .container_card .flexbox_card .box_card_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+	varaibles implementadas en diferentes elementos
+*/
+/*
+	medidas responsive
+*/
+/*
+    seccion_name: nos sirve para implementar margenes y espaciados 
+    con el fin de separar un contenedor de otros elementos en este caso 
+*/
+.section_article_slider {
+  /*
+        container_name: definimos absolute y su propeidad z-index
+        para poscionar esta caja sobre la caja que contiene al slider.
+        width: 100% para que recupere todo el ancho del viewport
+		y un height para que el contenedor del slider no desmaquete
+    */
+}
+
+@media (min-width: 768px) {
+  .section_article_slider {
+    padding: 50px 0;
+  }
+}
+
+.section_article_slider .container_article_slider {
+  width: 100%;
+  margin: 0 auto;
+  /*
+        swiper: contenedor del slider a este es importante definirle la
+        misma altura que la seccion para que no genere desmaquetados
+    */
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_article_slider .container_article_slider {
+    width: 94%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_article_slider .container_article_slider {
+    width: 82%;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper {
+  /*
+                    box_icon_swiper: implementando flexbox en este contenedor
+                    podemos modificar la posicion de los iconos del slider
+                */
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article {
+  position: absolute;
+  width: 100%;
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article h3 {
+  background-color: #ff671b;
+  color: #fff;
+  font-size: 48px;
+  font-family: '@sansation-bold', sans-serif;
+  line-height: 1;
+  padding: 12px 25px;
+}
+
+@media (max-width: 767px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article h3 {
+    font-size: 38px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article h3 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    max-width: 441px;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a {
+    position: absolute;
+    top: 360px;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
+  background-color: rgba(49, 51, 56, 0.95);
+  width: 100%;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
+    width: 100%;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events h4 {
+  color: #fff;
+  font-size: 16px;
+  font-family: '@sansation-bold', sans-serif;
+  letter-spacing: normal;
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .article_paragraph {
+  color: #fff;
+  font-size: 14px;
+  font-family: '@nunito-light', sans-serif;
+  letter-spacing: 0.3px;
+  margin: 5px 0;
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .content_dates .flexbox_dates {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .content_dates .flexbox_dates .flex_paragraph {
+  width: 80%;
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img {
+  /*
+							tag-img: es importante a esta imagen definirle un width
+							y height igual al de su contenedor padre y la propiedad 
+							object-fit: cover para que se ajuste al contenedor
+						*/
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img {
+    height: 650px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img {
+    height: 350px;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section_article_slider .container_article_slider .swiper .box_icon_slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*
+					swiper-button-next, swiper-button-prev: para 
+					cambiar estas propiedades debemos definirlas en estas clases
+				*/
+  /*
+					swiper-button-next:after, swiper-button-prev:after: para 
+					cambiar estas propiedades debemos definirlas en estas clases
+				*/
+}
+
+@media (max-width: 767px) {
+  .section_article_slider .container_article_slider .swiper .box_icon_slider {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .box_icon_slider {
+    height: 0;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next,
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #313338;
+  padding: 25px;
+  margin-top: 0;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next:hover,
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev:hover {
+  background-color: #007bff;
+}
+
+@media (min-width: 768px) {
+  .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next,
+  .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev {
+    top: -160px;
+  }
+}
+
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev {
+  margin-right: 20px;
+}
+
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next:after,
+.section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev:after {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* opacity: .35; */
+/* cursor: auto; */
+/* pointer-events: none; */
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+  section_name: contenedor definido para implementar
+  margin o padding con el fin de separar las secciones
+  entre si
+*/
+.section_tabs {
+  padding: 50px 0;
+  /*
+		container_name: contenedor definido para manejar
+		el responsive implementando width
+	*/
+}
+
+.section_tabs .container_tabs {
+  width: 100%;
+  margin: 0 auto;
+  /*
+            flexbox_name
+        */
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_tabs .container_tabs {
+    width: 94%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs {
+    width: 82%;
+  }
+}
+
+.section_tabs .container_tabs h2 {
+  color: #313338;
+  font-family: '@sansation-bold', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 479px) {
+  .section_tabs .container_tabs h2 {
+    font-size: 26px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 480px) {
+  .section_tabs .container_tabs h2 {
+    font-size: 30px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs h2 {
+    font-size: 50px;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs {
+  /*
+				@query 768px ==> : definimos flexbox y su 
+				propiedad space-between para generar espaciado
+				entre los elementos que este contiene
+			*/
+  /*
+                tab_header
+            */
+  /*
+                tab_body
+            */
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header {
+  /*
+					@query 768px ==> : definimos width: 50% para que ocupe
+					ese espacio dentro de su contenedor padre
+				*/
+  /*
+					seleccionamos el primer hijo de tab_header y 
+					le añadimos un borde
+				*/
+  /*
+                    tab_content_header: importante definirle 
+					position: relative ya que la clase js_header_active 
+					tiene definido position: absolute
+                */
+  /*
+					js_header_active: clase añadida con javascript que
+					implementa la pseudo clase ::before con la que 
+					vamos a crear un borde en la parte izquierda del 
+					tab_content_header haciendo uso de la propiedad
+					position: absolute recordemos que es display: block 
+					junto con background-color quienes nos permiten 
+					visualizar el borde
+				*/
+  /*
+					tab_content_img
+				*/
+  /*
+					js_img_hidden
+				*/
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header {
+    width: 55%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header {
+    width: 42%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header {
+    width: 46%;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 15px 25px;
+  cursor: pointer;
+  /*
+						@query 768px ==> : definimos flexbox y sus propiedades
+						justify-content, align-items para poner los elementos
+						en linea y centrarlos verticalmente
+					*/
+  /*
+						tab_img: definimos un width y un height mas la
+						propiedad object-fit: cover para ajustar la imagen
+						al contenedor padre
+					*/
+  /*
+						tab_info
+					*/
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header {
+    padding: 16px 10px 16px 30px;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*
+							@query 768px ==> : cambiamos el width de la img
+							para que ocupe ese espacio dentro de su contenedor 
+							padre
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+    width: 30%;
+    height: 86px;
+  }
+}
+
+@media (max-width: 449px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+    width: 40%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+    width: 38%;
+    height: 86px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+    height: 136px;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
+  /*
+							@query 768px ==> : cambiamos el width de tag_info
+							para en esta medida responsive
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
+    width: 65%;
+  }
+}
+
+@media (max-width: 449px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
+    width: 55%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
+    width: 56%;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info h4 {
+  color: #313338;
+  font-size: 16px;
+  font-family: '@sansation-bold', sans-serif;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info p {
+  color: #313338;
+  font-family: '@nunito-regular', sans-serif;
+  margin: 10px 0;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .js_header_active::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #ff9a7e;
+  /*
+						@query 767px <== : haciendo uso de las propiedades
+						left, right y bottom posicionamos el borde en la
+						parte inferior de tab_content_header, finalmente
+						debemos definir un height para que sea visible
+					*/
+  /*
+						@query 768px ==> : haciendo uso de las propiedades
+						top, left y bottom posicionamos el borde en la
+						parte izquierda de tab_content_header, finalmente
+						debemos definir un width para que sea visible
+					*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .js_header_active::before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .js_header_active::before {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16px;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img {
+  /*
+						@query 767px <== : definimos un margen para 
+						separar las cajas
+					*/
+  /*
+						@query 768px ==> : removemos este contenedor del
+						viewport
+					*/
+  /*
+						tab_img
+					*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img {
+    display: none;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*
+							@query 767px <== : definimos un width y un height 
+							mas la propiedad object-fit: cover para ajustar 
+							la imagen al contenedor padre
+						*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img img {
+    height: 150px;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_hashtags {
+  margin: 6px 0;
+  padding: 0 15px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_hashtags a {
+  color: #ff671b;
+  font-size: 14px;
+  font-family: '@nunito-regular', sans-serif;
+  margin-right: 5px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img p {
+  color: #949494;
+  font-size: 12px;
+  font-family: '@sansation-bold', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding: 0 15px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link {
+  padding: 0 15px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link a {
+  text-decoration: none;
+  color: #313338;
+  font-family: '@sansation-bold', sans-serif;
+  font-size: 33px;
+  line-height: 1;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link a:hover {
+  color: #0c9ef3;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_header .js_img_hidden {
+  /*
+						@query 767px <== : clase añadida con javascript que
+						nos permite ocultar el contenedor tab_content_img
+					*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_header .js_img_hidden {
+    display: none;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body {
+  /*
+					@query 767px <== : removemos este contenedor del
+					viewport
+				*/
+  /*
+					@query 768px ==> : le definimos width: 47% para que ocupe
+					ese espacio dentro de su contenedor padre
+				*/
+  /*
+					tab_content_body
+				*/
+  /*
+					js_header_active
+				*/
+}
+
+@media (max-width: 767px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body {
+    width: 42%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body {
+    width: 49%;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body {
+  /*
+						@query 768px ==> : es importante definirle un heigh: 100%
+						para que tome el alto total de su contenedor padre
+					*/
+  /*
+						tag-img
+					*/
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body {
+    height: 100%;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
+  /*
+							@query 768px ==> : definimos width y height mas la 
+							propiedad object-fit para ajustar la imagen al contenedor
+						*/
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
+    width: 100%;
+    height: 63%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
+    height: 74%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
+    height: 70%;
+  }
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_hashtags {
+  margin: 6px 0;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_hashtags a {
+  color: #ff671b;
+  font-size: 14px;
+  font-family: '@nunito-regular', sans-serif;
+  margin-right: 5px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body p {
+  color: #949494;
+  font-size: 12px;
+  font-family: '@sansation-bold', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_link a {
+  text-decoration: none;
+  color: #313338;
+  font-family: '@sansation-bold', sans-serif;
+  font-size: 33px;
+  line-height: 1;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_link a:hover {
+  color: #0c9ef3;
+}
+
+.section_tabs .container_tabs .flexbox_tabs .tab_body .js_body_hidden {
+  /*
+						@query 768px ==> : clase añadida con javascript que
+						nos permite ocultar el contenedor tab_body
+					*/
+}
+
+@media (min-width: 768px) {
+  .section_tabs .container_tabs .flexbox_tabs .tab_body .js_body_hidden {
+    display: none;
+  }
+}
+
+/*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: '@sansation-bold';
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-light';
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
+  font-family: '@sansation-regular';
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: '@nunito-bold';
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-light';
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: '@nunito-regular';
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+
+/*
+	seccion de tags que reutilizan codigo pero se
+	encuentran definidas dentro de otras cajas
+*/
+/*
+	tag-h4: titulo que pertence a las secciones
+	de content_footer_flexbox
+*/
+h4 {
+  color: #ff671b;
+  font-family: '@sansation-bold', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/*
+	tag-ul: menu de navegacion que pertence a 
+	las secciones de content_footer_flexbox
+*/
+ul li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #313338;
+  font-family: '@nunito-regular', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+ul li a:hover {
+  color: #ff671b;
+}
+
+/*
+	section_footer: contenedor en el cual implementamos
+	margin o padding si deseamos separar esta seccion
+	de otra
+*/
+.section_footer {
+  background-color: #fff;
+  /*
+		container_footer: contenedor en el cual definimos
+		width para manejar el responsive
+	*/
+}
+
+.section_footer .container_footer {
+  margin: 0 auto;
+  /*
+			@query 839px <== : definimos un width en 
+			esta medida para container_footer
+		*/
+  /*
+			@query 840px ==> : definimos un width en 
+			esta medida para container_footer
+		*/
+  /*
+			@query 1200px ==> : definimos un width en 
+			esta medida para container_footer
+		*/
+  /*
+			box_line: contenedor de la linea en la parte
+			superior del footer, definimos un padding para
+			geneerar espaciado
+		*/
+  /*
+			content_accordeon: contenedor del acordeon
+		*/
+  /*
+			content_footer_flexbox: definimos flexbox y sus
+			propeidades flex-wrap y justify-content para 
+			posicionar los elementos si superan el tamaño de su 
+			contenedor y separar cada elemento
+		*/
+  /*
+			box_gotop: implementamos fixed y sus propiedades right, 
+			y z-index para darle posicion a esta caja, luego
+			hacemos uso de flexbox y sus propiedades justify-content
+			y align-items para centrar vertical y horizontalmente
+			los elementos finalmente overflow: hidden para ocualtar 
+			esta caja
+		*/
+  /*
+			box_copy_right: parte final del footer
+		*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer {
+    width: 92%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_footer .container_footer {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_footer .container_footer {
+    width: 94%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section_footer .container_footer {
+    width: 82%;
+  }
+}
+
+.section_footer .container_footer .box_line {
+  padding: 40px 0;
+  /*
+				@query 767px <== : removemos de la vista 
+				la caja box_line
+			*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .box_line {
+    display: none;
+  }
+}
+
+.section_footer .container_footer .content_accordeon {
+  /*
+				@query 767px <== : definimos un margin
+				y un padding para generar espaciado
+			*/
+  /*
+				@query 768px ==> : removemos de la vista 
+				la caja content_accordeon
+			*/
+  /*
+				box_accordeon: contenedor de accordeon_header y 
+				accordeon_body
+			*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_accordeon {
+    margin: 50px 0;
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_footer .container_footer .content_accordeon {
+    display: none;
+  }
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon {
+  /*
+					@query 767px <== : en esta medida le añadimos a
+					box_accordeon la clase js_show_accordeon cuando
+					hacemos click sobre si mismo
+				*/
+  /*
+					accordeon_header: definimos flexbox y su propiedad
+					justify-content que nos permite separar el titulo
+					y el icono
+				*/
+  /*
+					accordeon_body: le definimos hight: 0 y un 
+					overflow: hidden para ocultar esta parte del
+					acordeon 
+				*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_accordeon .box_accordeon {
+    /*
+						js_show_accordeon: clase javascript que 
+						relaciona la tag-h3 para añadirle color
+					*/
+    /*
+						js_show_accordeon: clase javascript que 
+						relaciona la tag-svg para añadirle color y
+						rotacion al icono
+					*/
+    /*
+						js_show_accordeon: clase javascript que relaciona 
+						a accordeon_body para añadirle un height y un
+						overflow: visible para hacer nuevamente visible 
+						el contenido de esta caja
+					*/
+  }
+  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_header h3 {
+    color: #ff671b;
+  }
+  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_header svg {
+    fill: #ff671b;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_body {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #77777a;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header h3 {
+  color: #77777a;
+  font-size: 22px;
+  font-family: '@sansation-regular', sans-serif;
+  line-height: 1.9;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header svg {
+  fill: #77777a;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul {
+  padding: 15px 0;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li {
+  list-style: none;
+  margin-top: 22px;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li:first-child {
+  margin-top: 0;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li a {
+  display: block;
+  padding: 0;
+  font-size: 15px;
+  font-family: '@sansation-light', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body p {
+  padding: 15px 0;
+  font-family: '@sansation-regular', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.section_footer .container_footer .content_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  /*
+				@query 767px <== : modificamos la propiedad
+				justify-content
+			*/
+  /*
+				columna_one
+			*/
+  /*
+				columna_two
+			*/
+  /*
+				columna_three
+			*/
+  /*
+				columna_four
+			*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 60px 0 40px;
+    /*
+					para los siguientes contenedores definimos
+					display: none para removerlos de la vista
+				*/
+  }
+  .section_footer .container_footer .content_footer .content_column_two,
+  .section_footer .container_footer .content_footer .content_column_three,
+  .section_footer .container_footer .content_footer .content_column_four {
+    display: none;
+  }
+}
+
+.section_footer .container_footer .content_footer .content_column_one {
+  width: 200px;
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_logo_footer {
+  width: 160px;
+  height: 81px;
+  /*
+						@query 767px <== : modificamos el width y 
+						height de box_logo_footer y centramos la
+						caja haciendo uso de margin
+					*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_footer .content_column_one .box_logo_footer {
+    width: 110px;
+    height: 56px;
+    margin: 0 auto;
+  }
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_logo_footer img {
+  width: 100%;
+  height: 100%;
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_socials_media {
+  margin-top: 70px;
+  /*
+						@query 767px <== : implementamos 
+						text-align: center para centrar los 
+						elementos que pertenecen a box_socials_media
+					*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_footer .content_column_one .box_socials_media {
+    text-align: center;
+  }
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_socials_media h4 {
+  color: #313338;
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_socials_media a {
+  text-decoration: none;
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_socials_media a svg {
+  fill: #878787;
+  margin: 5px 10px 0 -10px;
+}
+
+.section_footer .container_footer .content_footer .content_column_one .box_socials_media a svg:hover {
+  fill: #ff671b;
+}
+
+.section_footer .container_footer .content_footer .content_column_two {
+  width: 220px;
+}
+
+.section_footer .container_footer .content_footer .content_column_three {
+  width: 400px;
+}
+
+.section_footer .container_footer .content_footer .content_column_three .box_info_three {
+  /*
+						seleccionamos la segunda caja con clase
+						box_info_three y le definimos un margin-top
+                    */
+}
+
+.section_footer .container_footer .content_footer .content_column_three .box_info_three:nth-child(2) {
+  margin-top: 20px;
+}
+
+.section_footer .container_footer .content_footer .content_column_four {
+  width: 220px;
+}
+
+.section_footer .container_footer .content_footer .content_column_four .box_info_four {
+  /*
+						seleccionamos la segunda caja con clase
+						box_info_four y le definimos un margin
+                    */
+}
+
+.section_footer .container_footer .content_footer .content_column_four .box_info_four:nth-child(2) {
+  margin: 20px 0;
+}
+
+.section_footer .container_footer .content_footer .content_column_four .box_info_four p {
+  font-family: '@nunito-regular', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  padding-top: 6px;
+}
+
+.section_footer .container_footer .box_gotop {
+  position: fixed;
+  right: 20px;
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  /*
+				@query 767px <== : removemos de la vista la caja box_gotop
+			*/
+  /*
+				@query 768px ==> : medida responsive aplicada a box_gotop
+				definimos width y height para darle tamaño a la caja
+				y bottom para posicionarla
+			*/
+  /*
+				@query 992px ==> : medida responsive aplicada a box_gotop
+				definimos width y height para redefinir el tamaño de la caja
+				y bottom para reposicionarla
+			*/
+  /*
+				tag-svg: importante definir color: transparent 
+				para ocultar el icono
+			*/
+}
+
+@media (max-width: 767px) {
+  .section_footer .container_footer .box_gotop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_footer .container_footer .box_gotop {
+    width: 43px;
+    height: 43px;
+    bottom: 25px;
+    /*
+					añadimos la clase javascript js_show_gotop que añade 
+					background-color un borde y overflow: visible para 
+					visible nuevamente esta caja 
+				*/
+    /*
+					añadimos la clase javascript js_show_gotop que relaciona 
+					a la tag-svg para añadirle color al icono
+				*/
+  }
+  .section_footer .container_footer .box_gotop.js_show_gotop {
+    background-color: #fff;
+    border: 1px solid #8c8c8c;
+    overflow: visible;
+    /*
+						cuando hacemos :hover sobre box_gotop
+						relacionamos a tag-svg para añadirle color
+						al icono
+					*/
+  }
+  .section_footer .container_footer .box_gotop.js_show_gotop:hover {
+    background-color: #ff671b;
+    border: none;
+  }
+  .section_footer .container_footer .box_gotop.js_show_gotop:hover svg {
+    fill: #fff;
+  }
+  .section_footer .container_footer .box_gotop.js_show_gotop svg {
+    fill: #77777a;
+  }
+}
+
+@media (min-width: 992px) {
+  .section_footer .container_footer .box_gotop {
+    width: 73px;
+    height: 73px;
+    bottom: 207px;
+  }
+}
+
+.section_footer .container_footer .box_gotop svg {
+  fill: transparent;
+  width: 39px;
+  height: 39px;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.section_footer .container_footer .box_copy_right {
+  text-align: center;
+  color: #77777a;
+  font-family: '@sansation-bold', sans-serif;
+  font-size: 14px;
+  padding: 60px 0 30px;
+  /*
+				@query 768px ==> : definimos padding para generar 
+				separacion respecto a content_flexbox
+			*/
+}
+
+@media (max-width: 768px) {
+  .section_footer .container_footer .box_copy_right {
+    padding: 0 0 30px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  main {
+    padding-top: 90px;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    padding-top: 105px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

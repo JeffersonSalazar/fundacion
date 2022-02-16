@@ -1,0 +1,131 @@
+@import '../shared/fonts';
+
+.section_banner_static {
+	background-image: url(../../assets/svg/desarrollamos_shape-w.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+
+	.container_banner_static {
+		padding: 0 10px;
+		display: flex;
+		flex-direction: column;
+		// height: 740px;
+		// align-items: center;
+		// justify-content: center;
+
+		.content_points {
+			color: #fff;
+			font-size: 50px;
+			line-height: 0.4;
+			letter-spacing: -1.2px;
+		}
+
+		.points_top {
+			height: 140px;
+
+			@media (max-width: 991px) {
+				display: none;
+			}
+		}
+
+		.flexbox_banner_static {
+			// display: flex;
+			align-self: center;
+
+			// @media (max-width: 991px) {
+			// 	align-items: center;
+			// }
+
+			@media (max-width: 767px) {
+				// height: 620px;
+				// background-color: red;
+			}
+
+			.box_banner_static {
+				color: #fff;
+				text-align: center;
+				max-width: 800px;
+
+				h3 {
+					font-size: 20px;
+					font-family: '@nunito-light', sans-serif;
+					letter-spacing: 10px;
+
+					@media (max-width: 335px) {
+						padding: 0 6px;
+					}
+				}
+
+				h2 {
+					font-family: '@sansation-bold', sans-serif;
+					font-weight: 700;
+					line-height: 1;
+					margin: 15px 0 35px;
+
+					@media (max-width: 575px) {
+						font-size: 25px;
+					}
+
+					@media (min-width: 576px) {
+						font-size: 60px;
+					}
+
+					@media (min-width: 768px) {
+						font-size: 90px;
+					}
+				}
+
+				p {
+					font-size: 17px;
+					font-family: '@nunito-light', sans-serif;
+					font-weight: 500;
+					line-height: 1.6;
+					letter-spacing: -1px;
+					max-width: 660px;
+					margin: 0 auto;
+
+					@media (max-width: 707px) {
+						padding: 0 8px;
+					}
+
+					@media (max-width: 576px) {
+						padding: 0 5px;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					display: inline-flex;
+					width: 220px;
+					justify-content: center;
+					height: 54px;
+					align-items: center;
+					font-size: 14px;
+					font-family: '@sansation-bold', sans-serif;
+					letter-spacing: 0.3px;
+					background-color: #fff;
+					color: #2f425b;
+					border-radius: 2px;
+					margin-top: 70px;
+					cursor: pointer;
+					transition: all 0.3s;
+
+					&:hover {
+						background-color: #2f425b;
+						color: #fff;
+					}
+				}
+			}
+		}
+
+		.points_bottom {
+			text-align: end;
+
+			@media (max-width: 767px) {
+				text-align: start;
+			}
+		}
+	}
+}

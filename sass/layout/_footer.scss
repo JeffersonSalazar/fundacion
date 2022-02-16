@@ -1,0 +1,483 @@
+/*
+	importacion de las fuentes
+*/
+@import '../shared/fonts';
+
+/*
+	seccion de tags que reutilizan codigo pero se
+	encuentran definidas dentro de otras cajas
+*/
+/*
+	tag-h4: titulo que pertence a las secciones
+	de content_footer_flexbox
+*/
+h4 {
+	color: #ff671b;
+	font-family: '@sansation-bold', sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.5px;
+}
+
+/*
+	tag-ul: menu de navegacion que pertence a 
+	las secciones de content_footer_flexbox
+*/
+ul {
+	li {
+		list-style: none;
+		margin-top: 10px;
+
+		a {
+			text-decoration: none;
+			color: #313338;
+			font-family: '@nunito-regular', sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+
+			&:hover {
+				color: #ff671b;
+			}
+		}
+	}
+}
+
+/*
+	section_footer: contenedor en el cual implementamos
+	margin o padding si deseamos separar esta seccion
+	de otra
+*/
+.section_footer {
+	background-color: #fff;
+
+	/*
+		container_footer: contenedor en el cual definimos
+		width para manejar el responsive
+	*/
+	.container_footer {
+		margin: 0 auto;
+
+		/*
+			@query 839px <== : definimos un width en 
+			esta medida para container_footer
+		*/
+		@media (max-width: 767px) {
+			width: 92%;
+		}
+
+		/*
+			@query 840px ==> : definimos un width en 
+			esta medida para container_footer
+		*/
+		@media (min-width: 768px) {
+			width: 85%;
+		}
+
+		@media (min-width: 992px) {
+			width: 94%;
+		}
+
+		/*
+			@query 1200px ==> : definimos un width en 
+			esta medida para container_footer
+		*/
+		@media (min-width: 1200px) {
+			width: 82%;
+		}
+
+		/*
+			box_line: contenedor de la linea en la parte
+			superior del footer, definimos un padding para
+			geneerar espaciado
+		*/
+		.box_line {
+			padding: 40px 0;
+
+			/*
+				@query 767px <== : removemos de la vista 
+				la caja box_line
+			*/
+			@media (max-width: 767px) {
+				display: none;
+			}
+		}
+
+		/*
+			content_accordeon: contenedor del acordeon
+		*/
+		.content_accordeon {
+			/*
+				@query 767px <== : definimos un margin
+				y un padding para generar espaciado
+			*/
+			@media (max-width: 767px) {
+				margin: 50px 0;
+				padding: 0 15px;
+			}
+
+			/*
+				@query 768px ==> : removemos de la vista 
+				la caja content_accordeon
+			*/
+			@media (min-width: 768px) {
+				display: none;
+			}
+
+			/*
+				box_accordeon: contenedor de accordeon_header y 
+				accordeon_body
+			*/
+			.box_accordeon {
+				/*
+					@query 767px <== : en esta medida le añadimos a
+					box_accordeon la clase js_show_accordeon cuando
+					hacemos click sobre si mismo
+				*/
+				@media (max-width: 767px) {
+					/*
+						js_show_accordeon: clase javascript que 
+						relaciona la tag-h3 para añadirle color
+					*/
+					&.js_show_accordeon .accordeon_header h3 {
+						color: #ff671b;
+					}
+
+					/*
+						js_show_accordeon: clase javascript que 
+						relaciona la tag-svg para añadirle color y
+						rotacion al icono
+					*/
+					&.js_show_accordeon .accordeon_header svg {
+						fill: #ff671b;
+						transform: rotate(180deg);
+					}
+
+					/*
+						js_show_accordeon: clase javascript que relaciona 
+						a accordeon_body para añadirle un height y un
+						overflow: visible para hacer nuevamente visible 
+						el contenido de esta caja
+					*/
+					&.js_show_accordeon .accordeon_body {
+						height: auto;
+						overflow: visible;
+					}
+				}
+
+				/*
+					accordeon_header: definimos flexbox y su propiedad
+					justify-content que nos permite separar el titulo
+					y el icono
+				*/
+				.accordeon_header {
+					display: flex;
+					justify-content: space-between;
+					border-bottom: 1px solid #77777a;
+					padding: 8px 0;
+					cursor: pointer;
+
+					h3 {
+						color: #77777a;
+						font-size: 22px;
+						font-family: '@sansation-regular', sans-serif;
+						line-height: 1.9;
+					}
+
+					svg {
+						fill: #77777a;
+						width: 40px;
+						height: 40px;
+						transition: transform 0.3s ease;
+					}
+				}
+
+				/*
+					accordeon_body: le definimos hight: 0 y un 
+					overflow: hidden para ocultar esta parte del
+					acordeon 
+				*/
+				.accordeon_body {
+					height: 0;
+					overflow: hidden;
+					transition: height 0.3s ease;
+
+					ul {
+						padding: 15px 0;
+
+						li {
+							list-style: none;
+							margin-top: 22px;
+
+							&:first-child {
+								margin-top: 0;
+							}
+
+							a {
+								display: block;
+								padding: 0;
+								font-size: 15px;
+								font-family: '@sansation-light', sans-serif;
+								letter-spacing: 0.5px;
+							}
+						}
+					}
+
+					p {
+						padding: 15px 0;
+						font-family: '@sansation-regular', sans-serif;
+						font-size: 14px;
+						line-height: 1.5;
+					}
+				}
+			}
+		}
+
+		/*
+			content_footer_flexbox: definimos flexbox y sus
+			propeidades flex-wrap y justify-content para 
+			posicionar los elementos si superan el tamaño de su 
+			contenedor y separar cada elemento
+		*/
+		.content_footer {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			/*
+				@query 767px <== : modificamos la propiedad
+				justify-content
+			*/
+			@media (max-width: 767px) {
+				justify-content: center;
+				margin: 60px 0 40px;
+
+				/*
+					para los siguientes contenedores definimos
+					display: none para removerlos de la vista
+				*/
+				.content_column_two,
+				.content_column_three,
+				.content_column_four {
+					display: none;
+				}
+			}
+
+			/*
+				columna_one
+			*/
+			.content_column_one {
+				width: 200px;
+
+				.box_logo_footer {
+					width: 160px;
+					height: 81px;
+
+					/*
+						@query 767px <== : modificamos el width y 
+						height de box_logo_footer y centramos la
+						caja haciendo uso de margin
+					*/
+					@media (max-width: 767px) {
+						width: 110px;
+						height: 56px;
+						margin: 0 auto;
+					}
+
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.box_socials_media {
+					margin-top: 70px;
+
+					/*
+						@query 767px <== : implementamos 
+						text-align: center para centrar los 
+						elementos que pertenecen a box_socials_media
+					*/
+					@media (max-width: 767px) {
+						text-align: center;
+					}
+
+					h4 {
+						color: #313338;
+					}
+
+					a {
+						text-decoration: none;
+
+						svg {
+							fill: #878787;
+							margin: 5px 10px 0 -10px;
+
+							&:hover {
+								fill: #ff671b;
+							}
+						}
+					}
+				}
+			}
+
+			/*
+				columna_two
+			*/
+			.content_column_two {
+				width: 220px;
+			}
+
+			/*
+				columna_three
+			*/
+			.content_column_three {
+				width: 400px;
+
+				.box_info_three {
+					/*
+						seleccionamos la segunda caja con clase
+						box_info_three y le definimos un margin-top
+                    */
+					&:nth-child(2) {
+						margin-top: 20px;
+					}
+				}
+			}
+
+			/*
+				columna_four
+			*/
+			.content_column_four {
+				width: 220px;
+
+				.box_info_four {
+					/*
+						seleccionamos la segunda caja con clase
+						box_info_four y le definimos un margin
+                    */
+					&:nth-child(2) {
+						margin: 20px 0;
+					}
+
+					p {
+						font-family: '@nunito-regular', sans-serif;
+						font-size: 14px;
+						line-height: 1.4;
+						padding-top: 6px;
+					}
+				}
+			}
+		}
+
+		/*
+			box_gotop: implementamos fixed y sus propiedades right, 
+			y z-index para darle posicion a esta caja, luego
+			hacemos uso de flexbox y sus propiedades justify-content
+			y align-items para centrar vertical y horizontalmente
+			los elementos finalmente overflow: hidden para ocualtar 
+			esta caja
+		*/
+		.box_gotop {
+			position: fixed;
+			right: 20px;
+			z-index: 99;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			cursor: pointer;
+			transition: all 0.1s ease;
+
+			/*
+				@query 767px <== : removemos de la vista la caja box_gotop
+			*/
+			@media (max-width: 767px) {
+				display: none;
+			}
+
+			/*
+				@query 768px ==> : medida responsive aplicada a box_gotop
+				definimos width y height para darle tamaño a la caja
+				y bottom para posicionarla
+			*/
+			@media (min-width: 768px) {
+				width: 43px;
+				height: 43px;
+				bottom: 25px;
+
+				/*
+					añadimos la clase javascript js_show_gotop que añade 
+					background-color un borde y overflow: visible para 
+					visible nuevamente esta caja 
+				*/
+				&.js_show_gotop {
+					background-color: #fff;
+					border: 1px solid #8c8c8c;
+					overflow: visible;
+
+					&:hover {
+						background-color: #ff671b;
+						border: none;
+					}
+
+					/*
+						cuando hacemos :hover sobre box_gotop
+						relacionamos a tag-svg para añadirle color
+						al icono
+					*/
+					&:hover svg {
+						fill: #fff;
+					}
+				}
+
+				/*
+					añadimos la clase javascript js_show_gotop que relaciona 
+					a la tag-svg para añadirle color al icono
+				*/
+				&.js_show_gotop svg {
+					fill: #77777a;
+				}
+			}
+
+			/*
+				@query 992px ==> : medida responsive aplicada a box_gotop
+				definimos width y height para redefinir el tamaño de la caja
+				y bottom para reposicionarla
+			*/
+			@media (min-width: 992px) {
+				width: 73px;
+				height: 73px;
+				bottom: 207px;
+			}
+
+			/*
+				tag-svg: importante definir color: transparent 
+				para ocultar el icono
+			*/
+			svg {
+				fill: transparent;
+				width: 39px;
+				height: 39px;
+				transition: all 0.1s ease;
+			}
+		}
+
+		/*
+			box_copy_right: parte final del footer
+		*/
+		.box_copy_right {
+			text-align: center;
+			color: #77777a;
+			font-family: '@sansation-bold', sans-serif;
+			font-size: 14px;
+			padding: 60px 0 30px;
+
+			/*
+				@query 768px ==> : definimos padding para generar 
+				separacion respecto a content_flexbox
+			*/
+			@media (max-width: 768px) {
+				padding: 0 0 30px;
+			}
+		}
+	}
+}

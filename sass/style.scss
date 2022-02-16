@@ -1,0 +1,17 @@
+@import './layout/layout-imports';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+main {
+	@media (max-width: 991px) {
+		padding-top: 90px;
+	}
+
+	@media (min-width: 992px) {
+		padding-top: 105px;
+	}
+}
