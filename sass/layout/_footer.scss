@@ -25,7 +25,7 @@ h4 {
 ul {
 	li {
 		list-style: none;
-		margin-top: 10px;
+		margin-top: 5px;
 
 		a {
 			text-decoration: none;
@@ -54,26 +54,20 @@ ul {
 		width para manejar el responsive
 	*/
 	.container_footer {
+		max-width: 100%;
 		margin: 0 auto;
-
-		/*
-			@query 839px <== : definimos un width en 
-			esta medida para container_footer
-		*/
-		@media (max-width: 767px) {
-			width: 92%;
-		}
+		padding: 0 15px;
 
 		/*
 			@query 840px ==> : definimos un width en 
 			esta medida para container_footer
 		*/
 		@media (min-width: 768px) {
-			width: 85%;
+			max-width: 720px;
 		}
 
 		@media (min-width: 992px) {
-			width: 94%;
+			max-width: 960px;
 		}
 
 		/*
@@ -81,7 +75,7 @@ ul {
 			esta medida para container_footer
 		*/
 		@media (min-width: 1200px) {
-			width: 82%;
+			max-width: 1140px;
 		}
 
 		/*
@@ -110,7 +104,6 @@ ul {
 				y un padding para generar espaciado
 			*/
 			@media (max-width: 767px) {
-				margin: 50px 0;
 				padding: 0 15px;
 			}
 
@@ -172,7 +165,7 @@ ul {
 					display: flex;
 					justify-content: space-between;
 					border-bottom: 1px solid #77777a;
-					padding: 8px 0;
+					padding: 5px 0;
 					cursor: pointer;
 
 					h3 {
@@ -205,18 +198,16 @@ ul {
 
 						li {
 							list-style: none;
-							margin-top: 22px;
+							margin-top: 18px;
 
 							&:first-child {
 								margin-top: 0;
 							}
 
 							a {
-								display: block;
-								padding: 0;
+								// padding: 0;
 								font-size: 15px;
-								font-family: '@sansation-light', sans-serif;
-								letter-spacing: 0.5px;
+								font-family: '@sansation-regular', sans-serif;
 							}
 						}
 					}
@@ -362,7 +353,7 @@ ul {
 						font-family: '@nunito-regular', sans-serif;
 						font-size: 14px;
 						line-height: 1.4;
-						padding-top: 6px;
+						padding-top: 3px;
 					}
 				}
 			}
@@ -400,9 +391,9 @@ ul {
 				y bottom para posicionarla
 			*/
 			@media (min-width: 768px) {
-				width: 43px;
-				height: 43px;
-				bottom: 25px;
+				width: 45px;
+				height: 45px;
+				bottom: 20px;
 
 				/*
 					añadimos la clase javascript js_show_gotop que añade 
@@ -444,9 +435,9 @@ ul {
 				y bottom para reposicionarla
 			*/
 			@media (min-width: 992px) {
-				width: 73px;
-				height: 73px;
-				bottom: 207px;
+				width: 75px;
+				height: 75px;
+				bottom: 200px;
 			}
 
 			/*
@@ -475,8 +466,8 @@ ul {
 				@query 768px ==> : definimos padding para generar 
 				separacion respecto a content_flexbox
 			*/
-			@media (max-width: 768px) {
-				padding: 0 0 30px;
+			@media (max-width: 767px) {
+				padding: 0 0 28px;
 			}
 		}
 	}

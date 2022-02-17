@@ -16,19 +16,20 @@
 		el responsive implementando width
 	*/
 	.container_tabs {
-		width: 100%;
+		max-width: 100%;
 		margin: 0 auto;
 
 		@media (min-width: 768px) {
-			width: 85%;
+			max-width: 720px;
+			padding: 0 15px;
 		}
 
 		@media (min-width: 992px) {
-			width: 94%;
+			max-width: 960px;
 		}
 
 		@media (min-width: 1200px) {
-			width: 82%;
+			max-width: 1140px;
 		}
 
 		h2 {
@@ -37,14 +38,16 @@
 			line-height: 1.2;
 			margin-bottom: 15px;
 
+			@media (max-width: 767px) {
+				padding-left: 15px;
+			}
+
 			@media (max-width: 479px) {
 				font-size: 26px;
-				padding-left: 15px;
 			}
 
 			@media (min-width: 480px) {
 				font-size: 30px;
-				padding-left: 15px;
 			}
 
 			@media (min-width: 768px) {
@@ -98,7 +101,7 @@
 					le añadimos un borde
 				*/
 				.tab_content_header:first-child {
-					border-top: 1px solid #ccc;
+					border-top: 1px solid #8c8c8c;
 				}
 
 				/*
@@ -111,7 +114,7 @@
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					border-bottom: 1px solid #ccc;
+					border-bottom: 1px solid #8c8c8c;
 					padding: 15px 15px 25px;
 					cursor: pointer;
 
