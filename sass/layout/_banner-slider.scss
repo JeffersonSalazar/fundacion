@@ -1,4 +1,8 @@
-// @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+/*
+	importacion de las fuentes
+*/
+@import '../shared/fonts';
+
 
 /*
 	varaibles implementadas en diferentes elementos
@@ -25,165 +29,225 @@ $query767: 767px;
 		y un height para que el contenedor del slider no desmaquete
     */
 	.container_banner_slider {
-		position: absolute;
-		z-index: 2;
-		width: 100%;
-		height: $heightDestok;
-
-		@media (max-width: $query767) {
-			height: $heightQuery767;
-		}
-
 		/* 
             flexbox_banner: definimos flexbox y su propiedad
             align-items y justify-content mas un height para centrar la caja 
 			box_name horizontal y verticalmente a su padre
         */
 		.flexbox_banner_slider {
-			display: flex;
-			justify-content: center;
-			height: calc(#{$heightDestok} - 10px);
-			align-items: flex-end;
-
-			@media (max-width: $query767) {
-				height: calc(#{$heightDestok} - 320px);
-			}
-
-			@media (max-width: $query480) {
-				height: calc(#{$heightDestok} - 330px);
-			}
-
-			@media (max-width: 338px) {
-				height: calc(#{$heightDestok} - 300px);
-			}
-
 			/*
-                box_name: esta caja se encarga de manejar el width por lo que
-                es muy importante para el responsive
-            */
-			.box_banner_slider {
-				margin: 0 auto;
+				swiper: contenedor del slider a este es importante definirle la
+				misma altura que la seccion para que no genere desmaquetados
+			*/
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						position: relative;
+						display: flex;
+						justify-content: center;
+						height: $heightDestok;
 
-				/*
-                    @query 767px <== : definimos un width para esta medida
-                */
-				@media (max-width: $query767) {
-					width: 62%;
-				}
+						@media (max-width: $query767) {
+							height: $heightQuery767;
+						}
+						
+						/*
+							box_name: esta caja se encarga de manejar el width por lo que
+							es muy importante para el responsive
+						*/
+						.box_banner_slider {
+							position: absolute;
+							padding: 0 15px;
+							
+							/*
+								@query 767px <== : definimos un width para esta medida
+							*/
+							@media (max-width: $query767) {
+								max-width: 540px;
+								bottom: 20px;
+							}
+			
+							/*
+								@query 767px <== : definimos un width para esta medida
+							*/
+							@media (max-width: $query575) {
+								max-width: 100%;
+							}
+				
+							/*
+								@query 900px ==> : definimos un width para esta medida
+							*/
+							@media (min-width: 576px) {
+								max-width: 540px;
+							}
+			
+							/*
+								@query 900px ==> : definimos un width para esta medida
+							*/
+							@media (min-width: 768px) {
+								max-width: 720px;
+								bottom: 65px;
+							}
+				
+							/*
+								@query 900px ==> : definimos un width para esta medida
+							*/
+							@media (min-width: 992px) {
+								max-width: 960px;
+							}
+			
+							/*
+								@query 900px ==> : definimos un width para esta medida
+							*/
+							@media (min-width: 1200px) {
+								max-width: 1140px;
+							}
+			
+							.box_banner_title {
+								background-color: #ff671b;
+			
+								h1 {
+									color: #fff;
+									font-family: "@sansation-bold", sans-serif;
+									font-size: 56px;
+									line-height: 1.2;
+									padding: 15px 25px;
+									
+									@media (min-width: 1200px) {
+										letter-spacing: .5px;
+									}
 
-				/*
-                    @query 767px <== : definimos un width para esta medida
-                */
-				@media (max-width: $query575) {
-					width: 90%;
-				}
+									@media (max-width: 991px) {
+										font-size: 44px;
+									}
+			
+									@media (max-width: 767px) {
+										font-size: 30px;
+									}
+			
+									@media (max-width: 575px) {
+										font-size: 25px;
+										padding: 20px;
+									}
+								}
+							}
+			
+							p {
+								font-size: 14px;
+								font-family: "@nunito-regular";
+								background-color: rgba(49, 51, 56, 0.9);
+								color: #fff;
+								line-height: 24px;
+								padding: 15px 25px;
+								
+								@media (min-width: 768px) {
+									max-width: 480px;
+								}
+							}
+						}
 
-				/*
-                    @query 900px ==> : definimos un width para esta medida
-                */
-				@media (min-width: 768px) {
-					width: 82%;
-				}
-
-				.box_banner_title {
-					background-color: #ff671b;
-
-					h1 {
-						color: #fff;
-						// font-size: 56px;
-						max-width: 850px;
-						padding: 15px 25px;
+						/*
+							tag-img: es importante a esta imagen definirle un width
+							y height igual al de su contenedor padre y la propiedad 
+							object-fit: cover para que se ajuste al contenedor
+						*/
+						img {
+							align-self: flex-start;
+							vertical-align: top;
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+							
+							@media (max-width: 480px) {
+								height: auto;
+								object-fit: contain;
+							}
+						}
 					}
 				}
+			}
 
-				p {
-					font-size: 14px;
-					background-color: rgba(49, 51, 56, 0.9);
-					color: #fff;
-					max-width: 480px;
-					padding: 15px 25px;
+			.content_icons {
+				position: relative;
+				margin: 0 auto;
+				padding: 0 15px;
+
+				@media (max-width: $query767) {
+					display: none;
 				}
 
 				/*
-                    box_icon_swiper: implementando flexbox en este contenedor
-                    podemos modificar la posicion de los iconos del slider
-                */
+					@query 900px ==> : definimos un width para esta medida
+				*/
+				@media (min-width: 768px) {
+					max-width: 720px;
+				}
+	
+				/*
+					@query 900px ==> : definimos un width para esta medida
+				*/
+				@media (min-width: 992px) {
+					max-width: 960px;
+				}
+
+				/*
+					@query 900px ==> : definimos un width para esta medida
+				*/
+				@media (min-width: 1200px) {
+					max-width: 1140px;
+				}
+
+				/*
+					box_icon_swiper: implementando flexbox en este contenedor
+					podemos modificar la posicion de los iconos del slider
+				*/
 				.box_icon_slider {
+					position: absolute;
+					bottom: 10px;
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
-					margin-top: 12px;
-
-					@media (max-width: $query767) {
-						display: none;
-					}
 
 					/*
-                        swiper-button-next, swiper-button-prev: para 
-                        cambiar estas propiedades debemos definirlas en estas clases
-                    */
+						swiper-button-next, swiper-button-prev: para 
+						cambiar estas propiedades debemos definirlas en estas clases
+					*/
 					.swiper-button-next,
 					.swiper-button-prev {
 						position: relative;
 						top: 0;
 						left: 0;
 						right: 0;
-						width: 0;
-						height: 0;
 						background-color: #313338;
+						width: 44px;
+						height: 44px;
 						margin-top: 0;
-						padding: 25px;
+						transition: .3s;
 
 						&:hover {
 							background-color: #007bff;
 						}
+
+						&.swiper-button-disabled {
+							opacity: 1;
+							cursor: pointer;
+							pointer-events: visible;
+						}
 					}
 
 					.swiper-button-prev {
-						margin-right: 20px;
+						margin-right: 14px;
 					}
 
 					/*
-                        swiper-button-next:after, swiper-button-prev:after: para 
-                        cambiar estas propiedades debemos definirlas en estas clases
-                    */
+						swiper-button-next:after, swiper-button-prev:after: para 
+						cambiar estas propiedades debemos definirlas en estas clases
+					*/
 					.swiper-button-next:after,
 					.swiper-button-prev:after {
 						color: #fff;
-						font-size: 26px;
-						font-weight: 700;
-					}
-				}
-			}
-		}
-	}
-
-	/*
-        swiper: contenedor del slider a este es importante definirle la
-        misma altura que la seccion para que no genere desmaquetados
-    */
-	.swiper {
-		width: 100%;
-		height: $heightDestok;
-
-		@media (max-width: $query767) {
-			height: $heightQuery767;
-		}
-
-		.swiper-wrapper {
-			.swiper-slide {
-				/*
-                    tag-img: es importante a esta imagen definirle un width
-                    y height igual al de su contenedor padre y la propiedad 
-                    object-fit: cover para que se ajuste al contenedor
-                */
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-
-					@media (max-width: 480px) {
-						height: 50%;
+						font-size: 22px;
+						font-weight: bold;
 					}
 				}
 			}

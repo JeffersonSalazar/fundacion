@@ -8,45 +8,31 @@
 	background-attachment: fixed;
 
 	.container_banner_static {
-		padding: 0 10px;
-		display: flex;
-		flex-direction: column;
-		// height: 740px;
-		// align-items: center;
-		// justify-content: center;
+		// padding: 0 10px;
 
 		.content_points {
 			color: #fff;
-			font-size: 50px;
-			line-height: 0.4;
-			letter-spacing: -1.2px;
+			font-size: 34px;
+			line-height: 22px;
+			letter-spacing: 3px;
 		}
 
 		.points_top {
 			height: 140px;
 
 			@media (max-width: 991px) {
-				display: none;
+				opacity: 0;
 			}
 		}
 
 		.flexbox_banner_static {
-			// display: flex;
-			align-self: center;
-
-			// @media (max-width: 991px) {
-			// 	align-items: center;
-			// }
-
-			@media (max-width: 767px) {
-				// height: 620px;
-				// background-color: red;
-			}
 
 			.box_banner_static {
 				color: #fff;
 				text-align: center;
-				max-width: 800px;
+				max-width: 1000px;
+				padding: 0 15px;
+				margin: 0 auto;
 
 				h3 {
 					font-size: 20px;
@@ -60,7 +46,6 @@
 
 				h2 {
 					font-family: '@sansation-bold', sans-serif;
-					font-weight: 700;
 					line-height: 1;
 					margin: 15px 0 35px;
 
@@ -79,10 +64,9 @@
 
 				p {
 					font-size: 17px;
-					font-family: '@nunito-light', sans-serif;
+					font-family: '@nunito-regular', sans-serif;
 					font-weight: 500;
 					line-height: 1.6;
-					letter-spacing: -1px;
 					max-width: 660px;
 					margin: 0 auto;
 
@@ -123,9 +107,9 @@
 		.points_bottom {
 			text-align: end;
 
-			@media (max-width: 767px) {
-				text-align: start;
-			}
+			// @media (max-width: 767px) {
+			// 	opacity: 0;
+			// }
 		}
 	}
 }

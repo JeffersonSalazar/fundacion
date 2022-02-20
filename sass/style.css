@@ -281,12 +281,12 @@
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
   text-decoration: none;
   font-family: "@nunito-light", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   color: #333;
 }
-@media (max-width: 991px) {
+@media (min-width: 1200px) {
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a.js_link_active {
@@ -406,6 +406,39 @@
 }
 
 /*
+	importacion de las fuentes
+*/
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: "@sansation-bold";
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+@font-face {
+  font-family: "@sansation-light";
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+@font-face {
+  font-family: "@sansation-regular";
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: "@nunito-bold";
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: "@nunito-light";
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "@nunito-regular";
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
+/*
 	varaibles implementadas en diferentes elementos
 */
 /*
@@ -422,168 +455,236 @@
          width: 100% para que recupere todo el ancho del viewport
   	y un height para que el contenedor del slider no desmaquete
      */
-  /*
-         swiper: contenedor del slider a este es importante definirle la
-         misma altura que la seccion para que no genere desmaquetados
-     */
 }
 .section_banner_slider .container_banner_slider {
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 700px;
   /* 
             flexbox_banner: definimos flexbox y su propiedad
             align-items y justify-content mas un height para centrar la caja 
   	box_name horizontal y verticalmente a su padre
         */
 }
+.section_banner_slider .container_banner_slider .flexbox_banner_slider {
+  /*
+  	swiper: contenedor del slider a este es importante definirle la
+  	misma altura que la seccion para que no genere desmaquetados
+  */
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 700px;
+  /*
+  	box_name: esta caja se encarga de manejar el width por lo que
+  	es muy importante para el responsive
+  */
+  /*
+  	tag-img: es importante a esta imagen definirle un width
+  	y height igual al de su contenedor padre y la propiedad 
+  	object-fit: cover para que se ajuste al contenedor
+  */
+}
 @media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide {
     height: 400px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider {
-  display: flex;
-  justify-content: center;
-  height: calc(700px - 10px);
-  align-items: flex-end;
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+  position: absolute;
+  padding: 0 15px;
   /*
-               box_name: esta caja se encarga de manejar el width por lo que
-               es muy importante para el responsive
-           */
+  	@query 767px <== : definimos un width para esta medida
+  */
+  /*
+  	@query 767px <== : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
 }
 @media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
-    height: calc(700px - 320px);
-  }
-}
-@media (max-width: 480px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
-    height: calc(700px - 330px);
-  }
-}
-@media (max-width: 338px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider {
-    height: calc(700px - 300px);
-  }
-}
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
-  margin: 0 auto;
-  /*
-                  @query 767px <== : definimos un width para esta medida
-              */
-  /*
-                  @query 767px <== : definimos un width para esta medida
-              */
-  /*
-                  @query 900px ==> : definimos un width para esta medida
-              */
-  /*
-                  box_icon_swiper: implementando flexbox en este contenedor
-                  podemos modificar la posicion de los iconos del slider
-              */
-}
-@media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
-    width: 62%;
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 540px;
+    bottom: 20px;
   }
 }
 @media (max-width: 575px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
-    width: 90%;
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider {
-    width: 82%;
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 720px;
+    bottom: 65px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_banner_title {
+@media (min-width: 992px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+    max-width: 1140px;
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title {
   background-color: #ff671b;
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_banner_title h1 {
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
   color: #fff;
-  max-width: 850px;
+  font-family: "@sansation-bold", sans-serif;
+  font-size: 56px;
+  line-height: 1.2;
   padding: 15px 25px;
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider p {
+@media (min-width: 1200px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+    letter-spacing: 0.5px;
+  }
+}
+@media (max-width: 991px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+    font-size: 44px;
+  }
+}
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+    font-size: 25px;
+    padding: 20px;
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider p {
   font-size: 14px;
+  font-family: "@nunito-regular";
   background-color: rgba(49, 51, 56, 0.9);
   color: #fff;
-  max-width: 480px;
+  line-height: 24px;
   padding: 15px 25px;
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 12px;
-  /*
-                     swiper-button-next, swiper-button-prev: para 
-                     cambiar estas propiedades debemos definirlas en estas clases
-                 */
-  /*
-                     swiper-button-next:after, swiper-button-prev:after: para 
-                     cambiar estas propiedades debemos definirlas en estas clases
-                 */
-}
-@media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider {
-    display: none;
+@media (min-width: 768px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider p {
+    max-width: 480px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next,
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev {
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  background-color: #313338;
-  margin-top: 0;
-  padding: 25px;
-}
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next:hover,
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev:hover {
-  background-color: #007bff;
-}
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev {
-  margin-right: 20px;
-}
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-next:after,
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .box_banner_slider .box_icon_slider .swiper-button-prev:after {
-  color: #fff;
-  font-size: 26px;
-  font-weight: 700;
-}
-.section_banner_slider .swiper {
-  width: 100%;
-  height: 700px;
-}
-@media (max-width: 767px) {
-  .section_banner_slider .swiper {
-    height: 400px;
-  }
-}
-.section_banner_slider .swiper .swiper-wrapper .swiper-slide {
-  /*
-                  tag-img: es importante a esta imagen definirle un width
-                  y height igual al de su contenedor padre y la propiedad 
-                  object-fit: cover para que se ajuste al contenedor
-              */
-}
-.section_banner_slider .swiper .swiper-wrapper .swiper-slide img {
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide img {
+  align-self: flex-start;
+  vertical-align: top;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media (max-width: 480px) {
-  .section_banner_slider .swiper .swiper-wrapper .swiper-slide img {
-    height: 50%;
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide img {
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 15px;
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	@query 900px ==> : definimos un width para esta medida
+  */
+  /*
+  	box_icon_swiper: implementando flexbox en este contenedor
+  	podemos modificar la posicion de los iconos del slider
+  */
+}
+@media (max-width: 767px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+    max-width: 1140px;
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /*
+  	swiper-button-next, swiper-button-prev: para 
+  	cambiar estas propiedades debemos definirlas en estas clases
+  */
+  /*
+  	swiper-button-next:after, swiper-button-prev:after: para 
+  	cambiar estas propiedades debemos definirlas en estas clases
+  */
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #313338;
+  width: 44px;
+  height: 44px;
+  margin-top: 0;
+  transition: 0.3s;
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next:hover,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev:hover {
+  background-color: #007bff;
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next.swiper-button-disabled,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev.swiper-button-disabled {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: visible;
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev {
+  margin-right: 14px;
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next:after,
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev:after {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 /*
@@ -623,32 +724,26 @@
   background-position: center center;
   background-attachment: fixed;
 }
-.section_banner_static .container_banner_static {
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-}
 .section_banner_static .container_banner_static .content_points {
   color: #fff;
-  font-size: 50px;
-  line-height: 0.4;
-  letter-spacing: -1.2px;
+  font-size: 34px;
+  line-height: 22px;
+  letter-spacing: 3px;
 }
 .section_banner_static .container_banner_static .points_top {
   height: 140px;
 }
 @media (max-width: 991px) {
   .section_banner_static .container_banner_static .points_top {
-    display: none;
+    opacity: 0;
   }
-}
-.section_banner_static .container_banner_static .flexbox_banner_static {
-  align-self: center;
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static {
   color: #fff;
   text-align: center;
-  max-width: 800px;
+  max-width: 1000px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h3 {
   font-size: 20px;
@@ -662,7 +757,6 @@
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
   font-family: "@sansation-bold", sans-serif;
-  font-weight: 700;
   line-height: 1;
   margin: 15px 0 35px;
 }
@@ -683,10 +777,9 @@
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
   font-size: 17px;
-  font-family: "@nunito-light", sans-serif;
+  font-family: "@nunito-regular", sans-serif;
   font-weight: 500;
   line-height: 1.6;
-  letter-spacing: -1px;
   max-width: 660px;
   margin: 0 auto;
 }
@@ -723,11 +816,6 @@
 }
 .section_banner_static .container_banner_static .points_bottom {
   text-align: end;
-}
-@media (max-width: 767px) {
-  .section_banner_static .container_banner_static .points_bottom {
-    text-align: start;
-  }
 }
 
 /*
@@ -1605,11 +1693,16 @@
   entre si
 */
 .section_tabs {
-  padding: 50px 0;
+  padding-bottom: 50px;
   /*
   	container_name: contenedor definido para manejar
   	el responsive implementando width
   */
+}
+@media (min-width: 1200px) {
+  .section_tabs {
+    padding: 50px 0;
+  }
 }
 .section_tabs .container_tabs {
   max-width: 100%;

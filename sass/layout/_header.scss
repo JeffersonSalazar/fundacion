@@ -245,11 +245,11 @@
 							a {
 								text-decoration: none;
 								font-family: '@nunito-light', sans-serif;
-								font-size: 15px;
+								font-size: 14px;
 								color: #333;
 
-								@media (max-width: 991px) {
-									font-size: 14px;
+								@media (min-width: 1200px) {
+									font-size: 15px;
 								}
 
 								&.js_link_active {

@@ -9,7 +9,11 @@
   entre si
 */
 .section_tabs {
-	padding: 50px 0;
+	padding-bottom: 50px;
+	
+	@media (min-width: 1200px) {
+		padding: 50px 0;
+	}
 
 	/*
 		container_name: contenedor definido para manejar
