@@ -1,37 +1,10 @@
 @charset "UTF-8";
 /*
+    estilos pertenecientes a index.html
+*/
+/*
 	importacion de las fuentes
 */
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 /*
 	variables que almacenan la altura de header
 	para escritorio y dispositivos moviles
@@ -42,41 +15,62 @@
 	de otros contenedores como el body
 */
 .section_header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
   background-color: #fff;
   padding: 20px 0;
+  /*
+  clase añadida con javascript que permite
+  disminuir la altura a header_flexbox logrando
+  asi el efecto scroll
+  */
   /*
   	container_header: a este contenedor le 
   	definimos el tamaño que tendra en la vista
   */
 }
+.section_header.js_header_scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 15px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -webkit-animation: headerAnimation 1s forwards;
+          animation: headerAnimation 1s forwards;
+}
+@-webkit-keyframes headerAnimation {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes headerAnimation {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 @media (min-width: 992px) {
   .section_header {
-    padding: 30px 0;
-    /*
-    	clase añadida con javascript que permite
-    	disminuir la altura a header_flexbox logrando
-    	asi el efecto scroll
-    */
-  }
-  .section_header.js_scroll_navbar {
-    padding: 20px 0;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    padding: 31px 0;
   }
 }
 .section_header .container_header {
-  width: 95%;
-  margin: 0 auto;
+  padding: 0 15px;
   /*
   	header_flexbox: este contenedor lo definimos 
   	para implementar flex-box y sus propiedades cuando
   	sus elementos hijo lo requeiren
   */
+}
+@media (min-width: 992px) {
+  .section_header .container_header {
+    padding: 0 40px;
+  }
 }
 .section_header .container_header .header_flexbox {
   /*
@@ -85,7 +79,7 @@
   	a la altura de la imagen
   */
   /*
-  	box_nit_menu: definimos flexbox y su propiedad
+  	box_logo_icon: definimos flexbox y su propiedad
   	justify-content y align-items para centar y separar el 
   	icon burger menu en referencia a la altura de la imagen
   */
@@ -102,12 +96,16 @@
     align-items: center;
   }
 }
-.section_header .container_header .header_flexbox .box_nit_menu {
+.section_header .container_header .header_flexbox .box_logo_icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.section_header .container_header .header_flexbox .box_nit_menu a img {
+.section_header .container_header .header_flexbox .box_logo_icon a {
+  margin-right: 16px;
+}
+.section_header .container_header .header_flexbox .box_logo_icon a img {
+  vertical-align: top;
   /*
   	query 991px <== : modificamos las diemensiones
   	de la imagen
@@ -118,18 +116,21 @@
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_nit_menu a img {
+  .section_header .container_header .header_flexbox .box_logo_icon a img {
     width: 90px;
     height: 45px;
   }
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_nit_menu a img {
+  .section_header .container_header .header_flexbox .box_logo_icon a img {
     width: 80px;
     height: 40px;
   }
 }
-.section_header .container_header .header_flexbox .box_nit_menu svg {
+.section_header .container_header .header_flexbox .box_logo_icon svg {
+  fill: #ff671b;
+  width: 33px;
+  height: 33px;
   cursor: pointer;
   /*
   	query 992px ==> : removemos de la vista
@@ -137,7 +138,7 @@
   */
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_nit_menu svg {
+  .section_header .container_header .header_flexbox .box_logo_icon svg {
     display: none;
   }
 }
@@ -203,11 +204,6 @@
     padding: 0 25px;
   }
 }
-@media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav {
-    padding-left: 40px;
-  }
-}
 .section_header .container_header .header_flexbox .box_navbar nav .box_close_menu {
   display: flex;
   justify-content: space-between;
@@ -225,8 +221,12 @@
 }
 .section_header .container_header .header_flexbox .box_navbar nav .box_close_menu h3 {
   color: #333;
+  font-family: "@sansation-bold", sans-serif;
 }
 .section_header .container_header .header_flexbox .box_navbar nav .box_close_menu svg {
+  fill: #919191;
+  width: 33px;
+  height: 33px;
   cursor: pointer;
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
@@ -246,12 +246,13 @@
 @media (min-width: 992px) {
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
     display: flex;
+    align-items: center;
+    margin-top: 6px;
   }
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
   position: relative;
   list-style: none;
-  margin: 0;
   cursor: pointer;
   /*
   	query 991px <== : para destacar el borde 
@@ -269,20 +270,20 @@
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
     text-align: center;
     border: 2px solid #8c8c8c;
-    margin-top: 10px;
     padding: 12px 10px;
+    margin-top: 10px;
   }
 }
 @media (min-width: 992px) {
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
-    margin-left: 25px;
+    padding-left: 40px;
+    margin-top: 0;
   }
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
   text-decoration: none;
   font-family: "@nunito-light", sans-serif;
   font-size: 14px;
-  color: #333;
 }
 @media (min-width: 1200px) {
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
@@ -311,11 +312,11 @@
   	visible con una clase añadida a li_dropdown
   */
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown:hover svg {
-  fill: #ff671b;
-}
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown.js_show_dropdown .ul_dropdown {
   display: block;
+}
+.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown:hover svg {
+  fill: #ff671b;
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a {
   display: flex;
@@ -333,6 +334,8 @@
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a svg {
   fill: #333;
+  width: 12px;
+  height: 12px;
   margin-left: 5px;
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
@@ -363,10 +366,9 @@
 @media (min-width: 992px) {
   .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
     position: fixed;
-    top: 105px;
+    top: 102px;
     z-index: 5;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
@@ -398,46 +400,10 @@
 .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li a {
   padding: 8px 15px;
 }
-@media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .js_scroll_dropdown {
-    top: 85px;
-    transition: 0.3s;
-  }
-}
 
 /*
 	importacion de las fuentes
 */
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 /*
 	varaibles implementadas en diferentes elementos
 */
@@ -687,36 +653,6 @@
   font-weight: bold;
 }
 
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 .section_banner_static {
   background-image: url(../../assets/svg/desarrollamos_shape-w.svg);
   background-repeat: no-repeat;
@@ -821,36 +757,6 @@
 /*
 	importacion de las fuentes
 */
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 /*
     section_galery: contenedor definido para implementar
     margin o padding con el fin de separar las secciones
@@ -1137,36 +1043,6 @@
 	importacion de las fuentes
 */
 /*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
-/*
 	section_name: le podemos definir margenes o espaciados
 	cuando queremos separar esta seccion de otra 
 */
@@ -1302,12 +1178,12 @@
 }
 @media (min-width: 992px) {
   .section_card .container_card .flexbox_card .box_card .content_card {
-    width: calc(700px - 260px);
+    width: 440px;
   }
 }
 @media (min-width: 1200px) {
   .section_card .container_card .flexbox_card .box_card .content_card {
-    width: calc(675px - 295px);
+    width: 380px;
   }
 }
 .section_card .container_card .flexbox_card .box_card .content_card h4 {
@@ -1400,36 +1276,6 @@
 /*
 	importacion de las fuentes
 */
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 /*
 	varaibles implementadas en diferentes elementos
 */
@@ -1657,36 +1503,6 @@
 /*
 	importacion de las fuentes
 */
-/*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
 /*
   section_name: contenedor definido para implementar
   margin o padding con el fin de separar las secciones
@@ -2155,36 +1971,6 @@
 	importacion de las fuentes
 */
 /*
-	Fuente sansation
-*/
-@font-face {
-  font-family: "@sansation-bold";
-  src: url("../../assets/fonts/Sansation_Bold.ttf");
-}
-@font-face {
-  font-family: "@sansation-light";
-  src: url("../../assets/fonts/Sansation_Light.ttf");
-}
-@font-face {
-  font-family: "@sansation-regular";
-  src: url("../../assets/fonts/Sansation_Regular.ttf");
-}
-/*
-	Fuente nunito
-*/
-@font-face {
-  font-family: "@nunito-bold";
-  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
-}
-@font-face {
-  font-family: "@nunito-light";
-  src: url("../../assets/fonts/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: "@nunito-regular";
-  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
-}
-/*
 	seccion de tags que reutilizan codigo pero se
 	encuentran definidas dentro de otras cajas
 */
@@ -2627,19 +2413,397 @@ ul li a:hover {
   }
 }
 
+/*
+    estilos pertenecientes a fundacion.html
+*/
+/*
+	importacion de las fuentes
+*/
+.section_fundacion_banner {
+  /*
+  	container_name: contenedor definido para manejar
+  	el responsive implementando width
+  */
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner {
+  background-color: #313338;
+}
+@media (max-width: 767px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner {
+    padding-bottom: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 480px);
+  }
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 50px;
+}
+@media (max-width: 991px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer {
+    padding: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info {
+    width: 100%;
+  }
+}
+@media (min-width: 1161px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info {
+    width: 480px;
+  }
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info h1 {
+  color: #fff;
+  font-family: "@sansation-bold", sans-serif;
+  font-size: 55px;
+  line-height: 1;
+}
+@media (max-width: 991px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info h1 {
+    font-size: 48px;
+  }
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info p {
+  color: #d1d1d1;
+  font-family: "@nunito-regular", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info p:nth-child(2) {
+  margin: 50px 0 20px;
+}
+@media (max-width: 991px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info p:nth-child(2) {
+    margin: 25px 0 20px;
+  }
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery {
+  display: flex;
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li {
+  list-style: none;
+  flex: 1;
+  margin-top: 0;
+  transition: flex 0.5s ease-in-out;
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li:hover {
+  flex: 100%;
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li img {
+    height: 180px;
+  }
+}
+
+/*
+	importacion de las fuentes
+*/
+.section_fundacion_tabs {
+  background: url(../../../assets/img/fundacion/mision_vi_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  padding: 100px 0;
+  /*
+  	container_name: contenedor definido para manejar
+  	el responsive implementando width
+  */
+}
+.section_fundacion_tabs .container_fundacion_tabs {
+  max-width: 100%;
+  margin: 0 auto;
+  /*
+            flexbox_name
+        */
+}
+@media (min-width: 768px) {
+  .section_fundacion_tabs .container_fundacion_tabs {
+    max-width: 720px;
+    padding: 0 15px;
+  }
+}
+@media (min-width: 992px) {
+  .section_fundacion_tabs .container_fundacion_tabs {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_fundacion_tabs .container_fundacion_tabs {
+    max-width: 1140px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs {
+  /*
+  	@query 768px ==> : definimos flexbox y su 
+  	propiedad space-between para generar espaciado
+  	entre los elementos que este contiene
+  */
+  /*
+               tab_header
+           */
+  /*
+               tab_body
+           */
+}
+@media (min-width: 992px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header {
+  /*
+  	@query 768px ==> : definimos width: 50% para que ocupe
+  	ese espacio dentro de su contenedor padre
+  */
+  /*
+                  tab_content_header: importante definirle 
+  	position: relative ya que la clase js_header_active 
+  	tiene definido position: absolute
+              */
+}
+@media (max-width: 991px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header {
+    width: 280px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info {
+  background-color: #000000cc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info:nth-child(2) {
+  margin: 16px 0;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active h2 {
+  color: #ff671b;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active svg {
+  background-color: #ff671b;
+  fill: #000;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active .icon_plus {
+  display: none;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active .icon_minus {
+  display: block;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info h2 {
+  color: #fff;
+  font-size: 22px;
+  font-family: "@sansation-bold", sans-serif;
+  transition: color 0.1s;
+}
+@media (max-width: 767px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info h2 {
+    font-size: 30px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info svg {
+  background-color: #fff;
+  fill: #000;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info .icon_minus {
+  display: none;
+}
+@media (min-width: 992px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body {
+    width: calc(100% - 280px);
+    padding-left: 50px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body {
+  /*
+      js_header_active
+  */
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body.js_body_hidden {
+  transition: 0.5s;
+  display: none;
+  /*
+      @query 768px ==> : clase añadida con javascript que
+      nos permite ocultar el contenedor tab_body
+  */
+}
+@-webkit-keyframes animationTag {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes animationTag {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab {
+  /*
+      tab_content_body
+  */
+}
+@media (max-width: 767px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab {
+    padding: 1.25rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab {
+    padding: 1.25rem;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab {
+  -webkit-animation: animationTag 0.4s;
+          animation: animationTag 0.4s;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph {
+  position: relative;
+  padding: 40px 30px;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000cc;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #ff671b;
+  width: 275px;
+  height: 8px;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph p {
+  position: relative;
+  z-index: 4;
+  color: #fff;
+  font-family: "@nunito-regular", sans-serif;
+  line-height: 26px;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph .especial_paragraph {
+  margin: 15px 0;
+}
+@media (min-width: 768px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a {
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 14px;
+  font-family: "@sansation-regular", sans-serif;
+  border-radius: 4px;
+  padding: 7px 10px;
+  transition: 0.3s;
+}
+@media (min-width: 768px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:nth-child(2) {
+    margin: 0 15px;
+  }
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:hover {
+  background-color: #000000cc;
+}
+@media (max-width: 991px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a {
+    border: 1px solid transparent;
+  }
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:hover {
+    border: 1px solid #ff671b;
+  }
+}
+@media (max-width: 767px) {
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.2;
+    width: 100%;
+    max-width: 440px;
+    margin: 20px auto 0;
+    padding: 14px 10px;
+  }
+}
+
+/*
+	Fuente sansation
+*/
+@font-face {
+  font-family: "@sansation-bold";
+  src: url("../../assets/fonts/Sansation_Bold.ttf");
+}
+@font-face {
+  font-family: "@sansation-light";
+  src: url("../../assets/fonts/Sansation_Light.ttf");
+}
+@font-face {
+  font-family: "@sansation-regular";
+  src: url("../../assets/fonts/Sansation_Regular.ttf");
+}
+/*
+	Fuente nunito
+*/
+@font-face {
+  font-family: "@nunito-bold";
+  src: url("../../assets/fonts/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: "@nunito-light";
+  src: url("../../assets/fonts/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "@nunito-regular";
+  src: url("../../assets/fonts/NunitoSans-Regular.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@media (max-width: 991px) {
-  main {
-    padding-top: 90px;
-  }
-}
-@media (min-width: 992px) {
-  main {
-    padding-top: 105px;
-  }
 }/*# sourceMappingURL=style.css.map */

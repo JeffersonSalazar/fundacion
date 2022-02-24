@@ -28,13 +28,13 @@ iconCloseMenu.addEventListener('click', () => {
 
 // ------------------ end show and close menu ----------- //
 
-// ------------------ start scroll header ----------- //
+// ------------------ start header scroll ----------- //
 
 /* 
 	headerScroll: alamacena la caja a la cual le vamos a
     aplicar el efecto scroll en este caso a section_header
 */
-let sectionScroll = document.querySelector('#section-scroll');
+let sectionScroll = document.querySelector('#header-scroll');
 let ulDropdown = document.querySelector('#ul-dropdown');
 
 /* 
@@ -42,23 +42,23 @@ let ulDropdown = document.querySelector('#ul-dropdown');
 */
 window.addEventListener('scroll', () => {
 	/* 
-        si la altura en el eje Y es mayor a 100 
+        si la altura en el eje Y es mayor a 102
         añadimos a headerScroll una clase definida en 
         la hoja de estilos
     */
-	if (window.pageYOffset > 100) {
-		sectionScroll.classList.add('js_scroll_navbar');
+	if (window.pageYOffset > 102) {
+		sectionScroll.classList.add('js_header_scroll');
 		ulDropdown.classList.add('js_scroll_dropdown');
 	} else {
 		/* 
             de lo contrario removemos de headerScroll la clase
         */
-		sectionScroll.classList.remove('js_scroll_navbar');
+		sectionScroll.classList.remove('js_header_scroll');
 		ulDropdown.classList.remove('js_scroll_dropdown');
 	}
 });
 
-// ------------------ end scroll header ----------- //
+// ------------------ end header scroll ----------- //
 
 // ------------------ start show dropdown --------- //
 

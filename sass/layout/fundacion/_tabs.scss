@@ -1,0 +1,275 @@
+/*
+	importacion de las fuentes
+*/
+// @import '../../shared/fonts';
+
+
+.section_fundacion_tabs {
+    background: url(../../../assets/img/fundacion/mision_vi_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    padding: 100px 0;
+
+    /*
+		container_name: contenedor definido para manejar
+		el responsive implementando width
+	*/
+	.container_fundacion_tabs {
+		max-width: 100%;
+		margin: 0 auto;
+
+		@media (min-width: 768px) {
+			max-width: 720px;
+			padding: 0 15px;
+		}
+
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+
+		/*
+            flexbox_name
+        */
+		.flexbox_fundacion_tabs {
+			/*
+				@query 768px ==> : definimos flexbox y su 
+				propiedad space-between para generar espaciado
+				entre los elementos que este contiene
+			*/
+			@media (min-width: 992px) {
+				display: flex;
+				justify-content: space-between;
+                align-items: center;
+			}
+
+			/*
+                tab_header
+            */
+			.tab_fundacion_header {
+				/*
+					@query 768px ==> : definimos width: 50% para que ocupe
+					ese espacio dentro de su contenedor padre
+				*/
+				@media (max-width: 991px) {
+					width: 100%;
+                    max-width: 440px;
+                    margin: 0 auto;
+				}
+
+				@media (min-width: 992px) {
+					width: 280px
+				}
+
+				/*
+                    tab_content_header: importante definirle 
+					position: relative ya que la clase js_header_active 
+					tiene definido position: absolute
+                */
+				.tab_info {
+                    background-color: #000000cc;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					cursor: pointer;
+					padding: 10px;
+                    
+					&:nth-child(2) {
+                        margin: 16px 0;
+                    }
+                    
+                    &.js_header_active h2 {
+                        color: #ff671b;
+                    }
+
+                    &.js_header_active svg {
+                        background-color: #ff671b;
+                        fill: #000;
+                    }
+
+                    &.js_header_active .icon_plus {
+                        display: none;
+                    }
+
+                    &.js_header_active .icon_minus {
+                        display: block;
+                    }
+
+                    h2 {
+                        color: #fff;
+                        font-size: 22px;
+                        font-family: '@sansation-bold', sans-serif;
+                        transition: color .1s;
+
+                        @media (max-width: 767px) {
+                            font-size: 30px;
+                        }
+                    }
+
+                    svg {
+                        background-color: #fff;
+                        fill: #000;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 100%;
+                    }
+
+                    .icon_minus {
+                        display: none;
+                    }
+
+				}
+			}
+
+			/*
+                tab_body
+            */
+			.tab_fundacion_body {
+
+				@media (min-width: 992px) {
+					width: calc(100% - 280px);
+                    padding-left: 50px;
+				}
+
+                .tab_content_body {
+
+                    /*
+                        js_header_active
+                    */
+                    &.js_body_hidden {
+                        transition: .5s;
+                        display: none;
+                        /*
+                            @query 768px ==> : clase añadida con javascript que
+                            nos permite ocultar el contenedor tab_body
+                        */
+                        // @media (min-width: 768px) {
+                        // }
+                    }
+
+                    &.js_body_hidden .content_tab {
+                        @keyframes animationTag  {
+                            0% {
+                                transform: translateY(100px);
+                            }
+                            100% {
+                                transform: translateY(0px)
+                            }
+                        }
+                    }
+
+                    .container_tab {
+                        
+                        @media (max-width: 767px) {
+                            padding: 1.25rem 0;
+                        }
+
+                        @media (min-width: 768px) {
+                            padding: 1.25rem;
+                        }
+
+                        /*
+                            tab_content_body
+                        */
+                        .content_tab {
+                            animation: animationTag .4s;
+
+                            .box_paragraph {
+                                position: relative;
+                                padding: 40px 30px;
+                                
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: #000000cc;
+                                }
+            
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    display: block;
+                                    background-color: #ff671b;
+                                    width: 275px;
+                                    height: 8px;
+                                }
+
+                                p {
+                                    position: relative;
+                                    z-index: 4;
+                                    color: #fff;
+                                    font-family: '@nunito-regular', sans-serif;
+                                    line-height: 26px;
+                                }
+
+                                .especial_paragraph {
+                                    margin: 15px 0;
+                                }
+                            }
+
+                            .box_links {
+                                
+                                @media (min-width: 768px) {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    margin-top: 15px;      
+                                }
+
+                                a {
+                                    text-decoration: none;
+                                    text-align: center;
+                                    background-color: rgba(0,0,0, .4);
+                                    color: #fff;
+                                    font-size: 14px;
+                                    font-family: '@sansation-regular', sans-serif;
+                                    border-radius: 4px;
+                                    padding: 7px 10px;
+                                    transition: .3s;
+
+                                    &:nth-child(2) {
+                                        @media (min-width: 768px) {
+                                            margin: 0 15px;
+                                        }
+                                    }
+
+                                    &:hover {
+                                        background-color: #000000cc;
+                                    }
+
+                                    @media (max-width: 991px) {
+                                        border: 1px solid transparent;
+                                        
+                                        &:hover {     
+                                            border: 1px solid #ff671b;
+                                        }
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        display: block;
+                                        text-align: center;
+                                        font-size: 20px;
+                                        line-height: 1.2;
+                                        width: 100%;
+                                        max-width: 440px;
+                                        margin: 20px auto 0;
+                                        padding: 14px 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+			}
+		}
+	}
+}

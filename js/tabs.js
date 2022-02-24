@@ -2,7 +2,7 @@
 	$tabHeader: alamacena el elemento html al cual le 
   	vamos a aplicar clases con javascript
 */
-let $tabHeader = document.querySelectorAll('.tab_content_header');
+let $tabInfo = document.querySelectorAll('.tab_info');
 
 /* 
 	$tabBody: alamacena el elemento html al cual le 
@@ -11,39 +11,24 @@ let $tabHeader = document.querySelectorAll('.tab_content_header');
 let $tabBody = document.querySelectorAll('.tab_content_body');
 
 /* 
-	$tabImg: alamacena el elemento html al cual le 
-  	vamos a aplicar clases con javascript
-*/
-let $tabImg = document.querySelectorAll('.tab_content_img');
-
-/* 
-  realizamos un forEach en la variable $tabLi,
+  realizamos un forEach en la variable $tabHeader,
   tomamos el parametro i que nos arroja la posicion
   de un elemento dentro del arreglo
 */
-$tabHeader.forEach((element, i) => {
+$tabInfo.forEach((element, i) => {
 	/*
 		pasamos a $tabHeader el parametro i y le añadimos
 		a cada elemento un evento click o podemos 
 		reemplazarlo por un evento mouseover
 	*/
-	$tabHeader[i].addEventListener('click', () => {
+	$tabInfo[i].addEventListener('click', () => {
 		/* 
-			realizamos un forEach en la variable $tabHeader,
+			realizamos un forEach en la variable $tabInfo,
 			y le agregamos a cada elemento la clase
 			js_header_active definida en la hoja de estilos
 		*/
-		$tabHeader.forEach((header) => {
-			header.classList.remove('js_header_active');
-		});
-
-		/* 
-			realizamos un forEach en la variable $tabImg,
-			y le agregamos a cada elemento la clase
-			js_img_hidden definida en la hoja de estilos
-		*/
-		$tabImg.forEach((img) => {
-			img.classList.add('js_img_hidden');
+		$tabInfo.forEach((info) => {
+			info.classList.remove('js_header_active');
 		});
 
 		/* 
@@ -60,14 +45,7 @@ $tabHeader.forEach((element, i) => {
 			definido forEach inicial y le añadimos la clase
 			js_header_active definida en la hoja de estilos
 		*/
-		$tabHeader[i].classList.add('js_header_active');
-
-		/* 
-			pasamos a la variable $tabImg el parametro i 
-			definido en el forEach inicial y le removemos la clase
-			js_img_active definida en la hoja de estilos
-		*/
-		$tabImg[i].classList.remove('js_img_hidden');
+		$tabInfo[i].classList.add('js_header_active');
 
 		/* 
 			pasamos a la variable $tabBody el parametro i 
