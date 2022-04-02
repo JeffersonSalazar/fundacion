@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inversion Social</title>
+		<link rel="stylesheet" href="./sass/style.css" />
+	</head>
+	<body id="body">
+		<!--  
+			_section_header: contenedor de la sección, le definimos un ID
+			_para implementar este elemento en javascript
+		-->
+		<header class="section_header" id="header-scroll">
+			<!--  
+				container_header: contenedor definido para manejar el
+				responsive de la sección
+			-->
+			<div class="container_header">
+				<!--  
+					header_flexbox: contenedor definido para implementar
+					flexbox o grid en la sección
+				-->
+				<div class="header_flexbox">
+					<!--  
+                        content_logoNit_iconBurger: contiene 1 tag-a y 1 tag-svg
+                    -->
+					<div class="content_logoNit_iconBurger">
+						<!-- 
+							.tag-a: contiene 1 tag-img 
+						-->
+						<a href="./index.html">
+							<!-- 
+								.tag-img: en esta definimos el logo empresarial
+							-->
+							<img
+								src="./assets/img/fundacion_bolivar_davivenda.png"
+								alt="Fundación Bolivar Davivienda"
+								title="Fundación Bolivar Davivienda"
+							/>
+						</a>
+
+						<!-- 
+							.tag-svg: en esta definimos el icono hamburguesa del
+							.menu de navegación, le definimos un ID para implementar
+							.este elemento en javascript
+						-->
+						<svg
+							viewBox="0 0 24 24"
+							id="icon-burger"
+						>
+							<path
+								d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+							></path>
+						</svg>
+					</div>
+
+					<!--  
+						.nav_header: contenedor de box_close_menu caja y ul_navbar,
+						.le definimos un ID para implementar este elemento en javascript
+					-->
+					<nav class="nav_header" id="content-nav">
+						<!--  
+							content_titleMenu_iconClose: contenedor de 1 tag-h3
+							y 1 tag-svg
+						-->
+						<section class="content_titleMenu_iconClose">
+							<!-- 
+								.tag-h3: en esta definimos el titulo del menu 
+							-->
+							<h3>Menu</h3>
+
+							<!--  
+								.tag-svg: en esta definimos el icono que cierra
+								.el menu de navegación, le definimos un ID para
+								.implementar este elemento en javascript
+							-->
+							<svg
+								viewBox="0 0 24 24"
+								id="icon-close"
+							>
+								<path
+									d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+								></path>
+							</svg>
+						</section>
+
+						<!--  
+							.ul_header: contiene a 7 tags-li
+						-->
+						<ul class="ul_header">
+							<!--  
+								.tag-li: contiene 1 tag-a
+							-->
+							<li>
+								<!--  
+									.tag-a: en este definimos el enlace del menu
+									.de navegación
+								-->
+								<a href="./la-fundacion.html">
+									La Fundación
+								</a>
+							</li>
+
+							<!--  
+								.li_dropdown: contiene 1 tag-a y 1 tag-ul, le definimos
+								.un ID para implementar este elemento en javascript
+							-->
+							<li class="li_dropdown" id="li-dropdown">
+								<!--  
+									.tag-a: contiene 1 tag-svg
+								-->
+								<a href="#">
+									Nuestros Programas
+
+									<!--  
+										.tag-svg: en esta definimos el icono de guia para
+										.el dropdown
+									-->
+									<svg viewBox="0 0 24 24">
+										<path
+											d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"
+										></path>
+									</svg>
+								</a>
+
+								<!--  
+									.ul_dropdown: contenedor del sub menu de navegación
+								-->
+								<ul class="ul_dropdown" id="ul-dropdown">
+									<li>
+										<a href="./aflora.html">Aflora</a>
+									</li>
+
+									<li>
+										<a href="./becas-al-talento.html">Becas al Talento</a>
+									</li>
+
+									<li>
+										<a href="./cultivarte.html">Cultivarte</a>
+									</li>
+
+									<li>
+										<a href="./emprende-pais.html">Emprende País</a>
+									</li>
+
+									<li>
+										<a href="./filarmonica.html">
+											Filarmónica Joven de Colombia
+										</a>
+									</li>
+
+									<li>
+										<a href="./inversion.html">Inversión Social</a>
+									</li>
+
+									<li>
+										<a href="./voluntariado.html">
+											Voluntariado Familia Bolivar
+										</a>
+									</li>
+
+									<li>
+										<a href="/premio-nacional-de-periodismo">
+											Premio Nacional de Periodismo
+										</a>
+									</li>
+
+									<li>
+										<a href="/red-de-angeles">
+											Red de Ángeles Inversionistas
+										</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="/actualidad">Actualidad</a>
+							</li>
+
+							<li>
+								<a href="/eventos">Eventos</a>
+							</li>
+
+							<li>
+								<a
+									href="https://www.sostenibilidadfundacionbolivardavivienda.org/"
+									target="_blank"
+								>
+									Informe de Sostenibilidad
+								</a>
+							</li>
+
+							<li>
+								<a
+									href="https://fundacionbolivardavivienda.secure.force.com/fbdcontactenos/fbd_FormularioContactenos"
+									target="_blank"
+								>
+									Contacto
+								</a>
+							</li>
+
+							<li>
+								<a href="/about-us" target="_blank">About us</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<!-- 
+				_section_aflora_banner: contenedor de la sección
+			-->
+			<div class="section_aflora_banner">
+				<!-- 
+					container_aflora_banner: contenedor encargado de
+					manejar el responsive de la sección
+				-->
+				<div class="container_aflora_banner">
+					<!-- 
+						flexbox_aflora_banner: contenedor definido para implementar
+						flexbox o grid en la sección
+					-->
+					<div class="flexbox_aflora_banner">						
+                        <!-- 
+                            content_aflora: contenedor de container_box_aflora y
+							box_aflora_img
+                        -->
+                        <div class="content_aflora">
+                            <!-- 
+                                container_box_aflora: contenedor de box_aflora
+                            -->
+							<div class="container_box_aflora">
+								<!--  
+									box_aflora: contenedor de box_aflora_logo y
+									box_aflora_info
+								-->
+								<div class="box_aflora">
+									<!--  
+										box_aflora_logo: contenedor de 1 tag-img
+									-->	
+									<div class="box_aflora_logo">
+										<!--  
+											.tag-img: en esta definimos el logo de aflora banner
+										-->
+										<img src="./assets/img/inversion/Logo-Inversión-Social_Blanco.png" alt="logo inversión social">
+									</div>				
+
+									<!--  
+										box_aflora_info: contenedor de  y 2 tags-p y 1 tag-h1
+									-->
+									<section class="box_aflora_info">
+										<!--  
+											.tag-p: en esta definimos el párrafo de aflora banner
+										-->
+										<p>El Programa</p>
+
+										<!--  
+											.tag-h1: en esta definimos el titulo de aflora banner
+										-->
+										<h1>Inversión Social</h1>
+
+										de la Fundación Bolívar Davivienda,
+										es un camino para apoyar iniciativas de impacto social. Un espacio
+										donde impulsamos proyectos que transforman historias con
+										soluciones sostenibles. En equipo con nuestros aliados
+										multiplicamos nuestro resultado en: Proyecto de Vida y Prevención
+										de Embarazo Adolescente, Desarrollo Económico en comunidades
+										rurales, Fortalecimiento Familiar e Inclusión Educativa. 
+
+										<p class="extra_paragraph">
+											Tenemos presencia en más de 18 departamentos a lo largo del
+											territorio Nacional, con más de 17.000 beneficiarios directos en
+											nuestros diferentes programas.
+										  </p>
+									</section>
+								</div>
+							</div>
+
+							<!--  
+								box_aflora_img: contiene 2 tags-img
+							-->
+							<div class="box_aflora_img">
+								<!--  
+									.tag-img: en esta definimos la imagen de aflora banner para
+									.destok
+								-->
+								<img src="./assets/img/inversion/encabezado_inversion_social.jpg" alt="inversión social" class="img_destok"/>
+								
+								<!--  
+									.tag-img: en esta definimos la imagen de aflora banner para
+									.dispositivos móvil
+								-->
+								<img src="./assets/img/inversion/encabezado_inversionsocial_mobile.jpg" alt="inversión social" class="img_movil"/>
+							</div>
+                        </div>		
+					</div>
+				</div>
+			</div>	
+			
+			<!--  
+				_section_aflora_links: contenedor de container_aflora_links
+			-->
+			<div class="section_aflora_links">
+				<!--  
+					container_aflora_links: contenedor de flexbox_aflora_links
+				-->
+				<div class="container_aflora_links">
+					<!--  
+						flexbox_aflora_links: contiene 3 tags-a
+					-->
+					<div class="flexbox_aflora_links">
+						<!--  
+							tag-a: en esta definimos los enlaces de la sección
+						-->
+						<a href="/inversion-social/conozcanos">Conózcanos</a>
+
+						<a href="/inversion-social/desarrollamos-talento">Desarrollamos talento</a>
+						
+                        <a href="/inversion-social/convocatorias">Convocatorias</a>
+					</div>
+				</div>
+			</div>
+
+			<!--  
+				_section_aflora_card: contenedor de la sección
+			-->
+			<div class="section_aflora_card">
+				<!--  
+					container_aflora_card: contenedor encargado de manejar 
+					el responsive de la sección
+				-->
+				<div class="container_aflora_card">
+					<!--  
+						flexbox_aflora_card: contenedor definido para
+						implementar flexbox o grid en la sección
+					-->
+					<div class="flexbox_aflora_card">
+						<!--  
+							box_aflora_card: contenedor de content_aflora_card,
+							este tiene clases definidas de la librería wow.js
+						-->
+						<div class="wow box_aflora_card card_left_text">
+							<!--  
+								content_aflora_card: contenedor de 1 tag-h2 y
+								1 tag-p
+							-->
+							<section class="content_aflora_card">
+								<!--  
+									.tag-h2: en esta definimos el titulo de la card
+								-->
+								<h2>¿Qué hacemos?</h2>
+
+								<!--  
+									.tag-p: en esta definimos el párrafo de la card
+								-->
+								<p>								   
+                                    Impulsamos iniciativas que logran cambios significativos a
+                                    mediano y largo plazo. En Inversión Social queremos fortalecer
+                                    proyectos con propuestas y métodos de trabajo participativos,
+                                    con un alto potencial de impacto.
+								</p>
+							</section>
+						</div>
+
+						<!--  
+							box_aflora_card_img: contiene 1 tag-img, este contenedor
+							también tiene clases definidas de la librería wow.js
+						-->
+						<div class="wow box_aflora_card_img card_right_img">
+							<!--  
+								.tag-img: en esta definimos la imagen de la card
+							-->
+							<img src="./assets/img/inversion/rectangle_l.jpg" alt="inversión social" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+				_section_banner_static 
+			-->
+			<div class="section_banner_static">
+				<!-- 
+					container_banner_static: contenedor definido para manejar
+					el responsive de la sección
+				-->
+				<div class="container_banner_static">
+					<!-- 
+						content_points
+					-->
+					<div class="content_points points_top">
+						. . . . . . . . . . . . <br />
+						. . . . . . . . . . . . <br />
+						. . . . . . . . . . . . <br />
+						. . . . . . . . . . . . <br />
+						. . . . . . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . .
+					</div>
+
+					<!-- 
+						flexbox_banner_static: contenedor definido para 
+						implementar flexbox o grid en la sección
+					-->
+					<div class="flexbox_banner_static">
+						<!--  
+							box_banner_static: contiene 1 tag-small, 1 tag-h2, 1 tag-p
+							y 1 tag-a
+						-->
+						<section class="box_banner_static">
+							<!--  
+								.tag-small: en esta definimos el subtitulo del banner
+							-->
+							<small>Sobre nosotros..</small>
+
+							<!--  
+								.tag-h2: en esta definimos el titulo del banner
+							-->
+							<h2>
+								Desarrollamos<br />
+								Talento
+							</h2>
+
+							<!--  
+								.tag-p: en esta definimos el párrafo del banner
+							-->
+							<p>
+								Somos un equipo que une. Que invita a explorar con creatividad y
+								a nunca dejar de innovar. A encontrar el éxito en cada esfuerzo.
+								Que ayuda a conectar el talento con el cambio.
+							</p>
+
+							<!--  
+								.tag-a: en esta definimos el botón del banner
+							-->
+							<a href="#">Conozca mas</a>
+						</section>
+					</div>
+
+					<!-- 
+						content_points
+					-->
+					<div class="content_points points_bottom">
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+						. . . . . . . . <br />
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!--  
+			_ghost_container: este contenedor se encarga de generar 
+			_un espaciado entre tag-main y tag-footer, sus estilos
+			_están definidos en la hoja de estilos style.scss
+		-->
+		<div class="ghost_container"></div>
+
+		<!--  
+			_section_footer: contenedor de la sección
+		-->
+		<footer class="section_footer">
+			<!--  
+				container_footer: contenedor definido para
+				manejar el responsive de la sección
+			-->
+			<div class="container_footer">
+				<!-- 
+					box_line: contenedor de 1 tag-hr
+				-->
+				<div class="box_line">
+					<!--  
+						.tag-hr: es esta definimos la linea marcada 
+						.en la parte superior del footer
+					-->
+					<hr />
+				</div>
+
+				<!--  
+					content_accordion: contenedor de 6 box_accordion
+				-->
+				<div class="content_accordion">
+					<!-- 
+						box_accordion: contenedor de accordion_header y de
+						accordion_body, esta clase también es implementada
+						en javascript
+					-->
+					<div class="box_accordion">
+						<!-- 
+							accordion_header: contenedor de 1 tag-h3 y 1 tag-svg 
+						-->
+						<section class="accordion_header">
+							<!--  
+								.tag-h3: en esta definimos el titulo del acordeón
+							-->
+							<h3>Nuestros programas</h3>
+
+							<!--  
+								.tag-svg: en esta definimos el icono del acordeón
+							-->
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<!-- 
+							accordion_body: contenedor de ul_accordion
+						-->
+						<div class="accordion_body">
+							<!--  
+								ul_accordion: contenedor de 9 tags-li
+							-->
+							<ul class="ul_accordion">
+								<!--  
+									.tag-li: contenedor de 1 tag-a
+								-->
+								<li>
+									<!--  
+										.tag-a: en este definimos el enlace de navegación
+										.del acordeón
+									-->
+									<a href="/aflora" target="_blank">Aflora</a>
+								</li>
+
+								<li>
+									<a href="/becas-al-talento" target="_blank">
+										Becas al talento
+									</a>
+								</li>
+
+								<li><a href="/cultivarte" target="_blank">Cultivarte</a></li>
+
+								<li>
+									<a href="/emprende-pais" target="_blank">Emprende país</a>
+								</li>
+
+								<li>
+									<a href="/filarmonica-joven-de-colombia" target="_blank">
+										Filarmónica Joven de Colombia
+									</a>
+								</li>
+
+								<li>
+									<a href="/inversion-social" target="_blank">
+										Inversión social</a
+									>
+								</li>
+
+								<li>
+									<a href="/premio-nacional-de-periodismo" target="_blank">
+										Premio Nacional de Periodismo
+									</a>
+								</li>
+
+								<li>
+									<a href="/red-de-angeles" target="_blank">
+										Red de Angeles Inversionistas
+									</a>
+								</li>
+
+								<li>
+									<a href="/voluntariado-fundacion-bolivar" target="_blank">
+										Voluntariado Familia Bolívar
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- accordion two -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Legales</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<ul class="ul_accordion">
+								<li>
+									<a
+										href="/legales/Footer_Legales_Autorizacion_Tratamiento_de_Datos_Personales_FBD_y_Cultivarte.pdf"
+										target="_blank"
+									>
+										Autorización de datos personales
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Aviso_de_privacidad_FBD.pdf"
+										target="_blank"
+									>
+										Aviso de privacidad Fundación Bolívar Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Aviso_de_privacidad_Cultivarte.pdf"
+										target="_blank"
+									>
+										Aviso de privacidad Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Política_de_tratamiento_de_datos_FBD.pdf"
+										target="_blank"
+									>
+										Política de tratamiento de datos Fundación Bolívar
+										Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Politica_de_tratamiento_de_datos_Cultivarte.pdf"
+										target="_blank"
+									>
+										Política de tratamiento de datos Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Terminos_y_Condiciones_FBD_2020.pdf"
+										target="_blank"
+									>
+										Términos y condiciones
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- accordion three -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Documentación</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<ul class="ul_accordion">
+								<li>
+									<a
+										href="/legales/Footer_Documentos_Registro_Web_DIAN_FBD.pdf"
+										target="_blank"
+									>
+										Registro Web DIAN Fundación Bolívar Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Documentos_Registro_Web_DIAN_Cultivarte.pdf"
+										target="_blank"
+									>
+										Registro Web DIAN Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Reglamento_Inscripciones_Programas.pdf"
+										target="_blank"
+									>
+										Reglamento de inscripción a programas
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- accordion four -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Datos de contacto</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<p>
+								Av. Calle 26 # 69-63. Piso 11. <br />
+								Bogotá, Colombia
+							</p>
+						</div>
+					</div>
+
+					<!-- accordion five -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Recepción</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<p>(+57 1) 2201610 ext 98981</p>
+						</div>
+					</div>
+
+					<!-- accordion six -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Teléfono</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<p>(+57 1) 2201610 ext 98706</p>
+						</div>
+					</div>
+
+					<!-- accordion seven -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Fax</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
+							<p>(+57 1) 2201578</p>
+						</div>
+					</div>
+				</div>
+
+				<!--  
+					content_columns: contenedor de 4 content_column
+				-->
+				<div class="content_columns">
+					<!-- 
+						content_column_one: contenedor de box_logo_footer y de 
+						box_social_media
+					-->
+					<div class="content_column_one">
+						<!--  
+							box_logo_footer: contenedor de 1 tag-img
+						-->
+						<div class="box_logo_footer">
+							<!--  
+								.tag-img: en esta definimos el logo del footer
+							-->
+							<img
+								src="./assets/img/fundacion_bolivar_davivenda.png"
+								alt="Fundación Bolivar"
+							/>
+						</div>
+
+						<!--  
+							box_social_media: contenedor de 1 tag-h4 y 5 tags-a
+						-->
+						<section class="box_socials_media">
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
+							<h4>Síguenos</h4>
+
+							<!--  
+								.tags-a: en estas definimos los iconos de las redes 
+								.sociales
+							-->
+							<a
+								href="https://www.facebook.com/fundacionbolivardavivienda/"
+								target="_blank"
+							>
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M16.5 3.46c-.79-.09-1.58-.13-2.37-.12-1.07-.05-2.11.33-2.89 1.06-.76.81-1.15 1.89-1.08 3v2.28H7.5v3.08h2.65v7.9h3.19v-7.9H16l.41-3.08h-3.07v-2c-.03-.4.08-.79.31-1.12.33-.29.77-.43 1.21-.37h1.64V3.46z"
+										vector-effect="non-scaling-stroke"
+									/>
+								</svg>
+							</a>
+
+							<a
+								href="https://www.instagram.com/fundacionbd/"
+								target="_blank"
+							>
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M13.88 13.88a2.665 2.665 0 0 1-3.76.01l-.01-.01a2.665 2.665 0 0 1-.01-3.76l.01-.01a2.665 2.665 0 0 1 3.76-.01l.01.01c.95 1.02.86 2.67 0 3.77zm1-4.79c-.76-.77-1.8-1.2-2.88-1.19a4.089 4.089 0 0 0-4.1 4.08V12a4.089 4.089 0 0 0 4.08 4.1H12c2.26.01 4.09-1.82 4.1-4.08V12c.01-1.09-.42-2.14-1.2-2.9l-.02-.01zm2-2c-.38-.4-1.02-.41-1.41-.03s-.41 1.02-.03 1.41 1.02.41 1.41.03c.2-.19.31-.46.31-.73a.9.9 0 0 0-.21-.72l-.07.04zM12.8 5.44h2.1c.36.01.72.04 1.07.1.25.04.5.1.74.19.69.28 1.24.83 1.52 1.52.09.24.15.49.19.74.06.35.09.71.1 1.07v5.8a7.6 7.6 0 0 1-.1 1.07c-.04.25-.1.5-.19.74-.28.69-.83 1.24-1.52 1.52-.24.09-.49.15-.74.19a7.6 7.6 0 0 1-1.07.1H9.11c-.37.01-.74-.01-1.11-.05-.25-.04-.5-.1-.74-.19-.69-.28-1.24-.83-1.52-1.52-.08-.23-.13-.48-.17-.72a7.6 7.6 0 0 1-.1-1.07v-5.8c.01-.38.04-.76.1-1.13.04-.25.1-.5.19-.74a2.7 2.7 0 0 1 1.52-1.5c.23-.08.47-.15.72-.19a7.6 7.6 0 0 1 1.07-.1h3.73v-.03zm7.14 3.26c.01-1.24-.45-2.44-1.29-3.35-.91-.84-2.11-1.3-3.35-1.29C14.69 4.02 13.59 4 12 4s-2.69.02-3.3.05c-1.24-.01-2.44.46-3.35 1.3-.84.91-1.3 2.11-1.29 3.35C4.02 9.31 4 10.41 4 12s.02 2.69.05 3.3c-.01 1.24.45 2.44 1.29 3.35.91.84 2.12 1.3 3.36 1.29.61.04 1.71.06 3.3.06s2.69-.02 3.3-.05c1.24.01 2.44-.45 3.35-1.29.84-.91 1.3-2.11 1.29-3.35.04-.62.06-1.72.06-3.31s-.02-2.69-.06-3.3z"
+										vector-effect="non-scaling-stroke"
+									/>
+								</svg>
+							</a>
+
+							<a
+								href="https://www.linkedin.com/company/fundaci%C3%B3n-bol%C3%ADvar-davivienda/"
+								target="_blank"
+							>
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M4.19 9.32v10.32h3.44V9.32H4.19zm3.66-3.18c.01-.48-.18-.94-.53-1.28-.37-.34-.87-.52-1.38-.5-.51-.02-1.01.16-1.4.5-.36.33-.56.79-.55 1.28-.01.48.18.94.52 1.27.37.35.86.53 1.37.51.52.02 1.03-.16 1.41-.51.35-.33.55-.79.53-1.27h.03zm12.14 7.59c.09-1.25-.3-2.48-1.08-3.46a3.725 3.725 0 0 0-2.86-1.18c-.4 0-.8.05-1.19.16-.32.1-.61.25-.87.45-.21.16-.41.34-.59.54-.16.18-.3.38-.43.58v-1.5H9.52v10.32h3.47v-5.76c-.03-.3 0-.59.07-.88.14-.35.37-.65.66-.89.31-.25.7-.37 1.1-.36.52-.04 1.02.2 1.32.62.31.52.45 1.11.42 1.71v5.52h3.43v-5.87z"
+										vector-effect="non-scaling-stroke"
+									/>
+								</svg>
+							</a>
+
+							<a
+								class="socials-media-box__links"
+								href="https://twitter.com/FundacionBD?lang=es"
+								target="_blank"
+							>
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M20.2 6.92c-.62.27-1.27.45-1.94.52a3.24 3.24 0 0 0 1.48-1.85c-.66.39-1.38.67-2.13.81a3.358 3.358 0 0 0-4.76-.15c-.03.02-.05.05-.08.07-.65.62-1.01 1.48-1 2.38 0 .26.03.52.08.77A9.253 9.253 0 0 1 8 8.43 9.52 9.52 0 0 1 4.94 6a3.373 3.373 0 0 0-.05 3.3c.27.47.65.86 1.11 1.15-.54-.02-1.07-.18-1.54-.45-.01.78.26 1.54.77 2.14.49.6 1.17 1.01 1.93 1.16a3.721 3.721 0 0 1-1.52.06c.44 1.37 1.7 2.3 3.14 2.33-1.17.97-2.65 1.5-4.17 1.51-.27.02-.54.02-.81 0 1.55.99 3.36 1.5 5.2 1.46 1.14.01 2.28-.19 3.36-.57.96-.34 1.86-.85 2.64-1.51.74-.63 1.39-1.37 1.92-2.19.52-.8.93-1.67 1.2-2.59.26-.88.4-1.79.4-2.7v-.44c.66-.48 1.23-1.07 1.68-1.74z"
+										vector-effect="non-scaling-stroke"
+									/>
+								</svg>
+							</a>
+
+							<a
+								href="https://www.youtube.com/channel/UCEcX3O1scgTJ9qpLwrpEb-A"
+								target="_blank"
+							>
+								<svg viewBox="0 0 24 24">
+									<path
+										d="M10.07 14.47V9.23l5 2.63-5 2.6v.01zm1.93-9c-2.61 0-4.78.06-6.53.19h-.66c-.1.02-.2.04-.3.08l-.29.14a1.991 1.991 0 0 0-.62.48l-.15.29c-.14.2-.25.41-.33.64-.13.32-.22.66-.26 1-.13.99-.2 2-.19 3v1.83c0 .29.02.68.06 1.18.04.5.08.97.13 1.42.05.36.14.71.28 1.05.08.21.18.42.3.61l.16.25c.17.18.37.32.59.43.17.09.35.16.53.22.19.04.38.08.57.1h.88l2.09.08c1.06 0 2.31.02 3.74.07 2.61 0 4.78-.07 6.53-.2h.66c.1-.02.2-.04.3-.08l.29-.13c.11-.05.22-.12.32-.2.11-.08.21-.18.3-.28l.15-.18c.14-.2.25-.41.33-.64.13-.32.22-.66.26-1 .13-.99.2-2 .19-3v-1.89c0-.29-.02-.68-.06-1.18s-.08-.98-.13-1.43a4.29 4.29 0 0 0-.28-1.05c-.08-.21-.18-.42-.3-.61l-.16-.19a1.991 1.991 0 0 0-.62-.48l-.29-.14c-.1-.04-.2-.06-.3-.08h-1.42c-.51-.13-1.31-.2-2.39-.23S13.17 5.5 12 5.49v-.02z"
+										vector-effect="non-scaling-stroke"
+									/>
+								</svg>
+							</a>
+						</section>
+					</div>
+
+					<!--  
+						content_column_two: contenedor de 1 tag-h4 y de 
+						ul_column_two
+						-->
+					<section class="content_column_two">
+						<!--  
+							.tag-h4: en esta definimos el titulo de la columna
+						-->
+						<h4>Nuestros programas</h4>
+
+						<!--  
+							ul_column_two: contenedor de 9 tags-li
+						-->
+						<ul class="ul_column_two">
+							<!--  
+								.tag-li: contenedor de 1 tag-a
+							-->
+							<li>
+								<!--  
+									.tag-a: en esta definimos el enlace de navegación
+								-->
+								<a href="/aflora" target="_blank">Aflora</a>
+							</li>
+
+							<li>
+								<a href="/becas-al-talento" target="_blank">Becas al talento</a>
+							</li>
+
+							<li><a href="/cultivarte" target="_blank">Cultivarte</a></li>
+
+							<li>
+								<a href="/emprende-pais" target="_blank">Emprende país</a>
+							</li>
+
+							<li>
+								<a href="/filarmonica-joven-de-colombia" target="_blank">
+									Filarmónica Joven de Colombia
+								</a>
+							</li>
+
+							<li>
+								<a href="/inversion-social" target="_blank">Inversión social</a>
+							</li>
+
+							<li>
+								<a href="/premio-nacional-de-periodismo" target="_blank">
+									Premio Nacional de Periodismo
+								</a>
+							</li>
+
+							<li>
+								<a href="/red-de-angeles" target="_blank">
+									Red de Angeles Inversionistas
+								</a>
+							</li>
+
+							<li>
+								<a href="/voluntariado-fundacion-bolivar" target="_blank">
+									Voluntariado Familia Bolívar
+								</a>
+							</li>
+						</ul>
+					</section>
+
+					<!-- 
+						content_column_three: contenedor de 2 box_info_three
+					-->
+					<div class="content_column_three">
+						<!--  
+							box_info_three: contenedor de 1 tag-h4 y de 
+							ul_column_three
+						-->
+						<section class="box_info_three">
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
+							<h4>Legales</h4>
+
+							<!--  
+								ul_column_three: contenedor de 6 tags-li
+							-->
+							<ul class="ul_column_three">
+								<!--  
+									.tag-li: contenedor de 1 tag-a
+								-->
+								<li>
+									<!--  
+										.tag-a: en esta definimos el enlace de navegación
+									-->
+									<a
+										href="/legales/Footer_Legales_Autorizacion_Tratamiento_de_Datos_Personales_FBD_y_Cultivarte.pdf"
+										target="_blank"
+									>
+										Autorización de datos personales
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Aviso_de_privacidad_FBD.pdf"
+										target="_blank"
+									>
+										Aviso de privacidad Fundación Bolívar Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Aviso_de_privacidad_Cultivarte.pdf"
+										target="_blank"
+									>
+										Aviso de privacidad Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Política_de_tratamiento_de_datos_FBD.pdf"
+										target="_blank"
+									>
+										Política de tratamiento de datos Fundación Bolívar
+										Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Legales_Politica_de_tratamiento_de_datos_Cultivarte.pdf"
+										target="_blank"
+									>
+										Política de tratamiento de datos Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Terminos_y_Condiciones_FBD_2020.pdf"
+										target="_blank"
+									>
+										Términos y condiciones
+									</a>
+								</li>
+							</ul>
+						</section>
+
+						<section class="box_info_three">
+							<h4>Documentación</h4>
+
+							<ul class="ul_column_three">
+								<li>
+									<a
+										href="/legales/Footer_Documentos_Registro_Web_DIAN_FBD.pdf"
+										target="_blank"
+									>
+										Registro Web DIAN Fundación Bolívar Davivienda
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Documentos_Registro_Web_DIAN_Cultivarte.pdf"
+										target="_blank"
+									>
+										Registro Web DIAN Cultivarte
+									</a>
+								</li>
+
+								<li>
+									<a
+										href="/legales/Footer_Reglamento_Inscripciones_Programas.pdf"
+										target="_blank"
+									>
+										Reglamento de inscripción a programas
+									</a>
+								</li>
+							</ul>
+						</section>
+					</div>
+
+					<!-- 
+						content_column_four: contenedor de 4 box_info_four
+					-->
+					<div class="content_column_four">
+						<!--  
+							box_info_four: contenedor de 1 tag-h4 y 1 tag-p
+						-->
+						<section class="box_info_four">
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
+							<h4>Datos de contacto</h4>
+
+							<!--  
+								.tag-h4: en esta definimos el texto de la columna
+							-->
+							<p>
+								Av. Calle 26 # 69-63. Piso 11. <br />
+								Bogotá, Colombia
+							</p>
+						</section>
+
+						<section class="box_info_four">
+							<h4>Recepción</h4>
+
+							<p>(+57 1) 2201610 ext 98981</p>
+						</section>
+
+						<section class="box_info_four">
+							<h4>Mesa de ayuda</h4>
+
+							<p>(+57 1) 2201610 ext 98706</p>
+						</section>
+
+						<section class="box_info_four">
+							<h4>Fax</h4>
+
+							<p>(+57 1) 2201578</p>
+						</section>
+					</div>
+				</div>
+
+				<!-- 
+					box-go_top: contenedor de 1 tag-svg, le definimos un 
+					ID para implementar este elemento en javascript
+				-->
+				<div class="box_go_top" id="go-top">
+					<!--  
+						.tag-svg: en este definimos el icono del go-top
+					-->
+					<svg viewBox="0 0 24 24">
+						<path
+							d="M20.1,12.45c0-0.36-0.14-0.7-0.39-0.95l-6.77-6.78c-0.25-0.25-0.59-0.39-0.95-0.38  c-0.35-0.01-0.7,0.13-0.94,0.39L4.28,11.5c-0.52,0.51-0.53,1.35-0.01,1.87c0,0,0.01,0.01,0.01,0.01l0.78,0.78  c0.51,0.52,1.34,0.52,1.85,0.02c0.01-0.01,0.01-0.01,0.02-0.02l3.06-3.04v7.33c-0.01,0.34,0.13,0.66,0.39,0.88  c0.26,0.23,0.6,0.35,0.94,0.34h1.33c0.34,0.01,0.68-0.11,0.94-0.34c0.26-0.22,0.41-0.55,0.4-0.89v-7.32l3.06,3.05  c0.24,0.26,0.58,0.41,0.94,0.4c0.36,0,0.7-0.14,0.95-0.4l0.78-0.78c0.25-0.25,0.39-0.59,0.39-0.94l0,0L20.1,12.45z"
+						></path>
+					</svg>
+				</div>
+
+				<!--  
+					.tag-p: definimos un ID para implementar este
+					.elemento en javascript
+				-->
+				<p class="box_copy_right" id="copy-right"></p>
+			</div>
+		</footer>
+
+		<!-- Wow JS -->
+		<script src="./js/wow.min.js"></script>
+
+		<!-- Custom JS -->
+		<script src="./js/main.js"></script>
+		<script src="./js/header.js"></script>
+		<script src="./js/footer.js"></script>
+	</body>
+</html>

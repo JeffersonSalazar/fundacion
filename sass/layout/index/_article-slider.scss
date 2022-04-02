@@ -1,75 +1,91 @@
 /*
-	importacion de las fuentes
-*/
-// @import '../shared/fonts';
-
-/*
-	varaibles implementadas en diferentes elementos
-*/
-$heightDestok: 700px;
-$heightQuery767: 400px;
-
-/*
-	medidas responsive
-*/
-$query480: 480px;
-$query575: 575px;
-$query767: 767px;
-
-/*
-    seccion_name: nos sirve para implementar margenes y espaciados 
-    con el fin de separar un contenedor de otros elementos en este caso 
+    section_article_slider 
 */
 .section_article_slider {
+	/*
+		_@query 768px ==> : definimos un padding para este elemento
+		_en esta medida
+	*/
 	@media (min-width: 768px) {
 		padding: 50px 0;
 	}
 
 	/*
-        container_name: definimos absolute y su propeidad z-index
-        para poscionar esta caja sobre la caja que contiene al slider.
-        width: 100% para que recupere todo el ancho del viewport
-		y un height para que el contenedor del slider no desmaquete
+        container_article_slider: definimos un max-width para que sea
+		el ancho mínimo de este contenedor, finalmente un margin: 0 auto
+		para centrarlo de manera horizontal
     */
 	.container_article_slider {
 		max-width: 100%;
 		margin: 0 auto;
 
+		/*
+			_@query 768px ==> : modificamos el max-width y definimos un padding 
+			_para este elemento en esta medida
+		*/
 		@media (min-width: 768px) {
 			max-width: 720px;
     		padding: 0 15px;
 		}
 
+		/*
+			_@query 992px ==> : modificamos el max-width de este elemento en esta medida
+		*/
 		@media (min-width: 992px) {
 			max-width: 960px;
 		}
 
+		/*
+			_@query 1200px ==> : modificamos el max-width de este elemento en esta medida
+		*/
 		@media (min-width: 1200px) {
 			max-width: 1140px;
 		}
 
 		/*
-        swiper: contenedor del slider a este es importante definirle la
-        misma altura que la seccion para que no genere desmaquetados
-    */
+        	swiper
+    	*/
 		.swiper {
+			/*
+				wiper-wrapper
+			*/
 			.swiper-wrapper {
+				/*
+					swiper-slide: definimos position: relative debido a que
+					uno de sus elementos hijos tiene definido position: absolute
+				*/
 				.swiper-slide {
 					position: relative;
 
+					/*
+						_@query 768px ==> : definimos flexbox con su propiedad
+						_align-items para centrar de manera vertical los elementos
+						_que este contiene
+					*/
 					@media (min-width: 768px) {
 						display: flex;
 						align-items: center;
 					}
 
+					/*
+						box_article: definimos position: absolute con ancho
+						total de su contenedor
+					*/
 					.box_article {
 						position: absolute;
-						width: 100%;
+						// width: 100%;
 
+						/*
+							_@query 768px ==> : definimos un left: 20px para separar 
+							_este elemento del borde del contenedor en esta medida
+						*/
 						@media (min-width: 768px) {
-							padding: 0 20px;
+							left: 20px;;
 						}
 
+						/*
+							tag-h3
+						*/
 						h3 {
 							background-color: #ff671b;
 							color: #fff;
@@ -77,10 +93,20 @@ $query767: 767px;
 							line-height: 1;
 							padding: 12px 25px;
 
+							/*
+								_@query 767px <== : definimos un tamaño de fuente
+								_para este elemento en esta medida
+							*/
 							@media (max-width: 767px) {
 								font-size: 38px;
 							}
 
+							/*
+								_@query 768px ==> :definimos display: inline-block para
+								_que este elemento ocupe el ancho total de su contenido,
+								_finalmente modificamos el tamaño de fuente y agregamos un
+								_margen en la parte inferior del elemento para esta medida
+							*/
 							@media (min-width: 768px) {
 								display: inline-block;
 								font-size: 48px;
@@ -88,28 +114,50 @@ $query767: 767px;
 							}
 						}
 
+						/*
+							tag-a
+						*/
 						a {
 							text-decoration: none;
 
+							/*
+								_@query 767px <== : definimos position: absolute
+								_con su propiedad top para posicionar este elemento,
+								_finalmente definimos un espaciado para esta medida
+							*/
 							@media (max-width: 767px) {
-								position: absolute;
-								top: 360px;
-								padding: 0 15px;
+								// position: absolute;
+								// top: 360px;
+								// width: 100%;
+								// padding: 0 15px;
 							}
 
+							/*
+								content_events
+							*/
 							.content_events {
 								background-color: rgba(49, 51, 56, 0.95);
 								padding: 20px;
 
+								/*
+									_@query 767px <== : definimos un ancho mínimo
+									_para este elemento en esta medida
+								*/
 								@media (max-width: 767px) {
 									max-width: 100%;
 								}
 
+								/*
+									_@query 768px ==> : definimos un ancho mínimo
+									_para este elemento en esta medida
+								*/
 								@media (min-width: 768px) {
 									max-width: 360px;
 								}
 
-
+								/*
+									tag-h4
+								*/
 								h4 {
 									color: #fff;
 									font-size: 16px;
@@ -117,6 +165,9 @@ $query767: 767px;
 									letter-spacing: normal;
 								}
 
+								/*
+									article_paragraph
+								*/
 								.article_paragraph {
 									color: #fff;
 									font-size: 14px;
@@ -125,18 +176,33 @@ $query767: 767px;
 									margin: 5px 0;
 								}
 
+								/*
+									content_events
+								*/
 								.content_dates {
+									/*
+										flexbox_dates: definimos flexbox y su propiedad
+										justify-content para generar espaciado entre los
+										elementos que este contiene
+									*/
 									.flexbox_dates {
 										color: #fff;
 										display: flex;
 										justify-content: space-between;
 
+										/*
+											tag-p
+										*/
 										p {
 											font-family: "@sansation-regular", sans-serif;
 											font-size: 14px;
 											line-height: 1.5;
 										}
 
+										/*
+											flex_paragraph: definimos un ancho calculado
+											donde restamos 70px del ancho total
+										*/
 										.flex_paragraph {
 											width: calc(100% - 70px);
 										}
@@ -160,11 +226,14 @@ $query767: 767px;
 						}
 
 						/*
-							tag-img: es importante a esta imagen definirle un width
-							y height igual al de su contenedor padre y la propiedad 
-							object-fit: cover para que se ajuste al contenedor
+							tag-img: es importante definir la propiedad vertical-align
+							para remover el espaciado que genera el navegador en las 
+							imágenes, finalmente definimos un ancho y alto del 100% 
+							justo con object-fit: cover para que esta se ajuste al 
+							tamaño de su contenedor
 						*/
 						img {
+							vertical-align: top;
 							width: 100%;
 							height: 100%;
 							object-fit: cover;
@@ -174,24 +243,35 @@ $query767: 767px;
 			}
 
 			/*
-                    box_icon_swiper: implementando flexbox en este contenedor
-                    podemos modificar la posicion de los iconos del slider
-                */
+				box_icon_slider: definimos flexbox
+			*/
 			.box_icon_slider {
 				display: flex;
+				background-color: dodgerblue;
 
+				/*
+					_@query 767px <== : hacemos uso de la propiedad
+					_justify-content para centrar de manera horizontal
+					_los elementos que este contiene
+				*/
 				@media (max-width: 767px) {
 					justify-content: center;
 				}
 
+				/*
+					_@query 768px ==> : modificamos la propiedad top
+					_para esta medida
+				*/
 				@media (min-width: 768px) {
-					height: 0;
+					// height: 0;
 					padding: 0 20px;
 				}
 
 				/*
-					swiper-button-next, swiper-button-prev: para 
-					cambiar estas propiedades debemos definirlas en estas clases
+					swiper-button-next, swiper-button-prev: definimos position: relative
+					junto con sus propiedades top, left y right para posicionar este
+					elemento, margin-top: 0 remueve un margen que genera la librería
+					swiper.js por defecto
 				*/
 				.swiper-button-next,
 				.swiper-button-prev {
@@ -204,22 +284,33 @@ $query767: 767px;
 					margin-top: 0;
 					transition: background-color 0.3s ease-in-out;
 
+					/*
+						.cuando hacemos :hover sobre los botones, agregamos un
+						.color de fondo a estos elementos
+					*/
 					&:hover {
 						background-color: #007bff;
 					}
 
+					/*
+						_@query 768px ==> : modificamos la propiedad top
+						_para esta medida
+					*/
 					@media (min-width: 768px) {
-						top: -168px;
+						top: -155px;
 					}
 				}
 
+				/*
+					swiper-button-prev: generamos un margen derecho para separar
+					el icono prev del icono next
+				*/
 				.swiper-button-prev {
 					margin-right: 20px;
 				}
 
 				/*
-					swiper-button-next:after, swiper-button-prev:after: para 
-					cambiar estas propiedades debemos definirlas en estas clases
+					swiper-button-next:after, swiper-button-prev:after
 				*/
 				.swiper-button-next:after,
 				.swiper-button-prev:after {
@@ -231,9 +322,3 @@ $query767: 767px;
 		}
 	}
 }
-
-// .prev.swiper-button-disabled {
-/* opacity: .35; */
-/* cursor: auto; */
-/* pointer-events: none; */
-// }

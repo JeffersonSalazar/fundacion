@@ -1,57 +1,102 @@
 /* 
-	$tabHeader: alamacena el elemento html al cual le 
-  	vamos a aplicar clases con javascript
+	_ _ _ _ _ _ _ _ _ _ start code show tabs _ _ _ _ _ _ _ _ _ _
 */
-let $tabInfo = document.querySelectorAll('.tab_info');
 
 /* 
-	$tabBody: alamacena el elemento html al cual le 
-  	vamos a aplicar clases con javascript
+	.$tabHeader: almacena el elemento html definido
+	.con el clase tab_content_header
+*/
+let $tabHeader = document.querySelectorAll('.tab_content_header');
+
+/* 
+	.$tabImg: almacena el elemento html definido
+	.con el clase tab_content_img
+*/
+let $tabImg = document.querySelectorAll('.tab_content_img');
+
+/* 
+	.$tabBody: almacena el elemento html definido
+	.con la clase tab_content_body
 */
 let $tabBody = document.querySelectorAll('.tab_content_body');
 
 /* 
-  realizamos un forEach en la variable $tabHeader,
-  tomamos el parametro i que nos arroja la posicion
-  de un elemento dentro del arreglo
+  realizamos un recorrido forEach en $tabHeader,
+  el cual recibe 2 parámetros y una función de flecha
 */
-$tabInfo.forEach((element, i) => {
+$tabHeader.forEach((element, i) => {
 	/*
-		pasamos a $tabHeader el parametro i y le añadimos
-		a cada elemento un evento click o podemos 
-		reemplazarlo por un evento mouseover
+		pasamos a $tabHeader el parámetro (i), que nos 
+		indica la posición del elemento html seleccionado
+		dentro del array y generamos un evento click o
+		podemos reemplazarlo por un evento mouseover
 	*/
-	$tabInfo[i].addEventListener('click', () => {
+	$tabHeader[i].addEventListener('click', () => {
 		/* 
-			realizamos un forEach en la variable $tabInfo,
-			y le agregamos a cada elemento la clase
-			js_header_active definida en la hoja de estilos
+			realizamos un recorrido forEach en $tabHeader
+			y pasamos 1 parámetro y una función de flecha
 		*/
-		$tabInfo.forEach((info) => {
-			info.classList.remove('js_header_active');
+		$tabHeader.forEach((header, i) => {
+			/* 
+				pasamos el parámetro (header) que nos indica
+				el elemento html seleccionado dentro del array
+				y removemos la clase js_header_active definida 
+				en la hoja de estilos _tabs.scss
+			*/
+			header.classList.remove('js_header_active');
 		});
 
 		/* 
-			realizamos un forEach en la variable $tabBody,
-			y le agregamos a cada elemento la clase
-			js_body_hidden definida en la hoja de estilos
+			realizamos un recorrido forEach en $tabImg
+			y pasamos 1 parámetro y una función de flecha
 		*/
-		$tabBody.forEach((body) => {
+		$tabImg.forEach((img, i) => {
+			/* 
+				pasamos el parámetro (img) que nos indica
+				el elemento html seleccionado dentro del array
+				y agregamos la clase js_img_hidden definida 
+				en la hoja de estilos _tabs.scss
+			*/
+			img.classList.add('js_img_hidden');
+		});
+
+		/* 
+			realizamos un recorrido forEach en $tabBody,
+			el cual recibe 1 parámetro y una función de flecha
+		*/
+		$tabBody.forEach((body, i) => {
+			/* 
+				pasamos el parámetro (body) que nos indica
+				el elemento html seleccionado dentro del array
+				y agregamos la clase js_body_hidden definida 
+				en la hoja de estilos _tabs.scss
+			*/
 			body.classList.add('js_body_hidden');
 		});
 
 		/* 
-			pasamos a la variable $tabHeader el parametro i 
-			definido forEach inicial y le añadimos la clase
-			js_header_active definida en la hoja de estilos
+			pasamos $tabHeader el parámetro (i) y agregamos 
+			la clase js_header_active definida en la 
+			hoja de estilos _tab.scss
 		*/
-		$tabInfo[i].classList.add('js_header_active');
+		$tabHeader[i].classList.add('js_header_active');
 
 		/* 
-			pasamos a la variable $tabBody el parametro i 
-			definido en el forEach inicial y le removemos la clase
-			js_body_active definida en la hoja de estilos
+			pasamos $tabImg el parámetro (i) y removemos 
+			la clase js_img_hidden definida en la 
+			hoja de estilos _tab.scss
+		*/
+		$tabImg[i].classList.remove('js_img_hidden');
+
+		/* 
+			pasamos a $tabBody el parámetro (i) y removemos 
+			la clase js_body_hidden definida en la 
+			hoja de estilos _tab.scss
 		*/
 		$tabBody[i].classList.remove('js_body_hidden');
 	});
 });
+
+/* 
+	_ _ _ _ _ _ _ _ _ _ end code show tabs _ _ _ _ _ _ _ _ _ _
+*/

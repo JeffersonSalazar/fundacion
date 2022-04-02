@@ -1,165 +1,259 @@
 /*
-	importacion de las fuentes
-*/
-// @import '../shared/fonts';
-
-
-/*
-	varaibles implementadas en diferentes elementos
-*/
-$heightDestok: 700px;
-$heightQuery767: 400px;
-
-/*
-	medidas responsive
-*/
-$query480: 480px;
-$query575: 575px;
-$query767: 767px;
-
-/*
-    seccion_name: nos sirve para implementar margenes y espaciados 
-    con el fin de separar un contenedor de otros elementos en este caso 
+    section_banner_slider
 */
 .section_banner_slider {
 	/*
-        container_name: definimos absolute y su propeidad z-index
-        para poscionar esta caja sobre la caja que contiene al slider.
-        width: 100% para que recupere todo el ancho del viewport
-		y un height para que el contenedor del slider no desmaquete
+        container_banner_slider
     */
 	.container_banner_slider {
 		/* 
-            flexbox_banner: definimos flexbox y su propiedad
-            align-items y justify-content mas un height para centrar la caja 
-			box_name horizontal y verticalmente a su padre
+            flexbox_banner_slider
         */
 		.flexbox_banner_slider {
 			/*
-				swiper: contenedor del slider a este es importante definirle la
-				misma altura que la seccion para que no genere desmaquetados
+				swiper
 			*/
 			.swiper {
+				/*
+					swiper-wrapper
+				*/
 				.swiper-wrapper {
+					/*
+						swiper-slide: definimos position: relative ya que uno de
+						sus elementos hijo tiene definido position: absolute, si
+						queremos modificar la altura del slider debemos implementar
+						la propiedad en este elemento
+					*/
 					.swiper-slide {
 						position: relative;
-						display: flex;
-						justify-content: center;
-						height: $heightDestok;
+						height: 700px;
 
-						@media (max-width: $query767) {
-							height: $heightQuery767;
-						}
-						
 						/*
-							box_name: esta caja se encarga de manejar el width por lo que
-							es muy importante para el responsive
+							_@query 767px <== : modificamos el height para esta
+							_medida
 						*/
-						.box_banner_slider {
+						@media (max-width: 767px) {
+							height: 400px;
+						}
+
+						/*
+							_@query 480px <== : modificamos el height para esta
+							_medida
+						*/
+						@media (max-width: 480px) {
+							height: 440px;
+						}
+
+						/*
+							container_slider: definimos position: absolute para 
+							posicionar este contenedor por encima de la imagen.
+							la propiedad width: 100% es obligatoria
+						*/
+						.container_slider {
 							position: absolute;
-							padding: 0 15px;
-							
+							width: 100%;
+
 							/*
-								@query 767px <== : definimos un width para esta medida
+								_@query 480px <== : definimos bottom para posicionar los 
+								_elementos que este contiene en la parte inferior del 
+								_contenedor padre
 							*/
-							@media (max-width: $query767) {
-								max-width: 540px;
-								bottom: 20px;
+							@media (max-width: 480px) {
+								bottom: 80px;
 							}
-			
+
 							/*
-								@query 767px <== : definimos un width para esta medida
+								_@query 481px ==> : definimos bottom para posicionar los 
+								_elementos que este contiene en la parte inferior del 
+								_contenedor padre
 							*/
-							@media (max-width: $query575) {
-								max-width: 100%;
-							}
-				
-							/*
-								@query 900px ==> : definimos un width para esta medida
-							*/
-							@media (min-width: 576px) {
-								max-width: 540px;
-							}
-			
-							/*
-								@query 900px ==> : definimos un width para esta medida
-							*/
-							@media (min-width: 768px) {
-								max-width: 720px;
+							@media (min-width: 481px) {
 								bottom: 65px;
 							}
-				
+					
 							/*
-								@query 900px ==> : definimos un width para esta medida
+								box_banner_slider: definimos margin: 0 auto, teniendo en
+								cuenta el ancho mínimo de este contenedor es los diferentes
+								media query
 							*/
-							@media (min-width: 992px) {
-								max-width: 960px;
-							}
-			
-							/*
-								@query 900px ==> : definimos un width para esta medida
-							*/
-							@media (min-width: 1200px) {
-								max-width: 1140px;
-							}
-			
-							.box_banner_title {
-								background-color: #ff671b;
-			
-								h1 {
-									color: #fff;
-									font-family: "@sansation-bold", sans-serif;
-									font-size: 56px;
-									line-height: 1.2;
-									padding: 15px 25px;
-									
-									@media (min-width: 1200px) {
-										letter-spacing: .5px;
-									}
+							.box_banner_slider {
+								max-width: 100%;
+								margin: 0 auto;
+								padding: 0 15px;
 
-									@media (max-width: 991px) {
-										font-size: 44px;
+								/*
+									_@query 576px ==> : definimos un max-width para que este 
+									_sea el ancho mínimo de este contenedor para esta medida
+								*/
+								@media (min-width: 576px) {
+									max-width: 540px;
+								}
+				
+								/*
+									_@query 768px ==> : definimos un max-width para que este 
+									_sea el ancho mínimo de este contenedor
+								*/
+								@media (min-width: 768px) {
+									max-width: 720px;
+								}
+					
+								/*
+									_@query 992px ==> : definimos un max-width para que este 
+									_sea el ancho mínimo de este contenedor para esta medida
+								*/
+								@media (min-width: 992px) {
+									max-width: 960px;
+								}
+				
+								/*
+									_@query 1200px ==> : definimos un max-width para que este 
+									_sea el ancho mínimo de este contenedor para esta medida
+								*/
+								@media (min-width: 1200px) {
+									max-width: 1140px;
+								}
+
+								/*
+									box_banner_title: definimos una animación para este elemento
+								*/
+								.box_banner_title {
+									background-color: #ff671b;
+									animation: bounceInDown 2s;
+
+									/*
+										.bounceInDown: al inicio desvanecemos el elemento y lo 
+										.desplazamos -2000px hacia arriba, al final lo 
+										.desplazamos hasta su posición original
+									*/
+									@keyframes bounceInDown {
+										0% {
+											opacity: 0;
+											transform: translateY(-2000px);
+										}
+										60% {
+											opacity: 1;
+											transform: translateY(30px);
+										}
+										80% {
+											transform: translateY(-10px);
+										}
+										100% {
+											transform: translateY(0);
+										}
 									}
-			
-									@media (max-width: 767px) {
-										font-size: 30px;
-									}
-			
-									@media (max-width: 575px) {
-										font-size: 25px;
-										padding: 20px;
+				
+									/*
+										tag-h1
+									*/
+									h1 {
+										color: #fff;
+										font-family: "@sansation-bold", sans-serif;
+										font-size: 56px;
+										line-height: 1.2;
+										padding: 15px 25px;
+
+										/*
+											_@query 1200px ==> : definimos espaciado entre las
+											_letras para esta medida
+										*/
+										@media (min-width: 1200px) {
+											letter-spacing: .5px;
+										}
+
+										/*
+											_@query 991px ==> : cambiamos el tamaño de fuente 
+											_para esta medida
+										*/
+										@media (max-width: 991px) {
+											font-size: 44px;
+										}
+				
+										/*
+											_@query 767px ==> : cambiamos el tamaño de fuente 
+											_para esta medida
+										*/
+										@media (max-width: 767px) {
+											font-size: 30px;
+										}
+				
+										/*
+											_@query 575px ==> : cambiamos el tamaño de fuente 
+											_para esta medida, y modificamos el espaciado
+										*/
+										@media (max-width: 575px) {
+											font-size: 25px;
+											padding: 20px;
+										}
 									}
 								}
-							}
-			
-							p {
-								font-size: 14px;
-								font-family: "@nunito-regular";
-								background-color: rgba(49, 51, 56, 0.9);
-								color: #fff;
-								line-height: 24px;
-								padding: 15px 25px;
-								
-								@media (min-width: 768px) {
-									max-width: 480px;
+				
+								/*
+									tag-p: definimos una animación para este elemento
+								*/
+								p {
+									background-color: rgba(49, 51, 56, 0.9);
+									color: #fff;
+									font-family: "@nunito-regular";
+									font-size: 14px;
+									line-height: 24px;
+									padding: 15px 25px;
+									animation: bounceInUp 2s;
+
+									/*
+										.bounceInUp: al inicio desvanecemos el elemento y lo 
+										.desplazamos 2000px hacia abajo, al final lo 
+										.desplazamos hasta su posición original
+									*/ 
+									@keyframes bounceInUp {
+										0% {
+											opacity: 0;
+											transform: translateY(2000px);
+										}
+										60% {
+											opacity: 1;
+											transform: translateY(-30px);
+										}
+										80% {
+											transform: translateY(10px);
+										}
+										100% {
+											transform: translateY(0);
+										}
+									}
+
+									/*
+										_@query 768px ==> : definimos un max-width para que este 
+										_sea el ancho minimo de este contenedor para esta medida
+									*/
+									@media (min-width: 768px) {
+										max-width: 480px;
+									}
 								}
 							}
 						}
 
 						/*
-							tag-img: es importante a esta imagen definirle un width
-							y height igual al de su contenedor padre y la propiedad 
-							object-fit: cover para que se ajuste al contenedor
+							tag-img: definimos la propiedad vertical-align: top
+							para remover un espaciado que genera el navegador en las
+							img, finalmente width y height junto con object-fit: cover
+							para que esta se ajuste al tamaño de su contenedor padre
 						*/
 						img {
-							align-self: flex-start;
 							vertical-align: top;
 							width: 100%;
 							height: 100%;
 							object-fit: cover;
 							
+							/*
+								_@query 480px ==> : definimos un height: auto junto con
+								_object-fit: contain para que la img se reduzca junto con
+								_la reducción del viewport, finalmente la propiedad
+								_align-self: flex-start para posicionar la img en la parte
+								_superior del contenedor padre
+							*/
 							@media (max-width: 480px) {
 								height: auto;
+								align-self: flex-start;
 								object-fit: contain;
 							}
 						}
@@ -167,81 +261,115 @@ $query767: 767px;
 				}
 			}
 
+			/*
+				content_icons: definimos position: relative ya que uno de
+				sus elementos hijo tiene definido position: absolute, con 
+				margin: 0 auto centramos el contenedor con referencia al 
+				tamaño definido en la propiedad max-width
+			*/
 			.content_icons {
 				position: relative;
 				margin: 0 auto;
-				padding: 0 15px;
 
-				@media (max-width: $query767) {
-					display: none;
+				/*
+					_@query 481px ==> : añadimos un espaciado para este 
+					_elemento en esta medida
+				*/
+				@media (min-width: 481px) {
+					padding: 0 15px;
+				}
+			
+				/*
+					_@query 576px ==> : definimos un ancho minimo en este contenedor 
+					_para esta medida
+				*/
+				@media (min-width: 576px) {
+					max-width: 540px;
+					
 				}
 
 				/*
-					@query 900px ==> : definimos un width para esta medida
+					_@query 768px ==> : definimos un ancho minimo en este contenedor 
+					_para esta medida
 				*/
-				@media (min-width: 768px) {
+				@media (min-width: 768px) {	
 					max-width: 720px;
 				}
 	
 				/*
-					@query 900px ==> : definimos un width para esta medida
+					_@query 992px ==> : definimos un ancho minimo en este contenedor 
+					_para esta medida
 				*/
 				@media (min-width: 992px) {
 					max-width: 960px;
 				}
 
 				/*
-					@query 900px ==> : definimos un width para esta medida
+					_@query 1200px ==> : definimos un ancho minimo en este contenedor 
+					_para esta medida
 				*/
 				@media (min-width: 1200px) {
 					max-width: 1140px;
 				}
 
 				/*
-					box_icon_swiper: implementando flexbox en este contenedor
-					podemos modificar la posicion de los iconos del slider
+					box_icon_slider: definimos position: absolute junto con su propiedad 
+					bottom para posicionar este contenedor en la parte inferior de su 
+					contenedor padre, finalmente flexbox para poner en linea los 
+					elementos que este contiene
 				*/
 				.box_icon_slider {
 					position: absolute;
 					bottom: 10px;
 					display: flex;
-					align-items: center;
-					justify-content: flex-start;
 
 					/*
-						swiper-button-next, swiper-button-prev: para 
-						cambiar estas propiedades debemos definirlas en estas clases
+						_@query 480px <== : modificamos la propiedad bottom y 
+						_definimos un width: 100% junto con la propiedad
+						_justify-content para centrar horizontalmente los
+						_elementos que este contiene
+					*/
+					@media (max-width: 480px) {
+						bottom: 18px;
+						width: 100%;
+						justify-content: center;
+					}
+
+					/*
+						swiper-button-next, swiper-button-prev: definimos position: relative
+						junto con sus propiedades left y z-index para posicionar estos elementos
+						en la parte izquierda de su contenedor padre, la propiedad
+						margin-top: 0 remueve un margen que genera swiper.js por defecto
 					*/
 					.swiper-button-next,
 					.swiper-button-prev {
 						position: relative;
-						top: 0;
 						left: 0;
-						right: 0;
+						z-index: 5;
 						background-color: #313338;
 						width: 44px;
 						height: 44px;
 						margin-top: 0;
-						transition: .3s;
 
+						/*
+							.cuando hacemos :hover sobre los iconos del slider
+							.cambiamos el color de fondo
+						*/
 						&:hover {
 							background-color: #007bff;
 						}
-
-						&.swiper-button-disabled {
-							opacity: 1;
-							cursor: pointer;
-							pointer-events: visible;
-						}
 					}
 
+					/*
+						swiper-button-prev: definimos un margin-right para generar
+						un margen en este icono
+					*/
 					.swiper-button-prev {
 						margin-right: 14px;
 					}
 
 					/*
-						swiper-button-next:after, swiper-button-prev:after: para 
-						cambiar estas propiedades debemos definirlas en estas clases
+						swiper-button-next:after, swiper-button-prev:after
 					*/
 					.swiper-button-next:after,
 					.swiper-button-prev:after {

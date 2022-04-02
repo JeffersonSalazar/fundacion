@@ -1,0 +1,121 @@
+/*
+	section_aflora_links: definimos un espaciado para separar
+	esta sección de otras secciones
+*/
+.section_aflora_links {
+    padding: 44px 0;
+    border-bottom: 1px solid #e6e6e6;
+
+    /*
+		_@query 767px <== : definimos un espaciado para este
+		_contenedor en esta medida
+	*/
+    @media (max-width: 767px) {
+        padding: 30px 0;
+    }
+
+    /*
+		container_aflora_links: definimos un espaciado para
+        separar los elementos que este contiene de los bordes
+	*/
+    .container_aflora_links {
+        padding: 0 15px;
+
+        /*
+			_@query 576px ==> : definimos un max-width para que sea el ancho
+            _mínimo de este elemento en esta medida, finalmente margin: 0 auto 
+            _para centrar de manera horizontal este elemento
+		*/
+        @media (min-width: 576px) {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /*
+			_@query 768px ==> : definimos un max-width para esta medida
+		*/
+		@media (min-width: 768px) {
+			max-width: 720px;
+		}
+
+        /*
+			_@query 992px ==> : definimos un max-width para esta medida
+		*/
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+
+		/*
+			_@query 1200px ==> : definimos un max-width para esta medida
+		*/
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+
+        /*
+			flexbox_aflora_links: definimos flexbox y su propiedad
+            justify-content para centrar de manera horizontal este elemento
+		*/
+        .flexbox_aflora_links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            /*
+                _@query 767px <== : modificamos el valor de justify-content
+                _para este elemento en esta medida
+            */
+            @media (max-width: 767px) {
+                justify-content: flex-start;
+            }
+
+            /*
+                tag-a: definimos display: inline-flex para implementar en 
+                este elemento las propiedades justify-content y align-items
+                que junto con un ancho un alto definido nos permiten centrar 
+                de manera vertical y horizontal los elementos que este
+                contiene
+            */ 
+            a {
+                text-decoration: none;
+                text-align: center;
+                display: inline-flex;
+                width: 180px;
+                justify-content: center;
+                height: 60px;
+                align-items: center;
+                background-color: #f0f0f0;
+                color: #313338;
+                font-size: 15px;
+                font-family: "@nunito-regular", sans-serif;
+                border-bottom: 2px solid #ff671b;
+                margin: 8px 1%;
+                
+                /*
+                    .cuando hacemos : hover sobre tag-a, modificamos
+                    .el color de fondo de este elemento
+                */
+                &:hover {
+                    background-color: #dfdfdf;
+                }
+
+                /*
+                    _@query 767px <== : modificamos el tamaño de fuente
+                    _y el ancho de este elemento para esta medida
+                */
+                @media (max-width: 767px) {
+                    font-size: 13px;
+                    width: 150px;
+                }
+
+                /*
+                    _@query 575px <== : modificamos el ancho de este 
+                    _elemento para esta medida
+                */
+                @media (max-width: 575px) {
+                    width: 48%;
+                }
+            }
+        }
+    }
+}

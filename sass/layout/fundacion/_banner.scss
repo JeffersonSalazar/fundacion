@@ -1,70 +1,117 @@
 /*
-	importacion de las fuentes
+    section_fundación_banner
 */
-// @import '../../shared/fonts';
-
-
 .section_fundacion_banner {
 
     /*
-		container_name: contenedor definido para manejar
-		el responsive implementando width
+		container_fundación_banner {
 	*/
 	.container_fundacion_banner {
 
+        /*
+            flexbox_fundacion_banner
+        */
 		.flexbox_fundacion_banner {
             background-color: #313338;
             
+            /*
+                _@query 767px <== : modificamos el espaciado para esta
+                _medida
+            */
             @media (max-width: 767px) {
                 padding-bottom: 30px;
             }
 
+            /*
+                _@query 768px ==> : definimos display: grid junto con sus
+                _propiedades grid-template-columns y grid-templates-rows
+                _para crear 2 columnas y 1 fila para esta medida
+            */
             @media (min-width: 768px) {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(1, 480px);
             }
 
+            /*
+                content_fundacion_flayer: definimos flexbox con sus 
+                propiedades justify-content y align-items para centrar
+                de manera vertical y horizontal los elementos que 
+                este contiene
+            */
             .content_fundacion_flayer {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 70px 50px;
                 
+                /*
+                    _@query 991px <== : modificamos el espaciado para esta
+                    _medida
+                */
                 @media (max-width: 991px) {
                     padding: 30px;
                 }
 
+                /*
+                    box_fundacion_info
+                */
                 .box_fundacion_info {
 
+                    /*
+                        _@query 767px <== : definimos un ancho para este
+                        _elemento en esta medida
+                    */
                     @media (max-width: 767px) {
                         width: 100%;
                     }
 
+                    /*
+                        _@query 1161px ==> : definimos un ancho para este
+                        _elemento en esta medida
+                    */
                     @media (min-width: 1161px) {
                         width: 480px;
                     }
 
+                    /*
+                        tag-h1
+                    */
                     h1 {
                         color: #fff;
                         font-family: "@sansation-bold", sans-serif;
                         font-size: 55px;
                         line-height: 1;
 
+                        /*
+                            _@query 991px <== : modificamos el tamaño de fuente
+                            _para este elemento en esta medida
+                        */
                         @media (max-width: 991px) {
                             font-size: 48px;
                         }
                     }
     
+                    /*
+                        tag-p
+                    */
                     p {
                         color: #d1d1d1;
                         font-family: "@nunito-regular", sans-serif;
                         font-size: 18px;
                         line-height: 26px;
     
+                        /*
+                            .seleccionamos el segundo elemento tag-p y definimos un
+                            .margen
+                        */
                         &:nth-child(2) {
                             margin: 50px 0 20px;
 
+                            /*
+                                _@query 991px <== : modificamos el margen para este
+                                _elemento en esta medida
+                            */
                             @media (max-width: 991px) {
                                 margin: 25px 0 20px;
                             }
@@ -73,19 +120,38 @@
                 }
             }
 
-            .ul_fundacion_galery {
+            /*
+                ul_fundacion_gallery: definimos display flex para poner en linea
+                los elementos que este contiene
+            */
+            .ul_fundacion_gallery {
                 display: flex;
                 
+                /*
+                    tag-li: definimos flex: 1 para que cada elemento se reparta
+                    de igual medida el ancho de su contenedor padre, finalmente
+                    una transition
+                */
                 li {
                     list-style: none;
                     flex: 1;
-                    margin-top: 0; // removemos un margin generado en esta tag-li en footer.scss
                     transition: flex .5s ease-in-out;
 
+                    /*
+                        .cuando hacemos :hover sobre tag-li, cambiamos el valor
+                        .de la propiedad flex a 100% para que el elemento elegido
+                        .tome el ancho total de su contenedor padre
+                    */
                     &:hover {
                         flex: 100%;
                     }
 
+                    /*
+                        tag-img: definimos vertical-align para remover un espaciado
+                        que genera el navegador en las imágenes, finalmente un width 
+                        y height 100% mas un object-fit para que la imagen se ajuste
+                        al tamaño de su contenedor
+                    */
                     img {
                         vertical-align: top;
                         width: 100%;
@@ -93,6 +159,10 @@
                         object-fit: cover;
                         cursor: pointer;
 
+                        /*
+                            _@query 767px <== : modificamos la altura de este
+                            _elemento para esta medida
+                        */
                         @media (max-width: 767px) {
                             height: 180px;
                         }

@@ -1,0 +1,123 @@
+.section_periodismo_banner {
+    padding: 30px 0;
+
+    .container_periodismo_banner {
+        max-width: 100%;
+		margin: 0 auto;
+        padding: 0 15px;
+
+        /*
+			_@query 576px ==> : modificamos el max-width a partir de esta medida
+		*/
+        @media (min-width: 576px) {
+            max-width: 540px;
+        }
+
+		/*
+			_@query 768px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 768px) {
+			max-width: 720px;
+		}
+
+		/*
+			_@query 992px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+
+		/*
+			_@query 1200px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+
+        .flexbox_periodismo_banner {
+            display: flex;
+
+            .content_periodismo_banner {
+                width: 100%;
+                
+                /*
+                    _@query 768px ==> : modificamos el max-width a partir de esta medida
+                */
+                @media (min-width: 768px) {
+                    flex: 0 0 66.666667%;
+                    max-width: 66.666667%;
+                    margin: 0 auto;
+                    padding: 0 8px;
+                }
+
+
+                h1 {
+                    text-align: center;
+                    color: #2f425b;
+                    font-family: '@sansation-bold', sans-serif;
+                    font-size: 48px;
+                    line-height: 1;
+                    margin-bottom: 15px;
+
+                    @media (max-width: 767px) {
+                        font-size: 32px;
+                        line-height: normal;
+                    }
+                }
+
+                img {
+                    vertical-align: top;
+                    max-width: 100%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    color: #111820;
+                    font-family: '@nunito-regular', sans-serif;
+                    line-height: 1.5;
+                    font-size: 18px;
+                    margin-bottom: 15px;
+
+                    a {
+                        text-decoration: none;
+                        color: #f60;
+                        font-weight: 700;
+                        line-height: 1.5;
+                    }
+                }
+
+                /*
+					box_periodismo_socials
+				*/
+				.box_periodismo_socials {
+					padding: 15px 0;
+
+					/*
+						tag-a
+					*/
+					a {
+						text-decoration: none;
+
+						/*
+							tag-svg
+						*/
+						svg {
+							fill: #333;
+							width: 24px;
+							height: 24px;
+
+							/*
+								_@query 768px ==> : definimos un margene para
+								_tag-svg en esta medida
+							*/
+							@media (min-width: 768px) {
+								margin: 5px 10px 0 -10px;
+							}
+						}
+					}
+				}
+            }
+        }
+    }
+}

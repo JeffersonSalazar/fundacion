@@ -1,0 +1,263 @@
+/*
+    section_aflora_banner
+*/
+.section_aflora_banner {
+    /*
+        container_aflora_banner
+    */
+    .container_aflora_banner {
+        /*
+            flexbox_aflora_banner
+        */
+        .flexbox_aflora_banner {
+            /*
+                content_aflora: definimos position: relative debido a 
+                que uno de sus elementos hijos tiene position: absolute
+            */
+            .content_aflora {
+                position: relative;
+
+                /*
+                    after: hacemos uso de este pseudo elemento para
+                    crear una mascara de color que ocupe el ancho y
+                    alto total del banner, finalmente la propiedad
+                    transform: rotate nos permite rotar la mascara
+                */
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    transform: rotate(-180deg);
+
+                    /*
+		                _@query 767px <== : definimos un color de fondo para
+                        _este elemento en esta medida
+	                */
+                    @media (max-width: 767px) {
+                        background: linear-gradient(
+                            0deg,#212121 10%,
+                            rgba(33,33,33,.9) 40%,
+                            rgba(46,46,46,0)
+                        );
+                    }
+
+                    /*
+		                _@query 768px ==> : definimos un color de fondo para
+                        _este elemento en esta medida
+	                */
+                    @media (min-width: 768px) {
+                        background: linear-gradient(
+                            -90deg,#212121 34%,
+                            rgba(33,33,33,.9) 46%,
+                            rgba(46,46,46,0));
+                    }
+                }
+
+                /*
+                    container_box_aflora
+                */
+                .container_box_aflora {
+                    /*
+                        _@query 767px <== : definimos position: relative debido a
+                        _que uno de sus elementos hijos tiene position: absolute,
+                        _importante definir un ancho que junto con margin: 0 auto
+                        _nos permite centrar este contenedor de manera horizontal
+                    */
+                    @media (max-width: 767px) {
+                        position: relative;
+                        max-width: 600px;
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+
+                    /*
+                        box_aflora: definimos position: absolute con sus propiedades
+                        top y z-index para posicionar este elemento
+                    */
+                    .box_aflora {
+                        position: absolute;
+                        top: 10px;
+                        z-index: 3; 
+                        
+                        /*
+                            _@query 768px ==> : definimos las propiedades top y bottom
+                            _a 0% para que este elemento tome el ancho y alto total de
+                            _su contenedor padre, finalmente flexbox y sus propiedades
+                            _flex-direction y justify-content
+                        */
+                        @media (min-width: 768px) {
+                            left: 100px;
+                            top: 0;
+                            bottom: 0;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            max-width: 600px;
+                        }
+
+                        /*
+                            box_aflora_logo: definimos un margen en la parte inferior
+                            y una animación para este elemento
+                        */
+                        .box_aflora_logo {
+                            margin-bottom: 20px;
+                            animation: bounceInDown 2s;
+
+                            /*
+                                .bounceInDown: al inicio desvanecemos el elemento y lo 
+                                .desplazamos -2000px hacia arriba, al final lo 
+                                .desplazamos hasta su posición original
+                            */
+                            @keyframes bounceInDown {
+                                0% {
+                                    opacity: 0;
+                                    transform: translateY(-2000px);
+                                }
+                                60% {
+                                    opacity: 1;
+                                    transform: translateY(30px);
+                                }
+                                80% {
+                                    transform: translateY(-10px);
+                                }
+                                100% {
+                                    transform: translateY(0);
+                                }
+                            }
+                            
+                            /*
+                                tag-img: es importante definir la propiedad vertical-align
+                                para remover el espaciado que genera el navegador en las 
+                                imágenes, finalmente definimos un ancho y alto del 100% 
+                                junto con object-fit: cover para que esta se ajuste al 
+                                tamaño de su contenedor
+                            */
+                            img {
+                                vertical-align: top;
+                                width: 100%;
+                                height: auto;
+                                object-fit: cover;
+                            }
+
+                            .img_cultivarte {
+                                width: 300px;
+                            }
+                        }
+
+                        /*
+                            box_aflora_info: definimos una animación para este
+                            elemento
+                        */
+                        .box_aflora_info {
+                            color: #fff;
+                            font-family: "@nunito-regular", sans-serif;
+                            font-size: 14px;
+                            line-height: 1.5;
+                            animation: bounceInUp 2s;
+
+                            /*
+                                .bounceInUp: al inicio desvanecemos el elemento y lo 
+                                .desplazamos 2000px hacia abajo, al final lo 
+                                .desplazamos hasta su posición original
+                            */ 
+                            @keyframes bounceInUp {
+                                0% {
+                                    opacity: 0;
+                                    transform: translateY(2000px);
+                                }
+                                60% {
+                                    opacity: 1;
+                                    transform: translateY(-30px);
+                                }
+                                80% {
+                                    transform: translateY(10px);
+                                }
+                                100% {
+                                    transform: translateY(0);
+                                }
+                            }
+
+                            /*
+                                tag-p y tag-h1: definimos las mismas clases para estos
+                                dos elementos
+                            */
+                            p, h1 {
+                                display: inline;
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
+
+                            /*
+                                extra_paragraph: es una tag-p extra donde definimos mas
+                                párrafo asi que solo el elemento que tenga esta clase
+                                tendrá un display: block y un margen en la parte superior
+                            */
+                            .extra_paragraph {
+                                display: block;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+
+                /*
+                    box_aflora_img: definimos una altura para este contenedor
+                */
+                .box_aflora_img {
+                    height: 520px;
+
+                    /*
+		                _@query 767px <== : modificamos la altura de este
+                        _elemento en esta medida
+	                */
+                    @media (max-width: 767px) {
+                        height: 600px;
+                    }
+
+                    /*
+                        tag-img: es importante definir la propiedad vertical-align
+                        para remover el espaciado que genera el navegador en las 
+                        imágenes, finalmente definimos un ancho y alto del 100% 
+                        junto con object-fit: cover para que esta se ajuste al 
+                        tamaño de su contenedor
+                    */
+                    img {
+                        vertical-align: top;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    
+                    /*
+                        img_destok
+                    */
+                    .img_destok {
+                        /*
+		                    _@query 767px <== : definimos display: none para remover
+                            _este elemento de la vista en esta medida
+	                    */
+                        @media (max-width: 767px) {
+                            display: none;
+                        }
+                    }
+
+                    /*
+                        img_móvil
+                    */
+                    .img_movil {
+                        /*
+		                    _@query 768px ==> : definimos display: none para remover
+                            _este elemento de la vista en esta medida
+	                    */
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

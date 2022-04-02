@@ -1,81 +1,89 @@
-// -------------------- start code show accordeon -------------- //
+// _ _ _ _ _ _ _ _ _ _ start code show accordion _ _ _ _ _ _ _ _ _ _ //
 
 /* 
-	$boxAccordeon: alamacena todas las cajas con la clase
-	box_accordeon definida en html
+	.$boxAccordion: almacena todos los elementos html que tengan la 
+	.clase box_accordion
 */
-let $boxAccordeon = document.querySelectorAll('.box_accordeon');
+let $boxAccordion = document.querySelectorAll('.box_accordion');
 
 /* 
-	realizamos un recorrido forEach por cada caja
+	realizamos un recorrido forEach en $boxAccordion
+	y pasamos 1 parámetro y una función de flecha
 */
-$boxAccordeon.forEach((accordeon1) =>
+$boxAccordion.forEach((accordion1) =>
 	/* 
-		a cada caja agregamos un evento click 
+		pasamos a cada parámetro accordion1 un evento click
+		y declaramos una función
 	*/
-	accordeon1.addEventListener('click', () => {
+	accordion1.addEventListener('click', () => {
 		/* 
-			si en el recorrido $boxAccordeon tiene la clase 
-			js_show_accordeon definida en la hoja de estilos,
-			entonces la removemos...
+			si en el recorrido $boxAccordion tiene la clase 
+			js_show_accordion definida en la hoja de estilos,
+			footer.scss entonces la removemos...
 		*/
-		if (accordeon1.classList.contains('js_show_accordeon')) {
-			accordeon1.classList.remove('js_show_accordeon');
+		if (accordion1.classList.contains('js_show_accordion')) {
+			accordion1.classList.remove('js_show_accordion');
 		} else {
 			/* 
 				de lo contrario hacemos un segundo recorrido forEach
-				en $boxAccordeon para remover de este la clase 
-				js_show_accordeon y añadir al primer recorrido la
+				en $boxAccordion para remover de este la clase 
+				js_show_accordion y añadir al primer recorrido la
 				misma clase
 			*/
-			$boxAccordeon.forEach((accordeon2) =>
-				accordeon2.classList.remove('js_show_accordeon')
+			$boxAccordion.forEach((accordion2) =>
+				accordion2.classList.remove('js_show_accordion')
 			);
-			accordeon1.classList.add('js_show_accordeon');
+
+			/* 
+				finalmente añadimos a accordion la clase js_show_accordion
+				definida en la hoja de estilos footer.scss
+			*/
+			accordion1.classList.add('js_show_accordion');
 		}
 	})
 );
 
-// -------------------- end code show accordeon -------------- //
+// _ _ _ _ _ _ _ _ _ _ end code show accordion _ _ _ _ _ _ _ _ _ _ //
 
-// -------------------- start code gotop --------------------- //
+// _ _ _ _ _ _ _ _ _ _ start code go top _ _ _ _ _ _ _ _ _ _ //
 
 /* 
-	$goTop: alamacena la caja con el ID
-	box_gotop definido en html 
+	.$goTop: almacena el elemento html que tengan el ID go-top
 */
 let $goTop = document.querySelector('#go-top');
 
 /* 
-    generamos un evento scroll para el objeto windows
+    generamos un evento scroll para el objeto windows y definimos
+	una función
 */
 window.addEventListener('scroll', () => {
 	/* 
         si la altura en el eje Y es mayor a 50 
-		al momento de ahcer scroll le añadimos a 
-		$arrowUp la clase js_show_gotop definida 
-		en la hoja de estilos
+		al momento de hacer scroll, añadimos a 
+		$goTop la clase js_show_go_top definida 
+		en la hoja de estilos footer.scss
     */
 	if (window.pageYOffset > 50) {
-		$goTop.classList.add('js_show_gotop');
+		$goTop.classList.add('js_show_go_top');
 	} else {
 		/* 
-			de lo contrario removemos de $arrowUp 
-			la clase js_show_gotop
+			de lo contrario removemos de $goTop 
+			la clase js_show_go_top
 		*/
-		$goTop.classList.remove('js_show_gotop');
+		$goTop.classList.remove('js_show_go_top');
 	}
 });
 
 /* 
-    ahora generamos un evento click para $arrowUp
+    ahora generamos un evento click en $goTop y definimos
+	una función
 */
 $goTop.addEventListener('click', () => {
 	/* 
-        implementamos scrollTo del objeto window 
-		que recibe la propiedades top y left que nos 
+        implementamos la propiedad scrollTo del objeto window 
+		que recibe las propiedades top y left que nos 
         redirige a la parte inicial de la pagina y
-        behavior que suavisa la subida
+        behavior para suavizar la subida
     */
 	window.scrollTo({
 		top: 0,
@@ -84,25 +92,24 @@ $goTop.addEventListener('click', () => {
 	});
 });
 
-// -------------------- end code gotop ----------------------- //
+// _ _ _ _ _ _ _ _ _ _ start code go top _ _ _ _ _ _ _ _ _ _ //
 
-// -------------------- start code current year -------------- //
+// _ _ _ _ _ _ _ _ _ _ start code current year _ _ _ _ _ _ _ _ _ _ //
 
 /* 
-	$copyRight: alamacena la caja con el ID
-	copy-right definido en html 
+	.$copyRight: almacena el elemento html que tengan el ID copy_right
 */
 let $copyRight = document.querySelector('#copy-right');
 
 /* 
-	currentYear: alamacena el año actual
+	.currentYear: hacemos uso de la propiedad new Date().getFullYear()
+	.para almacenar en la variable el año actual 
 */
 let currentYear = new Date().getFullYear();
 
 /* 
-	haciendo uso de la propiedad innerHtml almacenamos en la variable
-	$copyRight el año actual
+	haciendo uso de la propiedad innerHtml agregamos a $copyRight el año actual
 */
-$copyRight.innerHTML = `Copyright - Fundacion Bolivar Davivienda ${currentYear}`;
+$copyRight.innerHTML = `Copyright - Fundación Bolivar Davivienda ${currentYear}`;
 
-// -------------------- end code current year -------------- //
+// _ _ _ _ _ _ _ _ _ _ start code current year _ _ _ _ _ _ _ _ _ _ //

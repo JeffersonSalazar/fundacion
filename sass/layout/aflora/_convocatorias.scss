@@ -1,0 +1,112 @@
+/*
+	section_banner_convocatorias: definimos un padding para generar espaciado
+	respecto a otras secciones
+*/
+.section_banner_convocatorias {
+    padding: 30px 0;
+
+    /*
+		container_name: definimos la propiedad max-width: 100% para que
+		sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+		para centrar el contenedor
+	*/
+    .container_banner_convocatorias {
+		max-width: 100%;
+		margin: 0 auto;
+
+		/*
+			_@query 768px ==> : modificamos el max-width y agregamos un padding
+			_para generar espacio a partir de esta medida
+		*/
+		@media (min-width: 768px) {
+			max-width: 720px;
+    		padding: 0 15px;
+		}
+
+		/*
+			_@query 992px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+
+		/*
+			_@query 1200px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+    }
+
+    /*
+        content_banner_info
+    */
+    .content_banner_info {
+        text-align: center;
+        background: linear-gradient(130deg,#00233b 52%,#2c3e53);
+        color: #fff;
+        padding: 90px 20% 60px;
+
+        /*
+            _@query 991px <== : modificamos el espaciado de este
+            _elemento a partir de esta medida
+        */
+        @media (max-width: 991px) {
+            padding: 40px 15px;
+        }
+
+        /*
+            tag-h2
+        */
+        h2 {
+            font-size: 48px;
+            font-family: '@sansation-bold', sans-serif;
+            margin: 15px 0 30px;
+
+            /*
+			    _@query 991px <== : modificamos el tamaño de fuente de este
+                _elemento a partir de esta medida
+		    */
+            @media (max-width: 991px) {
+                font-size: 38px;
+            }
+        }
+
+        /*
+            tag-p
+        */
+        p {
+            font-size: 18px;
+            font-family: '@sansation-bold', sans-serif;
+            line-height: 1.5;
+            max-width: 660px;
+        }
+
+        /*
+            tag-a
+        */
+        a {
+            text-decoration: none;
+            background-color: #fff;
+            color: #2f425b;
+            display: inline-block;
+            width: 220px;
+            padding: 20px 15px;
+            font-size: 14px;
+            font-family: '@sansation-bold', sans-serif;
+            line-height: 1;
+            border-radius: 2px;
+            margin-top: 70px;
+            transition: all 0.3s;
+
+            /*
+                .cuando hacemos :hover sobre tag-a, cambiamos su
+                .color de fondo y su color de fuente
+            */
+            &:hover {
+                background-color: #2f425b;
+                color: #fff;
+            }
+        }
+    }
+}

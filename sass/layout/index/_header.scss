@@ -1,28 +1,27 @@
 /*
-	importacion de las fuentes
-*/
-// @import '../shared/fonts';
-
-/*
-	variables que almacenan la altura de header
-	para escritorio y dispositivos moviles
-*/
-// $headerHeightDestok: 100px;
-// $headerHeightMovil: 80px;
-
-/*
-	section_header: generalmente a este contenedor le
-	definimos margenes y espaciados para separar el contenido
-	de otros contenedores como el body
+	section_header: definimos un espaciado para separar esta sección
 */
 .section_header {
 	background-color: #fff;
 	padding: 20px 0;
+
+	@media (max-width: 991px) {
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	/*
+		_@query 992px ==> : modificamos el espaciado en esta 
+		_medida
+	*/
+	@media (min-width: 992px) {
+		padding: 31px 0;
+	}
 	
 	/*
-	clase añadida con javascript que permite
-	disminuir la altura a header_flexbox logrando
-	asi el efecto scroll
+		.js_header_scroll: clase añadida con javascript, 
+		.definimos position: fixed y sus propiedades top,
+		.left, right para que ocupe el 100% de ancho referente
+		.al viewport, finalmente añadimos una animación
 	*/
 	&.js_header_scroll {
 		position: fixed;
@@ -32,9 +31,14 @@
 		z-index: 99;
 		padding: 15px 0;
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-		animation: headerAnimation 1s forwards;
+		animation: headerScroll 1s forwards;
 		
-		@keyframes headerAnimation {
+		/*
+			_headerScroll: esta traslada el header -40px 
+			_hacia arriba para finalmente devolverlo a su 
+			_posición inicial
+		*/ 
+		@keyframes headerScroll {
 			0% {
 				transform: translateY(-40px);
 			}
@@ -44,31 +48,29 @@
 		}
 	}
 
-	@media (min-width: 992px) {
-		padding: 31px 0;
-	}
-
 	/*
-		container_header: a este contenedor le 
-		definimos el tamaño que tendra en la vista
+		container_header: le definimos un espaciado para separar
+		los elementos que este contiene del borde del contenedor 
 	*/
 	.container_header {
 		padding: 0 15px;
 		
-		@media (min-width: 992px) {
+		/*
+			_@query 1200px ==> : modificamos el espaciado en esta 
+			_medida
+		*/
+		@media (min-width: 1200px) {
 			padding: 0 40px;
 		}
 
 		/*
-			header_flexbox: este contenedor lo definimos 
-			para implementar flex-box y sus propiedades cuando
-			sus elementos hijo lo requeiren
+			header_flexbox
 		*/
 		.header_flexbox {
 			/*
-				query 992px ==> : definimos flexbox y su propiedad
-				align-items que centra el menu de navegacion en referencia
-				a la altura de la imagen
+				_@query 992px ==> : definimos flexbox y su propiedad align-items 
+				_para centrar de manera vertical el menu de navegación en 
+				_referencia a la altura de la imagen
 			*/
 			@media (min-width: 992px) {
 				display: flex;
@@ -76,33 +78,57 @@
 			}
 
 			/*
-				box_logo_icon: definimos flexbox y su propiedad
-				justify-content y align-items para centar y separar el 
-				icon burger menu en referencia a la altura de la imagen
+				content_logoNit_iconBurger: definimos flexbox y sus 
+				propiedades justify-content y align-items para centrar 
+				de manera horizontal y vertical el menu de navegación 
+				en referencia a la altura de la imagen
 			*/
-			.box_logo_icon {
+			.content_logoNit_iconBurger {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 
+				/*
+					tag-a
+				*/ 
 				a {
-					// max-width: 80px;
-					margin-right: 16px;
+					/*
+						_query 992px ==> : definimos un padding-right para
+						_separar este elemento del menu de navegación en 
+						_esta medida
+					*/
+					@media (min-width: 992px) {
+						padding-right: 14px;
+					}
 
+					/*
+						_query 1200px ==> : definimos un padding-right para
+						_separar este elemento del menu de navegación en 
+						_esta medida
+					*/
+					@media (min-width: 1200px) {
+						padding-right: 20px;
+					}
+
+					/*
+						tag-img: definimos vertical-align: top para
+						remover el espaciado que genera el navegador
+						en las imágenes
+					*/ 
 					img {
 						vertical-align: top;
 
 						/*
-							query 991px <== : modificamos las diemensiones
-							de la imagen
+							_query 991px <== : modificamos el width y height
+							_de la imagen para esta medida
 						*/
 						@media (max-width: 991px) {
 							width: 90px;
 							height: 45px;
 						}
 						/*
-							query 992px ==> : modificamos las diemensiones
-							de la imagen
+							_query 992px ==> : modificamos el width y height
+							_de la imagen para esta medida
 						*/
 						@media (min-width: 992px) {
 							width: 80px;
@@ -111,6 +137,9 @@
 					}
 				}
 
+				/*
+					tag-svg: (icon-burger)
+				*/ 
 				svg {
 					fill: #ff671b;
 					width: 33px;
@@ -118,300 +147,350 @@
 					cursor: pointer;
 
 					/*
-						query 992px ==> : removemos de la vista
-						el icon burger menu
+						_@query 992px ==> : removemos de la vista
+						_el icon burger
 					*/
 					@media (min-width: 992px) {
 						display: none;
 					}
 				}
 			}
-
+				
 			/*
-				box_navbar: caja contenedora de toda la 
-				extructura referente al menu de navegacion definimos
-				flex-grow para que esta caja tome todo el espaciado
-				generado por flexbox
+				nav_header
 			*/
-			.box_navbar {
-				flex-grow: 1;
-
+			.nav_header {
 				/*
-					query 991px <== : definimos fixed y sus propeidades 
-					top, left, right bottom y z-index para que esta caja
-					ocupe el 100% del viewport y flexbox para ubicar en 
-					la parte izquierda de la pantalla a nav
+					_@query 991px <== : definimos position: absolute y sus
+					_propiedades top, right y z-index para posicionar este
+					_elemento. también un ancho y muy importante una altura (vh),
+					_finalmente display: none para remover el elemento de la vista
 				*/
 				@media (max-width: 991px) {
-					position: fixed;
+					background-color: #fff;
+					position: absolute;
 					top: 0;
-					left: 0;
 					right: 0;
-					bottom: 0;
-					z-index: 9;
-					display: flex;
-					justify-content: flex-end;
+					z-index: 10;
+					width: 280px;
+					height: 100vh;
+					padding: 0 25px;
 					display: none;
-					background-color: rgba(0, 0, 0, 0.4);
 
 					/*
-						clase añadida con javascript que permite
-						visualizar el box_navbar que esta oculto 
+						.js_show_nav: clase añadida con javascript,
+						.definimos display: block que nos permite visualizar 
+						.el menu de navegación nuevamente
 					*/
-					&.js_show_menu {
-						display: flex;
+					&.js_show_nav {
+						display: block;
 					}
 				}
 
 				/*
-					tag-nav: contenedor de box_close_menu y ul
+					content_titleMenu_iconClose: definimos flexbox y sus 
+					propiedades justify-content y align-items mas un height 
+					para separar los elementos que este contiene y centrarlos
+					de manera vertical
 				*/
-				nav {
+				.content_titleMenu_iconClose {
+					display: flex;
+					justify-content: space-between;
+					height: 85px;
+					align-items: center;
+
 					/*
-						query 991px <== : definimos un ancho a nav, altura
-						de toda la pantalla y padding para separar el contenido
-						de los bordes
+						_@query 992px ==> : removemos de la vista
+						_este elemento para esta medida
 					*/
-					@media (max-width: 991px) {
-						background-color: #fff;
-						width: 280px;
-						height: 100%;
-						padding: 0 25px;
+					@media (min-width: 992px) {
+						display: none;
 					}
 
 					/*
-						query 992px ==> : definimos padding para separar
-						el menu de navegacion del logo
+						tag-h3
 					*/
-					// @media (min-width: 992px) {
-					// 	padding-left: 40px;
-					// }
+					h3 {
+						color: #ff671b;
+						font-family: "@sansation-bold", sans-serif;
+					}
 
 					/*
-						box_close_menu: definimos flexbox y sus propiedades
-						mas una altura para este contenedor que nos permite
-						realizar un centrado horizontal y un espaciado 
-						horizontal de los elementos
+						tag-svg: (icon-X)
 					*/
-					.box_close_menu {
+					svg {
+						fill: #919191;
+						width: 33px;
+						height: 33px;
+						cursor: pointer;
+					}
+				}
+
+				/*
+					ul_header
+				*/
+				.ul_header {
+					/*
+						_@query 992px ==> : definimos flexbox y sus propiedades 
+						_justify-content y align-items para separar el contenido
+						_y centrarlo de manera vertical
+					*/
+					@media (min-width: 992px) {
 						display: flex;
-						justify-content: space-between;
-						height: 90px;
 						align-items: center;
-
-						/*
-							query 992px ==> : ocultamos la caja
-							box_close_menu
-						*/
-						@media (min-width: 992px) {
-							display: none;
-						}
-
-						h3 {
-							color: #333;
-							font-family: "@sansation-bold", sans-serif;
-						}
-
-						svg {
-							fill: #919191;
-							width: 33px;
-							height: 33px;
-							cursor: pointer;
-						}
+						padding-left: 40px;
 					}
 
 					/*
-						ul_navbar: contiene toda la extructura referente al menu de
-						navegacion
+						tag-li: le definimos position: relative por que tenemos
+						a ul_dropdown definido con position: absolute
 					*/
-					.ul_navbar {
+					li {
+						list-style: none;
+						position: relative;
+						cursor: pointer;
+
 						/*
-							query 992px ==> : definimos flexbox para
-							poner los items del menu de navegacion en linea
+							_@query 992px ==> : definimos un espaciado en la
+							_parte izquierda de las tags-li 
 						*/
 						@media (min-width: 992px) {
-							display: flex;
-							align-items: center;
-							margin-top: 6px;
+							padding-left: 16px;
+
+							/*
+								.seleccionamos la primer tag-li y removemos el
+								.espaciado
+							*/
+							&:first-child {
+								padding-left: 0;
+							}
 						}
 
 						/*
-							tag-li: definimos relative por que tenemos un
-							ul_dorpdown que maneja position absolute
+							_@query 1200px ==> : definimos un espaciado en la
+							_parte izquierda de las tags-li 
 						*/
-						li {
-							position: relative;
-							list-style: none;
-							cursor: pointer;
+						@media (min-width: 1200px) {
+							padding-left: 35px;
+						}
 
-							&:hover > a {
+						/*
+							.cuando hacemos :hover sobre la tag-li, 
+							.relacionamos a la tag-a y modificamos
+							.su color
+						*/
+						&:hover > a {
+							color: #ff671b;
+						}
+
+						/*
+							_@query 991px <== : centramos los elementos
+							_añadimos un borde y generamos espaciado 
+							_entre los items del menu de navegación para
+							_esta medida
+						*/
+						@media (max-width: 991px) {
+							text-align: center;
+							border: 2px solid #8c8c8c;
+							padding: 12px 10px;
+							margin: 0 0 10px;
+						}
+
+						/*
+							tag-a
+						*/
+						a {
+							text-decoration: none;
+							color: #313338;
+							font-family: '@nunito-light', sans-serif;
+							font-size: 14px;
+
+							/*
+								_@query 1200px ==> : cambiamos el tamaño
+								_de la fuente para esta medida
+							*/
+							@media (min-width: 1200px) {
+								font-size: 15px;
+							}
+
+							/*
+								.js_link_active: clase añadida con javascript la
+								.cual cambia el color de las tag-a
+							*/
+							&.js_link_active {
 								color: #ff671b;
 							}
+						}
+					}
 
-							/*
-								query 991px <== : para destacar el borde 
-								para los items del menu de navegacion
-							*/
-							@media (max-width: 991px) {
-								text-align: center;
-								border: 2px solid #8c8c8c;
-								padding: 12px 10px;
-								margin-top: 10px;
-							}
+					/*
+						li_dropdown
+					*/
+					.li_dropdown {
 
-							/*
-								query 992px ==> : definimos un margin para
-								separar los items del menu de navegacion
-							*/
-							@media (min-width: 992px) {
-								padding-left: 40px;
-								margin-top: 0;
-							}
-
-							a {
-								text-decoration: none;
-								font-family: '@nunito-light', sans-serif;
-								font-size: 14px;			
-
-								@media (min-width: 1200px) {
-									font-size: 15px;
-								}
-
-								&.js_link_active {
-									color: #ff671b;
-								}
-
-								&.js_link_active svg {
-									fill: #ff671b;
-								}
-							}
+						/*
+							.cuando hacemos :hover sobre li_dropdown relacionamos
+							.a tag.svg y cambiamos su color
+						*/
+						&:hover svg {
+							fill: #ff671b;
 						}
 
 						/*
-							li_dropdown: contiene todos los elementos del 
-							menu de navegacion dropdown
+							.js_show_dropdown: clase añadida con javascript
+							.que relaciona a ul_dropdown y le define un
+							.display: block el cual permite hacer visible
+							.el menu dropdown
 						*/
-						.li_dropdown {
+						&.js_show_dropdown .ul_dropdown {
+							display: block;
+						}
+
+						/*
+							.js_show_dropdown: clase añadida con javascript
+							.que relaciona a tag-svg y añade una rotación
+							.de 180deg para este icono
+						*/
+						&.js_show_dropdown svg {
+							transform: rotate(180deg);
+						}
+
+						/*
+							tag-a: definimos flexbox y su propiedad align-items para 
+							centrar los elementos que este contiene de manera vertical 
+						*/
+						a {
+							display: flex;
+							align-items: center;
 
 							/*
-								clase añadida con javascript que muestra el
-								menu de navegacion dropdown
+								_query 991px <== : definimos la propiedad 
+								_justify-content para centrar los elementos
+								_de manera horizontal para esta medida
 							*/
-							&.js_show_dropdown .ul_dropdown {
-								display: block;
+							@media (max-width: 991px) {
+								justify-content: center;
 							}
 
-							&:hover svg {
+							/*
+								.js_link_active: clase añadida con javascript que
+								.relaciona a la tag-svg y le cambia el color al icono
+							*/
+							&.js_link_active > svg {
 								fill: #ff671b;
 							}
 
 							/*
-								tag-a: definimos flexbox y su propeidad
-								align-items para centrar el titulo y el
-								icono del dropdown
+								tag-svg: (icono-dropdown)
 							*/
-							a {
-								display: flex;
-								align-items: center;
+							svg {
+								fill: #333;
+								width: 12px;
+								height: 12px;
+								margin-left: 5px;
+								transition: transform .3s;
+							}
+						}
+
+						/*
+							ul_dropdown: definimos display: none para remover el
+							menu de navegación dropdown de la vista, este se hace 
+							visible cuando li_dropdown tiene la clase js_show_dropdown,
+							finalmente position: absolute con sus propiedades top
+							y z-index para darle posición a este elemento
+						*/
+						.ul_dropdown {
+							display: none;
+							position: absolute;
+							top: 55px;
+							z-index: 5;
+							background-color: #fff;
+
+							/*
+								_@query 991px <== : definimos las propiedades left
+								_y right para que ul_dropdown ocupe todo el ancho
+								_en esta medida
+							*/
+							@media (max-width: 991px) {	
+								left: -2px;
+								right: -2px;
+							}
+
+							/*
+								_query 992px ==> : definimos un ancho para ul_dropdown
+								_en esta medida
+							*/
+							@media (min-width: 992px) {								
+								width: 225px;
 
 								/*
-									query 991px <== : centramos todos los
-									elementos que son contenidos por la tag-a
-									que son el titulo y el icono del dropdown
+									.js_dropdown_scroll: clase añadida con javascript que
+									.modifica la propiedad top para esta medida
 								*/
-								@media (max-width: 991px) {
-									justify-content: center;
-								}
-
-								svg {
-									fill: #333;
-									width: 12px;
-									height: 12px;
-									margin-left: 5px;
+								&.js_dropdown_scroll {
+									top: 41px;
 								}
 							}
 
 							/*
-								ul_dropdown: definimos display: none para remover el
-								menu de navegacion dropdown de la vista, este se hace 
-								visible con una clase añadida a li_dropdown
+								_query 1200px ==> : definimos un ancho para ul_dropdown
+								_en esta medida
 							*/
-							.ul_dropdown {
-								display: none;
+							@media (min-width: 1200px) {								
+								width: 240px;
+							}
+
+							/*
+								tag-li: esta pertenece a ul_dropdown, removemos 
+								el padding definido anteriormente en la tag-li 
+								que pertenece a ul_navbar y modificamos el margin
+							*/
+							li {
+								padding: 0;
+								margin-bottom: 7px;
 
 								/*
-									query 991px <== : definimos absolute y sus
-									propieades top, left, right y z-index para sacar
-									el menu de navegacion dropdown de la vista y darle
-									posicion
+									_query 991px <== : removemos el borde definido
+									_anteriormente en la tag-li que pertenece a 
+									_ul_navbar
 								*/
 								@media (max-width: 991px) {
-									position: absolute;
-									top: 50px;
-									left: -2px;
-									right: -2px;
-									z-index: 5;
-									background-color: #fff;
+									border: none;
 								}
 
 								/*
-									query 992px ==> : definimos fixed y sus
-									propieades top y z-index para sacar el menu 
-									de navegacion dropdown de la vista y darle
-									posicion
+									_query 992px ==> : modificamos el margin
+									_para esta medida
 								*/
-								@media (min-width: 992px) {								
-									position: fixed;
-									top: 102px;
-									z-index: 5;
-									background-color: #fff;
-									// box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-								}
-								
 								@media (min-width: 992px) {
-									.js_scroll_dropdown {
-										// top: 85px;
-										// transition: 0.3s;
+									margin: 12px 0;
+
+									/*  
+										.cuando hacemos :hover en la tag-li
+										.de ul_dropdown relacionamos a su tag-a
+										.y cambiamos su color de fondo
+									*/
+									&:hover a {
+										background-color: #f0efef;
 									}
 								}
 
-								li {
-									padding: 0;
+								/*
+									tag-a: esta pertenece a la tag-li que esta
+									dentro de ul_dropdown
+								*/
+								a {
+									padding: 5px 15px;
 
 									/*
-										query 991px <== : removemos el borde definido
-										anteriormente y modificamos el margin
-									*/
-									@media (max-width: 991px) {
-										border: none;
-										margin: 7px 0;
-									}
-
-									/*
-										query 992px ==> : modificamos el margin y 
-										realizamos un :hover en la tag-a que cambia 
-										el background-color
+										_@query 992px ==> : modificamos el padding para 
+										_la siguiente medida
 									*/
 									@media (min-width: 992px) {
-										margin: 12px 0;
-
-										&:hover a {
-											background-color: #f0efef;
-										}
-									}
-
-									a {
-										padding: 8px 15px;
+										padding: 6px 15px;
 									}
 								}
 							}
-
-							// @media (min-width: 992px) {
-							// 	.js_scroll_dropdown {
-							// 		top: 85px;
-							// 		transition: 0.3s;
-							// 	}
-							// }
 						}
 					}
 				}

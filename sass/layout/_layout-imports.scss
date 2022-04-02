@@ -5,7 +5,7 @@
 @import './index/header';
 @import './index/banner-slider';
 @import './index/banner-static';
-@import './index/galery';
+@import './index/gallery';
 @import './index/card';
 @import './index/article-slider';
 @import './index/tabs';
@@ -13,8 +13,32 @@
 
 
 /*
-    estilos pertenecientes a fundacion.html
+    estilos pertenecientes a fundación.html
 */ 
 
 @import './fundacion/banner';
 @import './fundacion/tabs';
+
+
+/*
+    estilos pertenecientes a aflora.html
+*/ 
+
+@import './aflora/banner';
+@import './aflora/links';
+@import './aflora/card';
+@import './aflora/convocatorias';
+
+
+/*
+    estilos pertenecientes a cultivarte.html
+*/ 
+
+@import './cultivarte/banner';
+
+/*
+    estilos pertenecientes a periodismo.html
+*/ 
+
+@import './periodismo/banner';
+@import './periodismo/links';

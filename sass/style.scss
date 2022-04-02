@@ -8,12 +8,45 @@
 	box-sizing: border-box;
 }
 
-// main {
-// 	@media (max-width: 991px) {
-// 		padding-top: 90px;
-// 	}
+/*
+	body
+*/
+body {
+	/*
+		_@query 991px <== : para esta medida añadimos al body una clase
+	*/
+	@media (max-width: 991px) {
+		/*
+			.js_bg_body: clase añadida con javascript, hacemos uso
+			.del pseudo elemento :after para crear una mascara para
+			.eso definimos position: absolute con sus propiedades
+			.top y left y z-index para darle posición, finalmente
+			.definimos un ancho y alto de todo el viewport
+		*/
+		&.js_bg_body::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 9;
+			background: linear-gradient(0deg,rgba(17,24,32,.45) 76%,rgba(17,24,32,.4));
+			width: 100%;
+			height: 100vh;
+		}
+	}
+}
 
-// 	@media (min-width: 992px) {
-// 		padding-top: 105px;
-// 	}
-// }
+/*
+	ghost_container
+*/
+.ghost_container {
+
+	/*
+		_@query 767px <== : definimos una altura para este contenedor
+		_el cual es utilizado para generar un espacio entre el 
+		_banner static y el menu acordeón
+	*/
+	@media (max-width: 767px) {
+		height: 40px;
+	}
+}

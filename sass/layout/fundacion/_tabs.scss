@@ -1,9 +1,8 @@
 /*
-	importacion de las fuentes
+	section_fundacion_tabs: definimos un background-img para
+	la sección, finalmente definimos un espaciado para generar
+    espacio para este contenedor 
 */
-// @import '../../shared/fonts';
-
-
 .section_fundacion_tabs {
     background: url(../../../assets/img/fundacion/mision_vi_bg.jpg);
     background-repeat: no-repeat;
@@ -12,34 +11,56 @@
     padding: 100px 0;
 
     /*
-		container_name: contenedor definido para manejar
-		el responsive implementando width
+        _@query 767px <== : definimos un margen inferior en este
+        _elemento para separarlo de los otros elementos
+    */
+    @media (max-width: 767px) {
+        margin-bottom: 50px;
+    }
+
+    /*
+		container_fundacion_tabs: definimos la propiedad max-width para definir
+        un ancho minimo para este contenedor, finalmente margin: 0 auto para
+        centrar de manera horizontal este contenedor
 	*/
 	.container_fundacion_tabs {
 		max-width: 100%;
 		margin: 0 auto;
 
+        /*
+			_@query 768px ==> : cambiamos el valor de max-width y definimos
+            _un espaciado para este elemento en esta medida
+		*/
 		@media (min-width: 768px) {
 			max-width: 720px;
 			padding: 0 15px;
 		}
 
+        /*
+			_@query 992px ==> : cambiamos el valor de max-width
+            _para este elemento en esta medida
+		*/
 		@media (min-width: 992px) {
 			max-width: 960px;
 		}
 
+        /*
+			_@query 1200px ==> : cambiamos el valor de max-width
+            _para este elemento en esta medida
+		*/
 		@media (min-width: 1200px) {
 			max-width: 1140px;
 		}
 
 		/*
-            flexbox_name
+            flexbox_fundacion_tabs
         */
 		.flexbox_fundacion_tabs {
 			/*
-				@query 768px ==> : definimos flexbox y su 
-				propiedad space-between para generar espaciado
-				entre los elementos que este contiene
+				_@query 992px ==> : definimos flexbox y sus
+				_propiedades justify-content y align-items para centrar
+                _de manera vertical y horizontal los elementos que este
+                _contiene
 			*/
 			@media (min-width: 992px) {
 				display: flex;
@@ -48,12 +69,14 @@
 			}
 
 			/*
-                tab_header
+                tab_fundacion_header
             */
 			.tab_fundacion_header {
 				/*
-					@query 768px ==> : definimos width: 50% para que ocupe
-					ese espacio dentro de su contenedor padre
+					_@query 991px <== : definimos width: 100% para que ocupe
+					_el ancho total de su contenedor padre, finalmente un 
+                    _margin: 0 auto para centrar de manera horizontal este
+                    _contenedor
 				*/
 				@media (max-width: 991px) {
 					width: 100%;
@@ -61,16 +84,20 @@
                     margin: 0 auto;
 				}
 
+                /*
+                    _@query 992px ==> : modificamos el ancho de este elemento para
+                    _esta medida
+                */
 				@media (min-width: 992px) {
 					width: 280px
 				}
 
 				/*
-                    tab_content_header: importante definirle 
-					position: relative ya que la clase js_header_active 
-					tiene definido position: absolute
+                    tab_content_header: definimos flexbox y sus propiedades justify-content 
+                    y align-items para centrar de manera vertical y horizontal los 
+                    elementos que este contiene
                 */
-				.tab_info {
+				.tab_content_header {
                     background-color: #000000cc;
 					display: flex;
 					justify-content: space-between;
@@ -78,38 +105,71 @@
 					cursor: pointer;
 					padding: 10px;
                     
+                    /*
+                        .nth-child: seleccionamos el segundo elemento con clase
+                        .tab_content_header y definimos un margen
+                    */
 					&:nth-child(2) {
                         margin: 16px 0;
                     }
                     
+                    /*
+                        .js_header_active: clase añadida con javascript que relaciona
+                        .a tag-h2 y le cambia el color de fuente a este elemento
+                    */
                     &.js_header_active h2 {
                         color: #ff671b;
                     }
 
+                    /*
+                        .js_header_active: clase añadida con javascript que relaciona
+                        .a tag-svg y le cambia el color de fondo y de fuente a este
+                        .elemento
+                    */
                     &.js_header_active svg {
                         background-color: #ff671b;
                         fill: #000;
                     }
 
+                    /*
+                        .js_header_active: clase añadida con javascript que relaciona
+                        .a icon_plus y añade display: none para remover este elemento
+                        .del viewport
+                    */
                     &.js_header_active .icon_plus {
                         display: none;
                     }
 
+                    /*
+                        .js_header_active: clase añadida con javascript que relaciona
+                        .a icon_minus y añade display: block para hacer visible este
+                        .elemento en el viewport
+                    */
                     &.js_header_active .icon_minus {
                         display: block;
                     }
 
+                    /*
+                        tag-h2
+                    */
                     h2 {
                         color: #fff;
                         font-size: 22px;
                         font-family: '@sansation-bold', sans-serif;
                         transition: color .1s;
 
+                        /*
+                            _@query 767px <== : cambiamos el tamaño de fuente de 
+                            _este elemento para esta medida
+                        */
                         @media (max-width: 767px) {
-                            font-size: 30px;
+                            font-size: 27px;
                         }
                     }
 
+                    /*
+                        tag-svg
+                    */
                     svg {
                         background-color: #fff;
                         fill: #000;
@@ -118,40 +178,52 @@
                         border-radius: 100%;
                     }
 
+                    /*
+                        icon_minus: definimos display: none para remover este 
+                        elemento del viewport que se hace visible cuando tab-info
+                        tiene la js_header_active añadida con javascript
+                    */
                     .icon_minus {
                         display: none;
                     }
-
 				}
 			}
 
 			/*
-                tab_body
+                tab_fundacion_body
             */
 			.tab_fundacion_body {
-
+                /*
+                    _@query 992px ==> : definimos un ancho calculado para este
+                    _elemento, finalmente añadimos un espaciado para esta medida
+                */
 				@media (min-width: 992px) {
 					width: calc(100% - 280px);
                     padding-left: 50px;
 				}
 
+                /*
+                    tab_content_body
+                */
                 .tab_content_body {
-
                     /*
-                        js_header_active
+                        .js_body_hidden: clase añadida con javascript que define
+                        .display: none para remover este elemento del viewport
                     */
                     &.js_body_hidden {
-                        transition: .5s;
                         display: none;
-                        /*
-                            @query 768px ==> : clase añadida con javascript que
-                            nos permite ocultar el contenedor tab_body
-                        */
-                        // @media (min-width: 768px) {
-                        // }
                     }
 
+                    /*
+                        .js_body_hidden: clase añadida con javascript que relaciona
+                        .a content_tab 
+                    */
                     &.js_body_hidden .content_tab {
+                        /*
+                            animationTag: a 0% definimos un transform: translateY
+                            para desplazar este elemento 100px hacia abajo y en
+                            100% lo trasladamos a su posición original
+                        */
                         @keyframes animationTag  {
                             0% {
                                 transform: translateY(100px);
@@ -162,62 +234,105 @@
                         }
                     }
 
+                    /*
+                        container_tab
+                    */
                     .container_tab {
-                        
+                        /*
+                            _@query 767px <== : definimos un espaciado para este
+                            _elemento en esta medida
+                        */
                         @media (max-width: 767px) {
                             padding: 1.25rem 0;
                         }
 
+                        /*
+                            _@query 768px ==> : definimos un espaciado para este
+                            _elemento en esta medida
+                        */
                         @media (min-width: 768px) {
                             padding: 1.25rem;
                         }
 
                         /*
-                            tab_content_body
+                            content_tab: definimos la animación que se aplica cuando
+                            tag_content_body tiene la clase js_body_hidden 
                         */
                         .content_tab {
-                            animation: animationTag .4s;
+                            animation: animationTag .5s;
 
+                            /*
+                                tag-p: definimos position: relative debido a que definimos
+                                position: absolute en elementos hijos
+                            */
                             .box_paragraph {
                                 position: relative;
                                 padding: 40px 30px;
                                 
+                                /*
+                                    .before: haciendo uso de este pseudo elemento definimos
+                                    .un elemento que ocupe el ancho y alto total de su
+                                    .contenedor padre, con position: absolute y sus propiedades
+                                    .top y left posicionamos este elemento
+                                */
                                 &::before {
                                     content: "";
+                                    display: block;
                                     position: absolute;
                                     top: 0;
                                     left: 0;
+                                    background-color: #000000cc;
                                     width: 100%;
                                     height: 100%;
-                                    background-color: #000000cc;
                                 }
             
+                                /*
+                                    .after: haciendo uso de este pseudo elemento definimos
+                                    .un ancho y alto para este elemento y con position: absolute 
+                                    .y sus propiedades .top y left le damos posición
+                                */
                                 &::after {
                                     content: "";
+                                    display: block;
                                     position: absolute;
                                     top: 0;
                                     left: 0;
-                                    display: block;
                                     background-color: #ff671b;
                                     width: 275px;
                                     height: 8px;
                                 }
 
+                                /*
+                                    tag-p: definimos position: relative con su propiedad
+                                    z-index para sobre poner este elemento en el viewport
+                                */
                                 p {
                                     position: relative;
                                     z-index: 4;
                                     color: #fff;
                                     font-family: '@nunito-regular', sans-serif;
                                     line-height: 26px;
-                                }
 
-                                .especial_paragraph {
-                                    margin: 15px 0;
+                                    /*
+                                        .nth-child: seleccionamos el segundo elemento tag-p
+                                        .y definimos un margen
+                                    */
+                                    &:nth-child(2) {
+                                        margin: 15px 0;
+                                    }
                                 }
                             }
 
+                            /*
+                               box_links 
+                            */
                             .box_links {
-                                
+                                /*
+                                    _@query 768px ==> : definimos flexbox y sus
+                                    _propiedades justify-content y align-items para centrar
+                                    _de manera vertical y horizontal los elementos que este
+                                    _contiene
+                                */
                                 @media (min-width: 768px) {
                                     display: flex;
                                     justify-content: center;
@@ -225,6 +340,9 @@
                                     margin-top: 15px;      
                                 }
 
+                                /*
+                                    tag-a
+                                */
                                 a {
                                     text-decoration: none;
                                     text-align: center;
@@ -234,26 +352,48 @@
                                     font-family: '@sansation-regular', sans-serif;
                                     border-radius: 4px;
                                     padding: 7px 10px;
-                                    transition: .3s;
+                                    transition: all .3s;
 
+                                    /*
+                                        .nth-child: seleccionamos el segundo elemento tag-a
+                                        .y definimos un margen
+                                    */
                                     &:nth-child(2) {
                                         @media (min-width: 768px) {
                                             margin: 0 15px;
                                         }
                                     }
 
+                                    /*
+                                        .cuando hacemos :hover sobre tag-a modificamos su
+                                        .color de fondo
+                                    */
                                     &:hover {
                                         background-color: #000000cc;
                                     }
 
+                                    /*
+                                        _@query 991px <== : definimos un border: transparent
+                                        _para este elemento en esta medida
+                                    */
                                     @media (max-width: 991px) {
                                         border: 1px solid transparent;
                                         
+                                        /*
+                                            .cuando hacemos :hover sobre tag-a en esta medida 
+                                            .modificamos le añadimos color al borde
+                                        */
                                         &:hover {     
                                             border: 1px solid #ff671b;
                                         }
                                     }
 
+                                    /*
+                                        _@query 767px <== : definimos display: block para 
+                                        _pasar este elemento a bloque en esta medida, finalmente
+                                        _definimos un max-width para que este sea el ancho 
+                                        _mínimo de este contenedor
+                                    */
                                     @media (max-width: 767px) {
                                         display: block;
                                         text-align: center;

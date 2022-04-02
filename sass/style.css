@@ -3,29 +3,35 @@
     estilos pertenecientes a index.html
 */
 /*
-	importacion de las fuentes
-*/
-/*
-	variables que almacenan la altura de header
-	para escritorio y dispositivos moviles
-*/
-/*
-	section_header: generalmente a este contenedor le
-	definimos margenes y espaciados para separar el contenido
-	de otros contenedores como el body
+	section_header: definimos un espaciado para separar esta sección
 */
 .section_header {
   background-color: #fff;
   padding: 20px 0;
   /*
-  clase añadida con javascript que permite
-  disminuir la altura a header_flexbox logrando
-  asi el efecto scroll
+  	_@query 992px ==> : modificamos el espaciado en esta 
+  	_medida
   */
   /*
-  	container_header: a este contenedor le 
-  	definimos el tamaño que tendra en la vista
+  	.js_header_scroll: clase añadida con javascript, 
+  	.definimos position: fixed y sus propiedades top,
+  	.left, right para que ocupe el 100% de ancho referente
+  	.al viewport, finalmente añadimos una animación
   */
+  /*
+  	container_header: le definimos un espaciado para separar
+  	los elementos que este contiene del borde del contenedor 
+  */
+}
+@media (max-width: 991px) {
+  .section_header {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+@media (min-width: 992px) {
+  .section_header {
+    padding: 31px 0;
+  }
 }
 .section_header.js_header_scroll {
   position: fixed;
@@ -35,10 +41,15 @@
   z-index: 99;
   padding: 15px 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  -webkit-animation: headerAnimation 1s forwards;
-          animation: headerAnimation 1s forwards;
+  -webkit-animation: headerScroll 1s forwards;
+          animation: headerScroll 1s forwards;
+  /*
+  	_headerScroll: esta traslada el header -40px 
+  	_hacia arriba para finalmente devolverlo a su 
+  	_posición inicial
+  */
 }
-@-webkit-keyframes headerAnimation {
+@-webkit-keyframes headerScroll {
   0% {
     transform: translateY(-40px);
   }
@@ -46,48 +57,43 @@
     transform: translateY(0px);
   }
 }
-@keyframes headerAnimation {
+@keyframes headerScroll {
   0% {
     transform: translateY(-40px);
   }
   100% {
     transform: translateY(0px);
-  }
-}
-@media (min-width: 992px) {
-  .section_header {
-    padding: 31px 0;
   }
 }
 .section_header .container_header {
   padding: 0 15px;
   /*
-  	header_flexbox: este contenedor lo definimos 
-  	para implementar flex-box y sus propiedades cuando
-  	sus elementos hijo lo requeiren
+  	_@query 1200px ==> : modificamos el espaciado en esta 
+  	_medida
+  */
+  /*
+  	header_flexbox
   */
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .section_header .container_header {
     padding: 0 40px;
   }
 }
 .section_header .container_header .header_flexbox {
   /*
-  	query 992px ==> : definimos flexbox y su propiedad
-  	align-items que centra el menu de navegacion en referencia
-  	a la altura de la imagen
+  	_@query 992px ==> : definimos flexbox y su propiedad align-items 
+  	_para centrar de manera vertical el menu de navegación en 
+  	_referencia a la altura de la imagen
   */
   /*
-  	box_logo_icon: definimos flexbox y su propiedad
-  	justify-content y align-items para centar y separar el 
-  	icon burger menu en referencia a la altura de la imagen
+  	content_logoNit_iconBurger: definimos flexbox y sus 
+  	propiedades justify-content y align-items para centrar 
+  	de manera horizontal y vertical el menu de navegación 
+  	en referencia a la altura de la imagen
   */
   /*
-  	box_navbar: caja contenedora de toda la 
-  	extructura referente al menu de navegacion definimos
-  	flex-grow para que esta caja tome todo el espaciado
-  	generado por flexbox
+  	nav_header
   */
 }
 @media (min-width: 992px) {
@@ -96,358 +102,471 @@
     align-items: center;
   }
 }
-.section_header .container_header .header_flexbox .box_logo_icon {
+.section_header .container_header .header_flexbox .content_logoNit_iconBurger {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.section_header .container_header .header_flexbox .box_logo_icon a {
-  margin-right: 16px;
-}
-.section_header .container_header .header_flexbox .box_logo_icon a img {
-  vertical-align: top;
   /*
-  	query 991px <== : modificamos las diemensiones
-  	de la imagen
+  	tag-a
   */
   /*
-  	query 992px ==> : modificamos las diemensiones
-  	de la imagen
+  	tag-svg: (icon-burger)
+  */
+}
+.section_header .container_header .header_flexbox .content_logoNit_iconBurger a {
+  /*
+  	_query 992px ==> : definimos un padding-right para
+  	_separar este elemento del menu de navegación en 
+  	_esta medida
+  */
+  /*
+  	_query 1200px ==> : definimos un padding-right para
+  	_separar este elemento del menu de navegación en 
+  	_esta medida
+  */
+  /*
+  	tag-img: definimos vertical-align: top para
+  	remover el espaciado que genera el navegador
+  	en las imágenes
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .content_logoNit_iconBurger a {
+    padding-right: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_header .container_header .header_flexbox .content_logoNit_iconBurger a {
+    padding-right: 20px;
+  }
+}
+.section_header .container_header .header_flexbox .content_logoNit_iconBurger a img {
+  vertical-align: top;
+  /*
+  	_query 991px <== : modificamos el width y height
+  	_de la imagen para esta medida
+  */
+  /*
+  	_query 992px ==> : modificamos el width y height
+  	_de la imagen para esta medida
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_logo_icon a img {
+  .section_header .container_header .header_flexbox .content_logoNit_iconBurger a img {
     width: 90px;
     height: 45px;
   }
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_logo_icon a img {
+  .section_header .container_header .header_flexbox .content_logoNit_iconBurger a img {
     width: 80px;
     height: 40px;
   }
 }
-.section_header .container_header .header_flexbox .box_logo_icon svg {
+.section_header .container_header .header_flexbox .content_logoNit_iconBurger svg {
   fill: #ff671b;
   width: 33px;
   height: 33px;
   cursor: pointer;
   /*
-  	query 992px ==> : removemos de la vista
-  	el icon burger menu
+  	_@query 992px ==> : removemos de la vista
+  	_el icon burger
   */
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_logo_icon svg {
+  .section_header .container_header .header_flexbox .content_logoNit_iconBurger svg {
     display: none;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar {
-  flex-grow: 1;
+.section_header .container_header .header_flexbox .nav_header {
   /*
-  	query 991px <== : definimos fixed y sus propeidades 
-  	top, left, right bottom y z-index para que esta caja
-  	ocupe el 100% del viewport y flexbox para ubicar en 
-  	la parte izquierda de la pantalla a nav
+  	_@query 991px <== : definimos position: absolute y sus
+  	_propiedades top, right y z-index para posicionar este
+  	_elemento. también un ancho y muy importante una altura (vh),
+  	_finalmente display: none para remover el elemento de la vista
   */
   /*
-  	tag-nav: contenedor de box_close_menu y ul
+  	content_titleMenu_iconClose: definimos flexbox y sus 
+  	propiedades justify-content y align-items mas un height 
+  	para separar los elementos que este contiene y centrarlos
+  	de manera vertical
+  */
+  /*
+  	ul_header
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar {
-    position: fixed;
+  .section_header .container_header .header_flexbox .nav_header {
+    background-color: #fff;
+    position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    z-index: 9;
-    display: flex;
-    justify-content: flex-end;
+    z-index: 10;
+    width: 280px;
+    height: 100vh;
+    padding: 0 25px;
     display: none;
-    background-color: rgba(0, 0, 0, 0.4);
     /*
-    	clase añadida con javascript que permite
-    	visualizar el box_navbar que esta oculto 
+    	.js_show_nav: clase añadida con javascript,
+    	.definimos display: block que nos permite visualizar 
+    	.el menu de navegación nuevamente
     */
   }
-  .section_header .container_header .header_flexbox .box_navbar.js_show_menu {
-    display: flex;
+  .section_header .container_header .header_flexbox .nav_header.js_show_nav {
+    display: block;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav {
-  /*
-  	query 991px <== : definimos un ancho a nav, altura
-  	de toda la pantalla y padding para separar el contenido
-  	de los bordes
-  */
-  /*
-  	query 992px ==> : definimos padding para separar
-  	el menu de navegacion del logo
-  */
-  /*
-  	box_close_menu: definimos flexbox y sus propiedades
-  	mas una altura para este contenedor que nos permite
-  	realizar un centrado horizontal y un espaciado 
-  	horizontal de los elementos
-  */
-  /*
-  	ul_navbar: contiene toda la extructura referente al menu de
-  	navegacion
-  */
-}
-@media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar nav {
-    background-color: #fff;
-    width: 280px;
-    height: 100%;
-    padding: 0 25px;
-  }
-}
-.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu {
+.section_header .container_header .header_flexbox .nav_header .content_titleMenu_iconClose {
   display: flex;
   justify-content: space-between;
-  height: 90px;
+  height: 85px;
   align-items: center;
   /*
-  	query 992px ==> : ocultamos la caja
-  	box_close_menu
+  	_@query 992px ==> : removemos de la vista
+  	_este elemento para esta medida
+  */
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-svg: (icon-X)
   */
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .box_close_menu {
+  .section_header .container_header .header_flexbox .nav_header .content_titleMenu_iconClose {
     display: none;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu h3 {
-  color: #333;
+.section_header .container_header .header_flexbox .nav_header .content_titleMenu_iconClose h3 {
+  color: #ff671b;
   font-family: "@sansation-bold", sans-serif;
 }
-.section_header .container_header .header_flexbox .box_navbar nav .box_close_menu svg {
+.section_header .container_header .header_flexbox .nav_header .content_titleMenu_iconClose svg {
   fill: #919191;
   width: 33px;
   height: 33px;
   cursor: pointer;
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
+.section_header .container_header .header_flexbox .nav_header .ul_header {
   /*
-  	query 992px ==> : definimos flexbox para
-  	poner los items del menu de navegacion en linea
+  	_@query 992px ==> : definimos flexbox y sus propiedades 
+  	_justify-content y align-items para separar el contenido
+  	_y centrarlo de manera vertical
   */
   /*
-  	tag-li: definimos relative por que tenemos un
-  	ul_dorpdown que maneja position absolute
+  	tag-li: le definimos position: relative por que tenemos
+  	a ul_dropdown definido con position: absolute
   */
   /*
-  	li_dropdown: contiene todos los elementos del 
-  	menu de navegacion dropdown
+  	li_dropdown
   */
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar {
+  .section_header .container_header .header_flexbox .nav_header .ul_header {
     display: flex;
     align-items: center;
-    margin-top: 6px;
+    padding-left: 40px;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
-  position: relative;
+.section_header .container_header .header_flexbox .nav_header .ul_header li {
   list-style: none;
+  position: relative;
   cursor: pointer;
   /*
-  	query 991px <== : para destacar el borde 
-  	para los items del menu de navegacion
+  	_@query 992px ==> : definimos un espaciado en la
+  	_parte izquierda de las tags-li 
   */
   /*
-  	query 992px ==> : definimos un margin para
-  	separar los items del menu de navegacion
+  	_@query 1200px ==> : definimos un espaciado en la
+  	_parte izquierda de las tags-li 
+  */
+  /*
+  	.cuando hacemos :hover sobre la tag-li, 
+  	.relacionamos a la tag-a y modificamos
+  	.su color
+  */
+  /*
+  	_@query 991px <== : centramos los elementos
+  	_añadimos un borde y generamos espaciado 
+  	_entre los items del menu de navegación para
+  	_esta medida
+  */
+  /*
+  	tag-a
   */
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li:hover > a {
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .nav_header .ul_header li {
+    padding-left: 16px;
+    /*
+    	.seleccionamos la primer tag-li y removemos el
+    	.espaciado
+    */
+  }
+  .section_header .container_header .header_flexbox .nav_header .ul_header li:first-child {
+    padding-left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .section_header .container_header .header_flexbox .nav_header .ul_header li {
+    padding-left: 35px;
+  }
+}
+.section_header .container_header .header_flexbox .nav_header .ul_header li:hover > a {
   color: #ff671b;
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
+  .section_header .container_header .header_flexbox .nav_header .ul_header li {
     text-align: center;
     border: 2px solid #8c8c8c;
     padding: 12px 10px;
-    margin-top: 10px;
+    margin: 0 0 10px;
   }
 }
-@media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li {
-    padding-left: 40px;
-    margin-top: 0;
-  }
-}
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
+.section_header .container_header .header_flexbox .nav_header .ul_header li a {
   text-decoration: none;
+  color: #313338;
   font-family: "@nunito-light", sans-serif;
   font-size: 14px;
+  /*
+  	_@query 1200px ==> : cambiamos el tamaño
+  	_de la fuente para esta medida
+  */
+  /*
+  	.js_link_active: clase añadida con javascript la
+  	.cual cambia el color de las tag-a
+  */
 }
 @media (min-width: 1200px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a {
+  .section_header .container_header .header_flexbox .nav_header .ul_header li a {
     font-size: 15px;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a.js_link_active {
+.section_header .container_header .header_flexbox .nav_header .ul_header li a.js_link_active {
   color: #ff671b;
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar li a.js_link_active svg {
-  fill: #ff671b;
-}
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown {
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown {
   /*
-  	clase añadida con javascript que muestra el
-  	menu de navegacion dropdown
+  	.cuando hacemos :hover sobre li_dropdown relacionamos
+  	.a tag.svg y cambiamos su color
   */
   /*
-  	tag-a: definimos flexbox y su propeidad
-  	align-items para centrar el titulo y el
-  	icono del dropdown
+  	.js_show_dropdown: clase añadida con javascript
+  	.que relaciona a ul_dropdown y le define un
+  	.display: block el cual permite hacer visible
+  	.el menu dropdown
+  */
+  /*
+  	.js_show_dropdown: clase añadida con javascript
+  	.que relaciona a tag-svg y añade una rotación
+  	.de 180deg para este icono
+  */
+  /*
+  	tag-a: definimos flexbox y su propiedad align-items para 
+  	centrar los elementos que este contiene de manera vertical 
   */
   /*
   	ul_dropdown: definimos display: none para remover el
-  	menu de navegacion dropdown de la vista, este se hace 
-  	visible con una clase añadida a li_dropdown
+  	menu de navegación dropdown de la vista, este se hace 
+  	visible cuando li_dropdown tiene la clase js_show_dropdown,
+  	finalmente position: absolute con sus propiedades top
+  	y z-index para darle posición a este elemento
   */
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown.js_show_dropdown .ul_dropdown {
-  display: block;
-}
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown:hover svg {
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown:hover svg {
   fill: #ff671b;
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a {
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown.js_show_dropdown .ul_dropdown {
+  display: block;
+}
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown.js_show_dropdown svg {
+  transform: rotate(180deg);
+}
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown a {
   display: flex;
   align-items: center;
   /*
-  	query 991px <== : centramos todos los
-  	elementos que son contenidos por la tag-a
-  	que son el titulo y el icono del dropdown
+  	_query 991px <== : definimos la propiedad 
+  	_justify-content para centrar los elementos
+  	_de manera horizontal para esta medida
+  */
+  /*
+  	.js_link_active: clase añadida con javascript que
+  	.relaciona a la tag-svg y le cambia el color al icono
+  */
+  /*
+  	tag-svg: (icono-dropdown)
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown a {
     justify-content: center;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown a svg {
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown a.js_link_active > svg {
+  fill: #ff671b;
+}
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown a svg {
   fill: #333;
   width: 12px;
   height: 12px;
   margin-left: 5px;
+  transition: transform 0.3s;
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown {
   display: none;
+  position: absolute;
+  top: 55px;
+  z-index: 5;
+  background-color: #fff;
   /*
-  	query 991px <== : definimos absolute y sus
-  	propieades top, left, right y z-index para sacar
-  	el menu de navegacion dropdown de la vista y darle
-  	posicion
+  	_@query 991px <== : definimos las propiedades left
+  	_y right para que ul_dropdown ocupe todo el ancho
+  	_en esta medida
   */
   /*
-  	query 992px ==> : definimos fixed y sus
-  	propieades top y z-index para sacar el menu 
-  	de navegacion dropdown de la vista y darle
-  	posicion
+  	_query 992px ==> : definimos un ancho para ul_dropdown
+  	_en esta medida
+  */
+  /*
+  	_query 1200px ==> : definimos un ancho para ul_dropdown
+  	_en esta medida
+  */
+  /*
+  	tag-li: esta pertenece a ul_dropdown, removemos 
+  	el padding definido anteriormente en la tag-li 
+  	que pertenece a ul_navbar y modificamos el margin
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
-    position: absolute;
-    top: 50px;
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown {
     left: -2px;
     right: -2px;
-    z-index: 5;
-    background-color: #fff;
   }
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown {
-    position: fixed;
-    top: 102px;
-    z-index: 5;
-    background-color: #fff;
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown {
+    width: 225px;
+    /*
+    	.js_dropdown_scroll: clase añadida con javascript que
+    	.modifica la propiedad top para esta medida
+    */
+  }
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown.js_dropdown_scroll {
+    top: 41px;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+@media (min-width: 1200px) {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown {
+    width: 240px;
+  }
+}
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li {
   padding: 0;
+  margin-bottom: 7px;
   /*
-  	query 991px <== : removemos el borde definido
-  	anteriormente y modificamos el margin
+  	_query 991px <== : removemos el borde definido
+  	_anteriormente en la tag-li que pertenece a 
+  	_ul_navbar
   */
   /*
-  	query 992px ==> : modificamos el margin y 
-  	realizamos un :hover en la tag-a que cambia 
-  	el background-color
+  	_query 992px ==> : modificamos el margin
+  	_para esta medida
+  */
+  /*
+  	tag-a: esta pertenece a la tag-li que esta
+  	dentro de ul_dropdown
   */
 }
 @media (max-width: 991px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li {
     border: none;
-    margin: 7px 0;
   }
 }
 @media (min-width: 992px) {
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li {
     margin: 12px 0;
+    /*  
+    	.cuando hacemos :hover en la tag-li
+    	.de ul_dropdown relacionamos a su tag-a
+    	.y cambiamos su color de fondo
+    */
   }
-  .section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li:hover a {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li:hover a {
     background-color: #f0efef;
   }
 }
-.section_header .container_header .header_flexbox .box_navbar nav .ul_navbar .li_dropdown .ul_dropdown li a {
-  padding: 8px 15px;
+.section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li a {
+  padding: 5px 15px;
+  /*
+  	_@query 992px ==> : modificamos el padding para 
+  	_la siguiente medida
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header .header_flexbox .nav_header .ul_header .li_dropdown .ul_dropdown li a {
+    padding: 6px 15px;
+  }
 }
 
 /*
-	importacion de las fuentes
-*/
-/*
-	varaibles implementadas en diferentes elementos
-*/
-/*
-	medidas responsive
-*/
-/*
-    seccion_name: nos sirve para implementar margenes y espaciados 
-    con el fin de separar un contenedor de otros elementos en este caso 
+    section_banner_slider
 */
 .section_banner_slider {
   /*
-         container_name: definimos absolute y su propeidad z-index
-         para poscionar esta caja sobre la caja que contiene al slider.
-         width: 100% para que recupere todo el ancho del viewport
-  	y un height para que el contenedor del slider no desmaquete
+         container_banner_slider
      */
 }
 .section_banner_slider .container_banner_slider {
   /* 
-            flexbox_banner: definimos flexbox y su propiedad
-            align-items y justify-content mas un height para centrar la caja 
-  	box_name horizontal y verticalmente a su padre
+            flexbox_banner_slider
         */
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider {
   /*
-  	swiper: contenedor del slider a este es importante definirle la
-  	misma altura que la seccion para que no genere desmaquetados
+  	swiper
+  */
+  /*
+  	content_icons: definimos position: relative ya que uno de
+  	sus elementos hijo tiene definido position: absolute, con 
+  	margin: 0 auto centramos el contenedor con referencia al 
+  	tamaño definido en la propiedad max-width
+  */
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper {
+  /*
+  	swiper-wrapper
+  */
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper {
+  /*
+  	swiper-slide: definimos position: relative ya que uno de
+  	sus elementos hijo tiene definido position: absolute, si
+  	queremos modificar la altura del slider debemos implementar
+  	la propiedad en este elemento
   */
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide {
   position: relative;
-  display: flex;
-  justify-content: center;
   height: 700px;
   /*
-  	box_name: esta caja se encarga de manejar el width por lo que
-  	es muy importante para el responsive
+  	_@query 767px <== : modificamos el height para esta
+  	_medida
   */
   /*
-  	tag-img: es importante a esta imagen definirle un width
-  	y height igual al de su contenedor padre y la propiedad 
-  	object-fit: cover para que se ajuste al contenedor
+  	_@query 480px <== : modificamos el height para esta
+  	_medida
+  */
+  /*
+  	container_slider: definimos position: absolute para 
+  	posicionar este contenedor por encima de la imagen.
+  	la propiedad width: 100% es obligatoria
+  */
+  /*
+  	tag-img: definimos la propiedad vertical-align: top
+  	para remover un espaciado que genera el navegador en las
+  	img, finalmente width y height junto con object-fit: cover
+  	para que esta se ajuste al tamaño de su contenedor padre
   */
 }
 @media (max-width: 767px) {
@@ -455,115 +574,250 @@
     height: 400px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+@media (max-width: 480px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide {
+    height: 440px;
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider {
   position: absolute;
+  width: 100%;
+  /*
+  	_@query 480px <== : definimos bottom para posicionar los 
+  	_elementos que este contiene en la parte inferior del 
+  	_contenedor padre
+  */
+  /*
+  	_@query 481px ==> : definimos bottom para posicionar los 
+  	_elementos que este contiene en la parte inferior del 
+  	_contenedor padre
+  */
+  /*
+  	box_banner_slider: definimos margin: 0 auto, teniendo en
+  	cuenta el ancho mínimo de este contenedor es los diferentes
+  	media query
+  */
+}
+@media (max-width: 480px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider {
+    bottom: 80px;
+  }
+}
+@media (min-width: 481px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider {
+    bottom: 65px;
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider {
+  max-width: 100%;
+  margin: 0 auto;
   padding: 0 15px;
   /*
-  	@query 767px <== : definimos un width para esta medida
+  	_@query 576px ==> : definimos un max-width para que este 
+  	_sea el ancho mínimo de este contenedor para esta medida
   */
   /*
-  	@query 767px <== : definimos un width para esta medida
+  	_@query 768px ==> : definimos un max-width para que este 
+  	_sea el ancho mínimo de este contenedor
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	_@query 992px ==> : definimos un max-width para que este 
+  	_sea el ancho mínimo de este contenedor para esta medida
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	_@query 1200px ==> : definimos un max-width para que este 
+  	_sea el ancho mínimo de este contenedor para esta medida
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	box_banner_title: definimos una animación para este elemento
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	tag-p: definimos una animación para este elemento
   */
-}
-@media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
-    max-width: 540px;
-    bottom: 20px;
-  }
-}
-@media (max-width: 575px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
-    max-width: 100%;
-  }
 }
 @media (min-width: 576px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider {
     max-width: 720px;
-    bottom: 65px;
   }
 }
 @media (min-width: 992px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider {
     max-width: 1140px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title {
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title {
   background-color: #ff671b;
+  -webkit-animation: bounceInDown 2s;
+          animation: bounceInDown 2s;
+  /*
+  	.bounceInDown: al inicio desvanecemos el elemento y lo 
+  	.desplazamos -2000px hacia arriba, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	tag-h1
+  */
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title h1 {
   color: #fff;
   font-family: "@sansation-bold", sans-serif;
   font-size: 56px;
   line-height: 1.2;
   padding: 15px 25px;
+  /*
+  	_@query 1200px ==> : definimos espaciado entre las
+  	_letras para esta medida
+  */
+  /*
+  	_@query 991px ==> : cambiamos el tamaño de fuente 
+  	_para esta medida
+  */
+  /*
+  	_@query 767px ==> : cambiamos el tamaño de fuente 
+  	_para esta medida
+  */
+  /*
+  	_@query 575px ==> : cambiamos el tamaño de fuente 
+  	_para esta medida, y modificamos el espaciado
+  */
 }
 @media (min-width: 1200px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title h1 {
     letter-spacing: 0.5px;
   }
 }
 @media (max-width: 991px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title h1 {
     font-size: 44px;
   }
 }
 @media (max-width: 767px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title h1 {
     font-size: 30px;
   }
 }
 @media (max-width: 575px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider .box_banner_title h1 {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider .box_banner_title h1 {
     font-size: 25px;
     padding: 20px;
   }
 }
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider p {
-  font-size: 14px;
-  font-family: "@nunito-regular";
+.section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider p {
   background-color: rgba(49, 51, 56, 0.9);
   color: #fff;
+  font-family: "@nunito-regular";
+  font-size: 14px;
   line-height: 24px;
   padding: 15px 25px;
+  -webkit-animation: bounceInUp 2s;
+          animation: bounceInUp 2s;
+  /*
+  	.bounceInUp: al inicio desvanecemos el elemento y lo 
+  	.desplazamos 2000px hacia abajo, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	_@query 768px ==> : definimos un max-width para que este 
+  	_sea el ancho minimo de este contenedor para esta medida
+  */
+}
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 @media (min-width: 768px) {
-  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .box_banner_slider p {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide .container_slider .box_banner_slider p {
     max-width: 480px;
   }
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide img {
-  align-self: flex-start;
   vertical-align: top;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  /*
+  	_@query 480px ==> : definimos un height: auto junto con
+  	_object-fit: contain para que la img se reduzca junto con
+  	_la reducción del viewport, finalmente la propiedad
+  	_align-self: flex-start para posicionar la img en la parte
+  	_superior del contenedor padre
+  */
 }
 @media (max-width: 480px) {
   .section_banner_slider .container_banner_slider .flexbox_banner_slider .swiper .swiper-wrapper .swiper-slide img {
     height: auto;
+    align-self: flex-start;
     -o-object-fit: contain;
        object-fit: contain;
   }
@@ -571,24 +825,41 @@
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
   position: relative;
   margin: 0 auto;
-  padding: 0 15px;
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	_@query 481px ==> : añadimos un espaciado para este 
+  	_elemento en esta medida
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	_@query 576px ==> : definimos un ancho minimo en este contenedor 
+  	_para esta medida
   */
   /*
-  	@query 900px ==> : definimos un width para esta medida
+  	_@query 768px ==> : definimos un ancho minimo en este contenedor 
+  	_para esta medida
   */
   /*
-  	box_icon_swiper: implementando flexbox en este contenedor
-  	podemos modificar la posicion de los iconos del slider
+  	_@query 992px ==> : definimos un ancho minimo en este contenedor 
+  	_para esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos un ancho minimo en este contenedor 
+  	_para esta medida
+  */
+  /*
+  	box_icon_slider: definimos position: absolute junto con su propiedad 
+  	bottom para posicionar este contenedor en la parte inferior de su 
+  	contenedor padre, finalmente flexbox para poner en linea los 
+  	elementos que este contiene
   */
 }
-@media (max-width: 767px) {
+@media (min-width: 481px) {
   .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
-    display: none;
+    padding: 0 15px;
+  }
+}
+@media (min-width: 576px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons {
+    max-width: 540px;
   }
 }
 @media (min-width: 768px) {
@@ -610,38 +881,50 @@
   position: absolute;
   bottom: 10px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   /*
-  	swiper-button-next, swiper-button-prev: para 
-  	cambiar estas propiedades debemos definirlas en estas clases
+  	_@query 480px <== : modificamos la propiedad bottom y 
+  	_definimos un width: 100% junto con la propiedad
+  	_justify-content para centrar horizontalmente los
+  	_elementos que este contiene
   */
   /*
-  	swiper-button-next:after, swiper-button-prev:after: para 
-  	cambiar estas propiedades debemos definirlas en estas clases
+  	swiper-button-next, swiper-button-prev: definimos position: relative
+  	junto con sus propiedades left y z-index para posicionar estos elementos
+  	en la parte izquierda de su contenedor padre, la propiedad
+  	margin-top: 0 remueve un margen que genera swiper.js por defecto
   */
+  /*
+  	swiper-button-prev: definimos un margin-right para generar
+  	un margen en este icono
+  */
+  /*
+  	swiper-button-next:after, swiper-button-prev:after
+  */
+}
+@media (max-width: 480px) {
+  .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider {
+    bottom: 18px;
+    width: 100%;
+    justify-content: center;
+  }
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next,
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev {
   position: relative;
-  top: 0;
   left: 0;
-  right: 0;
+  z-index: 5;
   background-color: #313338;
   width: 44px;
   height: 44px;
   margin-top: 0;
-  transition: 0.3s;
+  /*
+  	.cuando hacemos :hover sobre los iconos del slider
+  	.cambiamos el color de fondo
+  */
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next:hover,
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev:hover {
   background-color: #007bff;
-}
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-next.swiper-button-disabled,
-.section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev.swiper-button-disabled {
-  opacity: 1;
-  cursor: pointer;
-  pointer-events: visible;
 }
 .section_banner_slider .container_banner_slider .flexbox_banner_slider .content_icons .box_icon_slider .swiper-button-prev {
   margin-right: 14px;
@@ -653,12 +936,33 @@
   font-weight: bold;
 }
 
+/*
+	section_banner_static: definimos un background-img para
+	la sección
+*/
 .section_banner_static {
-  background-image: url(../../assets/svg/desarrollamos_shape-w.svg);
-  background-repeat: no-repeat;
+  background: url(../../assets/svg/desarrollamos_shape-w.svg);
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed;
+  /*
+  	container_banner_static
+  */
+}
+.section_banner_static .container_banner_static {
+  /*
+  	content_points: definimos las propiedades line-height y
+  	letter-spacing para generar espaciado en los puntos
+  */
+  /*
+  	points_top
+  */
+  /*
+  	flexbox_banner_static
+  */
+  /*
+  	points_bottom: definimos un text-align: end para poner esta
+  	caja en la parte derecha de su contenedor padre
+  */
 }
 .section_banner_static .container_banner_static .content_points {
   color: #fff;
@@ -667,27 +971,66 @@
   letter-spacing: 3px;
 }
 .section_banner_static .container_banner_static .points_top {
-  height: 140px;
+  height: 126px;
+  padding-left: 10px;
+  /*
+  	_@query 991px <== : definimos un opacity: 0 para desvanecer los
+  	_puntos en esta medida
+  */
+  /*
+  	_@query 767px <== : modificamos la altura del contenedor points_top
+  	_para esta medida
+  */
 }
 @media (max-width: 991px) {
   .section_banner_static .container_banner_static .points_top {
     opacity: 0;
+    padding-left: 0;
   }
+}
+@media (max-width: 767px) {
+  .section_banner_static .container_banner_static .points_top {
+    height: 110px;
+  }
+}
+.section_banner_static .container_banner_static .flexbox_banner_static {
+  /*
+  	box_banner_static: definimos un max-width para que sea el
+  	ancho mínimo de este contenedor
+  */
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static {
   color: #fff;
   text-align: center;
+  line-height: 1.5;
+  width: 100%;
   max-width: 1000px;
-  padding: 0 15px;
   margin: 0 auto;
+  padding: 0 15px;
+  /*
+  	tag-small
+  */
+  /*
+  	tag-h2
+  */
+  /*
+  	tag-p
+  */
+  /*
+  	tag-a
+  */
 }
-.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h3 {
+.section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static small {
   font-size: 20px;
-  font-family: "@nunito-light", sans-serif;
+  font-family: "@nunito-regular", sans-serif;
   letter-spacing: 10px;
+  /*
+  	_@query 335px <== : modificamos el espaciado para esta 
+  	_medida
+  */
 }
 @media (max-width: 335px) {
-  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h3 {
+  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static small {
     padding: 0 6px;
   }
 }
@@ -695,6 +1038,18 @@
   font-family: "@sansation-bold", sans-serif;
   line-height: 1;
   margin: 15px 0 35px;
+  /*
+  	_@query 335px <== : modificamos el tamaño de la fuente 
+  	_para esta medida
+  */
+  /*
+  	_@query 576px ==> : modificamos el tamaño de la fuente 
+  	_para esta medida
+  */
+  /*
+  	_@query 768px <==> : modificamos el tamaño de la fuente 
+  	_para esta medida
+  */
 }
 @media (max-width: 575px) {
   .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static h2 {
@@ -714,37 +1069,26 @@
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
   font-size: 17px;
   font-family: "@nunito-regular", sans-serif;
-  font-weight: 500;
-  line-height: 1.6;
   max-width: 660px;
   margin: 0 auto;
 }
-@media (max-width: 707px) {
-  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
-    padding: 0 8px;
-  }
-}
-@media (max-width: 576px) {
-  .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static p {
-    padding: 0 5px;
-  }
-}
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static a {
   text-decoration: none;
-  display: inline-flex;
-  width: 220px;
-  justify-content: center;
-  height: 54px;
-  align-items: center;
-  font-size: 14px;
-  font-family: "@sansation-bold", sans-serif;
-  letter-spacing: 0.3px;
   background-color: #fff;
   color: #2f425b;
+  display: inline-block;
+  width: 220px;
+  padding: 20px 15px;
+  font-size: 14px;
+  font-family: "@sansation-bold", sans-serif;
+  line-height: 1;
   border-radius: 2px;
   margin-top: 70px;
-  cursor: pointer;
   transition: all 0.3s;
+  /*
+  	.cuando hacemos :hover sobre tag-a, cambiamos su
+  	.color de fondo y su color de fuente
+  */
 }
 .section_banner_static .container_banner_static .flexbox_banner_static .box_banner_static a:hover {
   background-color: #2f425b;
@@ -752,110 +1096,133 @@
 }
 .section_banner_static .container_banner_static .points_bottom {
   text-align: end;
+  padding: 0 10px 16px 0;
+  /*
+  	_@query 767px <== : definimos un opacity: 0 para desvanecer los
+  	_puntos en esta medida
+  */
+}
+@media (max-width: 767px) {
+  .section_banner_static .container_banner_static .points_bottom {
+    opacity: 0;
+    height: 110px;
+    padding: 0;
+  }
 }
 
 /*
-	importacion de las fuentes
+    section_gallery
 */
-/*
-    section_galery: contenedor definido para implementar
-    margin o padding con el fin de separar las secciones
-    entre si
-*/
-.section_galery {
+.section_gallery {
   /*
-  	container_name: contenedor definido para manejar
-  	el responsive implementando width
+  	container_gallery
      */
 }
-.section_galery .container_galery {
+.section_gallery .container_gallery {
   /*
-            grid_galery: contenedor definido para
-            implementar display: grid con la cual
-  	creaos nuestra regilla
+            grid_gallery: definimos display: grid para crear la
+  	galería de imágenes
         */
 }
-.section_galery .container_galery .grid_galery {
+.section_gallery .container_gallery .grid_gallery {
   display: grid;
   /*
-  	@query 992px ==> : para esta medida definimos
-  	4 columnas y 2 filas
+  	_@query 992px ==> : para esta medida definimos
+  	_4 columnas y 2 filas
   */
   /*
-  	@query 991px <== : para esta medida definimos
-  	2 columnas y 4 filas
+  	_@query 991px <== : para esta medida definimos
+  	_2 columnas y 4 filas
   */
   /*
-  	@query 767px <== : para esta medida definimos
-  	1 columna y 7 filas
+  	_@query 767px <== : para esta medida definimos
+  	_1 columna y 7 filas
   */
   /*
-  	@query 499px <== : para esta medida solamente
-  	cambiamos la altura de las filas
+  	_@query 499px <== : para esta medida solamente
+  	_cambiamos la altura de las filas
   */
   /*
-  	title_galery: definimos flexbox y sus propiedades
-  	justify-content y align-items para centrar los
-  	elementos horizontal y verticalmente respecto a su
-  	padre
+  	box_title_gallery: definimos flexbox y sus propiedades
+  	justify-content y align-items para centrar de manera
+  	horizontal y vertical los elementos que este contiene
   */
   /*
-  	title_galery: definimos position: relative que 
-  	nos permite solucionar el desmaquetado que produce
-  	la propiedad absolute cuando se le define a un 
-  	elemento hijo
+  	box_gallery: definimos position: relative ya que uno
+  	de sus elementos hijo tiene definido position: absolute
   */
 }
 @media (min-width: 992px) {
-  .section_galery .container_galery .grid_galery {
+  .section_gallery .container_gallery .grid_gallery {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 397px);
   }
 }
 @media (max-width: 991px) {
-  .section_galery .container_galery .grid_galery {
+  .section_gallery .container_gallery .grid_gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 397px);
   }
 }
 @media (max-width: 767px) {
-  .section_galery .container_galery .grid_galery {
+  .section_gallery .container_gallery .grid_gallery {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 160px repeat(7, 307px);
   }
 }
 @media (max-width: 499px) {
-  .section_galery .container_galery .grid_galery {
+  .section_gallery .container_gallery .grid_gallery {
     grid-template-rows: 160px repeat(7, 180px);
   }
 }
-.section_galery .container_galery .grid_galery .title_galery {
+.section_gallery .container_gallery .grid_gallery .box_title_gallery {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: #2f425b;
-}
-.section_galery .container_galery .grid_galery .title_galery h3 {
   color: #fff;
-  font-size: 40px;
-  font-family: "@sansation-bold", sans-serif;
+  line-height: 1;
+  /*
+  	.tag-h3: seleccionamos el primer elemento haciendo uso
+  	.del pseudo elemento :nth-child()
+  */
+  /*
+  	.tag-h3: seleccionamos el segundo elemento haciendo uso
+  	.del pseudo elemento :nth-child()
+  */
 }
-.section_galery .container_galery .grid_galery .box_galery {
+.section_gallery .container_gallery .grid_gallery .box_title_gallery h3:nth-child(1) {
+  font-family: "@nunito-regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+}
+.section_gallery .container_gallery .grid_gallery .box_title_gallery h3:nth-child(2) {
+  font-family: "@sansation-bold", sans-serif;
+  font-size: 40px;
+}
+.section_gallery .container_gallery .grid_gallery .box_gallery {
   position: relative;
   /*
-  	content_galery: definimos absolute para sacar de 
-  	posicion esta caja y que la tag-img se posicione
-  	por debajo de esta, con las propiedades top, left
-  	right y bottom definimos que ocupe e ancho y alto
-  	total de su contenedor padre
+  	content_gallery: definimos position: absolute y sus propiedades 
+  	top, left right y bottom para que este elemento tome el ancho y
+  	alto total de su contenedor padre
   */
   /*
-  	tag-img: importante definirle un width y height
-  	100% y object-fit para que la imagen se ajuste a
-  	su contenedor
+  	tag-img: definimos vertical-align para remover un espaciado
+  	que genera el navegador en las imágenes, finalmente un width 
+  	y height 100% mas un object-fit para que la imagen se ajuste
+  	al tamaño de su contenedor
+  */
+  /*
+  	img_gallery_destok
+  */
+  /*
+  	img_gallery_movil
   */
 }
-.section_galery .container_galery .grid_galery .box_galery .content_galery {
+.section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery {
   position: absolute;
   top: 0;
   left: 0;
@@ -866,65 +1233,75 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px 15px;
   /*
-  	@query 768px ==> : definimos flexbox y sus
-  	propeidades flex-direction y justify-conten
-  	para separar los elemntos entre si
+  	_@query 768px ==> : definimos flexbox y sus
+  	_propiedades flex-direction y justify-content
+  	_para separar los elementos entre si
   */
   /*
-  	icon_plus: contenedor del icon ver mas
+  	content_iconPlus: (contenedor icon-plus)
+  */
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-p
+  */
+  /*
+  	btn_gallery
   */
 }
 @media (min-width: 768px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     /*
-    	cuando hacemos :hover sobre content_galery
-    	añadimos un bacground en gradiente
+    	.cuando hacemos :hover sobre content_gallery
+    	.añadimos un background en gradiente
     */
     /*
-    	cuando hacemos :hover sobre content_galery
-    	añadimos opacity: 1 para que la tag-p sea 
-    	nuevamente visible
+    	.cuando hacemos :hover sobre content_gallery relacionamos a 
+    	.tag-p y añadimos opacity: 1 para que este sea visible
+    	.nuevamente
     */
     /*
-    	cuando hacemos :hover sobre content_galery
-    	añadimos opacity: 1 para que btn_link sea 
-    	nuevamente visible
+    	.cuando hacemos :hover sobre content_gallery relacionamos a 
+    	.btn_gallery y añadimos opacity: 1 para que este sea visible
+    	.nuevamente
     */
   }
-  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover {
-    background: #020024;
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery:hover {
+    background: rgb(2, 0, 36);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 20%, rgba(83, 25, 7, 0.8) 60%, rgba(0, 0, 0, 0.9) 90%);
   }
-  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover p {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery:hover p {
     opacity: 1;
     transition: opacity 1.5s ease;
   }
-  .section_galery .container_galery .grid_galery .box_galery .content_galery:hover .btn_link {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery:hover .btn_gallery {
     opacity: 1;
     transition: opacity 1.5s ease;
   }
 }
-.section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+.section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .content_iconPlus {
   /*
-  	@query 767px <== : definimos inline-flex que 
-  	nos permite implementar propiedades flexbox
-  	que junto a width y height nos permiten
-  	centrar el icono definido dentro de la tag-a 
-  	finalmente definimos position: absolute y sus
-  	propeiades top, right y z-index que nos permite
-  	posicioanr y fijar el elemento
+  	_@query 767px <== : definimos inline-flex que 
+  	_nos permite implementar propiedades flexbox
+  	_que junto a width y height nos permiten
+  	_centrar el icono definido dentro de la tag-a 
+  	_finalmente definimos position: absolute y sus
+  	_propiedades top, right y z-index que nos permite
+  	_posicionar y fijar el elemento
   */
   /*
-  	@query 768px ==> : definimos display: none
-  	para sacar este elemento del maquetado
+  	_@query 768px ==> : definimos display: none
+  	_para remover este elemento de la maqueta en
+  	_esta medida
   */
 }
 @media (max-width: 767px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .content_iconPlus {
     display: inline-flex;
     width: 40px;
     justify-content: center;
@@ -935,78 +1312,83 @@
     right: 12px;
     z-index: 5;
     background-color: #fff;
+    /*
+    	tag-svg: (icon-plus)
+    */
   }
-  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus svg {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .content_iconPlus svg {
     fill: #ff671b;
     width: 24px;
     height: 24px;
   }
 }
 @media (min-width: 768px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery .icon_plus {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .content_iconPlus {
     display: none;
   }
 }
-.section_galery .container_galery .grid_galery .box_galery .content_galery h3 {
+.section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery h3 {
   font-size: 40px;
   line-height: 1;
   /*
-  	@query 1199px <== : cambiamos el tamaño
-  	de fuente para esta medida responsive
+  	_@query 1199px <== : cambiamos el tamaño
+  	_de la fuente para esta medida
   */
 }
 @media (max-width: 1199px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery h3 {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery h3 {
     font-size: 30px;
   }
 }
-.section_galery .container_galery .grid_galery .box_galery .content_galery p {
+.section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery p {
   /*
-  	@query 767px <== : definimos display: none
-  	para sacar este elemento del maquetado
+  	_@query 767px <== : definimos display: none
+  	_para remover este elemento de la maqueta en
+  	_esta medida
   */
   /*
-  	@query 768px ==> : definimos opacity: 0 para 
-  	desaparecer el texto que aparece nuevamnete 
-  	cuando hacemos :hover sobre content_galery
+  	_@query 768px ==> : definimos opacity: 0 para 
+  	_desaparecer el texto que aparece nuevamente 
+  	_cuando hacemos :hover sobre content_gallery
   */
 }
 @media (max-width: 767px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery p {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery p {
     display: none;
   }
 }
 @media (min-width: 768px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery p {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery p {
     opacity: 0;
     font-size: 14px;
     letter-spacing: 0.1px;
     line-height: 1.4;
   }
 }
-.section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+.section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .btn_gallery {
   /*
-  	@query 767px <== : definimos display: none
-  	para sacar este elemento del maquetado
+  	_@query 767px <== : definimos display: none
+  	_para remover este elemento de la maqueta en
+  	_esta medida
   */
   /*
-  	@query 768px ==> : definimos opacity: 0 para 
-  	desaparecer el texto que aparece nuevamnete 
-  	cuando hacemos :hover sobre content_galery, 
-  	la propiedad inline-flex nos permite implementar 
-  	propiedades flexbox que junto a width y height 
-  	nos permiten centrar el texto del btn_link 
-  	finalmente con align-self posicionamos el boton al 
-  	final de su contenedor
+  	_@query 768px ==> : definimos opacity: 0 para 
+  	_desaparecer el botón que aparece nuevamente 
+  	_cuando hacemos :hover sobre content_gallery, 
+  	_la propiedad inline-flex nos permite implementar 
+  	_propiedades flexbox que junto a width y height 
+  	_nos permiten centrar el texto del botón 
+  	_finalmente con align-self posicionamos el botón al 
+  	_final de su contenedor
   */
 }
 @media (max-width: 767px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .btn_gallery {
     display: none;
   }
 }
 @media (min-width: 768px) {
-  .section_galery .container_galery .grid_galery .box_galery .content_galery .btn_link {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .content_gallery .btn_gallery {
     opacity: 0;
     text-decoration: none;
     display: inline-flex;
@@ -1021,49 +1403,72 @@
     border: 1px solid #fff;
   }
 }
-.section_galery .container_galery .grid_galery .box_galery img {
+.section_gallery .container_gallery .grid_gallery .box_gallery img {
+  vertical-align: top;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  vertical-align: top;
+}
+.section_gallery .container_gallery .grid_gallery .box_gallery .img_gallery_destok {
+  /*
+  	_@query 767px <== : definimos display: none
+  	_para remover este elemento de la maqueta en
+  	_esta medida
+  */
 }
 @media (max-width: 767px) {
-  .section_galery .container_galery .grid_galery .box_galery .img_galery_destok {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .img_gallery_destok {
     display: none;
   }
 }
+.section_gallery .container_gallery .grid_gallery .box_gallery .img_gallery_movil {
+  /*
+  	_@query 768px ==> : definimos display: none
+  	_para remover este elemento de la maqueta en
+  	_esta medida
+  */
+}
 @media (min-width: 768px) {
-  .section_galery .container_galery .grid_galery .box_galery .img_galery_movil {
+  .section_gallery .container_gallery .grid_gallery .box_gallery .img_gallery_movil {
     display: none;
   }
 }
 
 /*
-	importacion de las fuentes
-*/
-/*
-	section_name: le podemos definir margenes o espaciados
-	cuando queremos separar esta seccion de otra 
+	section_name: definimos un padding para generar espaciado
+	respecto a otras secciones
 */
 .section_card {
   padding: 60px 0;
   /*
-  	container_name: es el encargado de manejar el 
-  	responsive a travez de la propiedad width
+  	container_name: definimos la propiedad max-width: 100% para que
+  	sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+  	para centrar el contenedor
   */
 }
 .section_card .container_card {
   max-width: 100%;
   margin: 0 auto;
   /*
-  	box_boid: es importante definir un height a este contenedor
-  	para que genere el espaciado que nos ayuda a solucionar 
-  	el problema de desmaquetado, el valor de este depende de
-  	la posicion inicial de la targeta
+  	_@query 768px ==> : modificamos el max-width y agregamos un padding
+  	_para generar espacio a partir de esta medida
   */
   /*
-  	flexbox_name
+  	_@query 992px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	box_void: es importante definir un height a este contenedor
+  	para que genere el espaciado que nos ayuda a solucionar 
+  	problemas de maquetación, el valor de este depende de la
+  	posición inicial de la tarjeta
+  */
+  /*
+  	flexbox_name: definimos position: relative debido a que uno de
+  	sus elementos hijos tiene definido position: absolute
   */
 }
 @media (min-width: 768px) {
@@ -1082,9 +1487,37 @@
     max-width: 1140px;
   }
 }
+.section_card .container_card .box_void {
+  /*
+  	_@query 991px <== : definimos una altura para este contenedor 
+  	_a partir de esta medida
+  */
+  /*
+  	_@query 767px <== : definimos una altura para este contenedor 
+  	_a partir de esta medida
+  */
+  /*
+  	_@query 450px <== : definimos una altura para este contenedor 
+  	_a partir de esta medida
+  */
+  /*
+  	_@query 440px <== : definimos una altura para este contenedor 
+  	_a partir de esta medida
+  */
+}
 @media (max-width: 991px) {
   .section_card .container_card .box_void {
     height: 245px;
+  }
+}
+@media (max-width: 767px) {
+  .section_card .container_card .box_void {
+    height: 220px;
+  }
+}
+@media (max-width: 450px) {
+  .section_card .container_card .box_void {
+    height: 265px;
   }
 }
 @media (max-width: 440px) {
@@ -1095,25 +1528,22 @@
 .section_card .container_card .flexbox_card {
   position: relative;
   /*
-  	@query 991px ==> : definimos position: relative para 
-  	solucionar el problema que genera definir absolute
-  	en un elemento hijo, finalmente implementamos
-  	flexbox con su propeidad align-items mas un height
-  	que le da altura a la caja permitiendo centrar las
-  	cajas verticalmente
+  	_@query 992px ==> : definimos flexbox con su propiedad align-items 
+  	_mas un height que añade altura a la caja permitiendo centrar centrar
+  	_de manera vertical los elementos que este contiene
+  	_cajas verticalmente
   */
   /*
-  	box_name: definimos position: absolute con su
-  	propiedad top que nos permiten posicionar la
-  	caja, tambien definimos flexbox y su 
-  	propiedad align-items que nos permite centrar 
-  	su contenido verticalmente. Finalmente un width 
-  	que nos ayuda a darle tamaño a esta caja
+  	box_card: definimos flexbox y su propiedad align-items 
+  	que nos permite centrar de manera vertical los elementos
+  	que este contiene, finalmente añadimos la propiedad
+  	animación-duration para modificar la duración de la 
+  	animación que esta implementada con animate.css
   */
   /*
-  	box_name_img: es importante definirle a un contenedor
-  	la propiedad height si este contiene dentro una tag-img
-  	para luego ajustar la imagen al tamaño del contenedor
+  	box_name_img: definimos la propiedad animación-duration
+  	para modificar la duración de la animación que esta
+  	implementada con animate.css
   */
 }
 @media (min-width: 992px) {
@@ -1126,8 +1556,35 @@
 .section_card .container_card .flexbox_card .box_card {
   display: flex;
   align-items: center;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
   /*
-  	content_card
+  	_@query 992px ==> : definimos un ancho y alto para este 
+  	_elemento para esta medida
+  */
+  /*
+  	_@query 1200px <== : modificamos el ancho de este elemento 
+  	_para esta medida
+  */
+  /*
+  	_@query 991px <== : definimos position: absolute con su 
+  	_propiedad top para posicionar este elemento, la propiedad
+  	_justify-content nos permite centrar este elemento de manera
+  	_horizontal, finalmente modificamos el ancho
+  */
+  /*
+  	_@query 767px <== : modificamos la propiedad top 
+  	_para re-posicionar este elemento en esta medida
+  */
+  /*
+  	_@query 450px <== : modificamos la propiedad top 
+  	_para re-posicionar este elemento en esta medida
+  */
+  /*
+  	content_card: definimos text-align: center para centrar
+  	el contenido, finalmente añadimos la propiedad animación-duration
+  	para modificar la duración de la animación que esta
+  	implementada con animate.css
   */
 }
 @media (min-width: 992px) {
@@ -1150,29 +1607,62 @@
     width: 100%;
   }
 }
-@media (max-width: 440px) {
+@media (max-width: 767px) {
+  .section_card .container_card .flexbox_card .box_card {
+    top: -220px;
+  }
+}
+@media (max-width: 450px) {
   .section_card .container_card .flexbox_card .box_card {
     top: -265px;
   }
 }
 .section_card .container_card .flexbox_card .box_card .content_card {
   text-align: center;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  /*
+  	_@query 991px <== : añadimos un color de fondo, también
+  	_definimos un ancho y un espaciado para este elemento en
+  	_ esta medida
+  */
+  /*
+  	_@query 767px <== : modificamos el espaciado de este
+  	_elemento para esta medida
+  */
+  /*
+  	_@query 992px ==> : añadimos un ancho calculado entre
+  	_el ancho de la tarjeta de texto y le restamos desde
+  	_donde inicia la tarjeta de imagen, con este calculo
+  	_logramos centrar el texto en la tarjeta
+  */
+  /*
+  	_@query 1200px ==> : añadimos un ancho calculado entre
+  	_el ancho de la tarjeta de texto y le restamos desde
+  	_donde inicia la tarjeta de imagen, con este calculo
+  	_logramos centrar el texto en la tarjeta
+  */
+  /*
+  	tag-h4
+  */
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-a: definimos la propiedad inline-flex nos permite 
+  	implementar propiedades flexbox que junto a width y height 
+  	nos permiten centrar el texto del botón
+  */
 }
 @media (max-width: 991px) {
   .section_card .container_card .flexbox_card .box_card .content_card {
     background: linear-gradient(0deg, #ff9a7e, rgba(230, 139, 113, 0.84));
-    width: 92%;
-  }
-}
-@media (max-width: 991px) {
-  .section_card .container_card .flexbox_card .box_card .content_card {
     width: 90%;
     padding: 40px 0;
   }
 }
 @media (max-width: 767px) {
   .section_card .container_card .flexbox_card .box_card .content_card {
-    width: 90%;
     padding: 40px 15px;
   }
 }
@@ -1191,6 +1681,10 @@
   font-size: 44px;
   font-family: "@nunito-light", sans-serif;
   letter-spacing: 0;
+  /*
+  	_@query 767px <== : modificamos el tamaño de fuente
+  	_de este elemento para esta medida
+  */
 }
 @media (max-width: 767px) {
   .section_card .container_card .flexbox_card .box_card .content_card h4 {
@@ -1201,6 +1695,13 @@
   color: #313338;
   font-size: 45px;
   font-family: "@sansation-bold", sans-serif;
+  /*
+  	_@query 767px <== : modificamos el tamaño de fuente
+  	_de este elemento para esta medida
+  */
+  /*
+  	tag-i
+  */
 }
 @media (max-width: 767px) {
   .section_card .container_card .flexbox_card .box_card .content_card h3 {
@@ -1226,20 +1727,41 @@
   margin-top: 40px;
   cursor: pointer;
   transition: all 0.3s;
+  /*
+  	.cuando hacemos :hover sobre la tag-a, cambiamos
+  	.su color de fondo y su color de fuente
+  */
 }
 .section_card .container_card .flexbox_card .box_card .content_card a:hover {
   background-color: #ff671b;
   color: #fff;
 }
 .section_card .container_card .flexbox_card .box_card_img {
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
   /*
-  	@query 900px ==> : cambiamos el height del contenedor
-  	box_name_img
+  	_@query 480px <== : definimos una altura para este
+  	_elemento en esta medida
   */
   /*
-  	tag-img: es importante definir el width y height 
-  	de la img a 100% y object-fit: cover para que esta 
-  	se ajuste al tamaño de su contenedor
+  	_@query 768px ==> : definimos un ancho y modificamos la 
+  	_altura de este elemento en esta medida
+  */
+  /*
+  	_@query 992px ==> : definimos position: absolute con su 
+  	_propiedad right para posicionar este elemento, finalmente 
+  	_modificamos el ancho para esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el ancho de este 
+  	_elemento en esta medida
+  */
+  /*
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes, finalmente definimos un ancho y alto del 100% 
+  	junto con object-fit: cover para que esta se ajuste al 
+  	tamaño de su contenedor
   */
 }
 @media (max-width: 480px) {
@@ -1274,24 +1796,17 @@
 }
 
 /*
-	importacion de las fuentes
-*/
-/*
-	varaibles implementadas en diferentes elementos
-*/
-/*
-	medidas responsive
-*/
-/*
-    seccion_name: nos sirve para implementar margenes y espaciados 
-    con el fin de separar un contenedor de otros elementos en este caso 
+    section_article_slider 
 */
 .section_article_slider {
   /*
-         container_name: definimos absolute y su propeidad z-index
-         para poscionar esta caja sobre la caja que contiene al slider.
-         width: 100% para que recupere todo el ancho del viewport
-  	y un height para que el contenedor del slider no desmaquete
+  	_@query 768px ==> : definimos un padding para este elemento
+  	_en esta medida
+  */
+  /*
+         container_article_slider: definimos un max-width para que sea
+  	el ancho mínimo de este contenedor, finalmente un margin: 0 auto
+  	para centrarlo de manera horizontal
      */
 }
 @media (min-width: 768px) {
@@ -1303,9 +1818,18 @@
   max-width: 100%;
   margin: 0 auto;
   /*
-        swiper: contenedor del slider a este es importante definirle la
-        misma altura que la seccion para que no genere desmaquetados
-    */
+  	_@query 768px ==> : modificamos el max-width y definimos un padding 
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width de este elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width de este elemento en esta medida
+  */
+  /*
+        	swiper
+    	*/
 }
 @media (min-width: 768px) {
   .section_article_slider .container_article_slider {
@@ -1325,12 +1849,29 @@
 }
 .section_article_slider .container_article_slider .swiper {
   /*
-                   box_icon_swiper: implementando flexbox en este contenedor
-                   podemos modificar la posicion de los iconos del slider
-               */
+  	wiper-wrapper
+  */
+  /*
+  	box_icon_slider: definimos flexbox
+  */
+}
+.section_article_slider .container_article_slider .swiper .swiper-wrapper {
+  /*
+  	swiper-slide: definimos position: relative debido a que
+  	uno de sus elementos hijos tiene definido position: absolute
+  */
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide {
   position: relative;
+  /*
+  	_@query 768px ==> : definimos flexbox con su propiedad
+  	_align-items para centrar de manera vertical los elementos
+  	_que este contiene
+  */
+  /*
+  	box_article: definimos position: absolute con ancho
+  	total de su contenedor
+  */
 }
 @media (min-width: 768px) {
   .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide {
@@ -1340,11 +1881,20 @@
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article {
   position: absolute;
-  width: 100%;
+  /*
+  	_@query 768px ==> : definimos un left: 20px para separar 
+  	_este elemento del borde del contenedor en esta medida
+  */
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-a
+  */
 }
 @media (min-width: 768px) {
   .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article {
-    padding: 0 20px;
+    left: 20px;
   }
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article h3 {
@@ -1353,6 +1903,16 @@
   font-family: "@sansation-bold", sans-serif;
   line-height: 1;
   padding: 12px 25px;
+  /*
+  	_@query 767px <== : definimos un tamaño de fuente
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 768px ==> :definimos display: inline-block para
+  	_que este elemento ocupe el ancho total de su contenido,
+  	_finalmente modificamos el tamaño de fuente y agregamos un
+  	_margen en la parte inferior del elemento para esta medida
+  */
 }
 @media (max-width: 767px) {
   .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article h3 {
@@ -1368,17 +1928,35 @@
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a {
   text-decoration: none;
-}
-@media (max-width: 767px) {
-  .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a {
-    position: absolute;
-    top: 360px;
-    padding: 0 15px;
-  }
+  /*
+  	_@query 767px <== : definimos position: absolute
+  	_con su propiedad top para posicionar este elemento,
+  	_finalmente definimos un espaciado para esta medida
+  */
+  /*
+  	content_events
+  */
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
   background-color: rgba(49, 51, 56, 0.95);
   padding: 20px;
+  /*
+  	_@query 767px <== : definimos un ancho mínimo
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 768px ==> : definimos un ancho mínimo
+  	_para este elemento en esta medida
+  */
+  /*
+  	tag-h4
+  */
+  /*
+  	article_paragraph
+  */
+  /*
+  	content_events
+  */
 }
 @media (max-width: 767px) {
   .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events {
@@ -1403,10 +1981,24 @@
   line-height: 1.5;
   margin: 5px 0;
 }
+.section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .content_dates {
+  /*
+  	flexbox_dates: definimos flexbox y su propiedad
+  	justify-content para generar espaciado entre los
+  	elementos que este contiene
+  */
+}
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .content_dates .flexbox_dates {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  /*
+  	tag-p
+  */
+  /*
+  	flex_paragraph: definimos un ancho calculado
+  	donde restamos 70px del ancho total
+  */
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article a .content_events .content_dates .flexbox_dates p {
   font-family: "@sansation-regular", sans-serif;
@@ -1418,9 +2010,11 @@
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img {
   /*
-  	tag-img: es importante a esta imagen definirle un width
-  	y height igual al de su contenedor padre y la propiedad 
-  	object-fit: cover para que se ajuste al contenedor
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes, finalmente definimos un ancho y alto del 100% 
+  	justo con object-fit: cover para que esta se ajuste al 
+  	tamaño de su contenedor
   */
 }
 @media (min-width: 768px) {
@@ -1439,6 +2033,7 @@
   }
 }
 .section_article_slider .container_article_slider .swiper .swiper-wrapper .swiper-slide .box_article_img img {
+  vertical-align: top;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1446,13 +2041,28 @@
 }
 .section_article_slider .container_article_slider .swiper .box_icon_slider {
   display: flex;
+  background-color: dodgerblue;
   /*
-  	swiper-button-next, swiper-button-prev: para 
-  	cambiar estas propiedades debemos definirlas en estas clases
+  	_@query 767px <== : hacemos uso de la propiedad
+  	_justify-content para centrar de manera horizontal
+  	_los elementos que este contiene
   */
   /*
-  	swiper-button-next:after, swiper-button-prev:after: para 
-  	cambiar estas propiedades debemos definirlas en estas clases
+  	_@query 768px ==> : modificamos la propiedad top
+  	_para esta medida
+  */
+  /*
+  	swiper-button-next, swiper-button-prev: definimos position: relative
+  	junto con sus propiedades top, left y right para posicionar este
+  	elemento, margin-top: 0 remueve un margen que genera la librería
+  	swiper.js por defecto
+  */
+  /*
+  	swiper-button-prev: generamos un margen derecho para separar
+  	el icono prev del icono next
+  */
+  /*
+  	swiper-button-next:after, swiper-button-prev:after
   */
 }
 @media (max-width: 767px) {
@@ -1462,7 +2072,6 @@
 }
 @media (min-width: 768px) {
   .section_article_slider .container_article_slider .swiper .box_icon_slider {
-    height: 0;
     padding: 0 20px;
   }
 }
@@ -1476,6 +2085,14 @@
   padding: 25px;
   margin-top: 0;
   transition: background-color 0.3s ease-in-out;
+  /*
+  	.cuando hacemos :hover sobre los botones, agregamos un
+  	.color de fondo a estos elementos
+  */
+  /*
+  	_@query 768px ==> : modificamos la propiedad top
+  	_para esta medida
+  */
 }
 .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next:hover,
 .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev:hover {
@@ -1484,7 +2101,7 @@
 @media (min-width: 768px) {
   .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-next,
 .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev {
-    top: -168px;
+    top: -155px;
   }
 }
 .section_article_slider .container_article_slider .swiper .box_icon_slider .swiper-button-prev {
@@ -1497,23 +2114,20 @@
   font-weight: 700;
 }
 
-/* opacity: .35; */
-/* cursor: auto; */
-/* pointer-events: none; */
 /*
-	importacion de las fuentes
-*/
-/*
-  section_name: contenedor definido para implementar
-  margin o padding con el fin de separar las secciones
-  entre si
+  section_name: definimos un espaciado para este elemento
 */
 .section_tabs {
   padding-bottom: 50px;
   /*
-  	container_name: contenedor definido para manejar
-  	el responsive implementando width
+  	_@query 768px ==> : modificamos el espaciado de 
+  	_este elemento en esta medida
   */
+  /*
+         container_tabs: definimos un max-width para que sea
+  	el ancho mínimo de este contenedor, finalmente un margin: 0 auto
+  	para centrarlo de manera horizontal
+     */
 }
 @media (min-width: 1200px) {
   .section_tabs {
@@ -1523,6 +2137,19 @@
 .section_tabs .container_tabs {
   max-width: 100%;
   margin: 0 auto;
+  /*
+  	_@query 768px ==> : modificamos el max-width y definimos un padding 
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width de este elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width de este elemento en esta medida
+  */
+  /*
+  	.tag-h2
+  */
   /*
             flexbox_name
         */
@@ -1548,6 +2175,27 @@
   font-family: "@sansation-bold", sans-serif;
   line-height: 1.2;
   margin-bottom: 15px;
+  /*
+  	_@query 767px <== : definimos un espaciado en
+  	_la parte izquierda para este elemento en esta medida
+  */
+  /*
+  	_@query 479px <== : definimos un tamaño de fuente
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 480px ==> : definimos un tamaño de fuente
+  	_para este elemento en esta medida
+  */
+  /*
+  	_@query 768px ==> : definimos un tamaño de fuente
+  	_y agregamos un margen en la parte inferior para 
+  	_este elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos un tamaño de fuente
+  	_para este elemento en esta medida
+  */
 }
 @media (max-width: 767px) {
   .section_tabs .container_tabs h2 {
@@ -1578,9 +2226,9 @@
 }
 .section_tabs .container_tabs .flexbox_tabs {
   /*
-  	@query 768px ==> : definimos flexbox y su 
-  	propiedad space-between para generar espaciado
-  	entre los elementos que este contiene
+  	_@query 768px ==> : definimos flexbox y su 
+  	_propiedad space-between para generar un espaciado
+  	_entre los elementos que este contiene
   */
   /*
                tab_header
@@ -1597,26 +2245,37 @@
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header {
   /*
-  	@query 768px ==> : definimos width: 50% para que ocupe
-  	ese espacio dentro de su contenedor padre
+  	_@query 768px ==> : definimos un width: 55% para
+  	_que este contenedor ocupe ese espacio dentro de 
+  	_su contenedor padre
   */
   /*
-  	seleccionamos el primer hijo de tab_header y 
-  	le añadimos un borde
+  	_@query 992px ==> : modificamos el width: 55% de 
+  	_este contenedor para esta medida
   */
   /*
-                  tab_content_header: importante definirle 
-  	position: relative ya que la clase js_header_active 
-  	tiene definido position: absolute
+  	_@query 992px ==> : modificamos el width: 55% de 
+  	_este contenedor para esta medida
+  */
+  /*
+  	seleccionamos el primer hijo de tab_content_header
+  	y añadimos un borde en la parte superior de este
+  */
+  /*
+                  tab_content_header: definimos position: relative debido
+  	a que uno de sus elementos hijo tiene definido 
+  	position: absolute, finalmente definimos flexbox y su
+  	propiedad align-items para centrar de manera vertical los 
+  	elementos que este contiene
               */
   /*
-  	js_header_active: clase añadida con javascript que
-  	implementa la pseudo clase ::before con la que 
-  	vamos a crear un borde en la parte izquierda del 
-  	tab_content_header haciendo uso de la propiedad
-  	position: absolute recordemos que es display: block 
-  	junto con background-color quienes nos permiten 
-  	visualizar el borde
+  	.js_header_active: clase añadida con javascript que
+  	.implementa la pseudo clase ::before con la que 
+  	.vamos a crear un borde en la parte izquierda de 
+  	.este contenedor haciendo uso de la propiedad
+  	.position: absolute, recordemos que es display: block 
+  	.junto con background-color quienes nos permiten 
+  	.visualizar el borde
   */
   /*
   	tab_content_img
@@ -1646,20 +2305,19 @@
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header {
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #8c8c8c;
   padding: 15px 15px 25px;
   cursor: pointer;
   /*
-  	@query 768px ==> : definimos flexbox y sus propiedades
-  	justify-content, align-items para poner los elementos
-  	en linea y centrarlos verticalmente
+  	_@query 768px ==> : definimos la propiedad justify-content 
+  	_para generar un espaciado entre los elementos en esta medida
   */
   /*
-  	tab_img: definimos un width y un height mas la
-  	propiedad object-fit: cover para ajustar la imagen
-  	al contenedor padre
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes justo con object-fit: cover para que esta se ajuste
+  	al tamaño de su contenedor
   */
   /*
   	tab_info
@@ -1667,27 +2325,31 @@
 }
 @media (min-width: 768px) {
   .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header {
+    justify-content: space-between;
     padding: 16px 10px 16px 30px;
   }
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
+  vertical-align: top;
   -o-object-fit: cover;
      object-fit: cover;
   /*
-  	@query 768px ==> : cambiamos el width de la img
-  	para que ocupe ese espacio dentro de su contenedor 
-  	padre
+  	_@query 767px <== : definimos un ancho y alto para 
+  	_este elemento en esta medida
+  */
+  /*
+  	_@query 768px ==> : definimos un ancho y alto para 
+  	_este elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos un alto para este
+  	_elemento en esta medida
   */
 }
 @media (max-width: 767px) {
   .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
-    width: 30%;
+    width: 25%;
     height: 86px;
-  }
-}
-@media (max-width: 449px) {
-  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header img {
-    width: 40%;
   }
 }
 @media (min-width: 768px) {
@@ -1703,18 +2365,27 @@
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
   /*
-  	@query 768px ==> : cambiamos el width de tag_info
-  	para en esta medida responsive
+  	_@query 767px <== : definimos flex-grow: 1 para que
+  	_este elemento tome todo el espaciado generado por
+  	_flexbox, finalmente un ancho para este elemento en
+  	_esta medida
+  */
+  /*
+  	_@query 768px ==> : definimos un ancho para este elemento
+  	_en esta medida
+  */
+  /*
+  	tag-h4
+  */
+  /*
+  	tag-p
   */
 }
 @media (max-width: 767px) {
   .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
-    width: 65%;
-  }
-}
-@media (max-width: 449px) {
-  .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_header .tab_info {
-    width: 55%;
+    flex-grow: 1;
+    width: 70%;
+    padding-left: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -1738,16 +2409,16 @@
   display: block;
   background-color: #ff9a7e;
   /*
-  	@query 767px <== : haciendo uso de las propiedades
-  	left, right y bottom posicionamos el borde en la
-  	parte inferior de tab_content_header, finalmente
-  	debemos definir un height para que sea visible
+  	_@query 768px ==> : definimos las propiedades left,
+  	_right y bottom junto con un alto para posicionar 
+  	_el borde en la parte izquierda del contenedor y
+  	_darle visibilidad
   */
   /*
-  	@query 768px ==> : haciendo uso de las propiedades
-  	top, left y bottom posicionamos el borde en la
-  	parte izquierda de tab_content_header, finalmente
-  	debemos definir un width para que sea visible
+  	_@query 768px ==> : definimos las propiedades left,
+  	_right y bottom junto con un ancho para posicionar 
+  	_el borde en la parte izquierda del contenedor y
+  	_darle visibilidad
   */
 }
 @media (max-width: 767px) {
@@ -1768,21 +2439,32 @@
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img {
   /*
-  	@query 767px <== : definimos un margen para 
-  	separar las cajas
+  	_@query 767px <== : definimos un margen para 
+  	_separar los elementos
   */
   /*
-  	@query 768px ==> : removemos este contenedor del
-  	viewport
+  	_@query 768px ==> : removemos este contenedor del
+  	_viewport en esta medida
   */
   /*
-  	tab_img
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes justo con object-fit: cover para que esta se ajuste
+  	al tamaño de su contenedor
+  */
+  /*
+  	box_hashtags
+  */
+  /*
+  	tag-p
+  */
+  /*
+  	box_btn_tabs
   */
 }
 @media (max-width: 767px) {
   .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img {
     border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
     padding-bottom: 25px;
   }
 }
@@ -1792,13 +2474,17 @@
   }
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img img {
+  vertical-align: top;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   /*
-  	@query 767px <== : definimos un width y un height 
-  	mas la propiedad object-fit: cover para ajustar 
-  	la imagen al contenedor padre
+  	_@query 767px <== : definimos un alto para este
+  	_elemento en esta medida
+  */
+  /*
+  	_@query 480px <== : definimos un alto para este
+  	_elemento en esta medida
   */
 }
 @media (max-width: 767px) {
@@ -1812,8 +2498,11 @@
   }
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_hashtags {
-  margin: 6px 0;
+  margin: 13px 0;
   padding: 0 15px;
+  /*
+  	tag-a
+  */
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_hashtags a {
   color: #ff671b;
@@ -1826,27 +2515,34 @@
   font-size: 12px;
   font-family: "@sansation-bold", sans-serif;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
   padding: 0 15px;
 }
-.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link {
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_btn_tabs {
   padding: 0 15px;
+  /*
+  	tag-a
+  */
 }
-.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link a {
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_btn_tabs a {
   text-decoration: none;
   color: #313338;
   font-family: "@sansation-bold", sans-serif;
-  font-size: 33px;
+  font-size: 26px;
   line-height: 1;
   transition: color 0.3s;
+  /*
+  	.cuando hacemos :hover sobre tag-a cambiamos
+  	.su color de fuente
+  */
 }
-.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_link a:hover {
+.section_tabs .container_tabs .flexbox_tabs .tab_header .tab_content_img .box_btn_tabs a:hover {
   color: #0c9ef3;
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_header .js_img_hidden {
   /*
-  	@query 767px <== : clase añadida con javascript que
-  	nos permite ocultar el contenedor tab_content_img
+  	_@query 767px <== : clase añadida con javascript que
+  	_nos permite ocultar a tab_content_img en esta medida
   */
 }
 @media (max-width: 767px) {
@@ -1856,18 +2552,26 @@
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body {
   /*
-  	@query 767px <== : removemos este contenedor del
-  	viewport
+  	_@query 767px <== : removemos este contenedor del
+  	_viewport para esta medida
   */
   /*
-  	@query 768px ==> : le definimos width: 47% para que ocupe
-  	ese espacio dentro de su contenedor padre
+  	_@query 768px ==> : definimos un ancho para este elemento
+  	_en esta medida
+  */
+  /*
+  	_@query 992px ==> : definimos un ancho para este elemento
+  	_en esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos un ancho para este elemento
+  	_en esta medida
   */
   /*
   	tab_content_body
   */
   /*
-  	js_header_active
+  	js_body_hidden
   */
 }
 @media (max-width: 767px) {
@@ -1892,11 +2596,23 @@
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body {
   /*
-  	@query 768px ==> : es importante definirle un heigh: 100%
+  	@query 768px ==> : es importante definir un heigh: 100%
   	para que tome el alto total de su contenedor padre
   */
   /*
-  	tag-img
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes justo con object-fit: cover para que esta se ajuste
+  	al tamaño de su contenedor
+  */
+  /*
+  	box_hashtags
+  */
+  /*
+  	tag-p
+  */
+  /*
+  	box_btn_tabs
   */
 }
 @media (min-width: 768px) {
@@ -1905,17 +2621,26 @@
   }
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
+  vertical-align: top;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   /*
-  	@query 768px ==> : definimos width y height mas la 
-  	propiedad object-fit para ajustar la imagen al contenedor
+  	_@query 768px ==> : definimos una altura para este
+  	_elemento en esta medida
+  */
+  /*
+  	_@query 992px ==> : definimos una altura para este
+  	_elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos una altura para este
+  	_elemento en esta medida
   */
 }
 @media (min-width: 768px) {
   .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body img {
-    width: 100%;
     height: 63%;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
 }
 @media (min-width: 992px) {
@@ -1929,7 +2654,10 @@
   }
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_hashtags {
-  margin: 6px 0;
+  margin: 13px 0;
+  /*
+  	tag-a
+  */
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_hashtags a {
   color: #ff671b;
@@ -1942,23 +2670,32 @@
   font-size: 12px;
   font-family: "@sansation-bold", sans-serif;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
 }
-.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_link a {
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_btn_tabs {
+  /*
+  	tag-a
+  */
+}
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_btn_tabs a {
   text-decoration: none;
   color: #313338;
   font-family: "@sansation-bold", sans-serif;
   font-size: 33px;
   line-height: 1;
   transition: color 0.3s;
+  /*
+  	.cuando hacemos :hover sobre tag-a cambiamos
+  	.su color de fuente
+  */
 }
-.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_link a:hover {
+.section_tabs .container_tabs .flexbox_tabs .tab_body .tab_content_body .box_btn_tabs a:hover {
   color: #0c9ef3;
 }
 .section_tabs .container_tabs .flexbox_tabs .tab_body .js_body_hidden {
   /*
-  	@query 768px ==> : clase añadida con javascript que
-  	nos permite ocultar el contenedor tab_body
+  	_@query 768px ==> : clase añadida con javascript que
+  	_nos permite ocultar el contenedor tab_content_body
   */
 }
 @media (min-width: 768px) {
@@ -1968,17 +2705,40 @@
 }
 
 /*
-	importacion de las fuentes
+	content_column_three y content_column_four: estos contenedores
+	comparten propiedades
 */
+.content_column_three, .content_column_four {
+  /*
+  	_@query 768px ==> : definimos un margen en la parte
+  	_superior de estos contenedores en esta medida
+  */
+  /*
+  	_@query 992px ==> : removemos el margen de la parte
+  	_superior de estos contenedores en esta medida
+  */
+}
+@media (min-width: 768px) {
+  .content_column_three, .content_column_four {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .content_column_three, .content_column_four {
+    margin-top: 0;
+  }
+}
+
 /*
-	seccion de tags que reutilizan codigo pero se
-	encuentran definidas dentro de otras cajas
+	content_column_two, content_column_three y content_column_four: 
+	la tah-h4 que esta dentro de estos contenedores comparten propiedades
 */
-/*
-	tag-h4: titulo que pertence a las secciones
-	de content_footer_flexbox
-*/
-h4 {
+.content_column_two, .content_column_three, .content_column_four {
+  /*
+  	tag-h4
+  */
+}
+.content_column_two h4, .content_column_three h4, .content_column_four h4 {
   color: #ff671b;
   font-family: "@sansation-bold", sans-serif;
   font-size: 14px;
@@ -1986,34 +2746,45 @@ h4 {
 }
 
 /*
-	tag-ul: menu de navegacion que pertence a 
-	las secciones de content_footer_flexbox
+	ul_accordion ul_column_two y ul_column_three: 
+	estos elementos comparten propiedades
 */
-ul li {
+.ul_accordion, .ul_column_two, .ul_column_three {
+  /*
+  	tag-li
+  */
+}
+.ul_accordion li, .ul_column_two li, .ul_column_three li {
   list-style: none;
   margin-top: 5px;
+  /*
+  	tag-a
+  */
 }
-ul li a {
+.ul_accordion li a, .ul_column_two li a, .ul_column_three li a {
   text-decoration: none;
   color: #313338;
   font-family: "@nunito-regular", sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  /*
+  	.cuando hacemos :hover sobre tag-a cambiamos su
+  	.color de fuente
+  */
 }
-ul li a:hover {
+.ul_accordion li a:hover, .ul_column_two li a:hover, .ul_column_three li a:hover {
   color: #ff671b;
 }
 
 /*
-	section_footer: contenedor en el cual implementamos
-	margin o padding si deseamos separar esta seccion
-	de otra
+	section_footer
 */
 .section_footer {
   background-color: #fff;
   /*
-  	container_footer: contenedor en el cual definimos
-  	width para manejar el responsive
+  	container_footer: definimos la propiedad max-width: 100% para que
+  	sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+  	para centrar el contenedor
   */
 }
 .section_footer .container_footer {
@@ -2021,37 +2792,41 @@ ul li a:hover {
   margin: 0 auto;
   padding: 0 15px;
   /*
-  	@query 840px ==> : definimos un width en 
-  	esta medida para container_footer
+  	_@query 768px ==> : modificamos el max-width y agregamos 
+  	_un padding para generar espacio a partir de esta medida
   */
   /*
-  	@query 1200px ==> : definimos un width en 
-  	esta medida para container_footer
+  	_@query 992px ==> : modificamos el max-width a partir de 
+  	_esta medida
   */
   /*
-  	box_line: contenedor de la linea en la parte
-  	superior del footer, definimos un padding para
-  	geneerar espaciado
+  	_@query 1200px ==> : modificamos el max-width a partir de 
+  	_esta medida
   */
   /*
-  	content_accordeon: contenedor del acordeon
+  	box_line: definimos padding para generar un espaciado
+  	en este contenedor
   */
   /*
-  	content_footer_flexbox: definimos flexbox y sus
-  	propeidades flex-wrap y justify-content para 
-  	posicionar los elementos si superan el tamaño de su 
-  	contenedor y separar cada elemento
+  	content_accordion
   */
   /*
-  	box_gotop: implementamos fixed y sus propiedades right, 
-  	y z-index para darle posicion a esta caja, luego
-  	hacemos uso de flexbox y sus propiedades justify-content
-  	y align-items para centrar vertical y horizontalmente
-  	los elementos finalmente overflow: hidden para ocualtar 
-  	esta caja
+  	content_columns: definimos flexbox y sus
+  	propiedades flex-wrap y justify-content para 
+  	re posicionar los elementos si superan el tamaño 
+  	de su contenedor padre y generar un espaciado
+  	entre los elementos que este contiene
   */
   /*
-  	box_copy_right: parte final del footer
+  	box_go_top: implementamos fixed y sus propiedades right, 
+  	y z-index para posicionar este elemento, luego hacemos
+  	uso de flexbox y sus propiedades justify-content y
+  	align-items para centrar de manera vertical y horizontal
+  	los elementos que este contiene, finalmente overflow: hidden 
+  	para ocultarlo
+  */
+  /*
+  	box_copy_right
   */
 }
 @media (min-width: 768px) {
@@ -2072,8 +2847,8 @@ ul li a:hover {
 .section_footer .container_footer .box_line {
   padding: 40px 0;
   /*
-  	@query 767px <== : removemos de la vista 
-  	la caja box_line
+  	_@query 767px <== : removemos del  viewport 
+  	_la caja box_line para esta medida
   */
 }
 @media (max-width: 767px) {
@@ -2081,240 +2856,306 @@ ul li a:hover {
     display: none;
   }
 }
-.section_footer .container_footer .content_accordeon {
+.section_footer .container_footer .content_accordion {
   /*
-  	@query 767px <== : definimos un margin
-  	y un padding para generar espaciado
+  	_@query 767px <== : definimos padding para generar un 
+  	_espaciado en este contenedor
   */
   /*
-  	@query 768px ==> : removemos de la vista 
-  	la caja content_accordeon
+  	_@query 768px ==> : removemos de la vista 
+  	_content_accordion para esta medida
   */
   /*
-  	box_accordeon: contenedor de accordeon_header y 
-  	accordeon_body
+  	box_accordion
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .content_accordeon {
+  .section_footer .container_footer .content_accordion {
     padding: 0 15px;
   }
 }
 @media (min-width: 768px) {
-  .section_footer .container_footer .content_accordeon {
+  .section_footer .container_footer .content_accordion {
     display: none;
   }
 }
-.section_footer .container_footer .content_accordeon .box_accordeon {
+.section_footer .container_footer .content_accordion .box_accordion {
   /*
-  	@query 767px <== : en esta medida le añadimos a
-  	box_accordeon la clase js_show_accordeon cuando
-  	hacemos click sobre si mismo
+  	_@query 767px <== : añadimos a box_accordion la
+  	_clase js_show_accordion para esta medida
   */
   /*
-  	accordeon_header: definimos flexbox y su propiedad
-  	justify-content que nos permite separar el titulo
-  	y el icono
+  	accordion_header: definimos flexbox y su propiedad
+  	justify-content que nos permite generar un espaciado
+  	entre los elementos que este contiene
   */
   /*
-  	accordeon_body: le definimos hight: 0 y un 
+  	accordion_body: le definimos hight: 0 y un 
   	overflow: hidden para ocultar esta parte del
-  	acordeon 
+  	accordion 
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .content_accordeon .box_accordeon {
+  .section_footer .container_footer .content_accordion .box_accordion {
     /*
-    	js_show_accordeon: clase javascript que 
-    	relaciona la tag-h3 para añadirle color
+    	.js_show_accordion: clase añadida con javascript que 
+    	.que relaciona a la tag-h3 que esta dentro de 
+    	.accordion_header y le cambia el color de fuente
     */
     /*
-    	js_show_accordeon: clase javascript que 
-    	relaciona la tag-svg para añadirle color y
-    	rotacion al icono
+    	.js_show_accordion: clase añadida con javascript que 
+    	.que relaciona a la tag-svg que esta dentro de 
+    	.accordion_header y le cambiar el color de fuente 
+    	.y agrega una rotación al icono
     */
     /*
-    	js_show_accordeon: clase javascript que relaciona 
-    	a accordeon_body para añadirle un height y un
-    	overflow: visible para hacer nuevamente visible 
-    	el contenido de esta caja
+    	js_show_accordion: clase javascript que relaciona 
+    	a accordion_body para añadirle un 
+    */
+    /*
+    	.js_show_accordion: clase añadida con javascript que 
+    	.que relaciona a accordion_body y un height: auto
+    	.junto con overflow: visible para hacer nuevamente 
+    	.visible el contenido de esta caja
     */
   }
-  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_header h3 {
+  .section_footer .container_footer .content_accordion .box_accordion.js_show_accordion .accordion_header h3 {
     color: #ff671b;
   }
-  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_header svg {
+  .section_footer .container_footer .content_accordion .box_accordion.js_show_accordion .accordion_header svg {
     fill: #ff671b;
     transform: rotate(180deg);
   }
-  .section_footer .container_footer .content_accordeon .box_accordeon.js_show_accordeon .accordeon_body {
+  .section_footer .container_footer .content_accordion .box_accordion.js_show_accordion .accordion_body {
     height: auto;
     overflow: visible;
   }
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_header {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #77777a;
   padding: 5px 0;
   cursor: pointer;
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-svg
+  */
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header h3 {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_header h3 {
   color: #77777a;
-  font-size: 22px;
+  font-size: 21.4px;
   font-family: "@sansation-regular", sans-serif;
   line-height: 1.9;
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_header svg {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_header svg {
   fill: #77777a;
   width: 40px;
   height: 40px;
   transition: transform 0.3s ease;
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease;
+  /*
+  	ul_accordion
+  */
+  /*
+  	tag-p
+  */
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body .ul_accordion {
   padding: 15px 0;
+  /*
+  	li
+  */
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li {
-  list-style: none;
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body .ul_accordion li {
   margin-top: 18px;
+  /*
+  	.seleccionamos la primer tag-li y removemos el
+  	.margen-top definido anteriormente
+  */
+  /*
+  	tag-a
+  */
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li:first-child {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body .ul_accordion li:first-child {
   margin-top: 0;
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body ul li a {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body .ul_accordion li a {
   font-size: 15px;
   font-family: "@sansation-regular", sans-serif;
 }
-.section_footer .container_footer .content_accordeon .box_accordeon .accordeon_body p {
+.section_footer .container_footer .content_accordion .box_accordion .accordion_body p {
   padding: 15px 0;
   font-family: "@sansation-regular", sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
-.section_footer .container_footer .content_footer {
+.section_footer .container_footer .content_columns {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   /*
-  	@query 767px <== : modificamos la propiedad
-  	justify-content
+  	_@query 767px <== : generamos un margen implementando 
+  	_auto para centrar este contenedor en esta medida
   */
   /*
-  	columna_one
+  	_@query 767px <== : definimos display: none para remover 
+  	_del viewport los siguientes contenedores en esta medida
   */
   /*
-  	columna_two
+  	content_column_one: definimos un ancho para este elemento
   */
   /*
-  	columna_three
+  	content_column_two: definimos un ancho para este elemento
   */
   /*
-  	columna_four
+  	content_column_three: definimos un ancho para este elemento
+  */
+  /*
+  	content_column_four: definimos un ancho para este elemento
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .content_footer {
-    justify-content: center;
-    margin: 60px 0 40px;
-    /*
-    	para los siguientes contenedores definimos
-    	display: none para removerlos de la vista
-    */
+  .section_footer .container_footer .content_columns .content_column_one {
+    margin: 60px auto 40px;
   }
-  .section_footer .container_footer .content_footer .content_column_two,
-.section_footer .container_footer .content_footer .content_column_three,
-.section_footer .container_footer .content_footer .content_column_four {
+}
+@media (max-width: 767px) {
+  .section_footer .container_footer .content_columns .content_column_two,
+.section_footer .container_footer .content_columns .content_column_three,
+.section_footer .container_footer .content_columns .content_column_four {
     display: none;
   }
 }
-.section_footer .container_footer .content_footer .content_column_one {
+.section_footer .container_footer .content_columns .content_column_one {
   width: 200px;
+  /*
+  	box_logo_footer
+  */
+  /*
+  	box_socials_media
+  */
 }
-.section_footer .container_footer .content_footer .content_column_one .box_logo_footer {
+.section_footer .container_footer .content_columns .content_column_one .box_logo_footer {
   width: 160px;
   height: 81px;
   /*
-  	@query 767px <== : modificamos el width y 
-  	height de box_logo_footer y centramos la
-  	caja haciendo uso de margin
+  	_@query 767px <== : modificamos el width y 
+  	_height de content_column_one y haciendo uso
+  	_de margin: 0 auto centramos este elemento
+  */
+  /*
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes, finalmente definimos un ancho y alto del 100% 
+  	para que esta se ajuste al tamaño de su contenedor padre
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .content_footer .content_column_one .box_logo_footer {
+  .section_footer .container_footer .content_columns .content_column_one .box_logo_footer {
     width: 110px;
     height: 56px;
     margin: 0 auto;
   }
 }
-.section_footer .container_footer .content_footer .content_column_one .box_logo_footer img {
+.section_footer .container_footer .content_columns .content_column_one .box_logo_footer img {
+  vertical-align: top;
   width: 100%;
   height: 100%;
 }
-.section_footer .container_footer .content_footer .content_column_one .box_socials_media {
+.section_footer .container_footer .content_columns .content_column_one .box_socials_media {
   margin-top: 70px;
   /*
-  	@query 767px <== : implementamos 
-  	text-align: center para centrar los 
-  	elementos que pertenecen a box_socials_media
+  	_@query 767px <== : implementamos 
+  	_text-align: center para centrar los 
+  	_elementos que pertenecen a box_socials_media
+  */
+  /*
+  	tag-h4
+  */
+  /*
+  	tag-a
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .content_footer .content_column_one .box_socials_media {
+  .section_footer .container_footer .content_columns .content_column_one .box_socials_media {
     text-align: center;
   }
 }
-.section_footer .container_footer .content_footer .content_column_one .box_socials_media h4 {
+.section_footer .container_footer .content_columns .content_column_one .box_socials_media h4 {
   color: #313338;
 }
-.section_footer .container_footer .content_footer .content_column_one .box_socials_media a {
+.section_footer .container_footer .content_columns .content_column_one .box_socials_media a {
   text-decoration: none;
+  /*
+  	tag-svg
+  */
 }
-.section_footer .container_footer .content_footer .content_column_one .box_socials_media a svg {
+.section_footer .container_footer .content_columns .content_column_one .box_socials_media a svg {
   fill: #878787;
-  margin: 5px 10px 0 -10px;
+  width: 32px;
+  height: 32px;
+  /*
+  	.cuando hacemos :hover sobre la tag-svg,
+  	.cambiamos su color de fuente
+  */
+  /*
+  	_@query 768px ==> : definimos un margene para
+  	_tag-svg en esta medida
+  */
 }
-.section_footer .container_footer .content_footer .content_column_one .box_socials_media a svg:hover {
+.section_footer .container_footer .content_columns .content_column_one .box_socials_media a svg:hover {
   fill: #ff671b;
 }
-.section_footer .container_footer .content_footer .content_column_two {
+@media (min-width: 768px) {
+  .section_footer .container_footer .content_columns .content_column_one .box_socials_media a svg {
+    margin: 5px 10px 0 -10px;
+  }
+}
+.section_footer .container_footer .content_columns .content_column_two {
   width: 220px;
 }
-.section_footer .container_footer .content_footer .content_column_three {
+.section_footer .container_footer .content_columns .content_column_three {
   width: 400px;
-}
-.section_footer .container_footer .content_footer .content_column_three .box_info_three {
   /*
-  	seleccionamos la segunda caja con clase
-  	box_info_three y le definimos un margin-top
+  	box_info_three
+  */
+}
+.section_footer .container_footer .content_columns .content_column_three .box_info_three {
+  /*
+  	.seleccionamos el segundo elemento con clase
+  	.box_info_three y definimos un margen en la
+  	.parte inferior
                  */
 }
-.section_footer .container_footer .content_footer .content_column_three .box_info_three:nth-child(2) {
+.section_footer .container_footer .content_columns .content_column_three .box_info_three:nth-child(2) {
   margin-top: 20px;
 }
-.section_footer .container_footer .content_footer .content_column_four {
+.section_footer .container_footer .content_columns .content_column_four {
   width: 220px;
-}
-.section_footer .container_footer .content_footer .content_column_four .box_info_four {
   /*
-  	seleccionamos la segunda caja con clase
-  	box_info_four y le definimos un margin
-                 */
+  	box_info_four
+  */
 }
-.section_footer .container_footer .content_footer .content_column_four .box_info_four:nth-child(2) {
-  margin: 20px 0;
+.section_footer .container_footer .content_columns .content_column_four .box_info_four {
+  margin-bottom: 20px;
+  /*
+  	tag-p
+  */
 }
-.section_footer .container_footer .content_footer .content_column_four .box_info_four p {
+.section_footer .container_footer .content_columns .content_column_four .box_info_four p {
   font-family: "@nunito-regular", sans-serif;
   font-size: 14px;
   line-height: 1.4;
   padding-top: 3px;
 }
-.section_footer .container_footer .box_gotop {
+.section_footer .container_footer .box_go_top {
   position: fixed;
   right: 20px;
   z-index: 99;
@@ -2325,72 +3166,74 @@ ul li a:hover {
   cursor: pointer;
   transition: all 0.1s ease;
   /*
-  	@query 767px <== : removemos de la vista la caja box_gotop
+  	_@query 767px <== : removemos de la vista este elemento
+  	_para esta medida
   */
   /*
-  	@query 768px ==> : medida responsive aplicada a box_gotop
-  	definimos width y height para darle tamaño a la caja
-  	y bottom para posicionarla
+  	_@query 768px ==> : definimos width y height para darle tamaño 
+  	_a la caja y bottom para darle posición en esta medida
   */
   /*
-  	@query 992px ==> : medida responsive aplicada a box_gotop
-  	definimos width y height para redefinir el tamaño de la caja
-  	y bottom para reposicionarla
+  	_@query 992px ==> : definimos width y height para darle tamaño 
+  	_a la caja y bottom para darle posición en esta medida
   */
   /*
-  	tag-svg: importante definir color: transparent 
+  	tag-svg: importante definir fill: transparent 
   	para ocultar el icono
   */
 }
 @media (max-width: 767px) {
-  .section_footer .container_footer .box_gotop {
+  .section_footer .container_footer .box_go_top {
     display: none;
   }
 }
 @media (min-width: 768px) {
-  .section_footer .container_footer .box_gotop {
+  .section_footer .container_footer .box_go_top {
     width: 45px;
     height: 45px;
     bottom: 20px;
     /*
-    	añadimos la clase javascript js_show_gotop que añade 
-    	background-color un borde y overflow: visible para 
-    	visible nuevamente esta caja 
+    	.js_show_go_top: clase añadida con javascript que añade 
+    	.un color de fondo, un borde y hace visible el go-top
+    	.debido a que implementamos la propiedad overflow: visible
     */
     /*
-    	añadimos la clase javascript js_show_gotop que relaciona 
-    	a la tag-svg para añadirle color al icono
+    	.js_show_go_top: clase añadida con javascript que
+    	.relaciona a tag-svg y añade color al icono
     */
   }
-  .section_footer .container_footer .box_gotop.js_show_gotop {
+  .section_footer .container_footer .box_go_top.js_show_go_top {
     background-color: #fff;
     border: 1px solid #8c8c8c;
     overflow: visible;
     /*
-    	cuando hacemos :hover sobre box_gotop
-    	relacionamos a tag-svg para añadirle color
-    	al icono
+    	.cuando hacemos :hover sobre box_go_top cambiamos
+    	.su color de fondo y removemos el borde
+    */
+    /*
+    	.cuando hacemos :hover sobre box_go_top,
+    	.relacionamos a tag-svg para añadir color al icono
     */
   }
-  .section_footer .container_footer .box_gotop.js_show_gotop:hover {
+  .section_footer .container_footer .box_go_top.js_show_go_top:hover {
     background-color: #ff671b;
     border: none;
   }
-  .section_footer .container_footer .box_gotop.js_show_gotop:hover svg {
+  .section_footer .container_footer .box_go_top.js_show_go_top:hover svg {
     fill: #fff;
   }
-  .section_footer .container_footer .box_gotop.js_show_gotop svg {
+  .section_footer .container_footer .box_go_top.js_show_go_top svg {
     fill: #77777a;
   }
 }
 @media (min-width: 992px) {
-  .section_footer .container_footer .box_gotop {
+  .section_footer .container_footer .box_go_top {
     width: 75px;
     height: 75px;
     bottom: 200px;
   }
 }
-.section_footer .container_footer .box_gotop svg {
+.section_footer .container_footer .box_go_top svg {
   fill: transparent;
   width: 39px;
   height: 39px;
@@ -2403,8 +3246,8 @@ ul li a:hover {
   font-size: 14px;
   padding: 60px 0 30px;
   /*
-  	@query 768px ==> : definimos padding para generar 
-  	separacion respecto a content_flexbox
+  	_@query 768px ==> : definimos padding para generar 
+  	_espaciado en esta medida
   */
 }
 @media (max-width: 767px) {
@@ -2414,19 +3257,42 @@ ul li a:hover {
 }
 
 /*
-    estilos pertenecientes a fundacion.html
+    estilos pertenecientes a fundación.html
 */
 /*
-	importacion de las fuentes
+    section_fundación_banner
 */
 .section_fundacion_banner {
   /*
-  	container_name: contenedor definido para manejar
-  	el responsive implementando width
+  	container_fundación_banner {
+  */
+}
+.section_fundacion_banner .container_fundacion_banner {
+  /*
+      flexbox_fundacion_banner
   */
 }
 .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner {
   background-color: #313338;
+  /*
+      _@query 767px <== : modificamos el espaciado para esta
+      _medida
+  */
+  /*
+      _@query 768px ==> : definimos display: grid junto con sus
+      _propiedades grid-template-columns y grid-templates-rows
+      _para crear 2 columnas y 1 fila para esta medida
+  */
+  /*
+      content_fundacion_flayer: definimos flexbox con sus 
+      propiedades justify-content y align-items para centrar
+      de manera vertical y horizontal los elementos que 
+      este contiene
+  */
+  /*
+      ul_fundacion_gallery: definimos display flex para poner en linea
+      los elementos que este contiene
+  */
 }
 @media (max-width: 767px) {
   .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner {
@@ -2445,11 +3311,34 @@ ul li a:hover {
   justify-content: center;
   align-items: center;
   padding: 70px 50px;
+  /*
+      _@query 991px <== : modificamos el espaciado para esta
+      _medida
+  */
+  /*
+      box_fundacion_info
+  */
 }
 @media (max-width: 991px) {
   .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer {
     padding: 30px;
   }
+}
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info {
+  /*
+      _@query 767px <== : definimos un ancho para este
+      _elemento en esta medida
+  */
+  /*
+      _@query 1161px ==> : definimos un ancho para este
+      _elemento en esta medida
+  */
+  /*
+      tag-h1
+  */
+  /*
+      tag-p
+  */
 }
 @media (max-width: 767px) {
   .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info {
@@ -2466,6 +3355,10 @@ ul li a:hover {
   font-family: "@sansation-bold", sans-serif;
   font-size: 55px;
   line-height: 1;
+  /*
+      _@query 991px <== : modificamos el tamaño de fuente
+      _para este elemento en esta medida
+  */
 }
 @media (max-width: 991px) {
   .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info h1 {
@@ -2477,43 +3370,72 @@ ul li a:hover {
   font-family: "@nunito-regular", sans-serif;
   font-size: 18px;
   line-height: 26px;
+  /*
+      .seleccionamos el segundo elemento tag-p y definimos un
+      .margen
+  */
 }
 .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info p:nth-child(2) {
   margin: 50px 0 20px;
+  /*
+      _@query 991px <== : modificamos el margen para este
+      _elemento en esta medida
+  */
 }
 @media (max-width: 991px) {
   .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .content_fundacion_flayer .box_fundacion_info p:nth-child(2) {
     margin: 25px 0 20px;
   }
 }
-.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery {
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_gallery {
   display: flex;
+  /*
+      tag-li: definimos flex: 1 para que cada elemento se reparta
+      de igual medida el ancho de su contenedor padre, finalmente
+      una transition
+  */
 }
-.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li {
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_gallery li {
   list-style: none;
   flex: 1;
-  margin-top: 0;
   transition: flex 0.5s ease-in-out;
+  /*
+      .cuando hacemos :hover sobre tag-li, cambiamos el valor
+      .de la propiedad flex a 100% para que el elemento elegido
+      .tome el ancho total de su contenedor padre
+  */
+  /*
+      tag-img: definimos vertical-align para remover un espaciado
+      que genera el navegador en las imágenes, finalmente un width 
+      y height 100% mas un object-fit para que la imagen se ajuste
+      al tamaño de su contenedor
+  */
 }
-.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li:hover {
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_gallery li:hover {
   flex: 100%;
 }
-.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li img {
+.section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_gallery li img {
   vertical-align: top;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: pointer;
+  /*
+      _@query 767px <== : modificamos la altura de este
+      _elemento para esta medida
+  */
 }
 @media (max-width: 767px) {
-  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_galery li img {
+  .section_fundacion_banner .container_fundacion_banner .flexbox_fundacion_banner .ul_fundacion_gallery li img {
     height: 180px;
   }
 }
 
 /*
-	importacion de las fuentes
+	section_fundacion_tabs: definimos un background-img para
+	la sección, finalmente definimos un espaciado para generar
+    espacio para este contenedor 
 */
 .section_fundacion_tabs {
   background: url(../../../assets/img/fundacion/mision_vi_bg.jpg);
@@ -2522,15 +3444,37 @@ ul li a:hover {
   background-position: 50%;
   padding: 100px 0;
   /*
-  	container_name: contenedor definido para manejar
-  	el responsive implementando width
+      _@query 767px <== : definimos un margen inferior en este
+      _elemento para separarlo de los otros elementos
   */
+  /*
+  	container_fundacion_tabs: definimos la propiedad max-width para definir
+         un ancho minimo para este contenedor, finalmente margin: 0 auto para
+         centrar de manera horizontal este contenedor
+  */
+}
+@media (max-width: 767px) {
+  .section_fundacion_tabs {
+    margin-bottom: 50px;
+  }
 }
 .section_fundacion_tabs .container_fundacion_tabs {
   max-width: 100%;
   margin: 0 auto;
   /*
-            flexbox_name
+  	_@query 768px ==> : cambiamos el valor de max-width y definimos
+            _un espaciado para este elemento en esta medida
+  */
+  /*
+  	_@query 992px ==> : cambiamos el valor de max-width
+            _para este elemento en esta medida
+  */
+  /*
+  	_@query 1200px ==> : cambiamos el valor de max-width
+            _para este elemento en esta medida
+  */
+  /*
+            flexbox_fundacion_tabs
         */
 }
 @media (min-width: 768px) {
@@ -2551,15 +3495,16 @@ ul li a:hover {
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs {
   /*
-  	@query 768px ==> : definimos flexbox y su 
-  	propiedad space-between para generar espaciado
-  	entre los elementos que este contiene
+  	_@query 992px ==> : definimos flexbox y sus
+  	_propiedades justify-content y align-items para centrar
+               _de manera vertical y horizontal los elementos que este
+               _contiene
   */
   /*
-               tab_header
+               tab_fundacion_header
            */
   /*
-               tab_body
+               tab_fundacion_body
            */
 }
 @media (min-width: 992px) {
@@ -2571,13 +3516,19 @@ ul li a:hover {
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header {
   /*
-  	@query 768px ==> : definimos width: 50% para que ocupe
-  	ese espacio dentro de su contenedor padre
+  	_@query 991px <== : definimos width: 100% para que ocupe
+  	_el ancho total de su contenedor padre, finalmente un 
+                  _margin: 0 auto para centrar de manera horizontal este
+                  _contenedor
   */
   /*
-                  tab_content_header: importante definirle 
-  	position: relative ya que la clase js_header_active 
-  	tiene definido position: absolute
+      _@query 992px ==> : modificamos el ancho de este elemento para
+      _esta medida
+  */
+  /*
+                  tab_content_header: definimos flexbox y sus propiedades justify-content 
+                  y align-items para centrar de manera vertical y horizontal los 
+                  elementos que este contiene
               */
 }
 @media (max-width: 991px) {
@@ -2592,50 +3543,97 @@ ul li a:hover {
     width: 280px;
   }
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info {
-  background-color: #000000cc;
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header {
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   padding: 10px;
+  /*
+      .nth-child: seleccionamos el segundo elemento con clase
+      .tab_content_header y definimos un margen
+  */
+  /*
+      .js_header_active: clase añadida con javascript que relaciona
+      .a tag-h2 y le cambia el color de fuente a este elemento
+  */
+  /*
+      .js_header_active: clase añadida con javascript que relaciona
+      .a tag-svg y le cambia el color de fondo y de fuente a este
+      .elemento
+  */
+  /*
+      .js_header_active: clase añadida con javascript que relaciona
+      .a icon_plus y añade display: none para remover este elemento
+      .del viewport
+  */
+  /*
+      .js_header_active: clase añadida con javascript que relaciona
+      .a icon_minus y añade display: block para hacer visible este
+      .elemento en el viewport
+  */
+  /*
+      tag-h2
+  */
+  /*
+      tag-svg
+  */
+  /*
+      icon_minus: definimos display: none para remover este 
+      elemento del viewport que se hace visible cuando tab-info
+      tiene la js_header_active añadida con javascript
+  */
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info:nth-child(2) {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header:nth-child(2) {
   margin: 16px 0;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active h2 {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header.js_header_active h2 {
   color: #ff671b;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active svg {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header.js_header_active svg {
   background-color: #ff671b;
   fill: #000;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active .icon_plus {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header.js_header_active .icon_plus {
   display: none;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info.js_header_active .icon_minus {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header.js_header_active .icon_minus {
   display: block;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info h2 {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header h2 {
   color: #fff;
   font-size: 22px;
   font-family: "@sansation-bold", sans-serif;
   transition: color 0.1s;
+  /*
+      _@query 767px <== : cambiamos el tamaño de fuente de 
+      _este elemento para esta medida
+  */
 }
 @media (max-width: 767px) {
-  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info h2 {
-    font-size: 30px;
+  .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header h2 {
+    font-size: 27px;
   }
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info svg {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header svg {
   background-color: #fff;
   fill: #000;
   width: 24px;
   height: 24px;
   border-radius: 100%;
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_info .icon_minus {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_header .tab_content_header .icon_minus {
   display: none;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body {
+  /*
+      _@query 992px ==> : definimos un ancho calculado para este
+      _elemento, finalmente añadimos un espaciado para esta medida
+  */
+  /*
+      tab_content_body
+  */
 }
 @media (min-width: 992px) {
   .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body {
@@ -2645,15 +3643,25 @@ ul li a:hover {
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body {
   /*
-      js_header_active
+      .js_body_hidden: clase añadida con javascript que define
+      .display: none para remover este elemento del viewport
+  */
+  /*
+      .js_body_hidden: clase añadida con javascript que relaciona
+      .a content_tab 
+  */
+  /*
+      container_tab
   */
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body.js_body_hidden {
-  transition: 0.5s;
   display: none;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body.js_body_hidden .content_tab {
   /*
-      @query 768px ==> : clase añadida con javascript que
-      nos permite ocultar el contenedor tab_body
+      animationTag: a 0% definimos un transform: translateY
+      para desplazar este elemento 100px hacia abajo y en
+      100% lo trasladamos a su posición original
   */
 }
 @-webkit-keyframes animationTag {
@@ -2674,7 +3682,16 @@ ul li a:hover {
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab {
   /*
-      tab_content_body
+      _@query 767px <== : definimos un espaciado para este
+      _elemento en esta medida
+  */
+  /*
+      _@query 768px ==> : definimos un espaciado para este
+      _elemento en esta medida
+  */
+  /*
+      content_tab: definimos la animación que se aplica cuando
+      tag_content_body tiene la clase js_body_hidden 
   */
 }
 @media (max-width: 767px) {
@@ -2688,28 +3705,51 @@ ul li a:hover {
   }
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab {
-  -webkit-animation: animationTag 0.4s;
-          animation: animationTag 0.4s;
+  -webkit-animation: animationTag 0.5s;
+          animation: animationTag 0.5s;
+  /*
+      tag-p: definimos position: relative debido a que definimos
+      position: absolute en elementos hijos
+  */
+  /*
+     box_links 
+  */
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph {
   position: relative;
   padding: 40px 30px;
+  /*
+      .before: haciendo uso de este pseudo elemento definimos
+      .un elemento que ocupe el ancho y alto total de su
+      .contenedor padre, con position: absolute y sus propiedades
+      .top y left posicionamos este elemento
+  */
+  /*
+      .after: haciendo uso de este pseudo elemento definimos
+      .un ancho y alto para este elemento y con position: absolute 
+      .y sus propiedades .top y left le damos posición
+  */
+  /*
+      tag-p: definimos position: relative con su propiedad
+      z-index para sobre poner este elemento en el viewport
+  */
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph::before {
   content: "";
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
-  background-color: #000000cc;
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph::after {
   content: "";
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
   background-color: #ff671b;
   width: 275px;
   height: 8px;
@@ -2720,9 +3760,24 @@ ul li a:hover {
   color: #fff;
   font-family: "@nunito-regular", sans-serif;
   line-height: 26px;
+  /*
+      .nth-child: seleccionamos el segundo elemento tag-p
+      .y definimos un margen
+  */
 }
-.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph .especial_paragraph {
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_paragraph p:nth-child(2) {
   margin: 15px 0;
+}
+.section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links {
+  /*
+      _@query 768px ==> : definimos flexbox y sus
+      _propiedades justify-content y align-items para centrar
+      _de manera vertical y horizontal los elementos que este
+      _contiene
+  */
+  /*
+      tag-a
+  */
 }
 @media (min-width: 768px) {
   .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links {
@@ -2741,7 +3796,25 @@ ul li a:hover {
   font-family: "@sansation-regular", sans-serif;
   border-radius: 4px;
   padding: 7px 10px;
-  transition: 0.3s;
+  transition: all 0.3s;
+  /*
+      .nth-child: seleccionamos el segundo elemento tag-a
+      .y definimos un margen
+  */
+  /*
+      .cuando hacemos :hover sobre tag-a modificamos su
+      .color de fondo
+  */
+  /*
+      _@query 991px <== : definimos un border: transparent
+      _para este elemento en esta medida
+  */
+  /*
+      _@query 767px <== : definimos display: block para 
+      _pasar este elemento a bloque en esta medida, finalmente
+      _definimos un max-width para que este sea el ancho 
+      _mínimo de este contenedor
+  */
 }
 @media (min-width: 768px) {
   .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:nth-child(2) {
@@ -2749,11 +3822,15 @@ ul li a:hover {
   }
 }
 .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:hover {
-  background-color: #000000cc;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 991px) {
   .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a {
     border: 1px solid transparent;
+    /*
+        .cuando hacemos :hover sobre tag-a en esta medida 
+        .modificamos le añadimos color al borde
+    */
   }
   .section_fundacion_tabs .container_fundacion_tabs .flexbox_fundacion_tabs .tab_fundacion_body .tab_content_body .container_tab .content_tab .box_links a:hover {
     border: 1px solid #ff671b;
@@ -2770,6 +3847,1235 @@ ul li a:hover {
     margin: 20px auto 0;
     padding: 14px 10px;
   }
+}
+
+/*
+    estilos pertenecientes a aflora.html
+*/
+/*
+    section_aflora_banner
+*/
+.section_aflora_banner {
+  /*
+      container_aflora_banner
+  */
+}
+.section_aflora_banner .container_aflora_banner {
+  /*
+      flexbox_aflora_banner
+  */
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner {
+  /*
+      content_aflora: definimos position: relative debido a 
+      que uno de sus elementos hijos tiene position: absolute
+  */
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora {
+  position: relative;
+  /*
+      after: hacemos uso de este pseudo elemento para
+      crear una mascara de color que ocupe el ancho y
+      alto total del banner, finalmente la propiedad
+      transform: rotate nos permite rotar la mascara
+  */
+  /*
+      container_box_aflora
+  */
+  /*
+      box_aflora_img: definimos una altura para este contenedor
+  */
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotate(-180deg);
+  /*
+   _@query 767px <== : definimos un color de fondo para
+         _este elemento en esta medida
+  */
+  /*
+   _@query 768px ==> : definimos un color de fondo para
+         _este elemento en esta medida
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora:after {
+    background: linear-gradient(0deg, #212121 10%, rgba(33, 33, 33, 0.9) 40%, rgba(46, 46, 46, 0));
+  }
+}
+@media (min-width: 768px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora:after {
+    background: linear-gradient(-90deg, #212121 34%, rgba(33, 33, 33, 0.9) 46%, rgba(46, 46, 46, 0));
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora {
+  /*
+      _@query 767px <== : definimos position: relative debido a
+      _que uno de sus elementos hijos tiene position: absolute,
+      _importante definir un ancho que junto con margin: 0 auto
+      _nos permite centrar este contenedor de manera horizontal
+  */
+  /*
+      box_aflora: definimos position: absolute con sus propiedades
+      top y z-index para posicionar este elemento
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora {
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora {
+  position: absolute;
+  top: 10px;
+  z-index: 3;
+  /*
+      _@query 768px ==> : definimos las propiedades top y bottom
+      _a 0% para que este elemento tome el ancho y alto total de
+      _su contenedor padre, finalmente flexbox y sus propiedades
+      _flex-direction y justify-content
+  */
+  /*
+      box_aflora_logo: definimos un margen en la parte inferior
+      y una animación para este elemento
+  */
+  /*
+      box_aflora_info: definimos una animación para este
+      elemento
+  */
+}
+@media (min-width: 768px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora {
+    left: 100px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_logo {
+  margin-bottom: 20px;
+  -webkit-animation: bounceInDown 2s;
+          animation: bounceInDown 2s;
+  /*
+      .bounceInDown: al inicio desvanecemos el elemento y lo 
+      .desplazamos -2000px hacia arriba, al final lo 
+      .desplazamos hasta su posición original
+  */
+  /*
+      tag-img: es importante definir la propiedad vertical-align
+      para remover el espaciado que genera el navegador en las 
+      imágenes, finalmente definimos un ancho y alto del 100% 
+      junto con object-fit: cover para que esta se ajuste al 
+      tamaño de su contenedor
+  */
+}
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_logo img {
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_logo .img_cultivarte {
+  width: 300px;
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_info {
+  color: #fff;
+  font-family: "@nunito-regular", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-animation: bounceInUp 2s;
+          animation: bounceInUp 2s;
+  /*
+      .bounceInUp: al inicio desvanecemos el elemento y lo 
+      .desplazamos 2000px hacia abajo, al final lo 
+      .desplazamos hasta su posición original
+  */
+  /*
+      tag-p y tag-h1: definimos las mismas clases para estos
+      dos elementos
+  */
+  /*
+      extra_paragraph: es una tag-p extra donde definimos mas
+      párrafo asi que solo el elemento que tenga esta clase
+      tendrá un display: block y un margen en la parte superior
+  */
+}
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_info p, .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_info h1 {
+  display: inline;
+  font-size: 14px;
+  font-weight: 400;
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .container_box_aflora .box_aflora .box_aflora_info .extra_paragraph {
+  display: block;
+  margin-top: 10px;
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img {
+  height: 520px;
+  /*
+   _@query 767px <== : modificamos la altura de este
+         _elemento en esta medida
+  */
+  /*
+      tag-img: es importante definir la propiedad vertical-align
+      para remover el espaciado que genera el navegador en las 
+      imágenes, finalmente definimos un ancho y alto del 100% 
+      junto con object-fit: cover para que esta se ajuste al 
+      tamaño de su contenedor
+  */
+  /*
+      img_destok
+  */
+  /*
+      img_móvil
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img {
+    height: 600px;
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img .img_destok {
+  /*
+   _@query 767px <== : definimos display: none para remover
+         _este elemento de la vista en esta medida
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img .img_destok {
+    display: none;
+  }
+}
+.section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img .img_movil {
+  /*
+   _@query 768px ==> : definimos display: none para remover
+         _este elemento de la vista en esta medida
+  */
+}
+@media (min-width: 768px) {
+  .section_aflora_banner .container_aflora_banner .flexbox_aflora_banner .content_aflora .box_aflora_img .img_movil {
+    display: none;
+  }
+}
+
+/*
+	section_aflora_links: definimos un espaciado para separar
+	esta sección de otras secciones
+*/
+.section_aflora_links {
+  padding: 44px 0;
+  border-bottom: 1px solid #e6e6e6;
+  /*
+  	_@query 767px <== : definimos un espaciado para este
+  	_contenedor en esta medida
+  */
+  /*
+  	container_aflora_links: definimos un espaciado para
+         separar los elementos que este contiene de los bordes
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_links {
+    padding: 30px 0;
+  }
+}
+.section_aflora_links .container_aflora_links {
+  padding: 0 15px;
+  /*
+  	_@query 576px ==> : definimos un max-width para que sea el ancho
+            _mínimo de este elemento en esta medida, finalmente margin: 0 auto 
+            _para centrar de manera horizontal este elemento
+  */
+  /*
+  	_@query 768px ==> : definimos un max-width para esta medida
+  */
+  /*
+  	_@query 992px ==> : definimos un max-width para esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos un max-width para esta medida
+  */
+  /*
+  	flexbox_aflora_links: definimos flexbox y su propiedad
+            justify-content para centrar de manera horizontal este elemento
+  */
+}
+@media (min-width: 576px) {
+  .section_aflora_links .container_aflora_links {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .section_aflora_links .container_aflora_links {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_links .container_aflora_links {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_links .container_aflora_links {
+    max-width: 1140px;
+  }
+}
+.section_aflora_links .container_aflora_links .flexbox_aflora_links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /*
+      _@query 767px <== : modificamos el valor de justify-content
+      _para este elemento en esta medida
+  */
+  /*
+      tag-a: definimos display: inline-flex para implementar en 
+      este elemento las propiedades justify-content y align-items
+      que junto con un ancho un alto definido nos permiten centrar 
+      de manera vertical y horizontal los elementos que este
+      contiene
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_links .container_aflora_links .flexbox_aflora_links {
+    justify-content: flex-start;
+  }
+}
+.section_aflora_links .container_aflora_links .flexbox_aflora_links a {
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  width: 180px;
+  justify-content: center;
+  height: 60px;
+  align-items: center;
+  background-color: #f0f0f0;
+  color: #313338;
+  font-size: 15px;
+  font-family: "@nunito-regular", sans-serif;
+  border-bottom: 2px solid #ff671b;
+  margin: 8px 1%;
+  /*
+      .cuando hacemos : hover sobre tag-a, modificamos
+      .el color de fondo de este elemento
+  */
+  /*
+      _@query 767px <== : modificamos el tamaño de fuente
+      _y el ancho de este elemento para esta medida
+  */
+  /*
+      _@query 575px <== : modificamos el ancho de este 
+      _elemento para esta medida
+  */
+}
+.section_aflora_links .container_aflora_links .flexbox_aflora_links a:hover {
+  background-color: #dfdfdf;
+}
+@media (max-width: 767px) {
+  .section_aflora_links .container_aflora_links .flexbox_aflora_links a {
+    font-size: 13px;
+    width: 150px;
+  }
+}
+@media (max-width: 575px) {
+  .section_aflora_links .container_aflora_links .flexbox_aflora_links a {
+    width: 48%;
+  }
+}
+
+/*
+	section_aflora_card: definimos un espaciado para separar
+	esta sección de otras secciones
+*/
+.section_aflora_card {
+  padding: 60px 0;
+  /*
+  	_@query 767px <== : definimos un espaciado para este
+  	_contenedor en esta medida
+  */
+  /*
+  	container_aflora_card: definimos la propiedad max-width para
+  	que sea el ancho mínimo de este contenedor, finalmente 
+  	margin: 0 auto para centrar de manera horizontal este elemento
+  */
+}
+@media (max-width: 767px) {
+  .section_aflora_card {
+    padding: 40px 0;
+  }
+}
+.section_aflora_card .container_aflora_card {
+  max-width: 100%;
+  margin: 0 auto;
+  /*
+  	_@query 992px ==> : modificamos el max-width y añadimos 
+  	_un espaciado para este contenedor en esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width en esta medida
+  */
+  /*
+  	flexbox_aflora_card: definimos flexbox para poner en linea
+  	los elementos que este contiene
+  */
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card {
+    max-width: 960px;
+    padding: 0 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_card .container_aflora_card {
+    max-width: 1140px;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card {
+  display: flex;
+  /*
+  	_@query 991px <== : definimos la propiedad flex-direction 
+  	_para poner en columnas los elementos que este contiene
+  */
+  /*
+  	_@query 992px ==> : definimos position: relative debido
+  	_a que uno de sus elementos hijo tiene definido
+  	_position: absolute, finalmente añadimos una altura
+  */
+  /*
+  	_@query 1200px ==> : modificamos la altura de este contenedor
+  	_para esta medida
+  */
+  /*
+  	box_aflora_card: definimos un espaciado para separar el contenido
+  	de los bordes de este contenedor
+  */
+  /*
+  	card_left_text: esta clase representa la parte escrita de 
+  	la card posicionada en la parte izquierda de su contenedor 
+  	padre, definimos una animación para este elemento
+  */
+  /*
+  	card_right_text: esta clase representa la parte de la imagen 
+  	de la card posicionada en la parte derecha de su contenedor 
+  	padre, definimos una animación para este elemento
+  */
+  /*
+  	box_aflora_card_img 
+  */
+  /*
+  	card_right_img: esta clase representa la parte de la imagen
+  	de la card posicionada en la parte derecha de su contenedor 
+  	padre, definimos una animación para este elemento
+  */
+  /*
+  	card_left_img: esta clase representa la parte de la imagen
+  	de la card posicionada en la parte izquierda de su contenedor 
+  	padre, definimos una animación para este elemento
+  */
+}
+@media (max-width: 991px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card {
+    flex-direction: column;
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card {
+    position: relative;
+    height: 430px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card {
+    height: 480px;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card {
+  background-color: #f7f7f7;
+  padding: 25px;
+  /*
+  	_@query 991px <== : definimos la propiedad order para
+  	_posicionar este contenedor por debajo de box_aflora_card_img
+  */
+  /*
+  	_@query 992px ==> : definimos position: absolute y su propiedad
+  	_z-index para posicionar este contenedor, finalmente le definimos
+  	_un ancho para esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el ancho de este elemento en esta medida
+  */
+  /*
+  	content_aflora_card
+  */
+}
+@media (max-width: 991px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card {
+    order: 2;
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card {
+    position: absolute;
+    z-index: 6;
+    width: 500px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card {
+    width: 562px;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card .content_aflora_card {
+  /*
+  	tag-h2
+  */
+  /*
+  	tag-p
+  */
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card .content_aflora_card h2 {
+  color: #2f425b;
+  font-size: 32px;
+  font-family: "@sansation-bold", sans-serif;
+  line-height: 1;
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card .content_aflora_card p {
+  color: #313338;
+  font-size: 16px;
+  font-family: "@nunito-regular", sans-serif;
+  line-height: 26px;
+  /*
+  	.nth-child: seleccionamos el segundo elemento tag-p
+  	.y le definimos un margen
+  */
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card .content_aflora_card p:nth-child(2) {
+  margin: 15px 0;
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card .content_aflora_card h3 {
+  color: #2f425b;
+  font-size: 38px;
+  font-family: "@sansation-bold", sans-serif;
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .card_left_text {
+  -webkit-animation: slideLeft 2s;
+          animation: slideLeft 2s;
+  /*
+  	.slideLeft: al inicio desvanecemos el elemento y lo 
+  	.desplazamos -2000px hacia la izquierda, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	_@query 992px ==> : definimos las propiedades left y bottom
+  	_para posicionar este elemento, recordemos que su contenedor
+  	_principal tiene definido position: absolute desde la misma
+  	_medida
+  */
+}
+@-webkit-keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .card_left_text {
+    left: 0;
+    bottom: 0;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .card_right_text {
+  -webkit-animation: slideRight 2s;
+          animation: slideRight 2s;
+  /*
+  	.slideRight: al inicio desvanecemos el elemento y lo 
+  	.desplazamos 2000px hacia la derecha, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	_@query 992px ==> : definimos las propiedades right y bottom
+  	_para posicionar este elemento, recordemos que su contenedor
+  	_principal tiene definido position: absolute desde la misma
+  	_medida
+  */
+}
+@-webkit-keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .card_right_text {
+    right: 0;
+    bottom: 0;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img {
+  /*
+  	_@query 992px ==> : definimos position: absolute y su propiedad
+  	_top para posicionar este contenedor, finalmente le definimos
+  	_un ancho para esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el ancho de este elemento en esta medida
+  */
+  /*
+  	tag-img: es importante definir la propiedad vertical-align
+  	para remover el espaciado que genera el navegador en las 
+  	imágenes, finalmente definimos un ancho y alto del 100% 
+  	junto con object-fit: cover para que esta se ajuste al 
+  	tamaño de su contenedor
+  */
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img {
+    position: absolute;
+    top: 0;
+    width: 640px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img {
+    width: 747px;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*
+  	_@query 992px ==> : definimos una altura para la imagen
+  	_en esta medida
+  */
+  /*
+  	_@query 1200px ==> : definimos una altura para la imagen
+  	_en esta medida
+  */
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img img {
+    height: 378px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .box_aflora_card_img img {
+    height: 430px;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .card_right_img {
+  -webkit-animation: slideRight 2s;
+          animation: slideRight 2s;
+  /*
+  	.slideRight: al inicio desvanecemos el elemento y lo 
+  	.desplazamos 2000px hacia la derecha, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	_@query 992px ==> : definimos las propiedades top y right
+  	_para posicionar este elemento, recordemos que su contenedor
+  	_principal tiene definido position: absolute desde la misma
+  	_medida
+  */
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .card_right_img {
+    top: 0;
+    right: 0;
+  }
+}
+.section_aflora_card .container_aflora_card .flexbox_aflora_card .card_left_img {
+  -webkit-animation: slideLeft 2s;
+          animation: slideLeft 2s;
+  /*
+  	.slideLeft: al inicio desvanecemos el elemento y lo 
+  	.desplazamos -2000px hacia la izquierda, al final lo 
+  	.desplazamos hasta su posición original
+  */
+  /*
+  	_@query 992px ==> : definimos las propiedades top y left
+  	_para posicionar este elemento, recordemos que su contenedor
+  	_principal tiene definido position: absolute desde la misma
+  	_medida
+  */
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (min-width: 992px) {
+  .section_aflora_card .container_aflora_card .flexbox_aflora_card .card_left_img {
+    top: 0;
+    left: 0;
+  }
+}
+
+/*
+	section_banner_convocatorias: definimos un padding para generar espaciado
+	respecto a otras secciones
+*/
+.section_banner_convocatorias {
+  padding: 30px 0;
+  /*
+  	container_name: definimos la propiedad max-width: 100% para que
+  	sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+  	para centrar el contenedor
+  */
+  /*
+      content_banner_info
+  */
+}
+.section_banner_convocatorias .container_banner_convocatorias {
+  max-width: 100%;
+  margin: 0 auto;
+  /*
+  	_@query 768px ==> : modificamos el max-width y agregamos un padding
+  	_para generar espacio a partir de esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width a partir de esta medida
+  */
+}
+@media (min-width: 768px) {
+  .section_banner_convocatorias .container_banner_convocatorias {
+    max-width: 720px;
+    padding: 0 15px;
+  }
+}
+@media (min-width: 992px) {
+  .section_banner_convocatorias .container_banner_convocatorias {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_banner_convocatorias .container_banner_convocatorias {
+    max-width: 1140px;
+  }
+}
+.section_banner_convocatorias .content_banner_info {
+  text-align: center;
+  background: linear-gradient(130deg, #00233b 52%, #2c3e53);
+  color: #fff;
+  padding: 90px 20% 60px;
+  /*
+      _@query 991px <== : modificamos el espaciado de este
+      _elemento a partir de esta medida
+  */
+  /*
+      tag-h2
+  */
+  /*
+      tag-p
+  */
+  /*
+      tag-a
+  */
+}
+@media (max-width: 991px) {
+  .section_banner_convocatorias .content_banner_info {
+    padding: 40px 15px;
+  }
+}
+.section_banner_convocatorias .content_banner_info h2 {
+  font-size: 48px;
+  font-family: "@sansation-bold", sans-serif;
+  margin: 15px 0 30px;
+  /*
+   _@query 991px <== : modificamos el tamaño de fuente de este
+            _elemento a partir de esta medida
+  */
+}
+@media (max-width: 991px) {
+  .section_banner_convocatorias .content_banner_info h2 {
+    font-size: 38px;
+  }
+}
+.section_banner_convocatorias .content_banner_info p {
+  font-size: 18px;
+  font-family: "@sansation-bold", sans-serif;
+  line-height: 1.5;
+  max-width: 660px;
+}
+.section_banner_convocatorias .content_banner_info a {
+  text-decoration: none;
+  background-color: #fff;
+  color: #2f425b;
+  display: inline-block;
+  width: 220px;
+  padding: 20px 15px;
+  font-size: 14px;
+  font-family: "@sansation-bold", sans-serif;
+  line-height: 1;
+  border-radius: 2px;
+  margin-top: 70px;
+  transition: all 0.3s;
+  /*
+      .cuando hacemos :hover sobre tag-a, cambiamos su
+      .color de fondo y su color de fuente
+  */
+}
+.section_banner_convocatorias .content_banner_info a:hover {
+  background-color: #2f425b;
+  color: #fff;
+}
+
+/*
+    estilos pertenecientes a cultivarte.html
+*/
+/*
+	section_banner_static: definimos position: relative debido a que uno de 
+	sus elementos hijos tiene definido position: absolute, finalmente un 
+	background-img para la sección
+*/
+.section_cultivarte_static {
+  position: relative;
+  background-image: url(../../../assets/img/emprende/home_bloque2_fondo.jpg);
+  background-size: cover;
+  /*
+  	_@query 767px <== : definimos un background-position a 
+  	_partir de esta medida
+  */
+  /*
+  	container_cultivarte_static: definimos margin: 0 auto para centrar de
+  	manera horizontal este elemento, finalmente generamos un espaciado
+  */
+}
+@media (max-width: 767px) {
+  .section_cultivarte_static {
+    background-position: 50%;
+  }
+}
+.section_cultivarte_static .container_cultivarte_static {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  /*
+  	:after: hacemos uso de este pseudo elemento para crear una mascara,
+  	definimos position: absolute con sus propiedades top, left, right,
+  	bottom y z-index para que tome todo el ancho y alto de su 
+  	contenedor padre 
+  */
+  /*
+  	_@query 576px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 768px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width  y agregamos un padding
+  	_para generar espacio a partir de esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	flexbox_cultivarte_static: definimos position: relative con
+  	su propiedad z-index para poner al frente del todo este 
+  	elemento, finalmente definimos flexbox y sus propiedades
+  	justify-content y align-items que junto con una altura
+  	definida nos permite centrar de manera vertical y horizontal
+  	este elemento
+  */
+}
+.section_cultivarte_static .container_cultivarte_static:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: hsla(0deg, 0%, 100%, 0.8);
+}
+@media (min-width: 576px) {
+  .section_cultivarte_static .container_cultivarte_static {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .section_cultivarte_static .container_cultivarte_static {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .section_cultivarte_static .container_cultivarte_static {
+    max-width: 960px;
+    padding: 0 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_cultivarte_static .container_cultivarte_static {
+    max-width: 1140px;
+  }
+}
+.section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  align-items: center;
+  /*
+  	_@query 768px ==> : definimos un alto para este elemento
+  	_en esta medida
+  */
+  /*
+  	box_cultivarte_static
+  */
+}
+@media (min-width: 768px) {
+  .section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static {
+    height: 795px;
+  }
+}
+.section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static .box_cultivarte_static {
+  text-align: center;
+  width: 100%;
+  /*
+  	_@query 992px ==> : definimos un ancho para este elemento
+  	_en esta medida
+  */
+  /*
+  	tag-h2
+  */
+  /*
+  	tag-p
+  */
+}
+@media (min-width: 992px) {
+  .section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static .box_cultivarte_static {
+    width: 60%;
+  }
+}
+.section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static .box_cultivarte_static h2 {
+  color: #313338;
+  font-family: "@sansation-bold", sans-serif;
+  font-size: 60px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+.section_cultivarte_static .container_cultivarte_static .flexbox_cultivarte_static .box_cultivarte_static p {
+  color: #77777a;
+  font-size: 16px;
+  font-family: "@sansation-bold", sans-serif;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+/*
+    estilos pertenecientes a periodismo.html
+*/
+.section_periodismo_banner {
+  padding: 30px 0;
+}
+.section_periodismo_banner .container_periodismo_banner {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  /*
+  	_@query 576px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 768px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width a partir de esta medida
+  */
+}
+@media (min-width: 576px) {
+  .section_periodismo_banner .container_periodismo_banner {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .section_periodismo_banner .container_periodismo_banner {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .section_periodismo_banner .container_periodismo_banner {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_periodismo_banner .container_periodismo_banner {
+    max-width: 1140px;
+  }
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner {
+  display: flex;
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner {
+  width: 100%;
+  /*
+      _@query 768px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	box_periodismo_socials
+  */
+}
+@media (min-width: 768px) {
+  .section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    margin: 0 auto;
+    padding: 0 8px;
+  }
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner h1 {
+  text-align: center;
+  color: #2f425b;
+  font-family: "@sansation-bold", sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+  .section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner h1 {
+    font-size: 32px;
+    line-height: normal;
+  }
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner img {
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner p {
+  color: #111820;
+  font-family: "@nunito-regular", sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner p a {
+  text-decoration: none;
+  color: #f60;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner .box_periodismo_socials {
+  padding: 15px 0;
+  /*
+  	tag-a
+  */
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner .box_periodismo_socials a {
+  text-decoration: none;
+  /*
+  	tag-svg
+  */
+}
+.section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner .box_periodismo_socials a svg {
+  fill: #333;
+  width: 24px;
+  height: 24px;
+  /*
+  	_@query 768px ==> : definimos un margene para
+  	_tag-svg en esta medida
+  */
+}
+@media (min-width: 768px) {
+  .section_periodismo_banner .container_periodismo_banner .flexbox_periodismo_banner .content_periodismo_banner .box_periodismo_socials a svg {
+    margin: 5px 10px 0 -10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .section_periodismo_links {
+    padding-top: 15px;
+  }
+}
+.section_periodismo_links .container_periodismo_links {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  /*
+  	_@query 576px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 768px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 992px ==> : modificamos el max-width a partir de esta medida
+  */
+  /*
+  	_@query 1200px ==> : modificamos el max-width a partir de esta medida
+  */
+}
+@media (min-width: 576px) {
+  .section_periodismo_links .container_periodismo_links {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .section_periodismo_links .container_periodismo_links {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .section_periodismo_links .container_periodismo_links {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .section_periodismo_links .container_periodismo_links {
+    max-width: 1140px;
+  }
+}
+.section_periodismo_links .container_periodismo_links .flexbox_periodismo_links .content_periodismo_links a {
+  text-decoration: none;
+  color: #6fccdc;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.section_periodismo_links .container_periodismo_links .flexbox_periodismo_links .content_periodismo_links a:hover {
+  text-decoration: underline;
+}
+.section_periodismo_links .container_periodismo_links .flexbox_periodismo_links .content_periodismo_links span {
+  color: #111820;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /*
@@ -2806,4 +5112,50 @@ ul li a:hover {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/*
+	body
+*/
+body {
+  /*
+  	_@query 991px <== : para esta medida añadimos al body una clase
+  */
+}
+@media (max-width: 991px) {
+  body {
+    /*
+    	.js_bg_body: clase añadida con javascript, hacemos uso
+    	.del pseudo elemento :after para crear una mascara para
+    	.eso definimos position: absolute con sus propiedades
+    	.top y left y z-index para darle posición, finalmente
+    	.definimos un ancho y alto de todo el viewport
+    */
+  }
+  body.js_bg_body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: linear-gradient(0deg, rgba(17, 24, 32, 0.45) 76%, rgba(17, 24, 32, 0.4));
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+/*
+	ghost_container
+*/
+.ghost_container {
+  /*
+  	_@query 767px <== : definimos una altura para este contenedor
+  	_el cual es utilizado para generar un espacio entre el 
+  	_banner static y el menu acordeón
+  */
+}
+@media (max-width: 767px) {
+  .ghost_container {
+    height: 40px;
+  }
 }/*# sourceMappingURL=style.css.map */

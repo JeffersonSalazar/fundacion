@@ -1,67 +1,96 @@
 /*
-	importacion de las fuentes
-*/
-// @import '../shared/fonts';
-
-/*
-	section_name: le podemos definir margenes o espaciados
-	cuando queremos separar esta seccion de otra 
+	section_name: definimos un padding para generar espaciado
+	respecto a otras secciones
 */
 .section_card {
 	padding: 60px 0;
 
 	/*
-		container_name: es el encargado de manejar el 
-		responsive a travez de la propiedad width
+		container_name: definimos la propiedad max-width: 100% para que
+		sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+		para centrar el contenedor
 	*/
 	.container_card {
 		max-width: 100%;
 		margin: 0 auto;
 
+		/*
+			_@query 768px ==> : modificamos el max-width y agregamos un padding
+			_para generar espacio a partir de esta medida
+		*/
 		@media (min-width: 768px) {
 			max-width: 720px;
     		padding: 0 15px;
 		}
 
+		/*
+			_@query 992px ==> : modificamos el max-width a partir de esta medida
+		*/
 		@media (min-width: 992px) {
 			max-width: 960px;
 		}
 
+		/*
+			_@query 1200px ==> : modificamos el max-width a partir de esta medida
+		*/
 		@media (min-width: 1200px) {
 			max-width: 1140px;
 		}
 
 		/*
-			box_boid: es importante definir un height a este contenedor
+			box_void: es importante definir un height a este contenedor
 			para que genere el espaciado que nos ayuda a solucionar 
-			el problema de desmaquetado, el valor de este depende de
-			la posicion inicial de la targeta
+			problemas de maquetación, el valor de este depende de la
+			posición inicial de la tarjeta
 		*/
 		.box_void {
 			// background-color: orange;
 
+			/*
+				_@query 991px <== : definimos una altura para este contenedor 
+				_a partir de esta medida
+			*/
 			@media (max-width: 991px) {
 				height: 245px;
 			}
 
+			/*
+				_@query 767px <== : definimos una altura para este contenedor 
+				_a partir de esta medida
+			*/
+			@media (max-width: 767px) {
+				height: 220px;
+			}
+
+			/*
+				_@query 450px <== : definimos una altura para este contenedor 
+				_a partir de esta medida
+			*/
+			@media (max-width: 450px) {
+				height: 265px;
+			}
+
+			/*
+				_@query 440px <== : definimos una altura para este contenedor 
+				_a partir de esta medida
+			*/
 			@media (max-width: 440px) {
 				height: 265px;
 			}
 		}
 
 		/*
-			flexbox_name
+			flexbox_name: definimos position: relative debido a que uno de
+			sus elementos hijos tiene definido position: absolute
 		*/
 		.flexbox_card {
 			position: relative;
 
 			/*
-				@query 991px ==> : definimos position: relative para 
-				solucionar el problema que genera definir absolute
-				en un elemento hijo, finalmente implementamos
-				flexbox con su propeidad align-items mas un height
-				que le da altura a la caja permitiendo centrar las
-				cajas verticalmente
+				_@query 992px ==> : definimos flexbox con su propiedad align-items 
+				_mas un height que añade altura a la caja permitiendo centrar centrar
+				_de manera vertical los elementos que este contiene
+				_cajas verticalmente
 			*/
 			@media (min-width: 992px) {
 				display: flex;
@@ -70,27 +99,41 @@
 			}
 
 			/*
-				box_name: definimos position: absolute con su
-				propiedad top que nos permiten posicionar la
-				caja, tambien definimos flexbox y su 
-				propiedad align-items que nos permite centrar 
-				su contenido verticalmente. Finalmente un width 
-				que nos ayuda a darle tamaño a esta caja
+				box_card: definimos flexbox y su propiedad align-items 
+				que nos permite centrar de manera vertical los elementos
+				que este contiene, finalmente añadimos la propiedad
+				animación-duration para modificar la duración de la 
+				animación que esta implementada con animate.css
 			*/
 			.box_card {
 				display: flex;
 				align-items: center;
-
+				animation-duration: 1.5s;
+				
+				/*
+					_@query 992px ==> : definimos un ancho y alto para este 
+					_elemento para esta medida
+				*/
 				@media (min-width: 992px) {
 					width: 700px;
 					height: 100%;
 					background: linear-gradient(0deg, #ff9a7e, rgba(230, 139, 113, 0.84));
 				}
 
+				/*
+					_@query 1200px <== : modificamos el ancho de este elemento 
+					_para esta medida
+				*/
 				@media (max-width: 1200px) {
 					width: 675px;
 				}
 
+				/*
+					_@query 991px <== : definimos position: absolute con su 
+					_propiedad top para posicionar este elemento, la propiedad
+					_justify-content nos permite centrar este elemento de manera
+					_horizontal, finalmente modificamos el ancho
+				*/
 				@media (max-width: 991px) {
 					position: absolute;
 					top: -245px;
@@ -98,68 +141,122 @@
 					width: 100%;
 				}
 
-				@media (max-width: 440px) {
+				/*
+					_@query 767px <== : modificamos la propiedad top 
+					_para re-posicionar este elemento en esta medida
+				*/
+				@media (max-width: 767px) {
+					top: -220px;
+				}
+
+				/*
+					_@query 450px <== : modificamos la propiedad top 
+					_para re-posicionar este elemento en esta medida
+				*/
+				@media (max-width: 450px) {
 					top: -265px;
 				}
 
 				/*
-					content_card
+					content_card: definimos text-align: center para centrar
+					el contenido, finalmente añadimos la propiedad animación-duration
+					para modificar la duración de la animación que esta
+					implementada con animate.css
 				*/
 				.content_card {
 					text-align: center;
+					animation-delay: 1.2s;
 
+					/*
+						_@query 991px <== : añadimos un color de fondo, también
+						_definimos un ancho y un espaciado para este elemento en
+						_ esta medida
+					*/
 					@media (max-width: 991px) {
 						background: linear-gradient(
 							0deg,
 							#ff9a7e,
 							rgba(230, 139, 113, 0.84)
 						);
-						width: 92%;
-					}
-
-					@media (max-width: 991px) {
 						width: 90%;
 						padding: 40px 0;
 					}
 
+					/*
+						_@query 767px <== : modificamos el espaciado de este
+						_elemento para esta medida
+					*/
 					@media (max-width: 767px) {
-						width: 90%;
 						padding: 40px 15px;
 					}
 
+					/*
+						_@query 992px ==> : añadimos un ancho calculado entre
+						_el ancho de la tarjeta de texto y le restamos desde
+						_donde inicia la tarjeta de imagen, con este calculo
+						_logramos centrar el texto en la tarjeta
+					*/
 					@media (min-width: 992px) {
 						width: calc(700px - 260px);
 					}
 
+					/*
+						_@query 1200px ==> : añadimos un ancho calculado entre
+						_el ancho de la tarjeta de texto y le restamos desde
+						_donde inicia la tarjeta de imagen, con este calculo
+						_logramos centrar el texto en la tarjeta
+					*/
 					@media (min-width: 1200px) {
 						width: calc(675px - 295px);
 					}
 
+					/*
+						tag-h4
+					*/
 					h4 {
 						color: #313338;
 						font-size: 44px;
 						font-family: '@nunito-light', sans-serif;
 						letter-spacing: 0;
 
+						/*
+							_@query 767px <== : modificamos el tamaño de fuente
+							_de este elemento para esta medida
+						*/
 						@media (max-width: 767px) {
 							font-size: 34px;
 						}
 					}
 
+					/*
+						tag-h3
+					*/
 					h3 {
 						color: #313338;
 						font-size: 45px;
 						font-family: '@sansation-bold', sans-serif;
 
+						/*
+							_@query 767px <== : modificamos el tamaño de fuente
+							_de este elemento para esta medida
+						*/
 						@media (max-width: 767px) {
 							font-size: 35px;
 						}
 
+						/*
+							tag-i
+						*/
 						i {
 							font-family: '@sansation-light', sans-serif;
 						}
 					}
 
+					/*
+						tag-a: definimos la propiedad inline-flex nos permite 
+						implementar propiedades flexbox que junto a width y height 
+						nos permiten centrar el texto del botón
+					*/
 					a {
 						text-decoration: none;
 						display: inline-flex;
@@ -177,6 +274,10 @@
 						cursor: pointer;
 						transition: all 0.3s;
 
+						/*
+							.cuando hacemos :hover sobre la tag-a, cambiamos
+							.su color de fondo y su color de fuente
+						*/ 
 						&:hover {
 							background-color: #ff671b;
 							color: #fff;
@@ -186,24 +287,34 @@
 			}
 
 			/*
-				box_name_img: es importante definirle a un contenedor
-				la propiedad height si este contiene dentro una tag-img
-				para luego ajustar la imagen al tamaño del contenedor
+				box_name_img: definimos la propiedad animación-duration
+				para modificar la duración de la animación que esta
+				implementada con animate.css
 			*/
-			.box_card_img {
+			.box_card_img {	
+				animation-duration: 1.5s;
 
+				/*
+					_@query 480px <== : definimos una altura para este
+					_elemento en esta medida
+				*/
 				@media (max-width: 480px) {
 					height: 260px;
 				}
 
+				/*
+					_@query 768px ==> : definimos un ancho y modificamos la 
+					_altura de este elemento en esta medida
+				*/
 				@media (min-width: 768px) {
 					width: 690px;
     				height: 415px;
 				}
 
 				/*
-					@query 900px ==> : cambiamos el height del contenedor
-					box_name_img
+					_@query 992px ==> : definimos position: absolute con su 
+					_propiedad right para posicionar este elemento, finalmente 
+					_modificamos el ancho para esta medida
 				*/
 				@media (min-width: 992px) {
 					position: absolute;
@@ -211,14 +322,20 @@
 					width: 490px;
 				}
 
+				/*
+					_@query 1200px ==> : modificamos el ancho de este 
+					_elemento en esta medida
+				*/
 				@media (min-width: 1200px) {
 					width: 730px;
 				}
 
 				/*
-					tag-img: es importante definir el width y height 
-					de la img a 100% y object-fit: cover para que esta 
-					se ajuste al tamaño de su contenedor
+					tag-img: es importante definir la propiedad vertical-align
+					para remover el espaciado que genera el navegador en las 
+					imágenes, finalmente definimos un ancho y alto del 100% 
+					junto con object-fit: cover para que esta se ajuste al 
+					tamaño de su contenedor
 				*/
 				img {
 					vertical-align: top;

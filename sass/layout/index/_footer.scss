@@ -1,32 +1,56 @@
 /*
-	importacion de las fuentes
+	content_column_three y content_column_four: estos contenedores
+	comparten propiedades
 */
-// @import '../shared/fonts';
+.content_column_three, .content_column_four {
+	/*
+		_@query 768px ==> : definimos un margen en la parte
+		_superior de estos contenedores en esta medida
+	*/
+	@media (min-width: 768px) {
+		margin-top: 20px;
+	}
 
-/*
-	seccion de tags que reutilizan codigo pero se
-	encuentran definidas dentro de otras cajas
-*/
-/*
-	tag-h4: titulo que pertence a las secciones
-	de content_footer_flexbox
-*/
-h4 {
-	color: #ff671b;
-	font-family: '@sansation-bold', sans-serif;
-	font-size: 14px;
-	letter-spacing: 0.5px;
+	/*
+		_@query 992px ==> : removemos el margen de la parte
+		_superior de estos contenedores en esta medida
+	*/
+	@media (min-width: 992px) {
+		margin-top: 0;
+	}
 }
 
 /*
-	tag-ul: menu de navegacion que pertence a 
-	las secciones de content_footer_flexbox
+	content_column_two, content_column_three y content_column_four: 
+	la tah-h4 que esta dentro de estos contenedores comparten propiedades
 */
-ul {
+.content_column_two, .content_column_three, .content_column_four {
+	/*
+		tag-h4
+	*/
+	h4 {
+		color: #ff671b;
+		font-family: '@sansation-bold', sans-serif;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+	}
+}
+
+/*
+	ul_accordion ul_column_two y ul_column_three: 
+	estos elementos comparten propiedades
+*/
+.ul_accordion, .ul_column_two, .ul_column_three {
+	/*
+		tag-li
+	*/
 	li {
 		list-style: none;
 		margin-top: 5px;
 
+		/*
+			tag-a
+		*/
 		a {
 			text-decoration: none;
 			color: #313338;
@@ -34,6 +58,10 @@ ul {
 			font-size: 14px;
 			line-height: 1.5;
 
+			/*
+				.cuando hacemos :hover sobre tag-a cambiamos su
+				.color de fuente
+			*/
 			&:hover {
 				color: #ff671b;
 			}
@@ -42,16 +70,15 @@ ul {
 }
 
 /*
-	section_footer: contenedor en el cual implementamos
-	margin o padding si deseamos separar esta seccion
-	de otra
+	section_footer
 */
 .section_footer {
 	background-color: #fff;
 
 	/*
-		container_footer: contenedor en el cual definimos
-		width para manejar el responsive
+		container_footer: definimos la propiedad max-width: 100% para que
+		sea el tamaño mínimo del contenedor, finalmente un margin: 0 auto
+		para centrar el contenedor
 	*/
 	.container_footer {
 		max-width: 100%;
@@ -59,36 +86,39 @@ ul {
 		padding: 0 15px;
 
 		/*
-			@query 840px ==> : definimos un width en 
-			esta medida para container_footer
+			_@query 768px ==> : modificamos el max-width y agregamos 
+			_un padding para generar espacio a partir de esta medida
 		*/
 		@media (min-width: 768px) {
 			max-width: 720px;
 		}
 
+		/*
+			_@query 992px ==> : modificamos el max-width a partir de 
+			_esta medida
+		*/
 		@media (min-width: 992px) {
 			max-width: 960px;
 		}
 
 		/*
-			@query 1200px ==> : definimos un width en 
-			esta medida para container_footer
+			_@query 1200px ==> : modificamos el max-width a partir de 
+			_esta medida
 		*/
 		@media (min-width: 1200px) {
 			max-width: 1140px;
 		}
 
 		/*
-			box_line: contenedor de la linea en la parte
-			superior del footer, definimos un padding para
-			geneerar espaciado
+			box_line: definimos padding para generar un espaciado
+			en este contenedor
 		*/
 		.box_line {
 			padding: 40px 0;
 
 			/*
-				@query 767px <== : removemos de la vista 
-				la caja box_line
+				_@query 767px <== : removemos del  viewport 
+				_la caja box_line para esta medida
 			*/
 			@media (max-width: 767px) {
 				display: none;
@@ -96,85 +126,95 @@ ul {
 		}
 
 		/*
-			content_accordeon: contenedor del acordeon
+			content_accordion
 		*/
-		.content_accordeon {
+		.content_accordion {
 			/*
-				@query 767px <== : definimos un margin
-				y un padding para generar espaciado
+				_@query 767px <== : definimos padding para generar un 
+				_espaciado en este contenedor
 			*/
 			@media (max-width: 767px) {
 				padding: 0 15px;
 			}
 
 			/*
-				@query 768px ==> : removemos de la vista 
-				la caja content_accordeon
+				_@query 768px ==> : removemos de la vista 
+				_content_accordion para esta medida
 			*/
 			@media (min-width: 768px) {
 				display: none;
 			}
 
 			/*
-				box_accordeon: contenedor de accordeon_header y 
-				accordeon_body
+				box_accordion
 			*/
-			.box_accordeon {
+			.box_accordion {
 				/*
-					@query 767px <== : en esta medida le añadimos a
-					box_accordeon la clase js_show_accordeon cuando
-					hacemos click sobre si mismo
+					_@query 767px <== : añadimos a box_accordion la
+					_clase js_show_accordion para esta medida
 				*/
 				@media (max-width: 767px) {
 					/*
-						js_show_accordeon: clase javascript que 
-						relaciona la tag-h3 para añadirle color
+						.js_show_accordion: clase añadida con javascript que 
+						.que relaciona a la tag-h3 que esta dentro de 
+						.accordion_header y le cambia el color de fuente
 					*/
-					&.js_show_accordeon .accordeon_header h3 {
+					&.js_show_accordion .accordion_header h3 {
 						color: #ff671b;
 					}
 
 					/*
-						js_show_accordeon: clase javascript que 
-						relaciona la tag-svg para añadirle color y
-						rotacion al icono
+						.js_show_accordion: clase añadida con javascript que 
+						.que relaciona a la tag-svg que esta dentro de 
+						.accordion_header y le cambiar el color de fuente 
+						.y agrega una rotación al icono
 					*/
-					&.js_show_accordeon .accordeon_header svg {
+					&.js_show_accordion .accordion_header svg {
 						fill: #ff671b;
 						transform: rotate(180deg);
 					}
 
 					/*
-						js_show_accordeon: clase javascript que relaciona 
-						a accordeon_body para añadirle un height y un
-						overflow: visible para hacer nuevamente visible 
-						el contenido de esta caja
+						js_show_accordion: clase javascript que relaciona 
+						a accordion_body para añadirle un 
 					*/
-					&.js_show_accordeon .accordeon_body {
+					/*
+						.js_show_accordion: clase añadida con javascript que 
+						.que relaciona a accordion_body y un height: auto
+						.junto con overflow: visible para hacer nuevamente 
+						.visible el contenido de esta caja
+					*/
+					&.js_show_accordion .accordion_body {
 						height: auto;
 						overflow: visible;
 					}
 				}
 
 				/*
-					accordeon_header: definimos flexbox y su propiedad
-					justify-content que nos permite separar el titulo
-					y el icono
+					accordion_header: definimos flexbox y su propiedad
+					justify-content que nos permite generar un espaciado
+					entre los elementos que este contiene
 				*/
-				.accordeon_header {
+				.accordion_header {
 					display: flex;
 					justify-content: space-between;
 					border-bottom: 1px solid #77777a;
 					padding: 5px 0;
 					cursor: pointer;
 
+					/*
+						tag-h3
+					*/ 
 					h3 {
 						color: #77777a;
-						font-size: 22px;
+						font-size: 21.4px;
 						font-family: '@sansation-regular', sans-serif;
 						line-height: 1.9;
 					}
 
+					/*
+						tag-svg
+					*/
 					svg {
 						fill: #77777a;
 						width: 40px;
@@ -184,34 +224,48 @@ ul {
 				}
 
 				/*
-					accordeon_body: le definimos hight: 0 y un 
+					accordion_body: le definimos hight: 0 y un 
 					overflow: hidden para ocultar esta parte del
-					acordeon 
+					accordion 
 				*/
-				.accordeon_body {
+				.accordion_body {
 					height: 0;
 					overflow: hidden;
 					transition: height 0.3s ease;
 
-					ul {
+					/*
+						ul_accordion
+					*/ 
+					.ul_accordion {
 						padding: 15px 0;
 
+						/*
+							li
+						*/
 						li {
-							list-style: none;
 							margin-top: 18px;
 
+							/*
+								.seleccionamos la primer tag-li y removemos el
+								.margen-top definido anteriormente
+							*/ 
 							&:first-child {
 								margin-top: 0;
 							}
 
+							/*
+								tag-a
+							*/ 
 							a {
-								// padding: 0;
 								font-size: 15px;
 								font-family: '@sansation-regular', sans-serif;
 							}
 						}
 					}
 
+					/*
+						tag-p
+					*/
 					p {
 						padding: 15px 0;
 						font-family: '@sansation-regular', sans-serif;
@@ -223,28 +277,31 @@ ul {
 		}
 
 		/*
-			content_footer_flexbox: definimos flexbox y sus
-			propeidades flex-wrap y justify-content para 
-			posicionar los elementos si superan el tamaño de su 
-			contenedor y separar cada elemento
+			content_columns: definimos flexbox y sus
+			propiedades flex-wrap y justify-content para 
+			re posicionar los elementos si superan el tamaño 
+			de su contenedor padre y generar un espaciado
+			entre los elementos que este contiene
 		*/
-		.content_footer {
+		.content_columns {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
 
 			/*
-				@query 767px <== : modificamos la propiedad
-				justify-content
+				_@query 767px <== : generamos un margen implementando 
+				_auto para centrar este contenedor en esta medida
 			*/
 			@media (max-width: 767px) {
-				justify-content: center;
-				margin: 60px 0 40px;
-
-				/*
-					para los siguientes contenedores definimos
-					display: none para removerlos de la vista
-				*/
+				.content_column_one {
+					margin: 60px auto 40px;
+				}
+			}
+			/*
+				_@query 767px <== : definimos display: none para remover 
+				_del viewport los siguientes contenedores en esta medida
+			*/
+			@media (max-width: 767px) {
 				.content_column_two,
 				.content_column_three,
 				.content_column_four {
@@ -253,19 +310,22 @@ ul {
 			}
 
 			/*
-				columna_one
+				content_column_one: definimos un ancho para este elemento
 			*/
 			.content_column_one {
 				width: 200px;
 
+				/*
+					box_logo_footer
+				*/
 				.box_logo_footer {
 					width: 160px;
 					height: 81px;
 
 					/*
-						@query 767px <== : modificamos el width y 
-						height de box_logo_footer y centramos la
-						caja haciendo uso de margin
+						_@query 767px <== : modificamos el width y 
+						_height de content_column_one y haciendo uso
+						_de margin: 0 auto centramos este elemento
 					*/
 					@media (max-width: 767px) {
 						width: 110px;
@@ -273,37 +333,69 @@ ul {
 						margin: 0 auto;
 					}
 
+					/*
+						tag-img: es importante definir la propiedad vertical-align
+						para remover el espaciado que genera el navegador en las 
+						imágenes, finalmente definimos un ancho y alto del 100% 
+						para que esta se ajuste al tamaño de su contenedor padre
+					*/
 					img {
+						vertical-align: top;
 						width: 100%;
 						height: 100%;
 					}
 				}
 
+				/*
+					box_socials_media
+				*/
 				.box_socials_media {
 					margin-top: 70px;
 
 					/*
-						@query 767px <== : implementamos 
-						text-align: center para centrar los 
-						elementos que pertenecen a box_socials_media
+						_@query 767px <== : implementamos 
+						_text-align: center para centrar los 
+						_elementos que pertenecen a box_socials_media
 					*/
 					@media (max-width: 767px) {
 						text-align: center;
 					}
 
+					/*
+						tag-h4
+					*/
 					h4 {
 						color: #313338;
 					}
 
+					/*
+						tag-a
+					*/
 					a {
 						text-decoration: none;
 
+						/*
+							tag-svg
+						*/
 						svg {
 							fill: #878787;
-							margin: 5px 10px 0 -10px;
+							width: 32px;
+							height: 32px;
 
+							/*
+								.cuando hacemos :hover sobre la tag-svg,
+								.cambiamos su color de fuente
+							*/
 							&:hover {
 								fill: #ff671b;
+							}
+
+							/*
+								_@query 768px ==> : definimos un margene para
+								_tag-svg en esta medida
+							*/
+							@media (min-width: 768px) {
+								margin: 5px 10px 0 -10px;
 							}
 						}
 					}
@@ -311,22 +403,26 @@ ul {
 			}
 
 			/*
-				columna_two
+				content_column_two: definimos un ancho para este elemento
 			*/
 			.content_column_two {
 				width: 220px;
 			}
 
 			/*
-				columna_three
+				content_column_three: definimos un ancho para este elemento
 			*/
 			.content_column_three {
 				width: 400px;
 
+				/*
+					box_info_three
+				*/
 				.box_info_three {
 					/*
-						seleccionamos la segunda caja con clase
-						box_info_three y le definimos un margin-top
+						.seleccionamos el segundo elemento con clase
+						.box_info_three y definimos un margen en la
+						.parte inferior
                     */
 					&:nth-child(2) {
 						margin-top: 20px;
@@ -335,20 +431,20 @@ ul {
 			}
 
 			/*
-				columna_four
+				content_column_four: definimos un ancho para este elemento
 			*/
 			.content_column_four {
 				width: 220px;
 
+				/*
+					box_info_four
+				*/ 
 				.box_info_four {
-					/*
-						seleccionamos la segunda caja con clase
-						box_info_four y le definimos un margin
-                    */
-					&:nth-child(2) {
-						margin: 20px 0;
-					}
+					margin-bottom: 20px;
 
+					/*
+						tag-p
+					*/ 
 					p {
 						font-family: '@nunito-regular', sans-serif;
 						font-size: 14px;
@@ -360,14 +456,14 @@ ul {
 		}
 
 		/*
-			box_gotop: implementamos fixed y sus propiedades right, 
-			y z-index para darle posicion a esta caja, luego
-			hacemos uso de flexbox y sus propiedades justify-content
-			y align-items para centrar vertical y horizontalmente
-			los elementos finalmente overflow: hidden para ocualtar 
-			esta caja
+			box_go_top: implementamos fixed y sus propiedades right, 
+			y z-index para posicionar este elemento, luego hacemos
+			uso de flexbox y sus propiedades justify-content y
+			align-items para centrar de manera vertical y horizontal
+			los elementos que este contiene, finalmente overflow: hidden 
+			para ocultarlo
 		*/
-		.box_gotop {
+		.box_go_top {
 			position: fixed;
 			right: 20px;
 			z-index: 99;
@@ -379,16 +475,16 @@ ul {
 			transition: all 0.1s ease;
 
 			/*
-				@query 767px <== : removemos de la vista la caja box_gotop
+				_@query 767px <== : removemos de la vista este elemento
+				_para esta medida
 			*/
 			@media (max-width: 767px) {
 				display: none;
 			}
 
 			/*
-				@query 768px ==> : medida responsive aplicada a box_gotop
-				definimos width y height para darle tamaño a la caja
-				y bottom para posicionarla
+				_@query 768px ==> : definimos width y height para darle tamaño 
+				_a la caja y bottom para darle posición en esta medida
 			*/
 			@media (min-width: 768px) {
 				width: 45px;
@@ -396,24 +492,27 @@ ul {
 				bottom: 20px;
 
 				/*
-					añadimos la clase javascript js_show_gotop que añade 
-					background-color un borde y overflow: visible para 
-					visible nuevamente esta caja 
+					.js_show_go_top: clase añadida con javascript que añade 
+					.un color de fondo, un borde y hace visible el go-top
+					.debido a que implementamos la propiedad overflow: visible
 				*/
-				&.js_show_gotop {
+				&.js_show_go_top {
 					background-color: #fff;
 					border: 1px solid #8c8c8c;
 					overflow: visible;
 
+					/*
+						.cuando hacemos :hover sobre box_go_top cambiamos
+						.su color de fondo y removemos el borde
+					*/ 
 					&:hover {
 						background-color: #ff671b;
 						border: none;
 					}
 
 					/*
-						cuando hacemos :hover sobre box_gotop
-						relacionamos a tag-svg para añadirle color
-						al icono
+						.cuando hacemos :hover sobre box_go_top,
+						.relacionamos a tag-svg para añadir color al icono
 					*/
 					&:hover svg {
 						fill: #fff;
@@ -421,18 +520,17 @@ ul {
 				}
 
 				/*
-					añadimos la clase javascript js_show_gotop que relaciona 
-					a la tag-svg para añadirle color al icono
+					.js_show_go_top: clase añadida con javascript que
+					.relaciona a tag-svg y añade color al icono
 				*/
-				&.js_show_gotop svg {
+				&.js_show_go_top svg {
 					fill: #77777a;
 				}
 			}
 
 			/*
-				@query 992px ==> : medida responsive aplicada a box_gotop
-				definimos width y height para redefinir el tamaño de la caja
-				y bottom para reposicionarla
+				_@query 992px ==> : definimos width y height para darle tamaño 
+				_a la caja y bottom para darle posición en esta medida
 			*/
 			@media (min-width: 992px) {
 				width: 75px;
@@ -441,7 +539,7 @@ ul {
 			}
 
 			/*
-				tag-svg: importante definir color: transparent 
+				tag-svg: importante definir fill: transparent 
 				para ocultar el icono
 			*/
 			svg {
@@ -453,7 +551,7 @@ ul {
 		}
 
 		/*
-			box_copy_right: parte final del footer
+			box_copy_right
 		*/
 		.box_copy_right {
 			text-align: center;
@@ -463,8 +561,8 @@ ul {
 			padding: 60px 0 30px;
 
 			/*
-				@query 768px ==> : definimos padding para generar 
-				separacion respecto a content_flexbox
+				_@query 768px ==> : definimos padding para generar 
+				_espaciado en esta medida
 			*/
 			@media (max-width: 767px) {
 				padding: 0 0 28px;

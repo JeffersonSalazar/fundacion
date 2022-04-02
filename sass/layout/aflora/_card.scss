@@ -1,0 +1,372 @@
+/*
+	section_aflora_card: definimos un espaciado para separar
+	esta sección de otras secciones
+*/
+.section_aflora_card {
+	padding: 60px 0;
+
+	/*
+		_@query 767px <== : definimos un espaciado para este
+		_contenedor en esta medida
+	*/
+	@media (max-width: 767px) {
+        padding: 40px 0;
+    }
+
+	/*
+		container_aflora_card: definimos la propiedad max-width para
+		que sea el ancho mínimo de este contenedor, finalmente 
+		margin: 0 auto para centrar de manera horizontal este elemento
+	*/
+	.container_aflora_card {
+		max-width: 100%;
+		margin: 0 auto;
+
+		/*
+			_@query 992px ==> : modificamos el max-width y añadimos 
+			_un espaciado para este contenedor en esta medida
+		*/
+		@media (min-width: 992px) {
+			max-width: 960px;
+			padding: 0 15px;
+		}
+
+		/*
+			_@query 1200px ==> : modificamos el max-width en esta medida
+		*/
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+
+		/*
+			flexbox_aflora_card: definimos flexbox para poner en linea
+			los elementos que este contiene
+		*/
+		.flexbox_aflora_card {
+			display: flex;
+			
+			/*
+				_@query 991px <== : definimos la propiedad flex-direction 
+				_para poner en columnas los elementos que este contiene
+			*/
+			@media (max-width: 991px) {
+				flex-direction: column;
+			}
+
+			/*
+				_@query 992px ==> : definimos position: relative debido
+				_a que uno de sus elementos hijo tiene definido
+				_position: absolute, finalmente añadimos una altura
+			*/
+			@media (min-width: 992px) {
+				position: relative;
+				height: 430px;
+			}
+
+			/*
+				_@query 1200px ==> : modificamos la altura de este contenedor
+				_para esta medida
+			*/
+			@media (min-width: 1200px) {
+				height: 480px;
+			}
+
+			/*
+				box_aflora_card: definimos un espaciado para separar el contenido
+				de los bordes de este contenedor
+			*/
+			.box_aflora_card {
+                background-color: #f7f7f7;
+                padding: 25px;
+
+				/*
+					_@query 991px <== : definimos la propiedad order para
+					_posicionar este contenedor por debajo de box_aflora_card_img
+				*/
+				@media (max-width: 991px) {
+					order: 2;
+				}
+
+				/*
+					_@query 992px ==> : definimos position: absolute y su propiedad
+					_z-index para posicionar este contenedor, finalmente le definimos
+					_un ancho para esta medida
+				*/
+				@media (min-width: 992px) {
+					position: absolute;
+					z-index: 6;
+					width: 500px;
+				}
+
+				/*
+					_@query 1200px ==> : modificamos el ancho de este elemento en esta medida
+				*/
+				@media (min-width: 1200px) {
+					width: 562px;
+				}
+
+				/*
+					content_aflora_card
+				*/
+				.content_aflora_card {
+
+					/*
+						tag-h2
+					*/
+					h2 {
+                        color: #2f425b;
+                        font-size: 32px;
+						font-family: '@sansation-bold', sans-serif;
+                        line-height: 1;
+                    }
+                    
+					/*
+						tag-p
+					*/
+                    p {
+                        color: #313338;
+                        font-size: 16px;
+                        font-family: '@nunito-regular', sans-serif;
+                        line-height: 26px;
+                        
+						/*
+							.nth-child: seleccionamos el segundo elemento tag-p
+							.y le definimos un margen
+						*/
+                        &:nth-child(2) {
+                            margin: 15px 0;
+                        }
+                    }
+
+					h3 {
+						color: #2f425b;
+						font-size: 38px;
+						font-family: '@sansation-bold', sans-serif;
+					}
+				}
+			}
+
+			/*
+				card_left_text: esta clase representa la parte escrita de 
+				la card posicionada en la parte izquierda de su contenedor 
+				padre, definimos una animación para este elemento
+			*/
+			.card_left_text {
+				animation: slideLeft 2s;
+
+				/*
+					.slideLeft: al inicio desvanecemos el elemento y lo 
+					.desplazamos -2000px hacia la izquierda, al final lo 
+					.desplazamos hasta su posición original
+				*/ 
+				@keyframes slideLeft {
+					0% {
+						opacity: 0;
+						transform: translateX(-2000px);
+					}
+					60% {
+						opacity: 1;
+						transform: translateX(30px);
+					}
+					80% {
+						transform: translateX(-10px);
+					}
+					100% {
+						transform: translateX(0);
+					}
+				}
+
+				/*
+					_@query 992px ==> : definimos las propiedades left y bottom
+					_para posicionar este elemento, recordemos que su contenedor
+					_principal tiene definido position: absolute desde la misma
+					_medida
+				*/
+				@media (min-width: 992px) {
+					left: 0;
+					bottom: 0;
+				}
+			}
+
+			/*
+				card_right_text: esta clase representa la parte de la imagen 
+				de la card posicionada en la parte derecha de su contenedor 
+				padre, definimos una animación para este elemento
+			*/
+			.card_right_text {
+				animation: slideRight 2s;
+
+				/*
+					.slideRight: al inicio desvanecemos el elemento y lo 
+					.desplazamos 2000px hacia la derecha, al final lo 
+					.desplazamos hasta su posición original
+				*/ 
+				@keyframes slideRight {
+					0% {
+						opacity: 0;
+						transform: translateX(2000px);
+					}
+					60% {
+						opacity: 1;
+						transform: translateX(-30px);
+					}
+					80% {
+						transform: translateX(10px);
+					}
+					100% {
+						transform: translateX(0);
+					}
+				}
+
+				/*
+					_@query 992px ==> : definimos las propiedades right y bottom
+					_para posicionar este elemento, recordemos que su contenedor
+					_principal tiene definido position: absolute desde la misma
+					_medida
+				*/
+				@media (min-width: 992px) {
+					right: 0;
+					bottom: 0;
+				}
+			}
+
+			/*
+				box_aflora_card_img 
+			*/
+			.box_aflora_card_img {
+
+				/*
+					_@query 992px ==> : definimos position: absolute y su propiedad
+					_top para posicionar este contenedor, finalmente le definimos
+					_un ancho para esta medida
+				*/
+				@media (min-width: 992px) {
+					position: absolute;
+					top: 0;
+					width: 640px;
+				}
+
+				/*
+					_@query 1200px ==> : modificamos el ancho de este elemento en esta medida
+				*/
+				@media (min-width: 1200px) {
+					width: 747px;
+				}
+
+				/*
+					tag-img: es importante definir la propiedad vertical-align
+					para remover el espaciado que genera el navegador en las 
+					imágenes, finalmente definimos un ancho y alto del 100% 
+					junto con object-fit: cover para que esta se ajuste al 
+					tamaño de su contenedor
+				*/
+				img {
+					vertical-align: top;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+
+					/*
+						_@query 992px ==> : definimos una altura para la imagen
+						_en esta medida
+					*/
+					@media (min-width: 992px) {
+						height: 378px;
+					}
+
+					/*
+						_@query 1200px ==> : definimos una altura para la imagen
+						_en esta medida
+					*/
+					@media (min-width: 1200px) {
+						height: 430px;
+					}
+				}
+			}
+
+			/*
+				card_right_img: esta clase representa la parte de la imagen
+				de la card posicionada en la parte derecha de su contenedor 
+				padre, definimos una animación para este elemento
+			*/
+			.card_right_img {	
+				animation: slideRight 2s;
+
+				/*
+					.slideRight: al inicio desvanecemos el elemento y lo 
+					.desplazamos 2000px hacia la derecha, al final lo 
+					.desplazamos hasta su posición original
+				*/ 
+				@keyframes slideRight {
+					0% {
+						opacity: 0;
+						transform: translateX(2000px);
+					}
+					60% {
+						opacity: 1;
+						transform: translateX(-30px);
+					}
+					80% {
+						transform: translateX(10px);
+					}
+					100% {
+						transform: translateX(0);
+					}
+				}
+
+				/*
+					_@query 992px ==> : definimos las propiedades top y right
+					_para posicionar este elemento, recordemos que su contenedor
+					_principal tiene definido position: absolute desde la misma
+					_medida
+				*/
+				@media (min-width: 992px) {
+					top: 0;
+					right: 0;
+				}
+			}
+
+			/*
+				card_left_img: esta clase representa la parte de la imagen
+				de la card posicionada en la parte izquierda de su contenedor 
+				padre, definimos una animación para este elemento
+			*/
+			.card_left_img {
+				animation: slideLeft 2s;
+
+				/*
+					.slideLeft: al inicio desvanecemos el elemento y lo 
+					.desplazamos -2000px hacia la izquierda, al final lo 
+					.desplazamos hasta su posición original
+				*/ 
+				@keyframes slideLeft {
+					0% {
+						opacity: 0;
+						transform: translateX(-2000px);
+					}
+					60% {
+						opacity: 1;
+						transform: translateX(30px);
+					}
+					80% {
+						transform: translateX(-10px);
+					}
+					100% {
+						transform: translateX(0);
+					}
+				}
+
+				/*
+					_@query 992px ==> : definimos las propiedades top y left
+					_para posicionar este elemento, recordemos que su contenedor
+					_principal tiene definido position: absolute desde la misma
+					_medida
+				*/
+				@media (min-width: 992px) {
+					top: 0;
+					left: 0;	
+				}
+			}
+		}
+	}
+}

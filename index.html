@@ -4,293 +4,331 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Fundacion</title>
+		<title>home</title>
 		<link rel="stylesheet" href="./sass/style.css" />
-		<!-- Swiper Carrusel -->
+		<!-- Swiper -->
 		<link
 			rel="stylesheet"
 			href="https://unpkg.com/swiper/swiper-bundle.min.css"
 		/>
+		<!-- Animate -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
 	</head>
-	<body>
+	<body id="body">
 		<!--  
-			section_header: contenedor de container_header
+			_section_header: contenedor de la sección, le definimos un ID
+			_para implementar este elemento en javascript
 		-->
 		<header class="section_header" id="header-scroll">
 			<!--  
-				container_header: contenedor de header_flexbox
+				container_header: contenedor definido para manejar el
+				responsive de la sección
 			-->
 			<div class="container_header">
 				<!--  
-					header_flexbox: contenedor de box_nit_menu
-					y box_navbar
+					header_flexbox: contenedor definido para implementar
+					flexbox o grid en la sección
 				-->
 				<div class="header_flexbox">
 					<!--  
-                        box_nit_menu: caja contenedora de toda la 
-						extructura referente al logo y el icon burger menu
+                        content_logoNit_iconBurger: contiene 1 tag-a y 1 tag-svg
                     -->
-					<div class="box_nit_menu">
-						<!-- logo -->
-						<a href="/">
+					<div class="content_logoNit_iconBurger">
+						<!-- 
+							.tag-a: contiene 1 tag-img 
+						-->
+						<a href="./index.html">
+							<!-- 
+								.tag-img: en esta definimos el logo empresarial
+							-->
 							<img
 								src="./assets/img/fundacion_bolivar_davivenda.png"
-								alt="Fundacion Bolivar Davivenda"
-								title="Fundacion Bolivar Davivenda"
+								alt="Fundación Bolivar Davivienda"
+								title="Fundación Bolivar Davivienda"
 							/>
 						</a>
 
-						<!-- icon burger menu -->
+						<!-- 
+							.tag-svg: en esta definimos el icono hamburguesa del
+							.menu de navegación, le definimos un ID para implementar
+							.este elemento en javascript
+						-->
 						<svg
-							id="icon-burger-menu"
-							version="1.2"
-							width="33px"
-							height="33px"
 							viewBox="0 0 24 24"
-							data-id="b6605a34ec1443d69f97220deeb3b22c"
+							id="icon-burger"
 						>
-							<g>
-								<path
-									xmlns:default="http://www.w3.org/2000/svg"
-									d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-									style="fill: #ff671b"
-								></path>
-							</g>
+							<path
+								d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+							></path>
 						</svg>
 					</div>
 
 					<!--  
-                        box_navbar: caja contenedora de tag-nav
-                    -->
-					<div class="box_navbar" id="box-navbar">
+						.nav_header: contenedor de box_close_menu caja y ul_navbar,
+						.le definimos un ID para implementar este elemento en javascript
+					-->
+					<nav class="nav_header" id="content-nav">
 						<!--  
-							tag-nav: contenedor de box_close_menu caja y ul_navbar
+							content_titleMenu_iconClose: contenedor de 1 tag-h3
+							y 1 tag-svg
 						-->
-						<nav>
-							<!--  
-								box_close_menu: caja contenedora de toda la 
-								extructura referente al title menu y el icon close menu
-								que cierra el menu de navegacion
+						<section class="content_titleMenu_iconClose">
+							<!-- 
+								.tag-h3: en esta definimos el titulo del menu 
 							-->
-							<section class="box_close_menu">
-								<!-- title menu -->
-								<h3>Menu</h3>
+							<h3>Menu</h3>
 
-								<!-- icon close menu -->
-								<svg
-									id="icon-close-menu"
-									version="1.2"
-									width="33px"
-									height="33px"
-									viewBox="0 0 24 24"
-									data-id="d72899987dcb405f9711674b20491c84"
-								>
-									<g>
+							<!--  
+								.tag-svg: en esta definimos el icono que cierra
+								.el menu de navegación, le definimos un ID para
+								.implementar este elemento en javascript
+							-->
+							<svg
+								viewBox="0 0 24 24"
+								id="icon-close"
+							>
+								<path
+									d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+								></path>
+							</svg>
+						</section>
+
+						<!--  
+							.ul_header: contiene a 7 tags-li
+						-->
+						<ul class="ul_header">
+							<!--  
+								.tag-li: contiene 1 tag-a
+							-->
+							<li>
+								<!--  
+									.tag-a: en este definimos el enlace del menu
+									.de navegación
+								-->
+								<a href="./la-fundacion.html">
+									La Fundación
+								</a>
+							</li>
+
+							<!--  
+								.li_dropdown: contiene 1 tag-a y 1 tag-ul, le definimos
+								.un ID para implementar este elemento en javascript
+							-->
+							<li class="li_dropdown" id="li-dropdown">
+								<!--  
+									.tag-a: contiene 1 tag-svg
+								-->
+								<a href="#">
+									Nuestros Programas
+
+									<!--  
+										.tag-svg: en esta definimos el icono de guia para
+										.el dropdown
+									-->
+									<svg viewBox="0 0 24 24">
 										<path
-											xmlns:default="http://www.w3.org/2000/svg"
-											d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-											style="fill: #919191"
+											d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"
 										></path>
-									</g>
-								</svg>
-							</section>
-
-							<!--  
-								ul_navbar: contiene toda la extructura referente al menu de
-								navegacion
-							-->
-							<ul class="ul_navbar">
-								<li>
-									<a href="fundacion.html">
-										La Fundación
-									</a>
-								</li>
+									</svg>
+								</a>
 
 								<!--  
-                                    li_dropdown: contiene una tag-a y una tag-ul
-                                -->
-								<li class="li_dropdown" id="li-dropdown">
-									<!--  
-										tag-a: contiene el titulo y el icono
-									-->
-									<a href="/la-fundacion">
-										Nuestros Programas
+									.ul_dropdown: contenedor del sub menu de navegación
+								-->
+								<ul class="ul_dropdown" id="ul-dropdown">
+									<li>
+										<a href="./aflora.html">Aflora</a>
+									</li>
 
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="12"
-											height="12"
-											viewBox="0 0 24 24"
-										>
-											<path
-												d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"
-											></path>
-										</svg>
-									</a>
+									<li>
+										<a href="./becas-al-talento.html">Becas al Talento</a>
+									</li>
 
-									<!--  
-										ul_dropdown: contiene el menu de navegacion 
-										dropdown
-									-->
-									<ul class="ul_dropdown" id="ul-dropdown">
-										<li>
-											<a href="/aflora">Aflora</a>
-										</li>
+									<li>
+										<a href="./cultivarte.html">Cultivarte</a>
+									</li>
 
-										<li>
-											<a href="/becas-al-talento">Becas al Talento</a>
-										</li>
+									<li>
+										<a href="./emprende-pais.html">Emprende País</a>
+									</li>
 
-										<li>
-											<a href="/cultivarte">Cultivarte</a>
-										</li>
+									<li>
+										<a href="./filarmonica.html">
+											Filarmónica Joven de Colombia
+										</a>
+									</li>
 
-										<li>
-											<a href="/emprende-pais">Emprende País</a>
-										</li>
+									<li>
+										<a href="./inversion.html">Inversión Social</a>
+									</li>
 
-										<li>
-											<a href="/filarmonica-joven-de-colombia"
-												>Filarmónica Joven de Colombia
-											</a>
-										</li>
+									<li>
+										<a href="./voluntariado.html">
+											Voluntariado Familia Bolivar
+										</a>
+									</li>
 
-										<li>
-											<a href="/inversion-social">Inversión Social</a>
-										</li>
+									<li>
+										<a href="/premio-nacional-de-periodismo">
+											Premio Nacional de Periodismo
+										</a>
+									</li>
 
-										<li>
-											<a href="/premio-nacional-de-periodismo"
-												>Premio Nacional de Periodismo
-											</a>
-										</li>
+									<li>
+										<a href="/red-de-angeles">
+											Red de Ángeles Inversionistas
+										</a>
+									</li>
+								</ul>
+							</li>
 
-										<li>
-											<a href="/red-de-angeles"
-												>Red de Ángeles Inversionístas
-											</a>
-										</li>
+							<li>
+								<a href="/actualidad">Actualidad</a>
+							</li>
 
-										<li>
-											<a href="/voluntariado-fundacion-bolivar"
-												>Voluntariado Familia Bolivar
-											</a>
-										</li>
-									</ul>
-								</li>
+							<li>
+								<a href="/eventos">Eventos</a>
+							</li>
 
-								<li>
-									<a href="/actualidad">Actualidad</a>
-								</li>
+							<li>
+								<a
+									href="https://www.sostenibilidadfundacionbolivardavivienda.org/"
+									target="_blank"
+								>
+									Informe de Sostenibilidad
+								</a>
+							</li>
 
-								<li>
-									<a href="/eventos">Eventos</a>
-								</li>
+							<li>
+								<a
+									href="https://fundacionbolivardavivienda.secure.force.com/fbdcontactenos/fbd_FormularioContactenos"
+									target="_blank"
+								>
+									Contacto
+								</a>
+							</li>
 
-								<li>
-									<a
-										href="https://www.sostenibilidadfundacionbolivardavivienda.org/"
-										target="_blank"
-										>Informe de sostenibilidad
-									</a>
-								</li>
-
-								<li>
-									<a
-										href="https://fundacionbolivardavivienda.secure.force.com/fbdcontactenos/fbd_FormularioContactenos"
-										target="_blank"
-										>Contacto
-									</a>
-								</li>
-
-								<li>
-									<a href="/about-us" target="_blank">About us</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
+							<li>
+								<a href="/about-us" target="_blank">About us</a>
+							</li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</header>
 
+		<!--  
+			_tag-main: contenedor de las secciones section_banner_slider,
+			_section_banner_static, section_gallery, section_card, 
+			_section_article_slider y section_tabs
+		-->
 		<main>
 			<!-- 
-				seccion_name: nos sirve para implementar margenes y espaciados 
-				con el fin de separar un contenedor de otro 
+				_section_banner_slider: contenedor de la sección
 			-->
 			<div class="section_banner_slider">
 				<!-- 
-					container_name: es quien contiene todos los elementos por lo
-					general es a esta que damos width para manejar el responsive
+					container_banner_slider: contenedor definido para manejar
+					el responsive de la sección
 				-->
 				<div class="container_banner_slider">
 					<!-- 
-						flexbox_name: este contenedor lo definimos para 
-						centrar elementos usando las propiedades de flexbox
+						flexbox_banner_slider: contenedor definido para 
+						implementar flexbox o grid en la sección
 					-->
 					<div class="flexbox_banner_slider">
 						<!-- 
-							swiper: caja contenedora de swiper-wrapper
+							swiper: contenedor de swiper-wrapper, la clase
+							mySwiper es implementada en javascript
 						-->
 						<div class="swiper mySwiper">
 							<!-- 
-								swiper: caja contenedora del slider
+								swiper-wrapper: contenedor de swiper-slide
 							-->
 							<div class="swiper-wrapper">
 								<!-- 
-									swiper-slide: caja contenedora de las imagenes del slider
-								-->
+									swiper-slide: contenedor de box_banner_slider y 1 tag-img
+								-->	
 								<div class="swiper-slide">
 									<!-- 
-										box_name: contiene una tag-h1, tag-p y una caja
-										box_icon_swiper
+										container_slider: contenedor de box_banner_slider
 									-->
-									<div class="box_banner_slider">					
-										<section class="box_banner_title">
-											<h1>Convocatoria Regionales 2022 de Inversión Social</h1>
-										</section>
+									<div class="container_slider">
+										<!-- 
+											box_banner_slider: contiene a box_banner_title y 1 tag-p
+										-->
+										<div class="box_banner_slider">	
+											<!-- 
+												box_banner_title: contiene 1 tag-h1, tiene definida
+												una clase la librería wow.js
+											-->			
+											<section class="wow box_banner_title">
+												<!--  
+													.tag-h1: en esta definimos el titulo del slider
+												-->
+												<h1>Audiciones 2023</h1>
+											</section>
+											
+											<!--  
+												.tag-p: en esta definimos el párrafo del slider, 
+												.tiene definida una clase la librería wow.js
+											-->
+											<p class="wow">Queremos Escucharlos. Conozca Más</p>
+										</div>
+									</div>
+
+									<!--  
+										.tag-img: en esta definimos la imagen del slider
+									-->
+									<img src="./assets/img/carrusel-fil.jpg" alt="audiciones 2023" />
+								</div>
+
+								<div class="swiper-slide">
+									<div class="container_slider">
+										<div class="box_banner_slider">			
+											<section class="box_banner_title">
+												<h1>Desarrollamos talento para construir país</h1>
+											</section>
 										
-										<p>Postule su proyecto social antes del 25 de Febrero</p>
+											<p>
+												Conozca nuestras iniciativas y programas
+											</p>
+										</div>
+									</div>
+
+									<img src="./assets/img/carrusel1.jpg" alt="carrusel1" />
+								</div>
+						
+								<div class="swiper-slide">
+									<div class="container_slider">
+										<div class="box_banner_slider">					
+											<section class="box_banner_title">
+												<h1>Convocatoria Regionales 2022 de Inversión Social</h1>
+											</section>
+											
+											<p>
+												Postule su proyecto social antes del 25 de Febrero
+											</p>
+										</div>
 									</div>
 
 									<img src="./assets/img/banner-reg-2022.jpg" alt="banner" />
 								</div>
-
-								<div class="swiper-slide">
-									<!-- 
-										box_name: contiene una tag-h1, tag-p y una caja
-										box_icon_swiper
-									-->
-									<div class="box_banner_slider">					
-										<section class="box_banner_title">
-											<h1>Desarrollamos talento para construir pais</h1>
-										</section>
-										
-										<p>Conozca nuestras iniciativas y programas</p>
-									</div>
-
-									<img src="./assets/img/carrusel1.jpg" alt="carrusel1" />
-								</div>
-
-								<!-- <div class="swiper-slide">
-									<div class="box_banner_slider">	
-										<section class="box_banner_title">
-											<h1>Desarrollamos talento para construir pais</h1>
-										</section>
-										
-										<p>Conozca nuestras iniciativas y programas</p>
-									</div>
-
-									<img src="./assets/img/carrusel1.jpg" alt="carrusel1" />
-								</div> -->
 							</div>
 						</div>
 
 						<!--  
-							box_icon_swiper: esta caja contiene los botones
-							next y prev del slider
+							content_icons: contenedor de box_icon_slider
 						-->
 						<div class="content_icons">
+							<!--  
+								box_icon_slider: contenedor de 
+								swiper-button-prev y
+								swiper-button-next
+							-->
 							<div class="box_icon_slider">
 								<div class="swiper-button-prev"></div>
 								<div class="swiper-button-next"></div>
@@ -300,9 +338,18 @@
 				</div>
 			</div>
 
-			<!-- Banner Static -->
+			<!-- 
+				_section_banner_static 
+			-->
 			<div class="section_banner_static">
+				<!-- 
+					container_banner_static: contenedor definido para manejar
+					el responsive de la sección
+				-->
 				<div class="container_banner_static">
+					<!-- 
+						content_points
+					-->
 					<div class="content_points points_top">
 						. . . . . . . . . . . . <br />
 						. . . . . . . . . . . . <br />
@@ -316,25 +363,48 @@
 						. . . . . . . .
 					</div>
 
+					<!-- 
+						flexbox_banner_static: contenedor definido para 
+						implementar flexbox o grid en la sección
+					-->
 					<div class="flexbox_banner_static">
+						<!--  
+							box_banner_static: contiene 1 tag-small, 1 tag-h2, 1 tag-p
+							y 1 tag-a
+						-->
 						<section class="box_banner_static">
-							<h3>Sobre nosotros..</h3>
+							<!--  
+								.tag-small: en esta definimos el subtitulo del banner
+							-->
+							<small>Sobre nosotros..</small>
 
+							<!--  
+								.tag-h2: en esta definimos el titulo del banner
+							-->
 							<h2>
 								Desarrollamos<br />
 								Talento
 							</h2>
 
+							<!--  
+								.tag-p: en esta definimos el párrafo del banner
+							-->
 							<p>
 								Somos un equipo que une. Que invita a explorar con creatividad y
 								a nunca dejar de innovar. A encontrar el éxito en cada esfuerzo.
 								Que ayuda a conectar el talento con el cambio.
 							</p>
 
+							<!--  
+								.tag-a: en esta definimos el botón del banner
+							-->
 							<a href="#">Conozca mas</a>
 						</section>
 					</div>
 
+					<!-- 
+						content_points
+					-->
 					<div class="content_points points_bottom">
 						. . . . . . . . <br />
 						. . . . . . . . <br />
@@ -346,46 +416,60 @@
 			</div>
 
 			<!--
-				section_galery: contenedor de la seccion 
+				_section_gallery: contenedor de la sección 
 			-->
-			<div class="section_galery">
+			<div class="section_gallery">
 				<!--
-					container_galery: contenedor implementado
-					para el manejo del responsive
+					container_gallery: contenedor definido para manejar el
+					responsive de la sección
 				-->
-				<div class="container_galery">
+				<div class="container_gallery">
 					<!--  
-						grid_galery: contenedor de las cajas
-						title_galery y box_galery
+						grid_gallery: contenedor definido para implementar flexbox
+						o grid en la sección
 					-->
-					<div class="grid_galery">
+					<div class="grid_gallery">
 						<!--  
-							title_galery: caja contenedora de 
-							1 tag-h3 con la que definimos un titulo
+							box_title_gallery: contiene de 2 tag-h3
 						-->
-						<section class="title_galery">
-							<h3>Nuestros <br />Programas</h3>
+						<section class="box_title_gallery">
+							<!--  
+								.tag-h3: en estas definimos el titulo de la gallery
+							-->
+							<h3>Nuestros</h3>
+							<h3>Programas</h3>
 						</section>
 
 						<!--  
-							box_galery: caja contenedora de 
-							content_galery y 1 tag-img
+							box_gallery: contenedor de content_gallery y 2 tags-img
 						-->
-						<div class="box_galery">
+						<div class="box_gallery">
 							<!--  
-								content_galery: caja contenedora de 
-								1 tag-a.icon_plus, 1 tag-h3, 1 tag-p
-								y 1 tag-a.btn_link
+								content_gallery: contenedor de 1 tag-a, 1 tag-h3, 1 
+								tag-p y 1 tag-a
 							-->
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<section class="content_gallery">
+								<!--  
+									.tag-a: contiene 1 tag-svg
+								-->
+								<a href="#" class="content_iconPlus">
+									<!--  
+										.tag-svg: en esta definimos el icono (+) de la
+										.galería
+									-->
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
 
+								<!--  
+									.tag-h3: en estas definimos el titulo de la galería
+								-->
 								<h3>Aflora</h3>
 
+								<!--  
+									.tag-p: en estas definimos el párrafo de la galería
+								-->
 								<p>
 									En Aflora impulsamos a las organizaciones sociales que quieren
 									multiplicar su capacidad de servir, que buscan crecer para
@@ -393,26 +477,37 @@
 									sostenibles en el tiempo.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<!--  
+									.tag-a: en estas definimos el botón de la galería
+								-->
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
+							<!--  
+								.tag-img: en esta definimos la imagen de la galería
+								.para escritorio
+							-->
 							<img
 								src="./assets/img/home_programas_0006_aflora.jpg"
 								alt="aflora"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
+							<!--  
+								.tag-img: en esta definimos la imagen de la galería 
+								.para dispositivos móviles
+							-->
 							<img
 								src="./assets/img/_0006_aflora.jpg"
 								alt="aflora"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
@@ -421,30 +516,30 @@
 
 								<p>
 									En Becas al Talento respaldamos el sueño de estudiantes
-									destacados que tienen dificultades economicas para continuar
+									destacados que tienen dificultades económicas para continuar
 									sus carreras profesionales.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0005_becas.jpg"
 								alt="Becas al talento"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
 							<img
 								src="./assets/img/_0005_becas.jpg"
 								alt="Becas al talento"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
@@ -458,92 +553,92 @@
 									las de sus familias e inspiran a otros en su entorno.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0004_cultivarte.jpg"
 								alt="Cultivarte"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
 							<img
 								src="./assets/img/_0004_cultivarte.jpg"
 								alt="Cultivarte"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
 
-								<h3>Emprende Pais</h3>
+								<h3>Emprende País</h3>
 
 								<p>
-									Emprende Pais apoya el talento de lideres comprometidos con el
-									desarrollo economico del pais, brindando capacitaciones y
+									Emprende País apoya el talento de lideres comprometidos con el
+									desarrollo económico del país, brindando capacitaciones y
 									herramientas para sus empresas.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0003_emprende_pais.jpg"
-								alt="Emprende pais"
-								class="img_galery_destok"
+								alt="Emprende país"
+								class="img_gallery_destok"
 							/>
 
 							<img
 								src="./assets/img/_0003_emprende_pais.jpg"
-								alt="Emprende pais"
-								class="img_galery_movil"
+								alt="Emprende país"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
 
-								<h3>Filarmonica Joven de Colombia</h3>
+								<h3>Filarmónica Joven de Colombia</h3>
 
 								<p>
-									Filarmonica Joven de Colombia es una apuesta que promueve el
-									talento musical de nuestro pais para construir un proyecto de
-									vida desde la pasion. Nuestros musicos llegan al mundo entero
+									Filarmónica Joven de Colombia es una apuesta que promueve el
+									talento musical de nuestro país para construir un proyecto de
+									vida desde la pasión. Nuestros músicos llegan al mundo entero
 									e inspiran a otros en Colombia a creer en el ritmo de sus
 									sueños.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0002_filarmonica.jpg"
 								alt="Filarmónica joven de Colombia"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
 							<img
 								src="./assets/img/_0002_filarmonica.jpg"
 								alt="Filarmónica joven de Colombia"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
@@ -551,32 +646,32 @@
 								<h3>Inversion Social</h3>
 
 								<p>
-									En Inversion Social trabajamos por la transformacion de
+									En Inversion Social trabajamos por la transformación de
 									historias de niños, niñas, adolescentes y mujeres que desde su
 									rol como agentes de cambios en sus comunidades buscan
 									soluciones sostenibles.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0001_inversion_social.jpg"
 								alt="Inversión social"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
 							<img
-								src="./assets/img/_0001_inversion social.jpg"
+								src="./assets/img/_0001_inversion_social.jpg"
 								alt="Inversión social"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 
-						<div class="box_galery">
-							<section class="content_galery">
-								<a href="" class="icon_plus">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<div class="box_gallery">
+							<section class="content_gallery">
+								<a href="#" class="content_iconPlus">
+									<svg viewBox="0 0 24 24">
 										<path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
 									</svg>
 								</a>
@@ -590,95 +685,243 @@
 									conocimiento para transformar a otros porque ayudar, inspira.
 								</p>
 
-								<a href="" class="btn_link">Leer Mas</a>
+								<a href="#" class="btn_gallery">Leer Mas</a>
 							</section>
 
 							<img
 								src="./assets/img/home_programas_0000_voluntariado.jpg"
 								alt="Voluntariado familia bolívar"
-								class="img_galery_destok"
+								class="img_gallery_destok"
 							/>
 
 							<img
 								src="./assets/img/_0000_voluntariado.jpg"
 								alt="Voluntariado familia bolívar"
-								class="img_galery_movil"
+								class="img_gallery_movil"
 							/>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!--  
-				section_card: contenedor de la seccion
+			<!--
+				_section_card: contenedor de la sección
 			-->
 			<div class="section_card">
 				<!--  
-					container_name: contenedor encargado del 
-					manejo responsive
+					container_name: contenedor definido para manejar el 
+					responsive de la sección
 				-->
 				<div class="container_card">
 					<!--  
 						box_void: contenedor importante para solucionar
 						los problemas del uso de la propiedad css position,
-						la finalidad es crear un contenedor vacio el cual 
-						genera un espacio evitando errores de maquetacion
+						la finalidad es crear un contenedor vació el cual 
+						genera un espacio evitando errores de maquetación
 					-->
 					<div class="box_void"></div>
 
 					<!--  
-						flexbox_card: contenedor definido para
-						la implementacion de flexbox contiene a
-						box_name_img y box_name
+						flexbox_card: contenedor definido para implementar
+						flexbox o grid en la sección
 					-->
 					<div class="flexbox_card">
 						<!--  
-							box_card: caja contenedor de 1 content_info
+							box_card: contenedor de content_card, este tiene clases definidas 
+							de la librería wow.js y animate.css
 						-->
-						<div class="box_card">
+						<div class="wow animate__animated animate__slideInLeft box_card">
 							<!--  
-								content_info: contenedor de 1 tag-h1 y
-								1 tag-p
+								content_card: contenedor de 1 tag-h1, 1 tag-p y 1 tag-a, 
+								este tiene clases definidas de la librería wow.js y animate.css
 							-->
-							<section class="content_card">
+							<section class="wow animate__animated animate__bounceInUp content_card">
+								<!--  
+									.tag-h1: en esta definimos el subtitulo de la card
+								-->
 								<h4>Asi conectamos</h4>
 
+								<!--  
+									.tag-h3: en esta definimos el titulo de la card
+								-->
 								<h3>El talento <i>con</i> El cambio</h3>
 
+								<!--  
+									.tag-a: en esta definimos el botón de la card
+								-->
 								<a href="#">Conozca mas</a>
 							</section>
 						</div>
 
 						<!--  
-							box_card_img: caja contenedor de 1 tag-img
+							box_card_img: contenedor de 1 tag-img, este tiene clases definidas 
+							de la librería wow.js y animate.css
 						-->
-						<div class="box_card_img">
-							<img src="./assets/img/microlearning.jpg" alt="microlearning" />
+						<div class="wow animate__animated animate__slideInRight box_card_img">
+							<!--  
+								.tag-img: en esta definimos la imagen de la card
+							-->
+							<img src="./assets/img/microlearning.jpg" alt="micro learning" />
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- 
-				seccion_name: nos sirve para implementar margenes y espaciados 
-				con el fin de separar un contenedor de otro 
+				_section_article_slider: contenedor de la sección 
 			-->
 			<div class="section_article_slider">
+				<!--  
+					container_article_slider: contenedor definido para
+					manejar el responsive de la sección 
+				-->
 				<div class="container_article_slider">
 					<!-- 
-						swiper: caja contenedora de swiper-wrapper
+						swiper: contenedor de swiper-wrapper
 					-->
 					<div class="swiper mySwiper">
 						<!-- 
-							swiper: caja contenedora del slider
+							swiper: contenedor de swiper-slide
 						-->
 						<div class="swiper-wrapper">
 							<!-- 
-								swiper-slide: caja contenedora de las imagenes del slider
+								swiper-slide: contenedor de box_article y
+								box_article_img
 							-->
 							<div class="swiper-slide">
+								<!-- 
+									box_article: contenedor de 1 tag-h3 y 1 tag-a
+								-->
 								<section class="box_article">
-									<h3>Proximos Eventos</h3>
+									<!--  
+										.tag-h3: en esta definimos el titulo del articulo
+									-->
+									<h3>Próximos Eventos</h3>
+
+									<!--  
+										.tag-a: contenedor de content_events
+									-->
+									<a href="#">
+										<!--  
+											content_events: contenedor de 1 tag-h4, 1 tag-p y de 
+											content_dates
+										-->
+										<section class="content_events">
+											<!--  
+												.tag-h4: en esta definimos el titulo del evento
+											-->
+											<h4>Apertura de temporada 2022: Petrushka - Bogotá</h4>
+
+											<!--  
+												.tag-p: en esta definimos el párrafo del evento
+											-->
+											<p class="article_paragraph">
+												Vuelve #LaJoven bajo la batuta de su director titular
+												Andrés Orozco-Estrada para presentar Petrushka
+											</p>
+
+											<!--  
+												content_dates: contenedor de 3 flexbox_dates
+											-->
+											<div class="content_dates">
+												<!--  
+													flexbox_dates: contenedor de 2 tags-p
+												-->
+												<div class="flexbox_dates">
+													<!--  
+														.tag-p: en esta definimos el titulo del dato
+													-->
+													<p>Lugar</p>
+
+													<!--  
+														.tag-p: en esta definimos el párrafo del dato
+													-->
+													<p class="flex_paragraph">
+														Teatro Mayor Julio Mario Santodomingo
+													</p>
+												</div>
+
+												<div class="flexbox_dates">
+													<p>Fecha</p>
+													<p class="flex_paragraph">14/Mar/2022</p>
+												</div>
+
+												<div class="flexbox_dates">
+													<p>Hora</p>
+													<p class="flex_paragraph">7:00 p.m.</p>
+												</div>
+											</div>
+										</section>
+									</a>
+								</section>
+
+								<!--  
+									box_article_img: contenedor de 1 tag-img
+								-->
+								<div class="box_article_img">
+									<!--  
+										.tag-img: en esta definimos la imagen del articulo
+									-->
+									<img
+										src="./assets/img/filarmonica-2022-home.png"
+										alt="Filarmónica 2022"
+									/>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<section class="box_article">
+									<h3>Próximos Eventos</h3>
+
+									<a href="#">
+										<section class="content_events">
+											<h4>Apertura de temporada 2022: Petrushka - Medellín</h4>
+
+											<p class="article_paragraph">
+												Vuelve #LaJoven bajo la batuta de su director titular
+												Andrés Orozco-Estrada para presentar Petrushka
+											</p>
+
+											<div class="content_dates">
+												<div class="flexbox_dates">
+													<p>Lugar</p>
+
+													<p class="flex_paragraph">
+														Teatro Metropolitano José Gutiérrez Gómez
+													</p>
+												</div>
+
+												<div class="flexbox_dates">
+													<p>Fecha</p>
+													<p class="flex_paragraph">12/Mar/2022</p>
+												</div>
+
+												<div class="flexbox_dates">
+													<p>Hora</p>
+													<p class="flex_paragraph">6:00 p.m.</p>
+												</div>
+											</div>
+										</section>
+									</a>
+								</section>
+
+								<!--  
+									box_article_img: contenedor de 1 tag-img
+								-->
+								<div class="box_article_img">
+									<!--  
+										.tag-img: en esta definimos la imagen del articulo
+									-->
+									<img
+										src="./assets/img/filarmonica-2022-home.png"
+										alt="Filarmónica 2022"
+									/>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<section class="box_article">
+									<h3>Próximos Eventos</h3>
 
 									<a href="#">
 										<section class="content_events">
@@ -719,99 +962,12 @@
 									/>
 								</div>
 							</div>
-
-							<div class="swiper-slide">
-								<section class="box_article">
-									<h3>Proximos Eventos</h3>
-
-									<a href="#">
-										<section class="content_events">
-											<h4>Conquista Social 2021</h4>
-
-											<p class="article_paragraph">
-												Llega el evento más importante del sector social para
-												reconocer a las organizaciones en su proceso de
-												formación.
-											</p>
-
-											<div class="content_dates">
-												<div class="flexbox_dates">
-													<p>Lugar</p>
-													<p class="flex_paragraph">Evento virtual</p>
-												</div>
-
-												<div class="flexbox_dates">
-													<p>Fecha</p>
-													<p class="flex_paragraph">25/Nov/2021</p>
-												</div>
-
-												<div class="flexbox_dates">
-													<p>Hora</p>
-													<p class="flex_paragraph">1:30 p.m.</p>
-												</div>
-											</div>
-										</section>
-									</a>
-								</section>
-
-								<div class="box_article_img">
-									<img
-										src="./assets/img/conquista_social_home.jpg"
-										alt="Conquista Social 2021"
-									/>
-								</div>
-							</div>
-
-							<div class="swiper-slide">
-								<section class="box_article">
-									<h3>Proximos Eventos</h3>
-
-									<a href="#">
-										<section class="content_events">
-											<h4>
-												Speakers Aflora: Alternativas para acceder a recursos
-												para organizaciones sociales
-											</h4>
-
-											<p class="article_paragraph">
-												Alternativas para acceder a recursos para organizaciones
-												sociales
-											</p>
-
-											<div class="content_dates">
-												<div class="flexbox_dates">
-													<p>Lugar</p>
-													<p class="flex_paragraph">
-														Youtube Fundación Bolívar Davivienda
-													</p>
-												</div>
-
-												<div class="flexbox_dates">
-													<p>Fecha</p>
-													<p class="flex_paragraph">30/Sep/2021</p>
-												</div>
-
-												<div class="flexbox_dates">
-													<p>Hora</p>
-													<p class="flex_paragraph">8:00 a.m.</p>
-												</div>
-											</div>
-										</section>
-									</a>
-								</section>
-
-								<!-- <div class="box_article_img"> -->
-								<img
-									src="./assets/img/webinar-speakers-aflora-home.jpg"
-									alt="Speakers Aflora: Alternativas para acceder a recursos para organizaciones sociales"
-								/>
-								<!-- </div> -->
-							</div>
 						</div>
 
 						<!--  
-							box_icon_swiper: esta caja contiene los botones
-							next y prev del slider
+							box_icon_slider: contenedor de 
+							swiper-button-prev y
+							swiper-button-next
 						-->
 						<div class="box_icon_slider">
 							<div class="swiper-button-prev"></div>
@@ -822,49 +978,59 @@
 			</div>
 
 			<!--  
-				section_tabs: contenedor de la seccion
+				_section_tabs: contenedor de la sección
 			-->
 			<div class="section_tabs">
 				<!--  
-					container_name: contenedor encargado
-					del responsive
+					container_tabs: contenedor definido para manejar
+					el responsive de la sección
 				-->
 				<div class="container_tabs">
+					<!--  
+						.tab-h2: en esta definimos el titulo de la sección
+					-->
 					<h2>
 						Actualidad Fundación<br />
 						Bolivar Davivienda
 					</h2>
 
 					<!--  
-						flexbox_name: contenedor definido
-						para implementar flebox, contiene a 
-						tab_header y tab_body
+						flexbox_tabs: contenedor definido para implementar 
+						flexbox o grid en la sección
 					-->
 					<div class="flexbox_tabs">
 						<!-- 
-							tab_header: contenedor de tab_content_header y tab
-							content_img
+							tab_header: contenedor de 3 tab_content_header y de
+							3 tab_content_img
 						-->
 						<div class="tab_header">
 							<!-- 
-								tab_content_header: contiene una tag-img y una caja
-								tab_info, esta misma clase es implemenatda para uso
-								en javascript desde donde le añadimos o removemos
+								tab_content_header: contenedor de 1 tag-img y de
+								tab_info, esta misma clase es implementada en
+								javascript desde donde le añadimos o removemos
 								la clase js_header_active
 							-->
 							<div class="tab_content_header js_header_active">
+								<!--  
+									.tag-img: en esta definimos la imagen de la tab
+								-->
 								<img
 									src="./assets/img/como-liderar-nuevas-generaciones.jpeg"
 									alt="como-liderar-nuevas-generaciones"
 								/>
 
 								<!--  
-									tab_info: caja que contiene los elementos que
-									conforman la parte superior de la tab
+									tab_info: contenedor de 1 tag-h4 y 1 tag-p
 								-->
 								<section class="tab_info">
+									<!--  
+										.tag-h4: en esta definimos el titulo de la tab
+									-->
 									<h4>Cómo liderar nuevas generaciones</h4>
 
+									<!--  
+										.tag-p: en esta definimos el párrafo de la tab
+									-->
 									<p>
 										Conozca más sobre tres elementos vitales a la hora de
 										enfrentar el reto de liderar nuevas generaciones.
@@ -873,27 +1039,46 @@
 							</div>
 
 							<!-- 
-								tab_content_img: contiene una tag-img, esta caja
-								se definio para ahustar el diseño a dispositivos
-								moviles, esta misma clase es implementada en javascript
-								desde donde le añadimos o removemos la clase
-								js_img_hidden
+								tab_content_img: contenedor de 1 tag-img, de
+								box_hashtags, 1 tag-p y de box_btn_tabs
+								
+								este contenedor se definió para ajustar el diseño
+								de las tabs a dispositivos móviles, esta misma
+								clase es implementada en javascript
 							-->
 							<div class="tab_content_img">
+								<!--  
+									.tag-img: en esta definimos la imagen de la tab
+								-->
 								<img
 									src="./assets/img/como-liderar-nuevas-generaciones.jpeg"
 									alt="como-liderar-nuevas-generaciones"
 								/>
 
+								<!--  
+									box_hashtags: contenedor de 3 tags-a
+								-->
 								<div class="box_hashtags">
+									<!--  
+										.tag-a: en esta definimos los hash de la tab
+									-->
 									<a href="#">#Categoría</a>
 									<a href="#">#Cultivarte</a>
 									<a href="#">#Trabajo</a>
 								</div>
 
+								<!--  
+									.tag-p: en esta definimos la fecha de la tab
+								-->
 								<p>01 - Septiembre - 2020</p>
 
-								<div class="box_link">
+								<!--  
+									box_btn_tabs: contenedor de 1 tag-a
+								-->
+								<div class="box_btn_tabs">
+									<!--  
+										.tag-a: en esta definimos el botón de la tab
+									-->
 									<a href="#">Como liderar nuevas generaciones</a>
 								</div>
 							</div>
@@ -901,7 +1086,7 @@
 							<div class="tab_content_header">
 								<img
 									src="./assets/img/aprenda_como_conseguir_recursos_para_fundacion.png"
-									alt="aprenda_como_conseguir_recursos_para_fundacion"
+									alt="aprenda_como_conseguir_recursos_para_fundación"
 								/>
 
 								<section class="tab_info">
@@ -910,7 +1095,7 @@
 									</h4>
 
 									<p>
-										Conozca una guía básica para que la laborde conseguir
+										Conozca una guía básica para que la labor de conseguir
 										recursos sea más efectiva y su organización logre cumplir
 										sus objetivos.
 									</p>
@@ -920,7 +1105,7 @@
 							<div class="tab_content_img js_img_hidden">
 								<img
 									src="./assets/img/aprenda_como_conseguir_recursos_para_fundacion.png"
-									alt="aprenda_como_conseguir_recursos_para_fundacion"
+									alt="aprenda_como_conseguir_recursos_para_fundación"
 								/>
 
 								<div class="box_hashtags">
@@ -930,9 +1115,9 @@
 
 								<p>16 - Enero - 2020</p>
 
-								<div class="box_link">
+								<div class="box_btn_tabs">
 									<a href="#">
-										Aprenda como conseguir recursos para una fundacion social
+										Aprenda como conseguir recursos para una fundación social
 									</a>
 								</div>
 							</div>
@@ -970,7 +1155,7 @@
 
 								<p>16 - Enero - 2020</p>
 
-								<div class="box_link">
+								<div class="box_btn_tabs">
 									<a href="#">
 										Consejos para crear y elegir el nombre adecuado para su
 										empresa
@@ -980,30 +1165,48 @@
 						</div>
 
 						<!-- 
-							tab_body: contenedor de tab_content_body
+							tab_body: contenedor de 3 tab_content_body
 						-->
 						<div class="tab_body">
-							<!--  
-								tab_content_body: contiene los elementos que conforman
-								el cuerpo de la tab, esta misma clase es implementada
-								en javascript desde donde le añadimos o removemos a 
-								este contenedor la clase js_body_hidden
+							<!-- 
+								tab_content_body: contenedor de 1 tag-img, de
+								box_hashtags, 1 tag-p y de box_btn_tabs, esta
+								misma clase es implementada en javascript desde 
+								donde le añadimos o removemos la clase js_body_hidden
 							-->
 							<div class="tab_content_body">
+								<!--  
+									.tag-img: en esta definimos la imagen de la tab
+								-->
 								<img
 									src="./assets/img/como-liderar-nuevas-generaciones_big.jpeg"
 									alt="como-liderar-nuevas-generaciones"
 								/>
 
+								<!--  
+									box_hashtags: contenedor de 3 tags-a
+								-->
 								<div class="box_hashtags">
+									<!--  
+										.tag-a: en esta definimos los hash de la tab
+									-->
 									<a href="#">#Categoría</a>
 									<a href="#">#Cultivarte</a>
 									<a href="#">#Trabajo</a>
 								</div>
 
+								<!--  
+									.tag-p: en esta definimos la fecha de la tab
+								-->
 								<p>01 - Septiembre - 2020</p>
 
-								<div class="box_link">
+								<!--  
+									box_btn_tabs: contenedor de 1 tag-a
+								-->
+								<div class="box_btn_tabs">
+									<!--  
+										.tag-a: en esta definimos el botón de la tab
+									-->
 									<a href="#">Como liderar nuevas generaciones</a>
 								</div>
 							</div>
@@ -1011,7 +1214,7 @@
 							<div class="tab_content_body js_body_hidden">
 								<img
 									src="./assets/img/aprenda_como_conseguir_recursos_para_fundacion_big.png"
-									alt="aprenda_como_conseguir_recursos_para_fundacion"
+									alt="aprenda_como_conseguir_recursos_para_fundación"
 								/>
 
 								<div class="box_hashtags">
@@ -1021,9 +1224,9 @@
 
 								<p>16 - Enero - 2020</p>
 
-								<div class="box_link">
+								<div class="box_btn_tabs">
 									<a href="#">
-										Aprenda como conseguir recursos para una fundacion social
+										Aprenda como conseguir recursos para una fundación social
 									</a>
 								</div>
 							</div>
@@ -1041,7 +1244,7 @@
 
 								<p>16 - Enero - 2020</p>
 
-								<div class="box_link">
+								<div class="box_btn_tabs">
 									<a href="#">
 										Consejos para crear y elegir el nombre adecuado para su
 										empresa
@@ -1055,42 +1258,48 @@
 		</main>
 
 		<!--  
-			section_footer: contenedor de la seccion
+			_section_footer: contenedor de la sección
 		-->
 		<footer class="section_footer">
 			<!--  
 				container_footer: contenedor definido para
-				manejar el responsive
+				manejar el responsive de la sección
 			-->
 			<div class="container_footer">
 				<!-- 
-					box_line: contenedor de una tag-hr
+					box_line: contenedor de 1 tag-hr
 				-->
 				<div class="box_line">
 					<!--  
-						tag-hr: linea marcada en la parte superior
-						del footer 
+						.tag-hr: es esta definimos la linea marcada 
+						.en la parte superior del footer
 					-->
 					<hr />
 				</div>
 
 				<!--  
-					content_accordeon: contenedor de 6 box_acordeon
+					content_accordion: contenedor de 6 box_accordion
 				-->
-				<div class="content_accordeon">
+				<div class="content_accordion">
 					<!-- 
-						box_accordeon: contenedor de accordeon_header y de
-						accordeon_body, esta clase tambiene es implementada
+						box_accordion: contenedor de accordion_header y de
+						accordion_body, esta clase también es implementada
 						en javascript
 					-->
-					<div class="box_accordeon">
+					<div class="box_accordion">
 						<!-- 
-							acordeon_header: contiene la cabecera del acordeon 
+							accordion_header: contenedor de 1 tag-h3 y 1 tag-svg 
 						-->
-						<section class="accordeon_header">
+						<section class="accordion_header">
+							<!--  
+								.tag-h3: en esta definimos el titulo del acordeón
+							-->
 							<h3>Nuestros programas</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<!--  
+								.tag-svg: en esta definimos el icono del acordeón
+							-->
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
@@ -1098,11 +1307,23 @@
 						</section>
 
 						<!-- 
-							acordeon_body: contiene el cuerpo del acordeon 
+							accordion_body: contenedor de ul_accordion
 						-->
-						<div class="accordeon_body">
-							<ul>
-								<li><a href="/aflora" target="_blank">Aflora</a></li>
+						<div class="accordion_body">
+							<!--  
+								ul_accordion: contenedor de 9 tags-li
+							-->
+							<ul class="ul_accordion">
+								<!--  
+									.tag-li: contenedor de 1 tag-a
+								-->
+								<li>
+									<!--  
+										.tag-a: en este definimos el enlace de navegación
+										.del acordeón
+									-->
+									<a href="/aflora" target="_blank">Aflora</a>
+								</li>
 
 								<li>
 									<a href="/becas-al-talento" target="_blank">
@@ -1149,20 +1370,20 @@
 						</div>
 					</div>
 
-					<!-- accordeon two -->
-					<div class="box_accordeon">
-						<section class="accordeon_header">
+					<!-- accordion two -->
+					<div class="box_accordion">
+						<section class="accordion_header">
 							<h3>Legales</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
 							</svg>
 						</section>
 
-						<div class="accordeon_body">
-							<ul>
+						<div class="accordion_body">
+							<ul class="ul_accordion">
 								<li>
 									<a
 										href="/legales/Footer_Legales_Autorizacion_Tratamiento_de_Datos_Personales_FBD_y_Cultivarte.pdf"
@@ -1221,20 +1442,20 @@
 						</div>
 					</div>
 
-					<!-- accordeon three -->
-					<div class="box_accordeon">
-						<section class="accordeon_header">
+					<!-- accordion three -->
+					<div class="box_accordion">
+						<section class="accordion_header">
 							<h3>Documentación</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
 							</svg>
 						</section>
 
-						<div class="accordeon_body">
-							<ul>
+						<div class="accordion_body">
+							<ul class="ul_accordion">
 								<li>
 									<a
 										href="/legales/Footer_Documentos_Registro_Web_DIAN_FBD.pdf"
@@ -1265,19 +1486,19 @@
 						</div>
 					</div>
 
-					<!-- accordeon four -->
-					<div class="box_accordeon">
-						<section class="accordeon_header">
+					<!-- accordion four -->
+					<div class="box_accordion">
+						<section class="accordion_header">
 							<h3>Datos de contacto</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
 							</svg>
 						</section>
 
-						<div class="accordeon_body">
+						<div class="accordion_body">
 							<p>
 								Av. Calle 26 # 69-63. Piso 11. <br />
 								Bogotá, Colombia
@@ -1285,80 +1506,99 @@
 						</div>
 					</div>
 
-					<!-- accordeon five -->
-					<div class="box_accordeon">
-						<section class="accordeon_header">
-							<h3>Teléfono</h3>
+					<!-- accordion five -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Recepción</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
 							</svg>
 						</section>
 
-						<div class="accordeon_body">
+						<div class="accordion_body">
+							<p>(+57 1) 2201610 ext 98981</p>
+						</div>
+					</div>
+
+					<!-- accordion six -->
+					<div class="box_accordion">
+						<section class="accordion_header">
+							<h3>Teléfono</h3>
+
+							<svg viewBox="0 0 24 24">
+								<path
+									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+								></path>
+							</svg>
+						</section>
+
+						<div class="accordion_body">
 							<p>(+57 1) 2201610 ext 98706</p>
 						</div>
 					</div>
 
-					<!-- accordeon six -->
-					<div class="box_accordeon">
-						<section class="accordeon_header">
+					<!-- accordion seven -->
+					<div class="box_accordion">
+						<section class="accordion_header">
 							<h3>Fax</h3>
 
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<svg viewBox="0 0 24 24">
 								<path
 									d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
 								></path>
 							</svg>
 						</section>
 
-						<div class="accordeon_body">
+						<div class="accordion_body">
 							<p>(+57 1) 2201578</p>
 						</div>
 					</div>
 				</div>
 
 				<!--  
-					content_flexbox: contenedor de 4 tags-div,
-					en este contenedor implementamos flexbox 
-					para poner sus elementos en linea 
+					content_columns: contenedor de 4 content_column
 				-->
-				<div class="content_footer">
+				<div class="content_columns">
 					<!-- 
 						content_column_one: contenedor de box_logo_footer y de 
 						box_social_media
 					-->
 					<div class="content_column_one">
 						<!--  
-							box_logo_footer: contenedor del logo
+							box_logo_footer: contenedor de 1 tag-img
 						-->
 						<div class="box_logo_footer">
+							<!--  
+								.tag-img: en esta definimos el logo del footer
+							-->
 							<img
 								src="./assets/img/fundacion_bolivar_davivenda.png"
-								alt="Fundacion Bolivar Sonaqube"
+								alt="Fundación Bolivar"
 							/>
 						</div>
 
 						<!--  
-							box_social_media: contenedor de las redes sociales
+							box_social_media: contenedor de 1 tag-h4 y 5 tags-a
 						-->
 						<section class="box_socials_media">
-							<h4>Siguenos</h4>
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
+							<h4>Síguenos</h4>
 
+							<!--  
+								.tags-a: en estas definimos los iconos de las redes 
+								.sociales
+							-->
 							<a
 								href="https://www.facebook.com/fundacionbolivardavivienda/"
 								target="_blank"
 							>
-								<svg
-									width="32"
-									height="32"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
+								<svg viewBox="0 0 24 24">
 									<path
-										xmlns:default="http://www.w3.org/2000/svg"
 										d="M16.5 3.46c-.79-.09-1.58-.13-2.37-.12-1.07-.05-2.11.33-2.89 1.06-.76.81-1.15 1.89-1.08 3v2.28H7.5v3.08h2.65v7.9h3.19v-7.9H16l.41-3.08h-3.07v-2c-.03-.4.08-.79.31-1.12.33-.29.77-.43 1.21-.37h1.64V3.46z"
 										vector-effect="non-scaling-stroke"
 									/>
@@ -1366,19 +1606,11 @@
 							</a>
 
 							<a
-								class="socials-media-box__links"
 								href="https://www.instagram.com/fundacionbd/"
 								target="_blank"
 							>
-								<svg
-									class="links__svg"
-									width="32"
-									height="32"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
+								<svg viewBox="0 0 24 24">
 									<path
-										xmlns:default="http://www.w3.org/2000/svg"
 										d="M13.88 13.88a2.665 2.665 0 0 1-3.76.01l-.01-.01a2.665 2.665 0 0 1-.01-3.76l.01-.01a2.665 2.665 0 0 1 3.76-.01l.01.01c.95 1.02.86 2.67 0 3.77zm1-4.79c-.76-.77-1.8-1.2-2.88-1.19a4.089 4.089 0 0 0-4.1 4.08V12a4.089 4.089 0 0 0 4.08 4.1H12c2.26.01 4.09-1.82 4.1-4.08V12c.01-1.09-.42-2.14-1.2-2.9l-.02-.01zm2-2c-.38-.4-1.02-.41-1.41-.03s-.41 1.02-.03 1.41 1.02.41 1.41.03c.2-.19.31-.46.31-.73a.9.9 0 0 0-.21-.72l-.07.04zM12.8 5.44h2.1c.36.01.72.04 1.07.1.25.04.5.1.74.19.69.28 1.24.83 1.52 1.52.09.24.15.49.19.74.06.35.09.71.1 1.07v5.8a7.6 7.6 0 0 1-.1 1.07c-.04.25-.1.5-.19.74-.28.69-.83 1.24-1.52 1.52-.24.09-.49.15-.74.19a7.6 7.6 0 0 1-1.07.1H9.11c-.37.01-.74-.01-1.11-.05-.25-.04-.5-.1-.74-.19-.69-.28-1.24-.83-1.52-1.52-.08-.23-.13-.48-.17-.72a7.6 7.6 0 0 1-.1-1.07v-5.8c.01-.38.04-.76.1-1.13.04-.25.1-.5.19-.74a2.7 2.7 0 0 1 1.52-1.5c.23-.08.47-.15.72-.19a7.6 7.6 0 0 1 1.07-.1h3.73v-.03zm7.14 3.26c.01-1.24-.45-2.44-1.29-3.35-.91-.84-2.11-1.3-3.35-1.29C14.69 4.02 13.59 4 12 4s-2.69.02-3.3.05c-1.24-.01-2.44.46-3.35 1.3-.84.91-1.3 2.11-1.29 3.35C4.02 9.31 4 10.41 4 12s.02 2.69.05 3.3c-.01 1.24.45 2.44 1.29 3.35.91.84 2.12 1.3 3.36 1.29.61.04 1.71.06 3.3.06s2.69-.02 3.3-.05c1.24.01 2.44-.45 3.35-1.29.84-.91 1.3-2.11 1.29-3.35.04-.62.06-1.72.06-3.31s-.02-2.69-.06-3.3z"
 										vector-effect="non-scaling-stroke"
 									/>
@@ -1386,19 +1618,11 @@
 							</a>
 
 							<a
-								class="socials-media-box__links"
 								href="https://www.linkedin.com/company/fundaci%C3%B3n-bol%C3%ADvar-davivienda/"
 								target="_blank"
 							>
-								<svg
-									class="links__svg"
-									width="32"
-									height="32"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
+								<svg viewBox="0 0 24 24">
 									<path
-										xmlns:default="http://www.w3.org/2000/svg"
 										d="M4.19 9.32v10.32h3.44V9.32H4.19zm3.66-3.18c.01-.48-.18-.94-.53-1.28-.37-.34-.87-.52-1.38-.5-.51-.02-1.01.16-1.4.5-.36.33-.56.79-.55 1.28-.01.48.18.94.52 1.27.37.35.86.53 1.37.51.52.02 1.03-.16 1.41-.51.35-.33.55-.79.53-1.27h.03zm12.14 7.59c.09-1.25-.3-2.48-1.08-3.46a3.725 3.725 0 0 0-2.86-1.18c-.4 0-.8.05-1.19.16-.32.1-.61.25-.87.45-.21.16-.41.34-.59.54-.16.18-.3.38-.43.58v-1.5H9.52v10.32h3.47v-5.76c-.03-.3 0-.59.07-.88.14-.35.37-.65.66-.89.31-.25.7-.37 1.1-.36.52-.04 1.02.2 1.32.62.31.52.45 1.11.42 1.71v5.52h3.43v-5.87z"
 										vector-effect="non-scaling-stroke"
 									/>
@@ -1410,15 +1634,8 @@
 								href="https://twitter.com/FundacionBD?lang=es"
 								target="_blank"
 							>
-								<svg
-									class="links__svg"
-									width="32"
-									height="32"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
+								<svg viewBox="0 0 24 24">
 									<path
-										xmlns:default="http://www.w3.org/2000/svg"
 										d="M20.2 6.92c-.62.27-1.27.45-1.94.52a3.24 3.24 0 0 0 1.48-1.85c-.66.39-1.38.67-2.13.81a3.358 3.358 0 0 0-4.76-.15c-.03.02-.05.05-.08.07-.65.62-1.01 1.48-1 2.38 0 .26.03.52.08.77A9.253 9.253 0 0 1 8 8.43 9.52 9.52 0 0 1 4.94 6a3.373 3.373 0 0 0-.05 3.3c.27.47.65.86 1.11 1.15-.54-.02-1.07-.18-1.54-.45-.01.78.26 1.54.77 2.14.49.6 1.17 1.01 1.93 1.16a3.721 3.721 0 0 1-1.52.06c.44 1.37 1.7 2.3 3.14 2.33-1.17.97-2.65 1.5-4.17 1.51-.27.02-.54.02-.81 0 1.55.99 3.36 1.5 5.2 1.46 1.14.01 2.28-.19 3.36-.57.96-.34 1.86-.85 2.64-1.51.74-.63 1.39-1.37 1.92-2.19.52-.8.93-1.67 1.2-2.59.26-.88.4-1.79.4-2.7v-.44c.66-.48 1.23-1.07 1.68-1.74z"
 										vector-effect="non-scaling-stroke"
 									/>
@@ -1426,19 +1643,11 @@
 							</a>
 
 							<a
-								class="socials-media-box__links"
 								href="https://www.youtube.com/channel/UCEcX3O1scgTJ9qpLwrpEb-A"
 								target="_blank"
 							>
-								<svg
-									class="links__svg"
-									width="32"
-									height="32"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
+								<svg viewBox="0 0 24 24">
 									<path
-										xmlns:default="http://www.w3.org/2000/svg"
 										d="M10.07 14.47V9.23l5 2.63-5 2.6v.01zm1.93-9c-2.61 0-4.78.06-6.53.19h-.66c-.1.02-.2.04-.3.08l-.29.14a1.991 1.991 0 0 0-.62.48l-.15.29c-.14.2-.25.41-.33.64-.13.32-.22.66-.26 1-.13.99-.2 2-.19 3v1.83c0 .29.02.68.06 1.18.04.5.08.97.13 1.42.05.36.14.71.28 1.05.08.21.18.42.3.61l.16.25c.17.18.37.32.59.43.17.09.35.16.53.22.19.04.38.08.57.1h.88l2.09.08c1.06 0 2.31.02 3.74.07 2.61 0 4.78-.07 6.53-.2h.66c.1-.02.2-.04.3-.08l.29-.13c.11-.05.22-.12.32-.2.11-.08.21-.18.3-.28l.15-.18c.14-.2.25-.41.33-.64.13-.32.22-.66.26-1 .13-.99.2-2 .19-3v-1.89c0-.29-.02-.68-.06-1.18s-.08-.98-.13-1.43a4.29 4.29 0 0 0-.28-1.05c-.08-.21-.18-.42-.3-.61l-.16-.19a1.991 1.991 0 0 0-.62-.48l-.29-.14c-.1-.04-.2-.06-.3-.08h-1.42c-.51-.13-1.31-.2-2.39-.23S13.17 5.5 12 5.49v-.02z"
 										vector-effect="non-scaling-stroke"
 									/>
@@ -1447,15 +1656,29 @@
 						</section>
 					</div>
 
-					<!-- 
-						content_column_two: contenedor de 1 tag-h4 y 1
-						tag-ul
-					-->
+					<!--  
+						content_column_two: contenedor de 1 tag-h4 y de 
+						ul_column_two
+						-->
 					<section class="content_column_two">
+						<!--  
+							.tag-h4: en esta definimos el titulo de la columna
+						-->
 						<h4>Nuestros programas</h4>
 
-						<ul>
-							<li><a href="/aflora" target="_blank">Aflora</a></li>
+						<!--  
+							ul_column_two: contenedor de 9 tags-li
+						-->
+						<ul class="ul_column_two">
+							<!--  
+								.tag-li: contenedor de 1 tag-a
+							-->
+							<li>
+								<!--  
+									.tag-a: en esta definimos el enlace de navegación
+								-->
+								<a href="/aflora" target="_blank">Aflora</a>
+							</li>
 
 							<li>
 								<a href="/becas-al-talento" target="_blank">Becas al talento</a>
@@ -1498,15 +1721,30 @@
 					</section>
 
 					<!-- 
-						content_column_three: contenedor de 2 tags-section
-						con clase box_info_three
+						content_column_three: contenedor de 2 box_info_three
 					-->
 					<div class="content_column_three">
+						<!--  
+							box_info_three: contenedor de 1 tag-h4 y de 
+							ul_column_three
+						-->
 						<section class="box_info_three">
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
 							<h4>Legales</h4>
 
-							<ul>
+							<!--  
+								ul_column_three: contenedor de 6 tags-li
+							-->
+							<ul class="ul_column_three">
+								<!--  
+									.tag-li: contenedor de 1 tag-a
+								-->
 								<li>
+									<!--  
+										.tag-a: en esta definimos el enlace de navegación
+									-->
 									<a
 										href="/legales/Footer_Legales_Autorizacion_Tratamiento_de_Datos_Personales_FBD_y_Cultivarte.pdf"
 										target="_blank"
@@ -1566,7 +1804,7 @@
 						<section class="box_info_three">
 							<h4>Documentación</h4>
 
-							<ul>
+							<ul class="ul_column_three">
 								<li>
 									<a
 										href="/legales/Footer_Documentos_Registro_Web_DIAN_FBD.pdf"
@@ -1598,13 +1836,21 @@
 					</div>
 
 					<!-- 
-						content_column_four: contenedor de 3 tags-section
-						con clase box_info_four
+						content_column_four: contenedor de 4 box_info_four
 					-->
 					<div class="content_column_four">
+						<!--  
+							box_info_four: contenedor de 1 tag-h4 y 1 tag-p
+						-->
 						<section class="box_info_four">
+							<!--  
+								.tag-h4: en esta definimos el titulo de la columna
+							-->
 							<h4>Datos de contacto</h4>
 
+							<!--  
+								.tag-h4: en esta definimos el texto de la columna
+							-->
 							<p>
 								Av. Calle 26 # 69-63. Piso 11. <br />
 								Bogotá, Colombia
@@ -1612,7 +1858,13 @@
 						</section>
 
 						<section class="box_info_four">
-							<h4>Teléfono</h4>
+							<h4>Recepción</h4>
+
+							<p>(+57 1) 2201610 ext 98981</p>
+						</section>
+
+						<section class="box_info_four">
+							<h4>Mesa de ayuda</h4>
 
 							<p>(+57 1) 2201610 ext 98706</p>
 						</section>
@@ -1626,22 +1878,23 @@
 				</div>
 
 				<!-- 
-					box-gotop: contenedor de 1 tag-svg tiene un ID 
-					el cual es implementado en javascript
+					box-go_top: contenedor de 1 tag-svg, le definimos un 
+					ID para implementar este elemento en javascript
 				-->
-				<div class="box_gotop" id="go-top">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<g>
-							<path
-								d="M20.1,12.45c0-0.36-0.14-0.7-0.39-0.95l-6.77-6.78c-0.25-0.25-0.59-0.39-0.95-0.38  c-0.35-0.01-0.7,0.13-0.94,0.39L4.28,11.5c-0.52,0.51-0.53,1.35-0.01,1.87c0,0,0.01,0.01,0.01,0.01l0.78,0.78  c0.51,0.52,1.34,0.52,1.85,0.02c0.01-0.01,0.01-0.01,0.02-0.02l3.06-3.04v7.33c-0.01,0.34,0.13,0.66,0.39,0.88  c0.26,0.23,0.6,0.35,0.94,0.34h1.33c0.34,0.01,0.68-0.11,0.94-0.34c0.26-0.22,0.41-0.55,0.4-0.89v-7.32l3.06,3.05  c0.24,0.26,0.58,0.41,0.94,0.4c0.36,0,0.7-0.14,0.95-0.4l0.78-0.78c0.25-0.25,0.39-0.59,0.39-0.94l0,0L20.1,12.45z"
-							></path>
-						</g>
+				<div class="box_go_top" id="go-top">
+					<!--  
+						.tag-svg: en este definimos el icono del go-top
+					-->
+					<svg viewBox="0 0 24 24">
+						<path
+							d="M20.1,12.45c0-0.36-0.14-0.7-0.39-0.95l-6.77-6.78c-0.25-0.25-0.59-0.39-0.95-0.38  c-0.35-0.01-0.7,0.13-0.94,0.39L4.28,11.5c-0.52,0.51-0.53,1.35-0.01,1.87c0,0,0.01,0.01,0.01,0.01l0.78,0.78  c0.51,0.52,1.34,0.52,1.85,0.02c0.01-0.01,0.01-0.01,0.02-0.02l3.06-3.04v7.33c-0.01,0.34,0.13,0.66,0.39,0.88  c0.26,0.23,0.6,0.35,0.94,0.34h1.33c0.34,0.01,0.68-0.11,0.94-0.34c0.26-0.22,0.41-0.55,0.4-0.89v-7.32l3.06,3.05  c0.24,0.26,0.58,0.41,0.94,0.4c0.36,0,0.7-0.14,0.95-0.4l0.78-0.78c0.25-0.25,0.39-0.59,0.39-0.94l0,0L20.1,12.45z"
+						></path>
 					</svg>
 				</div>
 
 				<!--  
-					tag-p: tiene un ID el cual es implementado en
-					javascript
+					.tag-p: definimos un ID para implementar este
+					.elemento en javascript
 				-->
 				<p class="box_copy_right" id="copy-right"></p>
 			</div>
@@ -1649,7 +1902,13 @@
 
 		<!-- Swiper JS -->
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+		
+		<!-- Wow JS -->
+		<script src="./js/wow.min.js"></script>
+		
+		<!-- Custom JS -->
 		<script src="./js/main.js"></script>
+		<script src="./js/header.js"></script>
 		<script src="./js/banner.js"></script>
 		<script src="./js/tabs.js"></script>
 		<script src="./js/footer.js"></script>

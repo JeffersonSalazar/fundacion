@@ -1,0 +1,63 @@
+.section_periodismo_links {
+
+    @media (max-width: 991px) {
+        padding-top: 15px;
+	}
+
+    .container_periodismo_links {
+        max-width: 100%;
+		margin: 0 auto;
+        padding: 0 15px;
+
+        /*
+			_@query 576px ==> : modificamos el max-width a partir de esta medida
+		*/
+        @media (min-width: 576px) {
+            max-width: 540px;
+        }
+
+		/*
+			_@query 768px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 768px) {
+			max-width: 720px;
+		}
+
+		/*
+			_@query 992px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+
+		/*
+			_@query 1200px ==> : modificamos el max-width a partir de esta medida
+		*/
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+
+        .flexbox_periodismo_links {
+           
+            .content_periodismo_links {
+
+                a {
+                    text-decoration: none;
+                    color: #6fccdc;
+                    font-size: 16px;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                span {
+                    color: #111820;
+                    font-size: 14px;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                }
+            }
+        }
+    }
+}

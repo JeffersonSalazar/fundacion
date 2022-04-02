@@ -1,101 +1,152 @@
-// @import '../shared/fonts';
-
+/*
+	section_banner_static: definimos un background-img para
+	la sección
+*/ 
 .section_banner_static {
-	background-image: url(../../assets/svg/desarrollamos_shape-w.svg);
-	background-repeat: no-repeat;
+	background: url(../../assets/svg/desarrollamos_shape-w.svg);
 	background-size: cover;
 	background-position: center center;
-	background-attachment: fixed;
 
+	/*
+		container_banner_static
+	*/
 	.container_banner_static {
-		// padding: 0 10px;
 
+		/*
+			content_points: definimos las propiedades line-height y
+			letter-spacing para generar espaciado en los puntos
+		*/
 		.content_points {
 			color: #fff;
 			font-size: 34px;
 			line-height: 22px;
 			letter-spacing: 3px;
 		}
-
+		
+		/*
+			points_top
+		*/
 		.points_top {
-			height: 140px;
-
+			height: 126px;
+			padding-left: 10px;
+			
+			/*
+				_@query 991px <== : definimos un opacity: 0 para desvanecer los
+				_puntos en esta medida
+			*/
 			@media (max-width: 991px) {
 				opacity: 0;
+				padding-left: 0;
+			}
+
+			/*
+				_@query 767px <== : modificamos la altura del contenedor points_top
+				_para esta medida
+			*/
+			@media (max-width: 767px) {
+				height: 110px;
 			}
 		}
 
+		/*
+			flexbox_banner_static
+		*/
 		.flexbox_banner_static {
 
+			/*
+				box_banner_static: definimos un max-width para que sea el
+				ancho mínimo de este contenedor
+			*/
 			.box_banner_static {
 				color: #fff;
 				text-align: center;
+				line-height: 1.5;
+				width: 100%;
 				max-width: 1000px;
-				padding: 0 15px;
 				margin: 0 auto;
+				padding: 0 15px;
 
-				h3 {
+				/*
+					tag-small
+				*/
+				small {
 					font-size: 20px;
-					font-family: '@nunito-light', sans-serif;
+					font-family: '@nunito-regular', sans-serif;
 					letter-spacing: 10px;
 
+					/*
+						_@query 335px <== : modificamos el espaciado para esta 
+						_medida
+					*/
 					@media (max-width: 335px) {
 						padding: 0 6px;
 					}
 				}
 
+				/*
+					tag-h2
+				*/
 				h2 {
 					font-family: '@sansation-bold', sans-serif;
 					line-height: 1;
 					margin: 15px 0 35px;
 
+					/*
+						_@query 335px <== : modificamos el tamaño de la fuente 
+						_para esta medida
+					*/
 					@media (max-width: 575px) {
 						font-size: 25px;
 					}
 
+					/*
+						_@query 576px ==> : modificamos el tamaño de la fuente 
+						_para esta medida
+					*/
 					@media (min-width: 576px) {
 						font-size: 60px;
 					}
 
+					/*
+						_@query 768px <==> : modificamos el tamaño de la fuente 
+						_para esta medida
+					*/
 					@media (min-width: 768px) {
 						font-size: 90px;
 					}
 				}
 
+				/*
+					tag-p
+				*/
 				p {
 					font-size: 17px;
 					font-family: '@nunito-regular', sans-serif;
-					font-weight: 500;
-					line-height: 1.6;
 					max-width: 660px;
 					margin: 0 auto;
-
-					@media (max-width: 707px) {
-						padding: 0 8px;
-					}
-
-					@media (max-width: 576px) {
-						padding: 0 5px;
-					}
 				}
 
+				/*
+					tag-a
+				*/
 				a {
 					text-decoration: none;
-					display: inline-flex;
-					width: 220px;
-					justify-content: center;
-					height: 54px;
-					align-items: center;
-					font-size: 14px;
-					font-family: '@sansation-bold', sans-serif;
-					letter-spacing: 0.3px;
 					background-color: #fff;
 					color: #2f425b;
+					display: inline-block;
+					width: 220px;
+					padding: 20px 15px;
+					font-size: 14px;
+					font-family: '@sansation-bold', sans-serif;
+					line-height: 1;
 					border-radius: 2px;
 					margin-top: 70px;
-					cursor: pointer;
 					transition: all 0.3s;
 
+					/*
+						.cuando hacemos :hover sobre tag-a, cambiamos su
+						.color de fondo y su color de fuente
+					*/
 					&:hover {
 						background-color: #2f425b;
 						color: #fff;
@@ -104,12 +155,23 @@
 			}
 		}
 
+		/*
+			points_bottom: definimos un text-align: end para poner esta
+			caja en la parte derecha de su contenedor padre
+		*/
 		.points_bottom {
 			text-align: end;
-
-			// @media (max-width: 767px) {
-			// 	opacity: 0;
-			// }
+			padding: 0 10px 16px 0;
+			
+			/*
+				_@query 767px <== : definimos un opacity: 0 para desvanecer los
+				_puntos en esta medida
+			*/
+			@media (max-width: 767px) {
+				opacity: 0;
+				height: 110px;
+				padding: 0;
+			}
 		}
 	}
 }
