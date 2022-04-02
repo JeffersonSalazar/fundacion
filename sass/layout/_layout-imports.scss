@@ -6,3 +6,17 @@
 @import 'article-slider';
 @import 'tabs';
 @import 'footer';
+
+/*
+    estilos seccion actulidad.html
+*/
+@import './actualidad/banner';
+@import './actualidad/search';
+
+/*
+    estilos seccion nosotros.html
+*/
+@import './nosotros/banner';
+@import './nosotros/about';
+@import './nosotros/cards';
+@import './nosotros/downloads';

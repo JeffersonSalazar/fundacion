@@ -1,0 +1,22 @@
+.section_nosotros_banner {
+	.container_nosotros_banner {
+		.box_nosotros_img {
+			width: 100%;
+
+			@media (min-width: 481px) {
+				height: 433px;
+			}
+
+			img {
+				vertical-align: top;
+				width: inherit;
+				height: inherit;
+				object-fit: cover;
+
+				@media (max-width: 480px) {
+					object-fit: contain;
+				}
+			}
+		}
+	}
+}

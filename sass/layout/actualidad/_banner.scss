@@ -1,0 +1,145 @@
+/*
+    seccion_name: nos sirve para implementar margenes y espaciados 
+    con el fin de separar un contenedor de otros elementos en este caso 
+*/
+.section_actualidad_banner {
+	/*
+        container_name: definimos absolute y su propeidad z-index
+        para poscionar esta caja sobre la caja que contiene al slider.
+        width: 100% para que recupere todo el ancho del viewport
+		y un height para que el contenedor del slider no desmaquete
+    */
+	.container_actualidad_banner {
+		/* 
+            flexbox_banner: definimos flexbox y su propiedad
+            align-items y justify-content mas un height para centrar la caja 
+			box_name horizontal y verticalmente a su padre
+        */
+		.flexbox_actualidad_banner {
+			position: relative;
+			display: flex;
+			justify-content: center;
+
+			/*
+                box_name: esta caja se encarga de manejar el width por lo que
+                es muy importante para el responsive
+            */
+			.box_actualidad_banner {
+				position: absolute;
+				width: 100%;
+				bottom: 35px;
+				padding: 0 15px;
+
+				@media (min-width: 576px) {
+					max-width: 540px;
+				}
+
+				@media (min-width: 768px) {
+					max-width: 720px;
+				}
+
+				@media (min-width: 992px) {
+					max-width: 960px;
+				}
+
+				@media (min-width: 1200px) {
+					max-width: 1140px;
+				}
+
+				.box_actualidad_title {
+					background-color: #ff671b;
+
+					h1 {
+						color: #fff;
+						font-family: '@sansation-bold', sans-serif;
+						font-size: 56px;
+						line-height: 1.2;
+						padding: 15px 25px;
+
+						@media (max-width: 991px) {
+							font-size: 44px;
+						}
+
+						@media (max-width: 767px) {
+							font-size: 30px;
+							padding: 35px 45px;
+						}
+
+						@media (max-width: 575px) {
+							font-size: 25px;
+							padding: 15px 25px;
+						}
+					}
+				}
+
+				.box_actualidad_paragraph {
+					@media (max-width: 480px) {
+						margin-bottom: 10px;
+					}
+
+					span {
+						background-color: rgba(49, 51, 56, 0.9);
+						color: #fff;
+						font-family: '@nunito-regular', sans-serif;
+						font-size: 14px;
+					}
+				}
+
+				h5 {
+					display: inline-block;
+					background-color: #ff671b;
+					color: #fff;
+					font-size: 32px;
+					font-family: '@sansation-bold', sans-serif;
+					line-height: 1.5;
+
+					@media (max-width: 480px) {
+						font-size: 16px;
+					}
+				}
+
+				p {
+					background-color: rgba(49, 51, 56, 0.9);
+					color: #fff;
+					font-family: '@nunito-regular', sans-serif;
+					font-size: 14px;
+					line-height: 24px;
+					max-width: 440px;
+					padding: 15px 25px;
+
+					@media (max-width: 767px) {
+						max-width: 100%;
+					}
+				}
+			}
+
+			/*
+                box_actualidad_img:
+            */
+			.box_actualidad_img {
+				width: 100%;
+				height: 470px;
+
+				@media (max-width: 767px) {
+					height: 390px;
+				}
+
+				/*
+                    tag-img: es importante a esta imagen definirle un width
+                    y height igual al de su contenedor padre y la propiedad 
+                    object-fit: cover para que se ajuste al contenedor
+                */
+				img {
+					width: inherit;
+					height: 100%;
+					object-fit: cover;
+
+					@media (max-width: 480px) {
+						height: auto;
+						object-fit: contain;
+					}
+				}
+			}
+		}
+	}
+}
